@@ -245,16 +245,12 @@
                        </a>
                    </li>
                    <li class="nav-label">Menu</li>
+                  
                    <li>
-                       <a class="has-arrow" href="javascript:void()" aria-expanded="false">
-                           <i class="icon-grid menu-icon"></i></i><span class="nav-text">Kategori</span>
+                       <a href="<?= base_url('kategori') ?>" <?php if($this->uri->segment(1)=='kategori'){echo "active";} ?>>
+                           <i class="icon-grid menu-icon"></i><span class="nav-text">Kategori</span>
                        </a>
-                       <ul aria-expanded="false">
-                           <li><a href="./app-profile.html">Profile</a></li>
-                           <li><a href="./app-calender.html">Calender</a></li>
-                       </ul>
                    </li>
-                   <li>
                    <li>
                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
                            <i class="icon-basket-loaded menu-icon"></i> <span class="nav-text">Transaksi</span>
