@@ -41,7 +41,7 @@
                                                 <th>Username</th>
                                                 <th>Password</th>
                                                 <th>Level</th>
-                                                <th>Photo</th>
+                                                <th>Profil Image</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
@@ -160,23 +160,16 @@
 
       
 
-     <!-- model edit -->
+   <!-- Model edit -->
 <?php foreach ($user as $key => $value) { ?>
     <div class="modal fade" id="edit<?= $value->id_user ?>">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title">Edit User</h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
                 <div class="modal-body">
 
-                <?php 
-                echo form_open_multipart('user/edit/' . $value->id_user); // Use form_open_multipart for file upload
-                ?>
-
+                    <?php 
+                    echo form_open_multipart('user/edit/' . $value->id_user); // Use form_open_multipart for file upload
+                    ?>
                 <div class="form-group row">
                     <label class="col-lg-4 col-form-label">Nama User <span class="text-danger">*</span>
                     </label>

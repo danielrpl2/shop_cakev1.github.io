@@ -39,8 +39,7 @@ class User extends CI_Controller {
 		redirect('user');
 	}
 	
-	public function edit($id_user = NULL)
-{
+	public function edit($id_user = NULL) {
     $data = array(
         'id_user' => $id_user,
         'nama_user' => $this->input->post('nama_user'),
