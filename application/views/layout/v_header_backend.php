@@ -243,7 +243,7 @@
                        <a href="<?= base_url('user') ?>" <?php if($this->uri->segment(1)=='user'){echo "active";} ?>>
                            <i class="fa fa-user menu-icon" style="font-size:18px;" style="font-size:18px;"></i><span class="nav-text">User</span>
                        </a>
-                   </li>
+                  </li>
                    <li class="nav-label">Menu</li>
                    <li>
                        <a href="<?= base_url('produk') ?>" <?php if($this->uri->segment(1)=='produk'){echo "active";} ?>>
