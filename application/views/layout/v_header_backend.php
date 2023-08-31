@@ -45,14 +45,14 @@
 
                <div class="nav-control">
                    <div class="hamburger">
-                       <span class="toggle-icon"><i class="icon-menu"></i></span>
+                       <span class="toggle-icon"><i class="icon-menu" style="font-size:18px;"></i></span>
                    </div>
                </div>
                <div class="header-left">
                    <div class="input-group icons">
                        <div class="input-group-prepend">
                            <span class="input-group-text bg-transparent border-0 pr-2 pr-sm-3" id="basic-addon1"><i
-                                   class="mdi mdi-magnify"></i></span>
+                                   class="mdi mdi-magnify" style="font-size:18px;"></i></span>
                        </div>
                        <input type="search" class="form-control" placeholder="Search Dashboard"
                            aria-label="Search Dashboard">
@@ -66,7 +66,7 @@
                <div class="header-right">
                    <ul class="clearfix">
                        <!-- <li class="icons dropdown"><a href="javascript:void(0)" data-toggle="dropdown">
-                               <i class="mdi mdi-email-outline"></i>
+                               <i class="mdi mdi-email-outline" style="font-size:18px;"></i>
                                <span class="badge badge-pill gradient-1">3</span>
                            </a> -->
                            <div class="drop-down animated fadeIn dropdown-menu">
@@ -134,7 +134,7 @@
                            </div>
                        </li>
                        <!-- <li class="icons dropdown"><a href="javascript:void(0)" data-toggle="dropdown">
-                               <i class="mdi mdi-bell-outline"></i>
+                               <i class="mdi mdi-bell-outline" style="font-size:18px;"></i>
                                <span class="badge badge-pill gradient-2">3</span>
                            </a>
                            <div class="drop-down animated fadeIn dropdown-menu dropdown-notfication">
@@ -149,7 +149,7 @@
                                        <li>
                                            <a href="javascript:void()">
                                                <span class="mr-3 avatar-icon bg-success-lighten-2"><i
-                                                       class="icon-present"></i></span>
+                                                       class="icon-present" style="font-size:18px;"></i></span>
                                                <div class="notification-content">
                                                    <h6 class="notification-heading">Events near you</h6>
                                                    <span class="notification-text">Within next 5 days</span>
@@ -159,7 +159,7 @@
                                        <li>
                                            <a href="javascript:void()">
                                                <span class="mr-3 avatar-icon bg-danger-lighten-2"><i
-                                                       class="icon-present"></i></span>
+                                                       class="icon-present" style="font-size:18px;"></i></span>
                                                <div class="notification-content">
                                                    <h6 class="notification-heading">Event Started</h6>
                                                    <span class="notification-text">One hour ago</span>
@@ -169,7 +169,7 @@
                                        <li>
                                            <a href="javascript:void()">
                                                <span class="mr-3 avatar-icon bg-success-lighten-2"><i
-                                                       class="icon-present"></i></span>
+                                                       class="icon-present" style="font-size:18px;"></i></span>
                                                <div class="notification-content">
                                                    <h6 class="notification-heading">Event Ended Successfully</h6>
                                                    <span class="notification-text">One hour ago</span>
@@ -179,7 +179,7 @@
                                        <li>
                                            <a href="javascript:void()">
                                                <span class="mr-3 avatar-icon bg-danger-lighten-2"><i
-                                                       class="icon-present"></i></span>
+                                                       class="icon-present" style="font-size:18px;"></i></span>
                                                <div class="notification-content">
                                                    <h6 class="notification-heading">Events to Join</h6>
                                                    <span class="notification-text">After two days</span>
@@ -200,19 +200,19 @@
         <div class="dropdown-content-body">
             <ul>
                 <li>
-                    <a href="app-profile.html"><i class="icon-user"></i> <span><?= $this->session->userdata('nama_user') ?></span></a>
+                    <a href="app-profile.html"><i class="icon-user" style="font-size:18px;"></i> <span><?= $this->session->userdata('nama_user') ?></span></a>
                 </li>
                 <li>
                     <a href="javascript:void()">
-                        <i class="icon-envelope-open"></i> <span>Kotak Masuk</span>
+                        <i class="icon-envelope-open" style="font-size:18px;"></i> <span>Kotak Masuk</span>
                         <div class="badge gradient-3 badge-pill gradient-1">3</div>
                     </a>
                 </li>
                 <hr class="my-2">
                 <li>
-                    <a href="page-lock.html"><i class="icon-lock"></i> <span>Kunci Layar</span></a>
+                    <a href="page-lock.html"><i class="icon-lock" style="font-size:18px;"></i> <span>Kunci Layar</span></a>
                 </li>
-                <li><a href="<?= base_url('auth/logout_user') ?>"><i class="icon-key"></i> <span>Logout</span></a></li>
+                <li><a href="<?= base_url('auth/logout_user') ?>"><i class="icon-key" style="font-size:18px;"></i> <span>Logout</span></a></li>
             </ul>
         </div>
     </div>
@@ -236,24 +236,28 @@
                    <li class="nav-label">Dashboard</li>
                    <li>
                        <a href="<?= base_url('admin') ?>" aria-expanded="false">
-                           <i class="icon-speedometer menu-icon"></i><span class="nav-text">Dashboard</span>
+                           <i class="fa fa-tachometer menu-icon"style="font-size:18px;" style="font-size:18px;"></i><span class="nav-text">Dashboard</span>
                        </a>
                    </li>
                    <li>
                        <a href="<?= base_url('user') ?>" <?php if($this->uri->segment(1)=='user'){echo "active";} ?>>
-                           <i class="icon-user menu-icon"></i><span class="nav-text">User</span>
+                           <i class="fa fa-user menu-icon" style="font-size:18px;" style="font-size:18px;"></i><span class="nav-text">User</span>
                        </a>
                    </li>
                    <li class="nav-label">Menu</li>
-                  
+                   <li>
+                       <a href="<?= base_url('produk') ?>" <?php if($this->uri->segment(1)=='produk'){echo "active";} ?>>
+                           <i class="fa fa-birthday-cake menu-icon" style="font-size:18px;" style="font-size:18px;"></i><span class="nav-text">Produk</span>
+                       </a>
+                   </li>
                    <li>
                        <a href="<?= base_url('kategori') ?>" <?php if($this->uri->segment(1)=='kategori'){echo "active";} ?>>
-                           <i class="icon-grid menu-icon"></i><span class="nav-text">Kategori</span>
+                           <i class="fa fa-th-large menu-icon" style="font-size:18px;" style="font-size:18px;"></i><span class="nav-text">Kategori</span>
                        </a>
                    </li>
                    <li>
                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
-                           <i class="icon-basket-loaded menu-icon"></i> <span class="nav-text">Transaksi</span>
+                           <i class="fa fa-shopping-cart menu-icon" style="font-size:18px;"></i> <span class="nav-text">Transaksi</span>
                        </a>
                        <ul aria-expanded="false">
                            <li><a href="./email-inbox.html">Inbox</a></li>
@@ -263,7 +267,7 @@
                    </li>
                    <li>
                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
-                           <i class="icon-chart menu-icon"></i><span class="nav-text">Laporan</span>
+                           <i class="icon-chart menu-icon" style="font-size:18px;"></i><span class="nav-text">Laporan</span>
                        </a>
                        <ul aria-expanded="false">
                            <li><a href="./app-profile.html">Laporan Harian</a></li>
@@ -273,7 +277,7 @@
                    </li>
                    <!-- <li>
                         <a class="has-arrow" href="javascript:void()" aria-expanded="false">
-                            <i class="icon-graph menu-icon"></i> <span class="nav-text">Charts</span>
+                            <i class="icon-graph menu-icon" style="font-size:18px;"></i> <span class="nav-text">Charts</span>
                         </a>
                         <ul aria-expanded="false">
                             <li><a href="./chart-flot.html">Flot</a></li>
@@ -287,7 +291,7 @@
                    <li class="nav-label">Settings</li>
                    <li>
                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
-                           <i class="icon-settings menu-icon"></i><span class="nav-text">Settings</span>
+                           <i class="icon-settings menu-icon" style="font-size:18px;"></i><span class="nav-text">Settings</span>
                        </a>
                        <ul aria-expanded="false">
                            <li><a href="./ui-accordion.html">Accordion</a></li>
@@ -310,7 +314,7 @@
                     </li>
                     <li>
                         <a class="has-arrow" href="javascript:void()" aria-expanded="false">
-                            <i class="icon-layers menu-icon"></i><span class="nav-text">Components</span>
+                            <i class="icon-layers menu-icon" style="font-size:18px;"></i><span class="nav-text">Components</span>
                         </a>
                         <ul aria-expanded="false"> -->
                            <li><a href="./uc-nestedable.html">Nestedable</a></li>
@@ -320,12 +324,12 @@
                        </ul>
                        <li>
                        <a href="#" aria-expanded="false">
-                           <i class="icon-user menu-icon"></i><span class="nav-text">Login</span>
+                           <i class="icon-user menu-icon" style="font-size:18px;"></i><span class="nav-text">Login</span>
                        </a>
                    </li>
                        <li>
                        <a href="<?= base_url('auth/logout_user') ?>" aria-expanded="false">
-                           <i class="icon-logout menu-icon"></i><span class="nav-text">Logout</span>
+                           <i class="icon-logout menu-icon" style="font-size:18px;"></i><span class="nav-text">Logout</span>
                        </a>
                    </li>
                    </li>
@@ -335,3 +339,19 @@
        <!--**********************************
             Sidebar end
         ***********************************-->
+
+          
+  <!--**********************************
+            Content body start
+        ***********************************-->
+        <div class="content-body">
+
+            <div class="row page-titles mx-0">
+                <div class="col p-md-0">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="javascript:void(0)">Dashboard</a></li>
+                        <li class="breadcrumb-item active"><a href="javascript:void(0)"><?= $title ?></a></li>
+                    </ol>
+                </div>
+            </div>
+            <!-- row -->

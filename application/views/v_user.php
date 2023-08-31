@@ -1,17 +1,4 @@
 
-        <!--**********************************
-            Content body start
-        ***********************************-->
-        <div class="content-body">
-
-            <div class="row page-titles mx-0">
-                <div class="col p-md-0">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="javascript:void(0)">Dashboard</a></li>
-                        <li class="breadcrumb-item active"><a href="javascript:void(0)"><?= $title ?></a></li>
-                    </ol>
-                </div>
-            </div>
             <!-- row -->
 
             <div class="container-fluid">
@@ -31,7 +18,7 @@
                                 
                                 ?>
                                 <h3 class="card-title" style="text-align: center;">Table <?= $title ?></h3>
-                                <button data-toggle="modal" data-target="#add" type="button" class="btn btn-primary btn-sm" style="font-size: 15px; color: white;"> Add <?= $title ?><i class="fa fa-users btn-sm" style="color: black;"></i></button>
+                                <button data-toggle="modal" data-target="#add" type="button" class="btn btn-primary btn-sm" style="font-size: 15px; color: white;"> Add <?= $title ?> <i class="fa fa-user-plus" aria-hidden="true"></i></button>
                                 <div class="table-responsive">
                                     <table class="table table-striped table-bordered zero-configuration">
                                         <thead>
@@ -143,8 +130,8 @@
             </div>
 
             <div class="modal-footer justify-content-between">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-primary">Save</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times" aria-hidden="true"></i> Close</button>
+                <button type="submit" class="btn btn-success"><i class="fa fa-floppy-o" aria-hidden="true"></i> Save</button>
             </div>
             <?php 
             echo form_close();
@@ -212,9 +199,9 @@
                     </div>
                 </div>
                 <div class="modal-footer justify-content-between">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">Save</button>
-                </div>
+                <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times" aria-hidden="true"></i> Close</button>
+                <button type="submit" class="btn btn-success"><i class="fa fa-floppy-o" aria-hidden="true"></i> Save</button>
+            </div>
                 <?php 
                 echo form_close();
                 ?>
@@ -255,8 +242,8 @@
 
                 </div>
                 <div class="modal-footer justify-content-between">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Batalkan</button>
-                    <a href="<?= base_url('user/delete/' . $value->id_user) ?>" class="btn btn-primary">Ya Hapus</a>
+                    <button type="button" class="btn btn-success" data-dismiss="modal"><i class="fa fa-times" aria-hidden="true"></i> Batalkan</button>
+                    <a href="<?= base_url('user/delete/' . $value->id_user) ?>" class="btn btn-danger">Ya Hapus <i class="fa fa-user-times" aria-hidden="true"></i></a>
                 </div>
             </div>
         </div>
