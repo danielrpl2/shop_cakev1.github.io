@@ -27,20 +27,18 @@
 
       <?php 
          echo validation_errors('<div class="alert alert-warning alert-dismissible">                   
-         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>                   
-         <h5><i class="icon fas fa-exclamation-triangle"></i> Nintifications!</h5>', '</div>');
+         <h5><i class="icon fas fa-exclamation-triangle"></i> Nontifications!</h5>', '</div>');
 
          if ($this->session->flashdata('error')) {
               echo '<div class="alert alert-danger alert-dismissible">
-              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-              <h5><i class="icon fas fa-ban"></i> Nintifications!</h5>';
+              <h5><i class="icon fas fa-ban"></i> Nontifications!</h5>';
               echo $this->session->flashdata('error');
               echo '</div>';
          }
 
          if ($this->session->flashdata('pesan')) {
               echo '<div class="alert alert-success alert-dismissible">
-              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+             
               <h5><i class="icon fas fa-check"></i>Succes!!</h5>';
               echo $this->session->flashdata('pesan');
               echo '</div>';

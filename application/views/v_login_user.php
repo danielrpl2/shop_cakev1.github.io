@@ -40,25 +40,25 @@
             <div class="collapse navbar-collapse" id="navigation">
               <ul class="navbar-nav mx-auto">
                 <li class="nav-item">
-                  <a class="nav-link d-flex align-items-center me-2 active" aria-current="page" href="/">
+                  <a class="nav-link d-flex align-items-center me-2 active" aria-current="page" href="<?= base_url ('home') ?>">
                     <i class="fa fa-chart-pie opacity-6 text-dark me-1"></i>
                     Home
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link me-2" href="<?php base_url () ?>../assets/login_template/rofile.html">
+                  <a class="nav-link me-2" href="<?php base_url ('admin') ?>">
                     <i class="fa fa-user opacity-6 text-dark me-1"></i>
                     Profile
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link me-2" href="/sign-up">
+                  <a class="nav-link me-2" href="<?php base_url () ?>">
                     <i class="fas fa-user-circle opacity-6 text-dark me-1"></i>
                     Sign Up
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link me-2" href="/sign_in">
+                  <a class="nav-link me-2" href="<?php base_url () ?>">
                     <i class="fas fa-key opacity-6 text-dark me-1"></i>
                     Sign In
                   </a>
@@ -85,7 +85,7 @@
               <div class="card card-plain">
                 <div class="card-header pb-0 text-start">
                   <h4 class="font-weight-bolder">Sign In</h4>
-                  <p class="mb-0">Enter your email and password to sign in</p>
+                  <p class="mb-0">Enter your username and password to sign in</p>
                 </div>
                 <div class="card-body">
                  
@@ -141,12 +141,12 @@
         </div>
         <?php echo form_close() ?>
                 </div>
-                <div class="card-footer text-center pt-0 px-lg-2 px-1">
+                <!-- <div class="card-footer text-center pt-0 px-lg-2 px-1">
                   <p class="mb-4 text-sm mx-auto">
                     Don't have an account?
                     <a href="/sign_up" class="text-primary text-gradient font-weight-bold">Login</a>
                   </p>
-                </div>
+                </div> -->
               </div>
             </div>
             <div class="col-6 d-lg-flex d-none h-100 my-auto pe-0 position-absolute top-0 end-0 text-center justify-content-center flex-column">

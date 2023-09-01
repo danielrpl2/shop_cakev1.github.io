@@ -31,7 +31,14 @@
     <script src="<?= base_url() ?>assets/admin_template/plugins/tables/js/datatable/dataTables.bootstrap4.min.js"></script>
     <script src="<?= base_url() ?>assets/admin_template/plugins/tables/js/datatable-init/datatable-basic.min.js"></script>
 
-    <!-- untuk preview gambar -->
+    <!-- close untuk alert -->
+    <script>
+        window.setTimeout(function() {
+            $('.alert').fadeTo(500,0).slideUp(500,function() {
+                $(this).remove();
+            });
+        }, 3000)
+    </script>    
 
 </body>
 

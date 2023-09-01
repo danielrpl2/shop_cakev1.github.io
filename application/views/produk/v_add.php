@@ -8,14 +8,14 @@
                    
                         <?php
                         //nontifikasi form kosong
-                        echo validation_errors('<div class="alert alert-warning alert-dismissible" style="background-color: yellow;>
+                        echo validation_errors('<div class="alert alert-danger alert-dismissible">
                         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                        <h5><i class="icon fa fa-exclamation-triangle"></i>','</h5></div>');
+                        <h5> <i class="icon fa fa-info"></i>' ,'</h5> </div>');
                         //nontifikasi gagal upload gambar
                         if (isset($error_upload)) {
-                            echo '<div class="alert alert-warning alert-dismissible" style="background-color: yellow;>
+                            echo '<div class="alert alert-danger alert-dismissible">
                             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                            <h5><i class="icon fa fa-exclamation-triangle"></i>'.$error_upload. '</h5></div>';
+                            <h5> <i class="icon fa fa-info"></i>' .$error_upload. '</h5> </div>';
                         }
                         echo form_open_multipart('produk/add') ?>
                     <div class="row">
@@ -57,7 +57,7 @@
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group">
-                                <img src="<?= base_url('assets/gambar_produk/noimage.jpg') ?>" id="gambar_load" style="width: 60%; border-radius:10px;">
+                                <img src="<?= base_url('assets/gambar_tambahan/noimage.jpg') ?>" id="gambar_load" style="width: 60%; border-radius:10px;">
                             </div>
                         </div>
 

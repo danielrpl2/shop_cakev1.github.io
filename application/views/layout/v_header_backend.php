@@ -194,7 +194,7 @@
                        <li class="icons dropdown">
     <div class="user-img c-pointer position-relative" data-toggle="dropdown">
         <span class="activity active"></span>
-        <img src="<?= base_url('assets/profile_img/') . $this->session->userdata('profile_image') ?>" height="40" width="40" alt="Foto Profil">
+        <img src="<?= base_url('assets/profileimg/') . $this->session->userdata('profile_image') ?>" height="40" width="40" alt="Foto Profil">
     </div>
     <div class="drop-down dropdown-profile animated fadeIn dropdown-menu">
         <div class="dropdown-content-body">
@@ -239,11 +239,6 @@
                            <i class="fa fa-tachometer menu-icon"style="font-size:18px;" style="font-size:18px;"></i><span class="nav-text">Dashboard</span>
                        </a>
                    </li>
-                   <li>
-                       <a href="<?= base_url('user') ?>" <?php if($this->uri->segment(1)=='user'){echo "active";} ?>>
-                           <i class="fa fa-user menu-icon" style="font-size:18px;" style="font-size:18px;"></i><span class="nav-text">User</span>
-                       </a>
-                  </li>
                    <li class="nav-label">Menu</li>
                    <li>
                        <a href="<?= base_url('produk') ?>" <?php if($this->uri->segment(1)=='produk'){echo "active";} ?>>
@@ -252,7 +247,12 @@
                    </li>
                    <li>
                        <a href="<?= base_url('kategori') ?>" <?php if($this->uri->segment(1)=='kategori'){echo "active";} ?>>
-                           <i class="fa fa-th-large menu-icon" style="font-size:18px;" style="font-size:18px;"></i><span class="nav-text">Kategori</span>
+                           <i class="fa fa-th-list menu-icon" style="font-size:18px;" style="font-size:18px;"></i><span class="nav-text">Kategori</span>
+                       </a>
+                   </li>
+                   <li>
+                       <a href="<?= base_url('gambarproduk') ?>" <?php if($this->uri->segment(1)=='gambarproduk'){echo "active";} ?>>
+                           <i class="fa fa-picture-o menu-icon" style="font-size:18px;" style="font-size:18px;"></i><span class="nav-text">Gambar Produk</span>
                        </a>
                    </li>
                    <li>
@@ -267,7 +267,7 @@
                    </li>
                    <li>
                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
-                           <i class="icon-chart menu-icon" style="font-size:18px;"></i><span class="nav-text">Laporan</span>
+                           <i class="fa fa-bar-chart menu-icon" style="font-size:18px;"></i><span class="nav-text">Laporan</span>
                        </a>
                        <ul aria-expanded="false">
                            <li><a href="./app-profile.html">Laporan Harian</a></li>
@@ -275,23 +275,10 @@
                            <li><a href="./app-profile.html">Laporan Tahunan</a></li>
                        </ul>
                    </li>
-                   <!-- <li>
-                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
-                            <i class="icon-graph menu-icon" style="font-size:18px;"></i> <span class="nav-text">Charts</span>
-                        </a>
-                        <ul aria-expanded="false">
-                            <li><a href="./chart-flot.html">Flot</a></li>
-                            <li><a href="./chart-morris.html">Morris</a></li>
-                            <li><a href="./chart-chartjs.html">Chartjs</a></li>
-                            <li><a href="./chart-chartist.html">Chartist</a></li>
-                            <li><a href="./chart-sparkline.html">Sparkline</a></li>
-                            <li><a href="./chart-peity.html">Peity</a></li>
-                        </ul>
-                    </li> -->
                    <li class="nav-label">Settings</li>
                    <li>
                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
-                           <i class="icon-settings menu-icon" style="font-size:18px;"></i><span class="nav-text">Settings</span>
+                           <i class="fa fa-cog menu-icon" style="font-size: 22px;"></i><span class="nav-text">Settings</span>
                        </a>
                        <ul aria-expanded="false">
                            <li><a href="./ui-accordion.html">Accordion</a></li>
@@ -323,13 +310,18 @@
                            <li><a href="./uc-toastr.html">Toastr</a></li>
                        </ul>
                        <li>
-                       <a href="#" aria-expanded="false">
-                           <i class="icon-user menu-icon" style="font-size:18px;"></i><span class="nav-text">Login</span>
+                       <a href="<?= base_url('user') ?>" <?php if($this->uri->segment(1)=='user'){echo "active";} ?>>
+                           <i class="fa fa-user menu-icon" style="font-size: 22px;"></i><span class="nav-text">User</span>
+                       </a>
+                  </li>
+                       <li>
+                       <a href="<?= base_url('auth/login_user') ?>" aria-expanded="false">
+                           <i class="fa fa-sign-in menu-icon" style="font-size: 22px;"></i><span class="nav-text">Login</span>
                        </a>
                    </li>
                        <li>
                        <a href="<?= base_url('auth/logout_user') ?>" aria-expanded="false">
-                           <i class="icon-logout menu-icon" style="font-size:18px;"></i><span class="nav-text">Logout</span>
+                           <i class="fa fa-sign-out menu-icon" style="font-size: 22px;"></i><span class="nav-text">Logout</span>
                        </a>
                    </li>
                    </li>

@@ -50,14 +50,14 @@
                                                 
                                                 <td>
                                                     <?php if ($value->profile_image) { ?>
-                                                        <img src="<?= base_url('assets/profile_img/' . $value->profile_image) ?>" alt="Profile Image" width="50" style="border-radius: 50px;">
+                                                        <img src="<?= base_url('assets/profileimg/' . $value->profile_image) ?>" alt="Profile Image" width="50" style="border-radius: 50px;">
                                                     <?php } else { ?>
                                                         No Image
                                                     <?php } ?>
                                                 </td>
                                                <td>
                                                     <button class="btn btn-warning btn-sm" style="color: black; background-color: yellow; border: none;" data-toggle="modal" data-target="#edit<?= $value->id_user ?>"><i class="fa fa-edit"></i></button>
-                                                    <button class="btn btn-danger btn-sm" style="color: white; border: none;" data-toggle="modal" data-target="#delete<?= $value->id_user ?>"><i class="fa fa-trash"></i></button>
+                                                    <button class="btn btn-danger btn-sm" style="color: white; border: none;" data-toggle="modal" data-target="#delete<?= $value->id_user ?>"><i class="fa fa-user-times" aria-hidden="true"></i></button>
                                                 </td>
                                              </tr> 
                                             <?php } ?>
@@ -131,7 +131,7 @@
 
             <div class="modal-footer justify-content-between">
                 <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times" aria-hidden="true"></i> Close</button>
-                <button type="submit" class="btn btn-success"><i class="fa fa-floppy-o" aria-hidden="true"></i> Save</button>
+                <button type="submit" class="btn btn-primary"><i class="fa fa-floppy-o" aria-hidden="true"></i> Save</button>
             </div>
             <?php 
             echo form_close();
@@ -192,7 +192,7 @@
                     <label class="col-lg-4 col-form-label">Profile Image</label>
                     <div class="col-lg-6">
                         <?php if ($value->profile_image) { ?>
-                            <img src="<?= base_url('assets/profile_img/' . $value->profile_image) ?>" alt="Profile Image" width="100">
+                            <img src="<?= base_url('assets/profileimg/' . $value->profile_image) ?>" alt="Profile Image" width="100">
                             <br><br>
                         <?php } ?>
                         <input type="file" class="form-control" name="profile_image">
@@ -200,7 +200,7 @@
                 </div>
                 <div class="modal-footer justify-content-between">
                 <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times" aria-hidden="true"></i> Close</button>
-                <button type="submit" class="btn btn-success"><i class="fa fa-floppy-o" aria-hidden="true"></i> Save</button>
+                <button type="submit" class="btn btn-primary"><i class="fa fa-floppy-o" aria-hidden="true"></i> Save</button>
             </div>
                 <?php 
                 echo form_close();
@@ -235,7 +235,7 @@
                     <h3>Username : <?= $value->username ?></h3>
                     <h3>Profile Image :</h3>
                     <?php if ($value->profile_image) { ?>
-                        <img src="<?= base_url('assets/profile_img/' . $value->profile_image) ?>" style="border-radius: 50px;" alt="Profile Image" width="100">
+                        <img src="<?= base_url('assets/profileimg/' . $value->profile_image) ?>" style="border-radius: 50px;" alt="Profile Image" width="100">
                     <?php } else { ?>
                         <p>Tidak ada gambar profil</p>
                     <?php } ?>
