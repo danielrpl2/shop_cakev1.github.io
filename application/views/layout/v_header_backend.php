@@ -24,11 +24,11 @@
        <div class="nav-header">
            <div class="brand-logo">
                <a href="<?php base_url('admin') ?>">
-                   <b class="logo-abbr"><img src="<?php base_url() ?>assets/admin_template/images/logo.png" alt=""></b>
+                   <b class="logo-abbr"><img src="<?= base_url() ?>assets/admin_template/images/logo.png" alt=""></b>
                    <span class="logo-compact">
-                       <img src="<?php base_url() ?>assets/admin_template/images/logo-compact.png" alt=""></span>
+                       <img src="<?= base_url() ?>assets/admin_template/images/logo-compact.png" alt=""></span>
                    <span class="brand-title">
-                       <img src="<?php base_url() ?>assets/admin_template/images/logo-text.png" alt="">
+                       <img src="<?= base_url() ?>assets/admin_template/images/logo-text.png" alt="">
                    </span>
                </a>
            </div>

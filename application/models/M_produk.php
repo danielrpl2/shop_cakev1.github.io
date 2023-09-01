@@ -11,6 +11,15 @@ class M_produk extends CI_Model
         return $this->db->get()->result();
     }
 
+    public function get_data($id_produk){
+        $this->db->select('*');
+        $this->db->from('tbl_produk');
+        $this->db->join('tbl_kategori', 'tbl_kategori.id_kategori = tbl_produk.id_kategori', 'left'); 
+        $this->db->where('id_produk', $id_produk);
+        
+        return $this->db->get()->row();
+    }
+
     //menambah data
     public function add($data)
     {
@@ -18,7 +27,7 @@ class M_produk extends CI_Model
     }
 
     //edit data
-    public function edit($data)
+    public function edit($id_produk, $data)
     {
         $this->db->where('id_produk', $data['id_produk']);
         $this->db->update('tbl_produk', $data);

@@ -41,10 +41,10 @@
                                                 <td>Rp. <?= number_format($value->harga,0) ?></td>
                                                 <td><?= $value->deskripsi ?></td>
                                                 <td>
-                                                    <img src="<?= base_url('assets/gambar_produk/' .$value->gambar) ?>" width="150px" style="border-radius: 50px;"alt="">
+                                                    <img src="<?= base_url('gambar/' .$value->gambar) ?>" width="150px" style="border-radius: 50px;"alt="">
                                                 </td>
                                                 <td>
-                                                    <a href="" class="btn btn-warning btn-sm" style="color: black; background-color: yellow; border: none;"><i class="fa fa-edit"></i></a>
+                                                    <a href="<?= base_url('produk/edit/' . $value->id_produk) ?>" class="btn btn-warning btn-sm" style="color: black; background-color: yellow; border: none;"><i class="fa fa-edit"></i></a>
                                                     <a href="" class="btn btn-danger btn-sm" style="color: white; border: none;"><i class="fa fa-trash"></i></a>
                                                 </td>
                                              </tr> 
