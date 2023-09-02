@@ -245,29 +245,54 @@
 	<!-- Slider Area -->
 	<section class="hero-slider">
 		<!-- Single Slider -->
-		<div class="single-slider">
-			<div class="container">
-				<div class="row no-gutters">
-					<div class="col-lg-9 offset-lg-3 col-12">
-						<div class="text-inner">
-							<div class="row">
-								<div class="col-lg-7 col-12">
-									<div class="hero-text">
-										<h1><span>UP TO 50% OFF </span>Shirt For Man</h1>
-										<p>Maboriosam in a nesciung eget magnae <br> dapibus disting tloctio in the find it pereri <br> odiy maboriosm.</p>
-										<div class="button">
-											<a href="#" class="btn">Shop Now!</a>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
+		<div class="slider-container">
+        <div class="slider">
+            <div class="slide" style="background-image: url('gambar/gambar (1).jpg');"></div>
+            <div class="slide" style="background-image: url('gambar/gambar (2).jpg');"></div>
+            <div class="slide" style="background-image: url('gambar/gambar (3).jpg');"></div>
+        </div>
 		<!--/ End Single Slider -->
 	</section>
 	<!--/ End Slider Area -->
 	
-	
+<style>
+.slider-container {
+    width: 100%;
+    height: 0 auto;
+    overflow: hidden;
+    position: relative;
+}
+
+.slider {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.slide {
+    flex: 0 0 100%;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+}
+</style>
+
+<script>
+	const slider = document.querySelector('.slider');
+const slides = document.querySelectorAll('.slide');
+let currentIndex = 0;
+
+function nextSlide() {
+    currentIndex = (currentIndex + 1) % slides.length;
+    updateSlider();
+}
+
+function updateSlider() {
+    const translateX = -currentIndex * 100;
+    slider.style.transform = `translateX(${translateX}%)`;
+}
+
+setInterval(nextSlide, 3000); // Ganti gambar setiap 5 detik
+
+updateSlider();
+
+</script>
