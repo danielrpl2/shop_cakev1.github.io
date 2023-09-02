@@ -11,4 +11,12 @@ class M_gambarproduk extends CI_Model
         $this->db->order_by('tbl_produk.id_produk', 'desc');       
         return $this->db->get()->result();
     }
+
+    public function get_gambar($id_produk)
+    {
+        $this->db->select('*');
+        $this->db->from('tbl_gambar');
+        $this->db->where('id_produk', $id_produk);
+        return $this->db->get()->result();
+    }
 } 

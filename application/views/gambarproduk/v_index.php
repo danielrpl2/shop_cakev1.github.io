@@ -37,7 +37,7 @@
                                                     <td class="text-center"><img src="<?= base_url('gambar/' . $value->gambar) ?>" width="100px" style="border-radius: 30px 10px;"></td>
                                                     <td class="text-center"><span style="color: white; font-size: 18px;" class="badge bg-primary"><?= $value->total_gambar ?></span></td>
                                                     <td class="text-center">
-                                                        <a href="" style="background-color: yellow; color: black;" class="btn btn-sm"><i class="fa fa-picture-o" aria-hidden="true"></i> <i class="fa fa-plus" aria-hidden="true"></i></a>
+                                                        <a href="<?= base_url('gambarproduk/add/' .$value->id_produk) ?>" style="background-color: yellow; color: black;" class="btn btn-sm"><i class="fa fa-picture-o" aria-hidden="true"></i> <i class="fa fa-plus" aria-hidden="true"></i></a>
                                                     </td>
                                                 </tr>
                                             <?php } ?>

@@ -8,6 +8,7 @@ class Gambarproduk extends CI_Controller {
     {
         parent::__construct();
         $this->load->model('m_gambarproduk');
+        $this->load->model('m_produk');
     }
     
 	public function index()
@@ -19,4 +20,15 @@ class Gambarproduk extends CI_Controller {
         );
         $this->load->view('layout/v_wrapper_backend', $data, FALSE);
 	}
+
+    public function add($id_produk)
+    {
+        $data = array (
+            'title' => 'Add Gambar Produk',
+            'produk' => $this->m_produk->get_data($id_produk),
+            'gambar' => $this->m_gambarproduk->get_gambar($id_produk),
+            'isi' => 'gambarproduk/v_add',
+        );
+        $this->load->view('layout/v_wrapper_backend', $data, FALSE);
+    }
 }

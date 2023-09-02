@@ -270,9 +270,9 @@
                            <i class="fa fa-bar-chart menu-icon" style="font-size:18px;"></i><span class="nav-text">Laporan</span>
                        </a>
                        <ul aria-expanded="false">
-                           <li><a href="./app-profile.html">Laporan Harian</a></li>
-                           <li><a href="./app-profile.html">Laporan Bulanan</a></li>
-                           <li><a href="./app-profile.html">Laporan Tahunan</a></li>
+                           <li><a href="#"><i class="fa fa-calendar"></i> Laporan Harian</a></li>
+                           <li><a href="#"><i class="fa fa-calendar-o"></i> Laporan Bulanan</a></li>
+                           <li><a href="#"><i class="fa fa-calendar-check-o"></i> Laporan Tahunan</a></li>
                        </ul>
                    </li>
                    <li class="nav-label">Settings</li>
