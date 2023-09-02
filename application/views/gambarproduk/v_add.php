@@ -25,9 +25,11 @@
                                         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
                                         <h5> <i class="icon fa fa-info"></i>' .$error_upload. '</h5> </div>';
                                     }
-                                    echo form_open_multipart('') ?>
-                            <div class="row">    
-                            <div class="col-sm-4">
+                                    echo form_open_multipart('gambarproduk/add/' . $produk->id_produk ) ?>
+
+
+                              <div class="row">    
+                                <div class="col-sm-4">
                                     <div class="form-group">
                                         <label style="color: black; font-weight: 1000;">Ket Gambar</label>
                                         <input name="ket" class="form-control" placeholder="Ket Gambar" value="<?= set_value('ket') ?>">
@@ -58,10 +60,10 @@
                                 <?php foreach ($gambar as $key => $value) { ?>
                                     <div class="col-sm-3">
                                         <div class="form-group">
-                                            <img src="<?= base_url('gambar/' . $value->gambar) ?>" id="gambar_load" style="width: 100%; border-radius:10px;" height="auto">
+                                            <img src="<?= base_url('assets/gambarproduk/' . $value->gambar) ?>" id="gambar_load" style="width: 100%; border-radius:10px; padding: 10px;" height="auto">
                                         </div>
                                         <p for="">Ket : <?= $value->ket ?></p>
-                                        <a href="#" class="btn btn-danger btn-block"><i class="fa fa-trash" aria-hidden="true"></i> Hapus</a>
+                                        <button data-toggle="modal" data-target="#delete<?= $value->id_gambar?>" class="btn btn-danger btn-block"><i class="fa fa-trash" aria-hidden="true"></i> Hapus</button>
                                     </div>
                                 <?php } ?>
 
@@ -75,6 +77,39 @@
         <!--**********************************
             Content body end
         ***********************************-->
+
+        
+     <!-- model delete -->
+     <?php foreach ($gambar as $key => $value) { ?>
+    <div class="modal fade" id="delete<?= $value->id_gambar ?>">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Hapus Gambar Produk : <?= $value->ket ?> ??</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+                <div class="form-group">
+                  <img src="<?= base_url('assets/gambarproduk/' . $value->gambar) ?>" id="gambar_load" style="width: 100%; border-radius:10px; padding: 10px;" height="auto">
+                </div>
+                    <h3>Apakah Anda Yakin Akan Menghapus Gambar Ini...??</h3>
+                   
+                </div>
+                <div class="modal-footer justify-content-between">
+                <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times" aria-hidden="true"></i> Close</button>
+                <a href="<?= base_url('gambarproduk/delete/' . $value->id_produk. '/' . $value->id_gambar) ?>" class="btn btn-primary"><i class="fa fa-trash" aria-hidden="true"></i> Ya Hapus</a>
+            </div>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+<?php } ?>
 
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 

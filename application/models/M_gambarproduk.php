@@ -12,11 +12,30 @@ class M_gambarproduk extends CI_Model
         return $this->db->get()->result();
     }
 
+    public function get_data($id_gambar)
+    {
+        $this->db->select('*');
+        $this->db->from('tbl_gambar');
+        $this->db->where('id_gambar', $id_gambar);
+        return $this->db->get()->row(); 
+    }
+
     public function get_gambar($id_produk)
     {
         $this->db->select('*');
         $this->db->from('tbl_gambar');
         $this->db->where('id_produk', $id_produk);
         return $this->db->get()->result();
+    }
+
+    public function add($data)
+    {
+        $this->db->insert('tbl_gambar', $data);
+    }
+
+    public function delete($data)
+    {
+        $this->db->where('id_gambar', $data['id_gambar']);
+        $this->db->delete('tbl_gambar', $data);
     }
 } 
