@@ -1,3 +1,57 @@
+<!-- Slider Area -->
+<section class="hero-slider">
+		<!-- Single Slider -->
+		<div class="slider-container">
+        <div class="slider">
+            <div class="slide" style="background-image: url('gambar/gambar (1).jpg');"></div>
+            <div class="slide" style="background-image: url('gambar/gambar (2).jpg');"></div>
+            <div class="slide" style="background-image: url('gambar/gambar (3).jpg');"></div>
+        </div>
+		<!--/ End Single Slider -->
+	</section>
+	<!--/ End Slider Area -->
+	
+<style>
+.slider-container {
+    width: 100%;
+    height: 0 auto;
+    overflow: hidden;
+    position: relative;
+}
+
+.slider {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.slide {
+    flex: 0 0 100%;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+}
+</style>
+
+<script>
+	const slider = document.querySelector('.slider');
+const slides = document.querySelectorAll('.slide');
+let currentIndex = 0;
+
+function nextSlide() {
+    currentIndex = (currentIndex + 1) % slides.length;
+    updateSlider();
+}
+
+function updateSlider() {
+    const translateX = -currentIndex * 100;
+    slider.style.transform = `translateX(${translateX}%)`;
+}
+
+setInterval(nextSlide, 3000); // Ganti gambar setiap 5 detik
+
+updateSlider();
+
+</script>
 <!-- Start Small Banner  -->
 <section class="small-banner section">
 		<div class="container-fluid">
@@ -108,67 +162,7 @@
 								</div>
 							</div>
 								<!--/ End Single Tab -->
-								<!-- Start Single Tab -->
-								<div class="tab-pane fade" id="women" role="tabpanel">
-									<div class="tab-single">
-										<div class="row">
-											<div class="col-xl-3 col-lg-4 col-md-4 col-12">
-												<div class="single-product">
-													<div class="product-img">
-														<a href="product-details.html">
-															<img class="default-img" src="https://via.placeholder.com/550x750" alt="#">
-															<img class="hover-img" src="https://via.placeholder.com/550x750" alt="#">
-														</a>
-														<div class="button-head">
-															<div class="product-action">
-																<a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i class=" ti-eye"></i><span>Quick Shop</span></a>
-																<a title="Wishlist" href="#"><i class=" ti-heart "></i><span>Add to Wishlist</span></a>
-																<a title="Compare" href="#"><i class="ti-bar-chart-alt"></i><span>Add to Compare</span></a>
-															</div>
-															<div class="product-action-2">
-																<a title="Add to cart" href="#">Add to cart</a>
-															</div>
-														</div>
-													</div>
-													<div class="product-content">
-														<h3><a href="product-details.html">Women Hot Collection</a></h3>
-														<div class="product-price">
-															<span>$29.00</span>
-														</div>
-													</div>
-												</div>
-											</div>
-											<div class="col-xl-3 col-lg-4 col-md-4 col-12">
-												<div class="single-product">
-													<div class="product-img">
-														<a href="product-details.html">
-															<img class="default-img" src="https://via.placeholder.com/550x750" alt="#">
-															<img class="hover-img" src="https://via.placeholder.com/550x750" alt="#">
-														</a>
-														<div class="button-head">
-															<div class="product-action">
-																<a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i class=" ti-eye"></i><span>Quick Shop</span></a>
-																<a title="Wishlist" href="#"><i class=" ti-heart "></i><span>Add to Wishlist</span></a>
-																<a title="Compare" href="#"><i class="ti-bar-chart-alt"></i><span>Add to Compare</span></a>
-															</div>
-															<div class="product-action-2">
-																<a title="Add to cart" href="#">Add to cart</a>
-															</div>
-														</div>
-													</div>
-													<div class="product-content">
-														<h3><a href="product-details.html">Awesome Pink Show</a></h3>
-														<div class="product-price">
-															<span>$29.00</span>
-														</div>
-													</div>
-												</div>
-											</div>
-											
-										</div>
-									</div>
-								</div>
-								<!--/ End Single Tab -->
+								
 								<!-- Start Single Tab -->
 								<div class="tab-pane fade" id="kids" role="tabpanel">
 									<div class="tab-single">

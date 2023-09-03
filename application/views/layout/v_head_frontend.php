@@ -17,28 +17,28 @@
 	<!-- StyleSheet -->
 	
 	<!-- Bootstrap -->
-	<link rel="stylesheet" href="<?php base_url() ?>assets/home_template/css/bootstrap.css">
+	<link rel="stylesheet" href="<?= base_url() ?>assets/home_template/css/bootstrap.css">
 	<!-- Magnific Popup -->
-    <link rel="stylesheet" href="<?php base_url() ?>assets/home_template/css/magnific-popup.min.css">
+    <link rel="stylesheet" href="<?= base_url() ?>assets/home_template/css/magnific-popup.min.css">
 	<!-- Font Awesome -->
-    <link rel="stylesheet" href="<?php base_url() ?>assets/home_template/css/font-awesome.css">
+    <link rel="stylesheet" href="<?= base_url() ?>assets/home_template/css/font-awesome.css">
 	<!-- Fancybox -->
-	<link rel="stylesheet" href="<?php base_url() ?>assets/home_template/css/jquery.fancybox.min.css">
+	<link rel="stylesheet" href="<?= base_url() ?>assets/home_template/css/jquery.fancybox.min.css">
 	<!-- Themify Icons -->
-    <link rel="stylesheet" href="<?php base_url() ?>assets/home_template/css/themify-icons.css">
+    <link rel="stylesheet" href="<?= base_url() ?>assets/home_template/css/themify-icons.css">
 	<!-- Nice Select CSS -->
-    <link rel="stylesheet" href="<?php base_url() ?>assets/home_template/css/niceselect.css">
+    <link rel="stylesheet" href="<?= base_url() ?>assets/home_template/css/niceselect.css">
 	<!-- Animate CSS -->
-    <link rel="stylesheet" href="<?php base_url() ?>assets/home_template/css/animate.css">
+    <link rel="stylesheet" href="<?= base_url() ?>assets/home_template/css/animate.css">
 	<!-- Flex Slider CSS -->
-    <link rel="stylesheet" href="<?php base_url() ?>assets/home_template/css/flex-slider.min.css">
+    <link rel="stylesheet" href="<?= base_url() ?>assets/home_template/css/flex-slider.min.css">
 	<!-- Owl Carousel -->
-    <link rel="stylesheet" href="<?php base_url() ?>assets/home_template/css/owl-carousel.css">
+    <link rel="stylesheet" href="<?= base_url() ?>assets/home_template/css/owl-carousel.css">
 	<!-- Slicknav -->
-    <link rel="stylesheet" href="<?php base_url() ?>assets/home_template/css/slicknav.min.css">
+    <link rel="stylesheet" href="<?= base_url() ?>assets/home_template/css/slicknav.min.css">
 	
 	<!-- Eshop StyleSheet -->
-	<link rel="stylesheet" href="<?php base_url() ?>assets/home_template/css/reset.css">
-	<link rel="stylesheet" href="<?php base_url() ?>assets/home_template/style.css">
-    <link rel="stylesheet" href="<?php base_url() ?>assets/home_template/css/responsive.css">
+	<link rel="stylesheet" href="<?= base_url() ?>assets/home_template/css/reset.css">
+	<link rel="stylesheet" href="<?= base_url() ?>assets/home_template/style.css">
+    <link rel="stylesheet" href="<?= base_url() ?>assets/home_template/css/responsive.css">
 </head>

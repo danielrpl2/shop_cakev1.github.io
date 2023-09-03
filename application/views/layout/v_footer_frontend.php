@@ -91,36 +91,36 @@
 	</footer>
 	<!-- /End Footer Area -->
    <!-- Jquery -->
-   <script src="<?php base_url() ?>assets/home_template/js/jquery.min.js"></script>
-    <script src="<?php base_url() ?>assets/home_template/js/jquery-migrate-3.0.0.js"></script>
-	<script src="<?php base_url() ?>assets/home_template/js/jquery-ui.min.js"></script>
+   <script src="<?= base_url() ?>assets/home_template/js/jquery.min.js"></script>
+    <script src="<?= base_url() ?>assets/home_template/js/jquery-migrate-3.0.0.js"></script>
+	<script src="<?= base_url() ?>assets/home_template/js/jquery-ui.min.js"></script>
 	<!-- Popper JS -->
-	<script src="<?php base_url() ?>assets/home_template/js/popper.min.js"></script>
+	<script src="<?= base_url() ?>assets/home_template/js/popper.min.js"></script>
 	<!-- Bootstrap JS -->
-	<script src="<?php base_url() ?>assets/home_template/js/bootstrap.min.js"></script>
+	<script src="<?= base_url() ?>assets/home_template/js/bootstrap.min.js"></script>
 	<!-- Color JS -->
-	<script src="<?php base_url() ?>assets/home_template/js/colors.js"></script>
+	<script src="<?= base_url() ?>assets/home_template/js/colors.js"></script>
 	<!-- Slicknav JS -->
-	<script src="<?php base_url() ?>assets/home_template/js/slicknav.min.js"></script>
+	<script src="<?= base_url() ?>assets/home_template/js/slicknav.min.js"></script>
 	<!-- Owl Carousel JS -->
-	<script src="<?php base_url() ?>assets/home_template/js/owl-carousel.js"></script>
+	<script src="<?= base_url() ?>assets/home_template/js/owl-carousel.js"></script>
 	<!-- Magnific Popup JS -->
-	<script src="<?php base_url() ?>assets/home_template/js/magnific-popup.js"></script>
+	<script src="<?= base_url() ?>assets/home_template/js/magnific-popup.js"></script>
 	<!-- Waypoints JS -->
-	<script src="<?php base_url() ?>assets/home_template/js/waypoints.min.js"></script>
+	<script src="<?= base_url() ?>assets/home_template/js/waypoints.min.js"></script>
 	<!-- Countdown JS -->
-	<script src="<?php base_url() ?>assets/home_template/js/finalcountdown.min.js"></script>
+	<script src="<?= base_url() ?>assets/home_template/js/finalcountdown.min.js"></script>
 	<!-- Nice Select JS -->
-	<script src="<?php base_url() ?>assets/home_template/js/nicesellect.js"></script>
+	<script src="<?= base_url() ?>assets/home_template/js/nicesellect.js"></script>
 	<!-- Flex Slider JS -->
-	<script src="<?php base_url() ?>assets/home_template/js/flex-slider.js"></script>
+	<script src="<?= base_url() ?>assets/home_template/js/flex-slider.js"></script>
 	<!-- ScrollUp JS -->
-	<script src="<?php base_url() ?>assets/home_template/js/scrollup.js"></script>
+	<script src="<?= base_url() ?>assets/home_template/js/scrollup.js"></script>
 	<!-- Onepage Nav JS -->
-	<script src="<?php base_url() ?>assets/home_template/js/onepage-nav.min.js"></script>
+	<script src="<?= base_url() ?>assets/home_template/js/onepage-nav.min.js"></script>
 	<!-- Easing JS -->
-	<script src="<?php base_url() ?>assets/home_template/js/easing.js"></script>
+	<script src="<?= base_url() ?>assets/home_template/js/easing.js"></script>
 	<!-- Active JS -->
-	<script src="<?php base_url() ?>assets/home_template/js/active.js"></script>	
+	<script src="<?= base_url() ?>assets/home_template/js/active.js"></script>	
     </body>
 </html>

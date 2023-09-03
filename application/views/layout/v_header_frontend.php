@@ -137,8 +137,8 @@
 					<div class="row">
 						<div class="col-lg-3">
 							<div class="all-category">
-								<h3 class="cat-heading"><i class="fa fa-bars"></i>CATEGORIES</h3>
-								<ul class="main-category">
+								<a href="<?= base_url('') ?>"><h3 class="cat-heading">Welcome</h3></a>
+								<!-- <ul class="main-category">
 									<li><a href="#">New Arrivals <i class="fa fa-angle-right" aria-hidden="true"></i></a>
 										<ul class="sub-category">
 											<li><a href="#">accessories</a></li>
@@ -200,7 +200,7 @@
 									<li><a href="#">ladies</a></li>
 									<li><a href="#">westrn dress</a></li>
 									<li><a href="#">denim </a></li>
-								</ul>
+								</ul> -->
 							</div>
 						</div>
 						<div class="col-lg-9 col-12">
@@ -220,6 +220,18 @@
 															<li><a href="checkout.html">Checkout</a></li>
 														</ul>
 													</li>
+
+													<?php $kategori= $this->m_home->get_all_data_kategori(); ?>
+													<li><a href="#">Kategori<i class="ti-angle-down"></i><span class="new">New</span></a>
+														<ul class="dropdown">
+
+															<?php foreach ($kategori as $key => $value) { ?>
+																<li><a href="<?= base_url('home/kategori/' .$value->id_kategori) ?>"><?= $value->nama_kategori ?></a></li>
+															<?php } ?>
+															
+														</ul>
+													</li>
+
 													<li><a href="#">Pages</a></li>									
 													<li><a href="#">Blog<i class="ti-angle-down"></i></a>
 														<ul class="dropdown">
@@ -242,57 +254,4 @@
 	</header>
 	<!--/ End Header -->
 	
-	<!-- Slider Area -->
-	<section class="hero-slider">
-		<!-- Single Slider -->
-		<div class="slider-container">
-        <div class="slider">
-            <div class="slide" style="background-image: url('gambar/gambar (1).jpg');"></div>
-            <div class="slide" style="background-image: url('gambar/gambar (2).jpg');"></div>
-            <div class="slide" style="background-image: url('gambar/gambar (3).jpg');"></div>
-        </div>
-		<!--/ End Single Slider -->
-	</section>
-	<!--/ End Slider Area -->
 	
-<style>
-.slider-container {
-    width: 100%;
-    height: 0 auto;
-    overflow: hidden;
-    position: relative;
-}
-
-.slider {
-    display: flex;
-    transition: transform 0.5s ease;
-}
-
-.slide {
-    flex: 0 0 100%;
-    height: 100vh;
-    background-size: cover;
-    background-position: center;
-}
-</style>
-
-<script>
-	const slider = document.querySelector('.slider');
-const slides = document.querySelectorAll('.slide');
-let currentIndex = 0;
-
-function nextSlide() {
-    currentIndex = (currentIndex + 1) % slides.length;
-    updateSlider();
-}
-
-function updateSlider() {
-    const translateX = -currentIndex * 100;
-    slider.style.transform = `translateX(${translateX}%)`;
-}
-
-setInterval(nextSlide, 3000); // Ganti gambar setiap 5 detik
-
-updateSlider();
-
-</script>
