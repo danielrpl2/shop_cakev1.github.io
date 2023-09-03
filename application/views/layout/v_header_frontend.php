@@ -137,7 +137,7 @@
 					<div class="row">
 						<div class="col-lg-3">
 							<div class="all-category">
-								<a href="<?= base_url('') ?>"><h3 class="cat-heading">Welcome</h3></a>
+								<a href="<?= base_url('') ?>"><h3 class="cat-heading">Enjoy Shopping</h3></a>
 								<!-- <ul class="main-category">
 									<li><a href="#">New Arrivals <i class="fa fa-angle-right" aria-hidden="true"></i></a>
 										<ul class="sub-category">
@@ -213,22 +213,10 @@
 													<li class="active"><a href="#">Home</a></li>
 													<li><a href="#">Product</a></li>												
 													<li><a href="#">Service</a></li>
-													<li><a href="#">Shop<i class="ti-angle-down"></i><span class="new">New</span></a>
-														<ul class="dropdown">
-															<li><a href="shop-grid.html">Shop Grid</a></li>
-															<li><a href="cart.html">Cart</a></li>
-															<li><a href="checkout.html">Checkout</a></li>
-														</ul>
-													</li>
 
-													<?php $kategori= $this->m_home->get_all_data_kategori(); ?>
-													<li><a href="#">Kategori<i class="ti-angle-down"></i><span class="new">New</span></a>
+													<li><a href="<?= base_url('home/by_kategori') ?>">Kategori<i class="ti-angle-down"></i><span class="new">New</span></a>
 														<ul class="dropdown">
-
-															<?php foreach ($kategori as $key => $value) { ?>
-																<li><a href="<?= base_url('home/kategori/' .$value->id_kategori) ?>"><?= $value->nama_kategori ?></a></li>
-															<?php } ?>
-															
+															<li><a href="<?= base_url('home/by_kategori') ?>">Shop By Category</a></li>
 														</ul>
 													</li>
 

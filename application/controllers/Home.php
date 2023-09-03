@@ -21,6 +21,16 @@ class Home extends CI_Controller {
         $this->load->view('layout/v_wrapper_frontend', $data, FALSE);
 	}
 
+	public function by_kategori()
+	{
+        $data = array (
+            'title' => 'Home',
+            'produk' => $this->m_home->get_all_data(),
+            'isi' => 'v_kategori_produk',
+        );
+        $this->load->view('layout/v_wrapper_frontend', $data, FALSE);
+	}
+
 	public function kategori($id_kategori)
 	{
         $kategori = $this->m_home->kategori($id_kategori);
@@ -32,5 +42,15 @@ class Home extends CI_Controller {
         $this->load->view('layout/v_wrapper_frontend', $data, FALSE);
 	}
 
+    public function detail_produk($id_produk) 
+    {
+        $data = array (
+            'title' => 'Detail Produk',
+            'gambar' =>  $this->m_home->gambar_produk($id_produk),
+            'produk' => $this->m_home->detail_produk($id_produk),
+            'isi' => 'v_detail_produk',
+        );
+        $this->load->view('layout/v_wrapper_frontend', $data, FALSE);
+    }
     
 }

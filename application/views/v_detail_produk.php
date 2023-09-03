@@ -1,0 +1,186 @@
+<!-- Breadcrumbs -->
+<div class="breadcrumbs">
+			<div class="container">
+				<div class="row">
+					<div class="col-12">
+						<div class="bread-inner">
+							<ul class="bread-list">
+								<li><a href="<?= base_url() ?>">Home<i class="ti-arrow-right"></i></a></li>
+								<li class="active"><a href="#"><?= $title ?></a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- End Breadcrumbs -->
+<div class="modal-body">
+    <div class="row no-gutters">
+        <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+            <!-- Product Slider -->
+            <div class="product-gallery">
+                <img id="mainImage" style="border-radius: 20px;" src="<?=base_url('gambar/' . $produk->gambar)?>" alt="#">
+            </div>
+
+            <!-- Mini Gambar -->
+            <div class="mini-gallery">
+                <img class="mini-image" style="border-radius: 20px;" src="<?=base_url('gambar/' . $produk->gambar)?>" alt="#">
+                <?php foreach ($gambar as $key => $value) {?>
+                    <img style="border-radius: 20px;" class="mini-image" src="<?= base_url('assets/gambarproduk/' . $value->gambar)?>" alt="#">
+               <?php }?>
+            </div>
+        </div>
+            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+                <div class="quickview-content">
+
+                                    <h1><?=$produk->nama_produk?></h1>
+                                    <hr>
+                                    <h2><a href="<?= base_url('home/by_kategori') ?>" style="font-weight:600;">Kategori</a> : <?=$produk->nama_kategori?></h2>
+                                    <!-- <div class="quickview-ratting-review">
+                                        <div class="quickview-ratting-wrap">
+                                            <div class="quickview-ratting">
+                                                <i class="yellow fa fa-star"></i>
+                                                <i class="yellow fa fa-star"></i>
+                                                <i class="yellow fa fa-star"></i>
+                                                <i class="yellow fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                            </div>
+                                            <a href="#"> (1 customer review)</a>
+                                        </div>
+                                        <div class="quickview-stock">
+                                            <span><i class="fa fa-check-circle-o"></i> in stock</span>
+                                        </div>
+                                    </div> -->
+                                    <h3 style="color: red;">Rp. <?=number_format($produk->harga, 0)?></h3>
+                                    <div class="quickview-peragraph">
+                                        <p><?=$produk->deskripsi?></p>
+                                    </div>
+									<div class="size">
+										<div class="row">
+											<div class="col-lg-6 col-12">
+												<h5 class="title">Size</h5>
+												<select>
+													<option selected="selected">s</option>
+													<option>m</option>
+													<option>l</option>
+													<option>xl</option>
+												</select>
+											</div>
+											<div class="col-lg-6 col-12">
+												<h5 class="title">Color</h5>
+												<select>
+													<option selected="selected">orange</option>
+													<option>purple</option>
+													<option>black</option>
+													<option>pink</option>
+												</select>
+											</div>
+										</div>
+									</div>
+                                    <div class="quantity">
+										<!-- Input Order -->
+										<div class="input-group">
+											<div class="button minus">
+												<button type="button" class="btn btn-primary btn-number" disabled="disabled" data-type="minus" data-field="quant[1]">
+													<i class="ti-minus"></i>
+												</button>
+											</div>
+											<input type="text" name="quant[1]" class="input-number"  data-min="1" data-max="1000" value="1">
+											<div class="button plus">
+												<button type="button" class="btn btn-primary btn-number" data-type="plus" data-field="quant[1]">
+													<i class="ti-plus"></i>
+												</button>
+											</div>
+										</div>
+										<!--/ End Input Order -->
+									</div>
+									<div class="add-to-cart">
+										<a href="#" class="btn">Add to cart</a>
+										<a href="#" class="btn min"><i class="ti-heart"></i></a>
+										<a href="#" class="btn min"><i class="fa fa-compress"></i></a>
+									</div>
+                                    <div class="default-social">
+										<h4 class="share-now">Share:</h4>
+                                        <ul>
+                                            <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
+                                            <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
+                                            <li><a class="youtube" href="#"><i class="fa fa-pinterest-p"></i></a></li>
+                                            <li><a class="dribbble" href="#"><i class="fa fa-google-plus"></i></a></li>
+                                        </ul>
+                                    </div>
+                </div>
+             </div>
+        </div>
+    </div>
+ <style>
+.mini-gallery {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+     flex-wrap: wrap; 
+    
+}
+
+
+.mini-gallery img {
+    /* max-width: 120px; */
+    width: 30%;
+    padding: 5px;
+    height: auto;
+    cursor: pointer;
+}
+
+.mini-gallery img:hover {
+    border: 2px solid #007bff; /* Warna yang Anda inginkan pada hover */
+}
+/* Tampilan responsif untuk perangkat seluler */
+@media (max-width: 768px) {
+    .row.no-gutters {
+        flex-direction: column;
+    }
+
+    .col-lg-6.col-md-12.col-sm-12.col-xs-12 {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .product-gallery {
+        text-align: center;
+    }
+
+    .product-gallery img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .mini-gallery {
+        display: flex;
+        flex-wrap: wrap; /* Ini akan membuat elemen-elemen bergulir ke baris bawah saat tampilan seluler */
+        justify-content: center;
+        margin-top: 10px;
+    }
+
+    .mini-gallery img {
+        max-width: 30%; /* Ubah sesuai kebutuhan Anda */
+        height: auto;
+        cursor: pointer;
+        margin-right: 10px; /* Jarak antara mini gambar */
+        margin-bottom: 10px; /* Jarak vertikal antara mini gambar */
+    }
+}
+</style>
+<script>
+    // Ambil semua elemen gambar mini
+    const miniImages = document.querySelectorAll('.mini-image');
+
+    // Ambil elemen gambar utama
+    const mainImage = document.getElementById('mainImage');
+
+    // Loop melalui setiap gambar mini dan tambahkan event listener
+    miniImages.forEach((miniImage) => {
+        miniImage.addEventListener('click', () => {
+            // Ganti gambar utama dengan gambar mini yang diklik
+            mainImage.src = miniImage.src;
+        });
+    });
+</script>

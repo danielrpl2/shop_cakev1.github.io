@@ -112,18 +112,19 @@ updateSlider();
 						<div class="product-info">
 							<div class="nav-main">
                                 		<!-- Tab Nav -->
-		<ul class="nav nav-tabs" id="myTab" role="tablist">
-		    <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#man" role="tab">Man</a></li>
-		    <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#women" role="tab">Woman</a></li>
-		    <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#kids" role="tab">Kids</a></li>
-		    <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#accessories" role="tab">Accessories</a></li>
-		    <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#essential" role="tab">Essential</a></li>
-		    <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#prices" role="tab">Prices</a></li>
-		</ul>
-		<!--/ End Tab Nav -->
-		</div>
-		<div class="tab-content" id="myTabContent">
-								<!-- Start Single Tab -->
+								<ul class="nav nav-tabs" id="myTab" role="tablist">
+									
+									<li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#man" role="tab">All</a></li>
+									<li class="nav-item"><a class="nav-link" data-toggle="tab" href="#women" role="tab">Woman</a></li>
+									<li class="nav-item"><a class="nav-link" data-toggle="tab" href="#kids" role="tab">Kids</a></li>
+									<li class="nav-item"><a class="nav-link" data-toggle="tab" href="#accessories" role="tab">Accessories</a></li>
+									<li class="nav-item"><a class="nav-link" data-toggle="tab" href="#essential" role="tab">Essential</a></li>
+									<li class="nav-item"><a class="nav-link" data-toggle="tab" href="#prices" role="tab">Prices</a></li>
+								</ul>
+								<!--/ End Tab Nav -->
+								</div>
+								<div class="tab-content" id="myTabContent">
+														<!-- Start Single Tab -->
 								
 								<div class="tab-pane fade show active" id="man" role="tabpanel">
 									<div class="tab-single">
@@ -139,7 +140,7 @@ updateSlider();
 														</a>
 														<div class="button-head">
 															<div class="product-action">
-																<a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i class=" ti-eye"></i><span>Quick Shop</span></a>
+																<a title="Quick View" href="<?= base_url('home/detail_produk/'.$value->id_produk) ?>"><i class=" ti-eye"></i><span>Quick Shop</span></a>
 																<a title="Wishlist" href="#"><i class=" ti-heart "></i><span>Add to Wishlist</span></a>
 																<a title="Compare" href="#"><i class="ti-bar-chart-alt"></i><span>Add to Compare</span></a>
 															</div>
