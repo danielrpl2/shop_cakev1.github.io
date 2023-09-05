@@ -43,6 +43,14 @@
 				</div>
 			</div>
 		</div>
+
+		<style>
+			@media screen and (max-width: 1100px) {
+				.topbar{
+					display: none;
+				}
+			}
+		</style>
 		<!-- End Topbar -->
 		<div class="middle-inner">
 			<div class="container">
@@ -70,13 +78,6 @@
 											<h4><a href="#">Woman Ring</a></h4>
 											<p class="quantity">1x - <span class="amount">$99.00</span></p>
 										</li>
-										<li>
-											<a href="#" class="remove" title="Remove this item"><i class="fa fa-remove"></i></a>
-											<a class="cart-img" href="#"><img src="https://via.placeholder.com/70x70" alt="#"></a>
-											<h4><a href="#">Woman Necklace</a></h4>
-											<p class="quantity">1x - <span class="amount">$35.00</span></p>
-										</li>
-									</ul>
 									<div class="bottom">
 										<div class="total">
 											<span>Total</span>
@@ -140,37 +141,46 @@
 							<div class="sinlge-bar">
 								<a href="<?php base_url() ?>admin" class="single-icon"><i class="fa fa-user-circle-o" aria-hidden="true"></i></a>
 							</div>
+
+							<?php 
+							$keranjang = $this->cart->contents();
+							$jml_item = 0;
+							foreach ($keranjang as $key => $value) {
+								$jml_item = $jml_item + $value['qty'];
+							} 
+							?>
 							<div class="sinlge-bar shopping">
-								<a href="#" class="single-icon"><i class="ti-bag"></i> <span class="total-count">2</span></a>
+								<a href="#" class="single-icon"><i class="ti-bag"></i> <span class="total-count"><?= $jml_item ?></span></a>
+								
 								<!-- Shopping Item -->
+								
 								<div class="shopping-item">
 									<div class="dropdown-cart-header">
-										<span>2 Items</span>
+										<span><?= $jml_item ?> Items</span>
 										<a href="#">View Cart</a>
 									</div>
+
+									<?php foreach ($keranjang as $key => $value) { ?>
 									<ul class="shopping-list">
 										<li>
-											<a href="#" class="remove" title="Remove this item"><i class="fa fa-remove"></i></a>
 											<a class="cart-img" href="#"><img src="https://via.placeholder.com/70x70" alt="#"></a>
-											<h4><a href="#">Woman Ring</a></h4>
-											<p class="quantity">1x - <span class="amount">$99.00</span></p>
-										</li>
-										<li>
-											<a href="#" class="remove" title="Remove this item"><i class="fa fa-remove"></i></a>
-											<a class="cart-img" href="#"><img src="https://via.placeholder.com/70x70" alt="#"></a>
-											<h4><a href="#">Woman Necklace</a></h4>
-											<p class="quantity">1x - <span class="amount">$35.00</span></p>
+											<h4><a href="#"><?= $value['name'] ?></a></h4>
+											<p class="quantity"><?= $value['qty'] ?> x<span class="amount"> Rp.<?= number_format($value['price'],0) ?></span></p>
+											<p class="quantity"><i class="fa fa-calculator" aria-hidden="true"></i> Rp.<?= $this->cart->format_number($value['subtotal']); ?></p>
 										</li>
 									</ul>
+									<?php } ?>
 									<div class="bottom">
 										<div class="total">
 											<span>Total</span>
-											<span class="total-amount">$134.00</span>
+											<span class="total-amount">Rp.<?= $this->cart->format_number($this->cart->total()); ?></span>
 										</div>
 										<a href="checkout.html" class="btn animate">Checkout</a>
 									</div>
+									
 								</div>
 								<!--/ End Shopping Item -->
+
 							</div>
 						</div>
 					</div>
@@ -185,69 +195,6 @@
 						<div class="col-lg-3">
 							<div class="all-category">
 								<a href="<?= base_url('') ?>"><h3 class="cat-heading">Enjoy Shopping</h3></a>
-								<!-- <ul class="main-category">
-									<li><a href="#">New Arrivals <i class="fa fa-angle-right" aria-hidden="true"></i></a>
-										<ul class="sub-category">
-											<li><a href="#">accessories</a></li>
-											<li><a href="#">best selling</a></li>
-											<li><a href="#">top 100 offer</a></li>
-											<li><a href="#">sunglass</a></li>
-											<li><a href="#">watch</a></li>
-											<li><a href="#">man’s product</a></li>
-											<li><a href="#">ladies</a></li>
-											<li><a href="#">westrn dress</a></li>
-											<li><a href="#">denim </a></li>
-										</ul>
-									</li>
-									<li class="main-mega"><a href="#">best selling <i class="fa fa-angle-right" aria-hidden="true"></i></a>
-										<ul class="mega-menu">
-											<li class="single-menu">
-												<a href="#" class="title-link">Shop Kid's</a>
-												<div class="image">
-													<img src="https://via.placeholder.com/225x155" alt="#">
-												</div>
-												<div class="inner-link">
-													<a href="#">Kids Toys</a>
-													<a href="#">Kids Travel Car</a>
-													<a href="#">Kids Color Shape</a>
-													<a href="#">Kids Tent</a>
-												</div>
-											</li>
-											<li class="single-menu">
-												<a href="#" class="title-link">Shop Men's</a>
-												<div class="image">
-													<img src="https://via.placeholder.com/225x155" alt="#">
-												</div>
-												<div class="inner-link">
-													<a href="#">Watch</a>
-													<a href="#">T-shirt</a>
-													<a href="#">Hoodies</a>
-													<a href="#">Formal Pant</a>
-												</div>
-											</li>
-											<li class="single-menu">
-												<a href="#" class="title-link">Shop Women's</a>
-												<div class="image">
-													<img src="https://via.placeholder.com/225x155" alt="#">
-												</div>
-												<div class="inner-link">
-													<a href="#">Ladies Shirt</a>
-													<a href="#">Ladies Frog</a>
-													<a href="#">Ladies Sun Glass</a>
-													<a href="#">Ladies Watch</a>
-												</div>
-											</li>
-										</ul>
-									</li>
-									<li><a href="#">accessories</a></li>
-									<li><a href="#">top 100 offer</a></li>
-									<li><a href="#">sunglass</a></li>
-									<li><a href="#">watch</a></li>
-									<li><a href="#">man’s product</a></li>
-									<li><a href="#">ladies</a></li>
-									<li><a href="#">westrn dress</a></li>
-									<li><a href="#">denim </a></li>
-								</ul> -->
 							</div>
 						</div>
 						<div class="col-lg-9 col-12">

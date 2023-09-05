@@ -162,42 +162,126 @@
 							</div>
 						</div>
 						<div class="row">
-						<?php foreach ($produk as $key => $value) { ?>
-											<div class="col-xl-5 col-lg-4 col-md-4 col-12">
-												<div class="single-product">
-													<div class="product-img">
-														<a href="product-details.html">
-															<img class="default-img" src="<?= base_url('gambar/' .$value->gambar) ?>">
-															<img class="hover-img" src="<?= base_url('gambar/' .$value->gambar) ?>">
-														</a>
-														<div class="button-head">
-															<div class="product-action">
-															<a title="Quick View" href="<?= base_url('home/detail_produk/'.$value->id_produk) ?>"><i class=" ti-eye"></i><span>Quick Shop</span></a>
-																<a title="Wishlist" href="#"><i class=" ti-heart "></i><span>Add to Wishlist</span></a>
-																<a title="Compare" href="#"><i class="ti-bar-chart-alt"></i><span>Add to Compare</span></a>
-															</div>
-															<div class="product-action-2">
-																<a title="Add to cart" href="#">Add To <i class="fa fa-cart-plus" aria-hidden="true"></i></a>
+													<?php foreach ($produk as $key => $value) { ?>
+														<div class="col-lg-4 col-md-4 col-12">
+															<?php
+															echo form_open('belanja/add');
+															echo form_hidden('id', $value->id_produk);
+															echo form_hidden('qty', 1);
+															echo form_hidden('price', $value->harga);
+															echo form_hidden('name', $value->nama_produk); // Remove extra space after 'name'
+															echo form_hidden('redirect_page', str_replace('index.php/', '', current_url()));
+															?>
+															<div class="single-product">
+																<div class="product-img" style="width: 100%; height: 310px; overlow: hideen; object-fit: cover; animation: all 0.5s">
+																	<a href="<?= base_url('home/detail_produk/'.$value->id_produk) ?>">
+																		<img style="width: 350px; height: 345px; overlow: hideen; object-fit: cover; object-position: center; animation: all 0.5s" class="default-img" src="<?= base_url('gambar/' .$value->gambar) ?>">
+																		<img style="width: 380px; height: 320px; overlow: hideen; object-fit: cover; animation: all 0.5s" class="hover-img" src="<?= base_url('gambar/' .$value->gambar) ?>">
+																	</a>
+																	<div class="button-head">
+																		<div class="product-action">
+																			<a title="Quick View" href="<?= base_url('home/detail_produk/'.$value->id_produk) ?>"><i class=" ti-eye"></i><span>Quick Shop</span></a>
+																			<a title="Wishlist" href="#"><i class=" ti-heart "></i><span>Add to Wishlist</span></a>
+																			<a title="Compare" href="#"><i class="ti-bar-chart-alt"></i><span>Add to Compare</span></a>
+																		</div>
+																		<div class="product-action-2">
+																			<!-- Menambahkan JavaScript onClick untuk menampilkan alert -->
+																			<button title="Add to cart" class="toastrDefaultSuccess" style="border: none; padding: 0; background: none;" onclick="addToCart('<?= $value->nama_produk ?>')">Add To <i class="fa fa-cart-plus" aria-hidden="true"></i></button>
+																		</div>
+																	</div>
+																</div>
+																<div class="product-content">
+																	<h3><a href="<?= base_url('home/detail_produk/'.$value->id_produk) ?>"style="font-size: 20px; font-weight: 600;"><?= $value->nama_produk ?></a></h3>
+																	<div class="product-price">
+																		<span>Rp. <?= number_format($value->harga,0) ?></span>
+																	</div>
+																</div>
 															</div>
 														</div>
-													</div>
-													<div class="product-content">
-														<h3><a href="product-details.html"><?= $value->nama_produk ?></a></h3>
-														<div class="product-price">
-															<span>Rp. <?= number_format($value->harga,0) ?></span>
-														</div>
-													</div>
+														<?php  echo form_close(); ?>
+													<?php } ?>
 												</div>
-											</div>
-									<?php } ?>
-											
-						
-						</div>
-					</div>
 				</div>
 			</div>
 		</section>
 		<!--/ End Product Style 1  -->	
+
+		<script>
+    function addToCart(productName) {
+        // Send an AJAX request to add the product to the cart
+        $.ajax({
+            url: 'belanja/add', // Adjust the URL to your actual endpoint
+            type: 'POST',
+            data: { 'product_name': productName },
+            success: function(response) {
+                // Update the cart item count on success
+                updateCartItemCount(response.item_count);
+            },
+            error: function() {
+                // Handle error, if any
+            }
+        });
+    }
+
+    function updateCartItemCount(itemCount) {
+        $('.total-count').text(itemCount);
+    }
+</script>
+<!-- CSS untuk tampilan alert -->
+<style>
+    .custom-alert {
+        display: none;
+        position: fixed;
+		width: auto;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 15px;
+        border-radius: 5px;
+        background-color: #4CAF50;
+        color: white;
+        z-index: 1000;
+        animation: slide-in 0.5s, slide-out 0.5s 2s forwards;
+    }
+
+    @keyframes slide-in {
+        0% {
+            transform: translate(-50%, -150%);
+        }
+        100% {
+            transform: translate(-50%, -50%);
+        }
+    }
+
+    @keyframes slide-out {
+        0% {
+            transform: translate(-50%, -50%);
+        }
+        100% {
+            transform: translate(-50%, -150%);
+        }
+    }
+</style>
+
+<!-- JavaScript untuk menampilkan alert -->
+<script>
+    // Fungsi untuk menampilkan alert saat tombol "Add To Cart" ditekan
+    function addToCart(productName) {
+        var alertBox = document.createElement('div');
+        alertBox.classList.add('custom-alert');
+        alertBox.textContent = productName + ' !sudah ditambahkan ke keranjang.';
+        document.body.appendChild(alertBox);
+
+        setTimeout(function () {
+            alertBox.style.display = 'block';
+        }, 100);
+
+        setTimeout(function () {
+            alertBox.style.display = 'none';
+            document.body.removeChild(alertBox);
+        }, 2500);
+    }
+</script>
 
 		<!-- Start Shop Newsletter  -->
 		<section class="shop-newsletter section">

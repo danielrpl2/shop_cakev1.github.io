@@ -85,7 +85,7 @@
 													<i class="ti-minus"></i>
 												</button>
 											</div>
-											<input type="text" name="quant[1]" class="input-number"  data-min="1" data-max="1000" value="1">
+											<input type="text" name="quant[1]" class="input-number"  data-min="1" data-max="10000000000" value="1">
 											<div class="button plus">
 												<button type="button" class="btn btn-primary btn-number" data-type="plus" data-field="quant[1]">
 													<i class="ti-plus"></i>
@@ -95,9 +95,8 @@
 										<!--/ End Input Order -->
 									</div>
 									<div class="add-to-cart">
-										<a href="#" class="btn">Add to cart</a>
+                                    <button title="Add to cart" type="submit"  class="btn min" style="border: none; padding: 0; background: none; background-color: yellow; color: black; width: 100px;" onclick="addToCart('')"> Add To <i class="fa fa-cart-plus" aria-hidden="true"></i> </button>
 										<a href="#" class="btn min"><i class="ti-heart"></i></a>
-										<a href="#" class="btn min"><i class="fa fa-compress"></i></a>
 									</div>
                                     <div class="default-social">
 										<h4 class="share-now">Share:</h4>
@@ -183,4 +182,83 @@
             mainImage.src = miniImage.src;
         });
     });
+</script>
+
+
+<!-- untuk alert add -->
+<script>
+    function addToCart(productName) {
+        // Send an AJAX request to add the product to the cart
+        $.ajax({
+            url: 'belanja/add', // Adjust the URL to your actual endpoint
+            type: 'POST',
+            data: { 'product_name': productName },
+            success: function(response) {
+                // Update the cart item count on success
+                updateCartItemCount(response.item_count);
+            },
+            error: function() {
+                // Handle error, if any
+            }
+        });
+    }
+
+    function updateCartItemCount(itemCount) {
+        $('.total-count').text(itemCount);
+    }
+</script>
+<!-- CSS untuk tampilan alert -->
+<style>
+    .custom-alert {
+        display: none;
+        position: fixed;
+		width: auto;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 15px;
+        border-radius: 5px;
+        background-color: #4CAF50;
+        color: white;
+        z-index: 1000;
+        animation: slide-in 0.5s, slide-out 0.5s 2s forwards;
+    }
+
+    @keyframes slide-in {
+        0% {
+            transform: translate(-50%, -150%);
+        }
+        100% {
+            transform: translate(-50%, -50%);
+        }
+    }
+
+    @keyframes slide-out {
+        0% {
+            transform: translate(-50%, -50%);
+        }
+        100% {
+            transform: translate(-50%, -150%);
+        }
+    }
+</style>
+
+<!-- JavaScript untuk menampilkan alert -->
+<script>
+    // Fungsi untuk menampilkan alert saat tombol "Add To Cart" ditekan
+    function addToCart(productName) {
+        var alertBox = document.createElement('div');
+        alertBox.classList.add('custom-alert');
+        alertBox.textContent = productName + ' sudah ditambahkan ke keranjang.';
+        document.body.appendChild(alertBox);
+
+        setTimeout(function () {
+            alertBox.style.display = 'block';
+        }, 100);
+
+        setTimeout(function () {
+            alertBox.style.display = 'none';
+            document.body.removeChild(alertBox);
+        }, 2500);
+    }
 </script>
