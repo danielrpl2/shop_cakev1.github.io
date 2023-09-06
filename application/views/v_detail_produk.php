@@ -55,47 +55,29 @@
                                     <div class="quickview-peragraph">
                                         <p><?=$produk->deskripsi?></p>
                                     </div>
-									<div class="size">
-										<div class="row">
-											<div class="col-lg-6 col-12">
-												<h5 class="title">Size</h5>
-												<select>
-													<option selected="selected">s</option>
-													<option>m</option>
-													<option>l</option>
-													<option>xl</option>
-												</select>
-											</div>
-											<div class="col-lg-6 col-12">
-												<h5 class="title">Color</h5>
-												<select>
-													<option selected="selected">orange</option>
-													<option>purple</option>
-													<option>black</option>
-													<option>pink</option>
-												</select>
-											</div>
-										</div>
-									</div>
+                                    <hr>
+
+                                    <?php
+                                    echo form_open('belanja/add');
+									echo form_hidden('id', $produk->id_produk);
+									echo form_hidden('price', $produk->harga);
+									echo form_hidden('name', $produk->nama_produk); // Remove extra space after 'name'
+									echo form_hidden('redirect_page', str_replace('index.php/', '', current_url()));
+                                    ?>
+									
                                     <div class="quantity">
 										<!-- Input Order -->
 										<div class="input-group">
-											<div class="button minus">
-												<button type="button" class="btn btn-primary btn-number" disabled="disabled" data-type="minus" data-field="quant[1]">
-													<i class="ti-minus"></i>
-												</button>
-											</div>
-											<input type="text" name="quant[1]" class="input-number"  data-min="1" data-max="10000000000" value="1">
-											<div class="button plus">
-												<button type="button" class="btn btn-primary btn-number" data-type="plus" data-field="quant[1]">
-													<i class="ti-plus"></i>
-												</button>
-											</div>
+										
+											<input type="number" name="qty" class="input-number"  data-min="1" data-max="10000000000" value="1">
+											
 										</div>
 										<!--/ End Input Order -->
 									</div>
+                                  
+
 									<div class="add-to-cart">
-                                    <button title="Add to cart" type="submit"  class="btn min" style="border: none; padding: 0; background: none; background-color: yellow; color: black; width: 100px;" onclick="addToCart('')"> Add To <i class="fa fa-cart-plus" aria-hidden="true"></i> </button>
+                                    <button title="Add to cart" type="submit" class="btn min" style="border: none; padding: 0; background: none; background-color: yellow; color: black; width: 100px;" onclick="addToCart('<?= $produk->nama_produk ?>')"> Add To <i class="fa fa-cart-plus" aria-hidden="true"></i> </button>
 										<a href="#" class="btn min"><i class="ti-heart"></i></a>
 									</div>
                                     <div class="default-social">
@@ -107,6 +89,7 @@
                                             <li><a class="dribbble" href="#"><i class="fa fa-google-plus"></i></a></li>
                                         </ul>
                                     </div>
+                                    <?php echo form_close(); ?>
                 </div>
              </div>
         </div>

@@ -63,28 +63,42 @@
 						<!--/ End Logo -->
 						<!-- Search Form -->
 						<div class="search-top">
+						<?php 
+							$keranjang = $this->cart->contents();
+							$jml_item = 0;
+							foreach ($keranjang as $key => $value) {
+								$jml_item = $jml_item + $value['qty'];
+							} 
+							?>
 						<div class="sinlge-bar shopping">
-								<a href="#" class="single-icon"><i class="ti-bag"></i> <span class="total-count">2</span></a>
+						<a href="#" class="single-icon"><i class="ti-bag"></i> <span class="total-count"><?= $jml_item ?></span></a>
 								<!-- Shopping Item -->
 								<div class="shopping-item">
 									<div class="dropdown-cart-header">
-										<span>2 Items</span>
+										<span><?= $jml_item ?> Items</span>
 										<a href="#">View Cart</a>
 									</div>
+
+									<?php foreach ($keranjang as $key => $value) { 
+									$produk = $this->m_home->detail_produk($value['id']);	
+									?>
 									<ul class="shopping-list">
 										<li>
-											<a href="#" class="remove" title="Remove this item"><i class="fa fa-remove"></i></a>
-											<a class="cart-img" href="#"><img src="https://via.placeholder.com/70x70" alt="#"></a>
-											<h4><a href="#">Woman Ring</a></h4>
-											<p class="quantity">1x - <span class="amount">$99.00</span></p>
+											<a class="cart-img" href="#"><img src="<?= base_url('gambar/' .$produk->gambar) ?>" alt="#" style="object-fit: cover;"></a>
+											<h4><a href="#"><?= $value['name'] ?></a></h4>
+											<p class="quantity"><?= $value['qty'] ?> x<span class="amount"> Rp.<?= number_format($value['price'],0) ?></span></p>
+											<p class="quantity"><i class="fa fa-calculator" aria-hidden="true"></i> Rp.<?= $this->cart->format_number($value['subtotal']); ?></p>
 										</li>
+									</ul>
+									<?php } ?>
 									<div class="bottom">
 										<div class="total">
 											<span>Total</span>
-											<span class="total-amount">$134.00</span>
+											<span class="total-amount">Rp.<?= $this->cart->format_number($this->cart->total()); ?></span>
 										</div>
 										<a href="checkout.html" class="btn animate">Checkout</a>
 									</div>
+									
 								</div>
 								<!--/ End Shopping Item -->
 							</div>		
@@ -159,17 +173,24 @@
 										<span><?= $jml_item ?> Items</span>
 										<a href="#">View Cart</a>
 									</div>
+									<?php if (empty($keranjang)) { ?>
+									<div class="dropdown-cart-header">
+										<a href="#">Keranjang Kosong</a>
+									</div>
+									<?php } else {
 
-									<?php foreach ($keranjang as $key => $value) { ?>
+									foreach ($keranjang as $key => $value) { 
+									$produk = $this->m_home->detail_produk($value['id']);	
+									?>
 									<ul class="shopping-list">
 										<li>
-											<a class="cart-img" href="#"><img src="https://via.placeholder.com/70x70" alt="#"></a>
+											<a class="cart-img" href="#"><img src="<?= base_url('gambar/' .$produk->gambar) ?>" alt="#" style="object-fit: cover;"></a>
 											<h4><a href="#"><?= $value['name'] ?></a></h4>
 											<p class="quantity"><?= $value['qty'] ?> x<span class="amount"> Rp.<?= number_format($value['price'],0) ?></span></p>
 											<p class="quantity"><i class="fa fa-calculator" aria-hidden="true"></i> Rp.<?= $this->cart->format_number($value['subtotal']); ?></p>
 										</li>
 									</ul>
-									<?php } ?>
+									<?php }} ?>
 									<div class="bottom">
 										<div class="total">
 											<span>Total</span>
