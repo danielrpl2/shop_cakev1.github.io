@@ -58,7 +58,7 @@
 					<div class="col-lg-2 col-md-2 col-12">
 						<!-- Logo -->
 						<div class="logo">
-							<a href="index.html"><img src="images/logo.png" alt="logo"></a>
+							<a href="index.html"><img src="<?= base_url() ?>assets/home_template/images/logo.png" alt="logo"></a>
 						</div>
 						<!--/ End Logo -->
 						<!-- Search Form -->
@@ -72,14 +72,21 @@
 							?>
 						<div class="sinlge-bar shopping">
 						<a href="#" class="single-icon"><i class="ti-bag"></i> <span class="total-count"><?= $jml_item ?></span></a>
+								
 								<!-- Shopping Item -->
+								
 								<div class="shopping-item">
 									<div class="dropdown-cart-header">
 										<span><?= $jml_item ?> Items</span>
-										<a href="#">View Cart</a>
+										<!-- <a href="#">View Cart</a> -->
 									</div>
+									<?php if (empty($keranjang)) { ?>
+									<div class="dropdown-cart-header">
+										<h5 href="#">Keranjang Kosong</h5>
+									</div>
+									<?php } else {
 
-									<?php foreach ($keranjang as $key => $value) { 
+									foreach ($keranjang as $key => $value) { 
 									$produk = $this->m_home->detail_produk($value['id']);	
 									?>
 									<ul class="shopping-list">
@@ -93,11 +100,14 @@
 									<?php } ?>
 									<div class="bottom">
 										<div class="total">
-											<span>Total</span>
-											<span class="total-amount">Rp.<?= $this->cart->format_number($this->cart->total()); ?></span>
-										</div>
-										<a href="checkout.html" class="btn animate">Checkout</a>
+										<span>Total</span>
+										<span class="total-amount">Rp.<?= $this->cart->format_number($this->cart->total()); ?></span>
 									</div>
+										<a href="<?= base_url('belanja') ?>" class="btn animate">View Cart</a>
+										<a href="#" class="btn animate">Checkout</a>
+									</div>
+									<?php } ?>
+							
 									
 								</div>
 								<!--/ End Shopping Item -->
@@ -171,11 +181,11 @@
 								<div class="shopping-item">
 									<div class="dropdown-cart-header">
 										<span><?= $jml_item ?> Items</span>
-										<a href="#">View Cart</a>
+										<!-- <a href="#">View Cart</a> -->
 									</div>
 									<?php if (empty($keranjang)) { ?>
 									<div class="dropdown-cart-header">
-										<a href="#">Keranjang Kosong</a>
+										<h5 href="#">Keranjang Kosong</h5>
 									</div>
 									<?php } else {
 
@@ -190,14 +200,17 @@
 											<p class="quantity"><i class="fa fa-calculator" aria-hidden="true"></i> Rp.<?= $this->cart->format_number($value['subtotal']); ?></p>
 										</li>
 									</ul>
-									<?php }} ?>
+									<?php } ?>
 									<div class="bottom">
 										<div class="total">
-											<span>Total</span>
-											<span class="total-amount">Rp.<?= $this->cart->format_number($this->cart->total()); ?></span>
-										</div>
-										<a href="checkout.html" class="btn animate">Checkout</a>
+										<span>Total</span>
+										<span class="total-amount">Rp.<?= $this->cart->format_number($this->cart->total()); ?></span>
 									</div>
+										<a href="<?= base_url('belanja') ?>" class="btn animate">View Cart</a>
+										<a href="#" class="btn animate">Checkout</a>
+									</div>
+									<?php } ?>
+							
 									
 								</div>
 								<!--/ End Shopping Item -->

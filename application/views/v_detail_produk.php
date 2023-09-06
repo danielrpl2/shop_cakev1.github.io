@@ -77,7 +77,7 @@
                                   
 
 									<div class="add-to-cart">
-                                    <button title="Add to cart" type="submit" class="btn min" style="border: none; padding: 0; background: none; background-color: yellow; color: black; width: 100px;" onclick="addToCart('<?= $produk->nama_produk ?>')"> Add To <i class="fa fa-cart-plus" aria-hidden="true"></i> </button>
+                                    <button title="Add to cart" type="submit" class="btn min" style="border: none; padding: 0; background: none; background-color: yellow; color: black; width: 100px; font-size: 15px; border-radius: 5px;" onclick="addToCart('<?= $produk->nama_produk ?>')"> Add To <i class="fa fa-cart-plus" aria-hidden="true"></i> </button>
 										<a href="#" class="btn min"><i class="ti-heart"></i></a>
 									</div>
                                     <div class="default-social">
