@@ -33,6 +33,9 @@ class Produk extends CI_Controller {
         $this->form_validation->set_rules('harga','Harga', 'required', array(
             'required'=>'%s Harus Diisi !!!'
         ));
+        $this->form_validation->set_rules('berat','Berat', 'required', array(
+            'required'=>'%s Harus Diisi !!!'
+        ));
         $this->form_validation->set_rules('deskripsi','Deskripsi', 'required', array(
             'required'=>'%s Harus Diisi !!!'
         ));
@@ -40,7 +43,7 @@ class Produk extends CI_Controller {
         
         if ($this->form_validation->run() == TRUE) {
             $config['upload_path'] = './gambar/';
-            $config['allowed_types'] = 'gif|jpg|png|jpeg|ico';
+            $config['allowed_types'] = 'gif|jpg|png|jpeg|ico|jfif';
             $config['max_size']     = '2000';
             $this->upload->initialize($config);
             $field_name = "gambar";
@@ -62,6 +65,7 @@ class Produk extends CI_Controller {
                     'nama_produk' => $this->input->post('nama_produk'),
                     'id_kategori' => $this->input->post('id_kategori'),
                     'harga'       => $this->input->post('harga'),
+                    'berat'       => $this->input->post('berat'),
                     'deskripsi'   => $this->input->post('deskripsi'),
                     'gambar'      => $upload_data['uploads']['file_name'],
                 );
@@ -93,6 +97,9 @@ class Produk extends CI_Controller {
         $this->form_validation->set_rules('harga','Harga', 'required', array(
             'required'=>'%s Harus Diisi !!!'
         ));
+        $this->form_validation->set_rules('berat','Berat', 'required', array(
+            'required'=>'%s Harus Diisi !!!'
+        ));
         $this->form_validation->set_rules('deskripsi','Deskripsi', 'required', array(
             'required'=>'%s Harus Diisi !!!'
         ));
@@ -100,7 +107,7 @@ class Produk extends CI_Controller {
         
         if ($this->form_validation->run() == TRUE) {
             $config['upload_path'] = './gambar/';
-            $config['allowed_types'] = 'gif|jpg|png|jpeg|ico';
+            $config['allowed_types'] = 'gif|jpg|png|jpeg|ico|jfif';
             $config['max_size']     = '2000';
             $this->upload->initialize($config);
             $field_name = "gambar";
@@ -130,6 +137,7 @@ class Produk extends CI_Controller {
                     'nama_produk' => $this->input->post('nama_produk'),
                     'id_kategori' => $this->input->post('id_kategori'),
                     'harga'       => $this->input->post('harga'),
+                    'berat'       => $this->input->post('berat'),
                     'deskripsi'   => $this->input->post('deskripsi'),
                     'gambar'      => $upload_data['uploads']['file_name'],
                 );
@@ -143,6 +151,7 @@ class Produk extends CI_Controller {
                 'nama_produk' => $this->input->post('nama_produk'),
                 'id_kategori' => $this->input->post('id_kategori'),
                 'harga'       => $this->input->post('harga'),
+                'berat'       => $this->input->post('berat'),
                 'deskripsi'   => $this->input->post('deskripsi'),
             );
             $this->m_produk->edit($data);
@@ -175,4 +184,6 @@ class Produk extends CI_Controller {
 		$this->session->set_flashdata('pesan', 'Data Berhasil Dihapus !!!');
 		redirect('produk');
     }
+
+   
 }

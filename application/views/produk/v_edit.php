@@ -25,7 +25,7 @@
                                 <input name="nama_produk" class="form-control" placeholder="Nama Produk" value="<?= $produk->nama_produk ?>">
                             </div>
                         </div>
-                        <div class="col-sm-6">
+                        <div class="col-sm-4">
                             <div class="form-group">
                                 <label style="color: black; font-weight: 1000;">Kategori</label>
                                 <select name="id_kategori" class="form-control">
@@ -36,10 +36,16 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="col-sm-6">
+                        <div class="col-sm-4">
                             <div class="form-group">
                                 <label style="color: black; font-weight: 1000;">Harga Produk</label>
                                 <input name="harga" class="form-control" placeholder="Harga Produk" value="<?= $produk->harga ?>">
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label style="color: black; font-weight: 1000;">Berat (Gram)</label>
+                                <input name="berat" class="form-control" placeholder="Berat" type="number" min="0" value="<?= $produk->berat ?>">
                             </div>
                         </div>
                         <div class="col-sm-12">
