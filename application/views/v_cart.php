@@ -78,7 +78,7 @@
 							<div class="left">
 								<div class="coupon" style="display: flex; align-items: center;">
 									<button type="submit" class="btn" style="border-radius: 8px;"><i class="fa fa-floppy-o" aria-hidden="true"></i> Update Cart</button>
-									<a href="<?= base_url('belanja/clear') ?>" class="btn" style="border-radius: 8px; color: white; padding: 9px; margin-left: 10px;"><i class="fa fa-trash" aria-hidden="true"></i> Clear All Cart !</a>
+									<a href="<?= base_url('belanja/clear') ?>" class="btn" style="border-radius: 8px; color: white; padding: 9px; margin-left: 10px;"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Clear All Cart !</a>
 								</div>
 							</div>
 						</div>

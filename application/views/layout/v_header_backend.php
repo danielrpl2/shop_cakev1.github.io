@@ -239,6 +239,11 @@
                            <i class="fa fa-tachometer menu-icon"style="font-size:18px;" style="font-size:18px;"></i><span class="nav-text">Dashboard</span>
                        </a>
                    </li>
+                   <li>
+                       <a href="<?= base_url('user') ?>" <?php if($this->uri->segment(1)=='user'){echo "active";} ?>>
+                           <i class="fa fa-user menu-icon" style="font-size: 22px;"></i><span class="nav-text">User</span>
+                       </a>
+                  </li>
                    <li class="nav-label">Menu</li>
                    <li>
                        <a href="<?= base_url('produk') ?>" <?php if($this->uri->segment(1)=='produk'){echo "active";} ?>>
@@ -281,7 +286,7 @@
                            <i class="fa fa-cog menu-icon" style="font-size: 22px;"></i><span class="nav-text">Settings</span>
                        </a>
                        <ul aria-expanded="false">
-                           <li><a href="./ui-accordion.html">Accordion</a></li>
+                           <li><a href="<?= base_url('admin/setting') ?>"><i class="fa fa-map"></i> Lokasi</a></li>
                            <li><a href="./ui-alert.html">Alert</a></li>
                            <li><a href="./ui-badge.html">Badge</a></li>
                            <li><a href="./ui-button.html">Button</a></li>
@@ -309,11 +314,7 @@
                            <li><a href="./uc-sweetalert.html">Sweet Alert</a></li>
                            <li><a href="./uc-toastr.html">Toastr</a></li>
                        </ul>
-                       <li>
-                       <a href="<?= base_url('user') ?>" <?php if($this->uri->segment(1)=='user'){echo "active";} ?>>
-                           <i class="fa fa-user menu-icon" style="font-size: 22px;"></i><span class="nav-text">User</span>
-                       </a>
-                  </li>
+                  
                        <li>
                        <a href="<?= base_url('auth/login_user') ?>" aria-expanded="false">
                            <i class="fa fa-sign-in menu-icon" style="font-size: 22px;"></i><span class="nav-text">Login</span>
