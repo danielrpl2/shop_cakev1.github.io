@@ -12,15 +12,15 @@
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <label style="color: black; font-weight: 1000;">Provinsi</label>
-                                <select name="provinsi" class="form-control" id="provinsi-select">
-                                    <option value="">Cari Provinsi</option> <!-- Mengubah teks Pilih Provinsi menjadi Cari Provinsi -->
-                                </select>
+                                <select name="provinsi" class="form-control"></select>
+                                <option value=""></option>
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <label style="color: black; font-weight: 1000;">Kota</label>
                                 <select name="kota" class="form-control"></select>
+                                <option value=""></option>
                             </div>
                         </div>
                     </div>
@@ -36,25 +36,30 @@
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- Mengimpor jQuery -->
 <script>
-    $(document).ready(function() {
-       $.ajax({
-        type: "GET",
+   $(document).ready(function() {
+    //data provinsi
+    $.ajax({
+        type: "POST", 
         url: "<?= base_url('rajaongkir/provinsi') ?>",
-        dataType: 'json',
-        success: function(data) {
-            var provinsiSelect = $('#provinsi-select');
-            provinsiSelect.empty();
-            provinsiSelect.append('<option value="">Cari Provinsi</option>'); // Mengubah teks Pilih Provinsi menjadi Cari Provinsi
-
-            $.each(data, function(index, value) {
-                provinsiSelect.append('<option value="' + value.province_id + '">' + value.province + '</option>');
-            });
-        },
-        error: function() {
-            console.error('Terjadi kesalahan dalam mengambil data provinsi.');
+        success: function(hasil_provinsi) {
+            $("select[name=provinsi]").html(hasil_provinsi);
         }
-       });
     });
+
+    //data kota
+       $("select[name=provinsi]").on("change", function() {
+        var id_provinsi_terpilih = $("option:selected", this).attr("id_provinsi");
+        $.ajax({
+            type: "POST",
+            url: "<?= base_url('rajaongkir/kota') ?>",
+            data : 'id_provinsi=' + id_provinsi_terpilih,
+            success : function(hasil_kota){
+                $("select[name=kota]").html(hasil_kota);
+            }
+        });
+     });
+  });
 </script>
+
 
 <!-- 32.17 -->
