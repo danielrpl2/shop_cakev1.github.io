@@ -71,6 +71,7 @@
 							} 
 							?>
 						<div class="sinlge-bar shopping">
+							
 						<a href="#" class="single-icon"><i class="ti-bag"></i> <span class="total-count"><?= $jml_item ?></span></a>
 								
 								<!-- Shopping Item -->
@@ -158,9 +159,16 @@
 					</div>
 					<div class="col-lg-2 col-md-3 col-12">
 						<div class="right-bar">
-							<!-- Search Form -->
-							<div class="sinlge-bar">
-								<a href="#" class="single-icon"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
+							<div class="sinlge-bar shopping">
+								<a href="#" class="single-icon"><img src="<?= base_url() ?>assets/profileimg/daniel19_1693584575.jpg" alt="" style="width: 40px; height: 43px; border-radius: 40px"></a>
+								<div class="shopping-item">
+									<div class="bottom">
+										<div class="total">
+									</div>
+										<a href="#" class="btn animate"><i class="fa fa-sign-in" aria-hidden="true"></i> Login</a>
+										<a href="#" class="btn animate"><i class="fa fa-sign-out" aria-hidden="true"></i> Register</a>
+									</div>
+								</div>
 							</div>
 							<div class="sinlge-bar">
 								<a href="<?php base_url() ?>admin" class="single-icon"><i class="fa fa-user-circle-o" aria-hidden="true"></i></a>
@@ -239,9 +247,7 @@
 										<div class="nav-inner">	
 											<ul class="nav main-menu menu navbar-nav">
 													<li class="active"><a href="#">Home</a></li>
-													<li><a href="#">Product</a></li>												
-													<li><a href="#">Service</a></li>
-
+													<li><a href="#">Product</a></li>
 													<li><a href="<?= base_url('home/by_kategori') ?>">Kategori<i class="ti-angle-down"></i><span class="new">New</span></a>
 														<ul class="dropdown">
 															<li><a href="<?= base_url('home/by_kategori') ?>">Shop By Category</a></li>
@@ -254,7 +260,15 @@
 															<li><a href="blog-single-sidebar.html">Blog Single Sidebar</a></li>
 														</ul>
 													</li>
-													<li><a href="contact.html">Contact Us</a></li>
+													<li>
+														<a href="contact.html">Contact Us</a>
+													</li>
+													<li><a href="#">Create Akun<i class="ti-angle-down"></i></a>
+														<ul class="dropdown">
+															<li><a href="#">Login</a></li>
+															<li><a href="#">Register</a></li>
+														</ul>
+													</li>
 												</ul>
 										</div>
 									</div>
@@ -269,5 +283,3 @@
 		<!--/ End Header Inner -->
 	</header>
 	<!--/ End Header -->
-	
-	

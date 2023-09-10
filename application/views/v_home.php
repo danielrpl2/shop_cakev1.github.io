@@ -141,8 +141,8 @@ updateSlider();
 															<div class="single-product">
 																<div class="product-img" style="width: 100%; height: 310px; overlow: hideen; object-fit: cover; animation: all 0.5s">
 																	<a href="<?= base_url('home/detail_produk/'.$value->id_produk) ?>">
-																		<img style="width: 350px; height: 345px; overlow: hideen; object-fit: cover; object-position: center; animation: all 0.5s" class="default-img" src="<?= base_url('gambar/' .$value->gambar) ?>">
-																		<img style="width: 380px; height: 320px; overlow: hideen; object-fit: cover; animation: all 0.5s" class="hover-img" src="<?= base_url('gambar/' .$value->gambar) ?>">
+																		<img style="width: 0 350px; height: 345px; overlow: hideen; object-fit: cover; object-position: center; animation: all 0.5s" class="default-img" src="<?= base_url('gambar/' .$value->gambar) ?>">
+																		<img style="width: 0 380px; height: 320px; overlow: hideen; object-fit: cover; animation: all 0.5s" class="hover-img" src="<?= base_url('gambar/' .$value->gambar) ?>">
 																	</a>
 																	<div class="button-head">
 																		<div class="product-action">
