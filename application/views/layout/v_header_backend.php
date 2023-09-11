@@ -194,7 +194,7 @@
                        <li class="icons dropdown">
     <div class="user-img c-pointer position-relative" data-toggle="dropdown">
         <span class="activity active"></span>
-        <img src="<?= base_url('assets/profileimg/') . $this->session->userdata('profile_image') ?>" height="40" width="40" alt="Foto Profil">
+        <img src="<?php echo base_url('assets/profileimg/' . $this->session->userdata('profile_image')); ?>" height="40" width="40" alt="Foto Profil">
     </div>
     <div class="drop-down dropdown-profile animated fadeIn dropdown-menu">
         <div class="dropdown-content-body">

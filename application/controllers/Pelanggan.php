@@ -78,4 +78,14 @@ class Pelanggan extends CI_Controller {
     {
         $this->pelanggan_login->logout();
     }
+
+    public function akun()
+    {
+        $this->pelanggan_login->proteksi_halaman();
+        $data = array (
+            'title' => 'Akun Saya',
+            'isi' => 'v_akun_saya',
+        );
+        $this->load->view('v_akun_saya', $data, FALSE);     
+    }
 }   
