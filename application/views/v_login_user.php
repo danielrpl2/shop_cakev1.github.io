@@ -236,6 +236,21 @@
       Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
     }
   </script>
+  
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    // Fungsi untuk menghilangkan pesan alert secara otomatis setelah beberapa detik
+    function hideAlerts() {
+        $('.alert').fadeTo(500, 0).slideUp(500, function () {
+            $(this).remove();
+        });
+    }
+
+    // Jalankan fungsi hideAlerts setelah dokumen selesai dimuat
+    $(document).ready(function () {
+        setTimeout(hideAlerts, 5000); // Menghilangkan pesan setelah 3 detik (3000 milidetik)
+    });
+</script>
   <!-- Github buttons -->
   <script async defer src="https://buttons.github.io/buttons.js"></script>
   <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->

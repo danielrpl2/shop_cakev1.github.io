@@ -160,18 +160,23 @@
 					<div class="col-lg-2 col-md-3 col-12">
 						<div class="right-bar">
 							<div class="sinlge-bar shopping">
-								<a href="#" class="single-icon"><img src="<?= base_url() ?>assets/profileimg/daniel19_1693584575.jpg" alt="" style="width: 40px; height: 43px; border-radius: 40px"></a>
-								<div class="shopping-item">
-									<div class="bottom">
-										<div class="total">
+								<?php if ($this->session->userdata('email') == "") { ?>
+									<a href="<?= base_url ('pelanggan/register') ?>" class="single-icon"><img src="<?= base_url() ?>assets/profileimg/daniel19_1693584575.jpg" alt="" style="width: 40px; height: 43px; border-radius: 40px"></a>
+								
+									<?php } else{ ?>
+										<div class="shopping-item">
+										<div class="bottom">
+											<div class="total">
+											<a href="#"><i class="fa fa-user" aria-hidden="true"></i> <?= $this->session->userdata('nama_pelanggan')?></a>
+										</div>
+											<a href="<?= base_url ('pelanggan/logout') ?>" class="btn animate"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a>
+										</div>
 									</div>
-										<a href="#" class="btn animate"><i class="fa fa-sign-in" aria-hidden="true"></i> Login</a>
-										<a href="#" class="btn animate"><i class="fa fa-sign-out" aria-hidden="true"></i> Register</a>
-									</div>
-								</div>
+								<?php } ?>
+								
 							</div>
 							<div class="sinlge-bar">
-								<a href="<?php base_url() ?>admin" class="single-icon"><i class="fa fa-user-circle-o" aria-hidden="true"></i></a>
+								<a href="<?= base_url() ?>admin" class="single-icon"><i class="fa fa-user-circle-o" aria-hidden="true"></i></a>
 							</div>
 
 							<?php 
@@ -265,8 +270,8 @@
 													</li>
 													<li><a href="#">Create Akun<i class="ti-angle-down"></i></a>
 														<ul class="dropdown">
-															<li><a href="#">Login</a></li>
-															<li><a href="#">Register</a></li>
+															<li><a href="<?= base_url ('pelanggan/login') ?>">Login</a></li>
+															<li><a href="<?= base_url ('pelanggan/register') ?>">Register</a></li>
 														</ul>
 													</li>
 												</ul>

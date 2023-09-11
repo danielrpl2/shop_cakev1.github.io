@@ -39,7 +39,7 @@ class Home extends CI_Controller {
             'produk' => $this->m_home->get_all_data_produk($id_kategori),
             'isi' => 'v_kategori_produk',
         );
-        $this->load->view('layout/v_wrapper_frontend', $data, FALSE);
+        $this->load->view('layout/v_wrapper_frontend', $data, xFALSE);
 	}
 
     public function detail_produk($id_produk) 

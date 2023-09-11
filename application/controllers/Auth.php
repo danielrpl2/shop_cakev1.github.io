@@ -23,7 +23,7 @@ class Auth extends CI_Controller {
             $data = array (
             'title' => 'Login User',
         );
-        $this->load->view('v_login_user', $data);
+        $this->load->view('v_login_user', $data, FALSE);
     }
 
     public function logout_user()
