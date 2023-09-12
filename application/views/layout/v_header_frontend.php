@@ -1,6 +1,4 @@
 <body class="js">
-<h1 style="text-align:center; font-size:100px;">MOCHAMAD DANIEL REZA</h1>
-
 	<!-- Preloader -->
 	<div class="preloader">
 		<div class="preloader-inner">
@@ -279,14 +277,12 @@
 										<div class="nav-inner">	
 											<ul class="nav main-menu menu navbar-nav">
 													<li class="active"><a href="<?= base_url() ?>">Home</a></li>
-													<li><a href="#">Product</a></li>
+													<li><a href="#produk">Product</a></li>
 													<li><a href="<?= base_url('home/by_kategori') ?>">Kategori<i class="ti-angle-down"></i><span class="new">New</span></a>
 														<ul class="dropdown">
 															<li><a href="<?= base_url('home/by_kategori') ?>">Shop By Category</a></li>
 														</ul>
-													</li>
-
-													<li><a href="#">Pages</a></li>									
+													</li>									
 													<li><a href="#">Blog<i class="ti-angle-down"></i></a>
 														<ul class="dropdown">
 															<li><a href="blog-single-sidebar.html">Blog Single Sidebar</a></li>

@@ -1,109 +1,94 @@
 <!-- Slider Area -->
 <section class="hero-slider">
-		<!-- Single Slider -->
-		<div class="slider-container">
+    <!-- Single Slider -->
+    <div class="slider-container">
         <div class="slider">
-            <div class="slide" style="background-image: url('gambar/gambar (1).jpg');"></div>
-            <div class="slide" style="background-image: url('gambar/gambar (2).jpg');"></div>
-            <div class="slide" style="background-image: url('gambar/gambar (3).jpg');"></div>
+            <div class="slide">
+                <img src="gambar/gambar (1).jpg" alt="Slide 1" style="width: 100%;" />
+            </div>
+            <div class="slide">
+                <img src="gambar/gambar (2).jpg" alt="Slide 2" style="width: 100%;" />
+            </div>
+            <div class="slide">
+                <img src="gambar/gambar (3).jpg" alt="Slide 3" style="width: 100%;" />
+            </div>
         </div>
-		<!--/ End Single Slider -->
-	</section>
-	<!--/ End Slider Area -->
-	
+    </div>
+    <!--/ End Single Slider -->
+</section>
+<!--/ End Slider Area -->
+
 <style>
-.slider-container {
-    width: 100%;
-    height: 0 auto;
-    overflow: hidden;
-    position: relative;
-}
+    .slider-container {
+        width: 100%;
+        height: 0 auto;
+        overflow: hidden;
+        position: relative;
+    }
 
-.slider {
-    display: flex;
-    transition: transform 0.5s ease;
-}
+    .slider {
+        display: flex;
+        transition: transform 0.5s ease;
+    }
 
-.slide {
-    flex: 0 0 100%;
-    height: 100vh;
-    background-size: cover;
-    background-position: center;
-}
+    .slide {
+        flex: 0 0 100%;
+        height: 90vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .slide img {
+        width: 100%;
+        height: auto;
+    }
+
+    @media (max-width: 768px) {
+        .slide {
+            height: 50vh; /* Ubah tinggi slider untuk tampilan ponsel sesuai kebutuhan Anda */
+        }
+    }
 </style>
 
 <script>
-	const slider = document.querySelector('.slider');
-const slides = document.querySelectorAll('.slide');
-let currentIndex = 0;
+    const slider = document.querySelector('.slider');
+    const slides = document.querySelectorAll('.slide');
+    let currentIndex = 0;
 
-function nextSlide() {
-    currentIndex = (currentIndex + 1) % slides.length;
+    function nextSlide() {
+        currentIndex = (currentIndex + 1) % slides.length;
+        updateSlider();
+    }
+
+    function updateSlider() {
+        const translateX = -currentIndex * 100;
+        slider.style.transform = `translateX(${translateX}%)`;
+    }
+
+    setInterval(nextSlide, 3000); // Ganti gambar setiap 5 detik
+
     updateSlider();
-}
-
-function updateSlider() {
-    const translateX = -currentIndex * 100;
-    slider.style.transform = `translateX(${translateX}%)`;
-}
-
-setInterval(nextSlide, 3000); // Ganti gambar setiap 5 detik
-
-updateSlider();
-
 </script>
+
+
 <!-- Start Small Banner  -->
 <section class="small-banner section">
 		<div class="container-fluid">
 			<div class="row">
-				<!-- Single Banner  -->
-				<div class="col-lg-4 col-md-6 col-12">
-					<div class="single-banner">
-						<img src="https://via.placeholder.com/600x370" alt="#">
-						<div class="content">
-							<p>Man's Collectons</p>
-							<h3>Summer travel <br> collection</h3>
-							<a href="#">Discover Now</a>
-						</div>
-					</div>
-				</div>
-				<!-- /End Single Banner  -->
-				<!-- Single Banner  -->
-				<div class="col-lg-4 col-md-6 col-12">
-					<div class="single-banner">
-						<img src="https://via.placeholder.com/600x370" alt="#">
-						<div class="content">
-							<p>Bag Collectons</p>
-							<h3>Awesome Bag <br> 2020</h3>
-							<a href="#">Shop Now</a>
-						</div>
-					</div>
-				</div>
-				<!-- /End Single Banner  -->
-				<!-- Single Banner  -->
-				<div class="col-lg-4 col-12">
-					<div class="single-banner tab-height">
-						<img src="https://via.placeholder.com/600x370" alt="#">
-						<div class="content">
-							<p>Flash Sale</p>
-							<h3>Mid Season <br> Up to <span>40%</span> Off</h3>
-							<a href="#">Discover Now</a>
-						</div>
-					</div>
-				</div>
-				<!-- /End Single Banner  -->
+				
 			</div>
 		</div>
 	</section>
 	<!-- End Small Banner -->
 	
 	<!-- Start Product Area -->
-    <div class="product-area section">
+    <div class="product-area section" id="produk">
             <div class="container">
 				<div class="row">
 					<div class="col-12">
 						<div class="section-title">
-							<h2>Trending Item</h2>
+							<h2>Produk</h2>
 						</div>
 					</div>
 				</div>
@@ -112,7 +97,7 @@ updateSlider();
 						<div class="product-info">
 							<div class="nav-main">
                                 		<!-- Tab Nav -->
-								<ul class="nav nav-tabs" id="myTab" role="tablist">
+								<!-- <ul class="nav nav-tabs" id="myTab" role="tablist">
 									
 									<li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#man" role="tab">All</a></li>
 									<li class="nav-item"><a class="nav-link" data-toggle="tab" href="#women" role="tab">Woman</a></li>
@@ -120,7 +105,7 @@ updateSlider();
 									<li class="nav-item"><a class="nav-link" data-toggle="tab" href="#accessories" role="tab">Accessories</a></li>
 									<li class="nav-item"><a class="nav-link" data-toggle="tab" href="#essential" role="tab">Essential</a></li>
 									<li class="nav-item"><a class="nav-link" data-toggle="tab" href="#prices" role="tab">Prices</a></li>
-								</ul>
+								</ul> -->
 								<!--/ End Tab Nav -->
 								</div>
 							<div class="tab-content" id="myTabContent">
@@ -259,39 +244,6 @@ updateSlider();
     </div>
 	<!-- End Product Area -->
 	
-	<!-- Start Midium Banner  -->
-	<section class="midium-banner">
-		<div class="container">
-			<div class="row">
-				<!-- Single Banner  -->
-				<div class="col-lg-6 col-md-6 col-12">
-					<div class="single-banner">
-						<img src="https://via.placeholder.com/600x370" alt="#">
-						<div class="content">
-							<p>Man's Collectons</p>
-							<h3>Man's items <br>Up to<span> 50%</span></h3>
-							<a href="#">Shop Now</a>
-						</div>
-					</div>
-				</div>
-				<!-- /End Single Banner  -->
-				<!-- Single Banner  -->
-				<div class="col-lg-6 col-md-6 col-12">
-					<div class="single-banner">
-						<img src="https://via.placeholder.com/600x370" alt="#">
-						<div class="content">
-							<p>shoes women</p>
-							<h3>mid season <br> up to <span>70%</span></h3>
-							<a href="#" class="btn">Shop Now</a>
-						</div>
-					</div>
-				</div>
-				<!-- /End Single Banner  -->
-			</div>
-		</div>
-	</section>
-	<!-- End Midium Banner -->
-	
 	<!-- Start Most Popular -->
 	<div class="product-area most-popular section">
         <div class="container">
@@ -311,7 +263,7 @@ updateSlider();
 								<a href="product-details.html">
 									<img class="default-img" src="https://via.placeholder.com/550x750" alt="#">
 									<img class="hover-img" src="https://via.placeholder.com/550x750" alt="#">
-									<span class="out-of-stock">Hot</span>
+									
 								</a>
 								<div class="button-head">
 									<div class="product-action">
@@ -333,85 +285,7 @@ updateSlider();
 							</div>
 						</div>
 						<!-- End Single Product -->
-						<!-- Start Single Product -->
-						<div class="single-product">
-                            <div class="product-img">
-                                <a href="product-details.html">
-                                    <img class="default-img" src="https://via.placeholder.com/550x750" alt="#">
-                                    <img class="hover-img" src="https://via.placeholder.com/550x750" alt="#">
-                                </a>
-								<div class="button-head">
-									<div class="product-action">
-										<a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i class=" ti-eye"></i><span>Quick Shop</span></a>
-										<a title="Wishlist" href="#"><i class=" ti-heart "></i><span>Add to Wishlist</span></a>
-										<a title="Compare" href="#"><i class="ti-bar-chart-alt"></i><span>Add to Compare</span></a>
-									</div>
-									<div class="product-action-2">
-										<a title="Add to cart" href="#">Add to cart</a>
-									</div>
-								</div>
-                            </div>
-                            <div class="product-content">
-                                <h3><a href="product-details.html">Women Hot Collection</a></h3>
-                                <div class="product-price">
-                                    <span>$50.00</span>
-                                </div>
-                            </div>
-                        </div>
-						<!-- End Single Product -->
-						<!-- Start Single Product -->
-						<div class="single-product">
-                            <div class="product-img">
-                                <a href="product-details.html">
-                                    <img class="default-img" src="https://via.placeholder.com/550x750" alt="#">
-                                    <img class="hover-img" src="https://via.placeholder.com/550x750" alt="#">
-									<span class="new">New</span>
-                                </a>
-								<div class="button-head">
-									<div class="product-action">
-										<a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i class=" ti-eye"></i><span>Quick Shop</span></a>
-										<a title="Wishlist" href="#"><i class=" ti-heart "></i><span>Add to Wishlist</span></a>
-										<a title="Compare" href="#"><i class="ti-bar-chart-alt"></i><span>Add to Compare</span></a>
-									</div>
-									<div class="product-action-2">
-										<a title="Add to cart" href="#">Add to cart</a>
-									</div>
-								</div>
-                            </div>
-                            <div class="product-content">
-                                <h3><a href="product-details.html">Awesome Pink Show</a></h3>
-                                <div class="product-price">
-                                    <span>$50.00</span>
-                                </div>
-                            </div>
-                        </div>
-						<!-- End Single Product -->
-						<!-- Start Single Product -->
-						<div class="single-product">
-                            <div class="product-img">
-                                <a href="product-details.html">
-                                    <img class="default-img" src="https://via.placeholder.com/550x750" alt="#">
-                                    <img class="hover-img" src="https://via.placeholder.com/550x750" alt="#">
-                                </a>
-								<div class="button-head">
-									<div class="product-action">
-										<a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i class=" ti-eye"></i><span>Quick Shop</span></a>
-										<a title="Wishlist" href="#"><i class=" ti-heart "></i><span>Add to Wishlist</span></a>
-										<a title="Compare" href="#"><i class="ti-bar-chart-alt"></i><span>Add to Compare</span></a>
-									</div>
-									<div class="product-action-2">
-										<a title="Add to cart" href="#">Add to cart</a>
-									</div>
-								</div>
-                            </div>
-                            <div class="product-content">
-                                <h3><a href="product-details.html">Awesome Bags Collection</a></h3>
-                                <div class="product-price">
-                                    <span>$50.00</span>
-                                </div>
-                            </div>
-                        </div>
-						<!-- End Single Product -->
+
                     </div>
                 </div>
             </div>
@@ -423,6 +297,7 @@ updateSlider();
 	<section class="shop-home-list section">
 		<div class="container">
 			<div class="row">
+		
 				<div class="col-lg-4 col-md-6 col-12">
 					<div class="row">
 						<div class="col-12">
@@ -617,35 +492,6 @@ updateSlider();
 	</section>
 	<!-- End Shop Home List  -->
 	
-	<!-- Start Cowndown Area -->
-	<section class="cown-down">
-		<div class="section-inner ">
-			<div class="container-fluid">
-				<div class="row">
-					<div class="col-lg-6 col-12 padding-right">
-						<div class="image">
-							<img src="https://via.placeholder.com/750x590" alt="#">
-						</div>	
-					</div>	
-					<div class="col-lg-6 col-12 padding-left">
-						<div class="content">
-							<div class="heading-block">
-								<p class="small-title">Deal of day</p>
-								<h3 class="title">Beatutyful dress for women</h3>
-								<p class="text">Suspendisse massa leo, vestibulum cursus nulla sit amet, frungilla placerat lorem. Cars fermentum, sapien. </p>
-								<h1 class="price">$1200 <s>$1890</s></h1>
-								<div class="coming-time">
-									<div class="clearfix" data-countdown="2021/02/30"></div>
-								</div>
-							</div>
-						</div>	
-					</div>	
-				</div>
-			</div>
-		</div>
-	</section>
-	<!-- /End Cowndown Area -->
-	
 	<!-- Start Shop Blog  -->
 	<section class="shop-blog section">
 		<div class="container">
@@ -697,51 +543,6 @@ updateSlider();
 		</div>
 	</section>
 	<!-- End Shop Blog  -->
-	
-	<!-- Start Shop Services Area -->
-	<section class="shop-services section home">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-3 col-md-6 col-12">
-					<!-- Start Single Service -->
-					<div class="single-service">
-						<i class="ti-rocket"></i>
-						<h4>Free shiping</h4>
-						<p>Orders over $100</p>
-					</div>
-					<!-- End Single Service -->
-				</div>
-				<div class="col-lg-3 col-md-6 col-12">
-					<!-- Start Single Service -->
-					<div class="single-service">
-						<i class="ti-reload"></i>
-						<h4>Free Return</h4>
-						<p>Within 30 days returns</p>
-					</div>
-					<!-- End Single Service -->
-				</div>
-				<div class="col-lg-3 col-md-6 col-12">
-					<!-- Start Single Service -->
-					<div class="single-service">
-						<i class="ti-lock"></i>
-						<h4>Sucure Payment</h4>
-						<p>100% secure payment</p>
-					</div>
-					<!-- End Single Service -->
-				</div>
-				<div class="col-lg-3 col-md-6 col-12">
-					<!-- Start Single Service -->
-					<div class="single-service">
-						<i class="ti-tag"></i>
-						<h4>Best Peice</h4>
-						<p>Guaranteed price</p>
-					</div>
-					<!-- End Single Service -->
-				</div>
-			</div>
-		</div>
-	</section>
-	<!-- End Shop Services Area -->
 	
 	<!-- Start Shop Newsletter  -->
 	<section class="shop-newsletter section">
