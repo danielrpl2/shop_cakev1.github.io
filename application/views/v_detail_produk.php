@@ -77,7 +77,7 @@
                                   
 
 									<div class="add-to-cart">
-                                    <button title="Add to cart" type="submit" class="btn min" style="border: none; padding: 0; background: none; background-color: yellow; color: black; width: 100px; font-size: 15px; border-radius: 5px;" onclick="addToCart('<?= $produk->nama_produk ?>')"> Add To <i class="fa fa-cart-plus" aria-hidden="true"></i> </button>
+                                    <button title="Add to cart" type="submit" class="btn min" style="border: none; padding: 0; background: none; background-color: #FFA733; color: white; width: 100px; font-size: 15px; border-radius: 5px;" onclick="addToCart('<?= $produk->nama_produk ?>')"> Add To <i style="color: black;" class="fa fa-cart-plus" aria-hidden="true"></i> </button>
 										<a href="#" class="btn min"><i class="ti-heart"></i></a>
 									</div>
                                     <div class="default-social">
@@ -245,3 +245,140 @@
         }, 2500);
     }
 </script>
+
+
+<!-- Deskripsi dan Komentar -->
+<div class="product-description">
+    <!-- Deskripsi Produk -->
+    <div class="description">
+        <h3>Deskripsi Produk</h3>
+        <p><?=$produk->deskripsi?></p>
+    </div>
+
+    <!-- Komentar Produk -->
+    <div class="comments">
+        <!-- Informasi Detail Produk -->
+        <div class="product-details">
+            <h4>Informasi Detail Produk</h4>
+            <br>
+            <ul>
+                <li><strong>Nama Produk :</strong> <?=$produk->nama_produk?></li>
+                <li><strong>Kategori :</strong> <?=$produk->nama_kategori?></li>
+                <li><strong>Harga :</strong> Rp. <?=number_format($produk->harga, 0)?></li>
+            </ul>
+        </div>
+
+        <!-- Form Komentar -->
+        <!-- <div class="comment-form">
+            <h4>Tinggalkan Komentar</h4>
+            <form action="#" method="post">
+                <div class="form-group">
+                    <label for="comment-name">Nama:</label>
+                    <input type="text" id="comment-name" name="comment-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="comment-message">Komentar:</label>
+                    <textarea id="comment-message" name="comment-message" required></textarea>
+                </div>
+                <button type="submit">Kirim Komentar</button>
+            </form>
+        </div> -->
+    </div>
+</div>
+
+<style>
+    .product-description {
+    margin-top: 20px;
+    padding: 20px;
+    margin: 75px;
+    background-color: #f7f7f7;
+    border-radius: 10px;
+}
+
+.description h3,
+.comments h3,
+.comment-form h4 {
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.description p {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.comments .comment {
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.comment-author {
+    display: flex;
+    align-items: center;
+}
+
+.comment-author img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.comment-author span {
+    font-weight: bold;
+}
+
+.comment p {
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.comment-form {
+    margin-top: 20px;
+}
+
+.comment-form form {
+    width: 100%;
+}
+
+.comment-form .form-group {
+    margin-bottom: 15px;
+}
+
+.comment-form label {
+    font-weight: bold;
+}
+
+.comment-form input[type="text"],
+.comment-form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.comment-form button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.comment-form button:hover {
+    background-color: #0056b3;
+}
+
+@media (max-width: 800px) {
+    .product-description {
+      
+      margin: 20px;
+    }
+}
+</style>

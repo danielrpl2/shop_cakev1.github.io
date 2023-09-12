@@ -55,7 +55,7 @@
     <!-- Konten Akun -->
     <section class="container my-5">
         <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-3">
                 <!-- Menu Akun -->
                 <div class="list-group">
                     <a href="#" class="list-group-item list-group-item-action active">
@@ -68,26 +68,26 @@
                     <a href="#" class="list-group-item list-group-item-action">Logout</a>
                 </div>
             </div>
-            <div class="col-md-8">
+            <div class="col-md-9">
                 <!-- Informasi Profil -->
                 <div class="card mb-4">
                     <div class="card-body">
-                        <h2>Profil Saya</h2>
-                        <div class="d-flex align-items-center">
+                        <h2 class="card-title">Profil Saya</h2>
+                        <div class="media">
                             <img src="path_ke_foto_profil.jpg" alt="Foto Profil" class="profile-image mr-3">
-                            <div>
-                                <h4>John Doe</h4>
-                                <p>john@example.com</p>
+                            <div class="media-body">
+                                <h4 class="mt-0">John Doe</h4>
+                                <p>Email: john@example.com</p>
+                                <button class="btn btn-primary">Ubah Profil</button>
                             </div>
                         </div>
-                        <a href="#" class="btn btn-primary mt-3">Ubah Profil</a>
                     </div>
                 </div>
 
                 <!-- Daftar Pesanan -->
                 <div class="card">
                     <div class="card-body">
-                        <h2>Pesanan Saya</h2>
+                        <h2 class="card-title">Pesanan Saya</h2>
                         <table class="table table-bordered">
                             <thead>
                                 <tr>

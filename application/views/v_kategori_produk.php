@@ -22,16 +22,24 @@
 					<div class="col-lg-3 col-md-4 col-12">
 						<div class="shop-sidebar">
 								<!-- Single Widget -->
-								<?php $kategori= $this->m_home->get_all_data_kategori(); ?>
+								<?php $kategori = $this->m_home->get_all_data_kategori(); ?>
 								<div class="single-widget category">
 									<h3 class="title">Categories</h3>
 									<ul class="categor-list">
 										<li><a href="<?= base_url('home/by_kategori') ?>">All Categories</a></li>
-									<?php foreach ($kategori as $key => $value) { ?>
-										<li><a href="<?= base_url('home/kategori/' .$value->id_kategori) ?>"><?= $value->nama_kategori ?></a></li>
-									  <?php } ?>
+										<?php foreach ($kategori as $key => $value) {
+											// Menghitung jumlah produk untuk kategori saat ini
+											$jumlahProduk = $this->m_home->get_total_produk_by_kategori($value->id_kategori);
+										?>
+											<li>
+												<a href="<?= base_url('home/kategori/' . $value->id_kategori) ?>">
+													<?= $value->nama_kategori ?> (<?= $jumlahProduk ?> Produk)
+												</a>
+											</li>
+										<?php } ?>
 									</ul>
 								</div>
+
 								<!--/ End Single Widget -->
 
 								<!-- Shop By Price -->
@@ -153,10 +161,10 @@
 											</select>
 										</div>
 									</div>
-									<ul class="view-mode">
+									<!-- <ul class="view-mode">
 										<li class="active"><a href="shop-grid.html"><i class="fa fa-th-large"></i></a></li>
 										<li><a href="shop-list.html"><i class="fa fa-th-list"></i></a></li>
-									</ul>
+									</ul> -->
 								</div>
 								<!--/ End Shop Top -->
 							</div>
@@ -172,7 +180,7 @@
 															echo form_hidden('name', $value->nama_produk); // Remove extra space after 'name'
 															echo form_hidden('redirect_page', str_replace('index.php/', '', current_url()));
 															?>
-															<div class="single-product">
+															<div class="single-product" style="width: 0 290px; padding: 5px;">
 																<div class="product-img" style="width: 100%; height: 310px; overlow: hideen; object-fit: cover; animation: all 0.5s">
 																	<a href="<?= base_url('home/detail_produk/'.$value->id_produk) ?>">
 																		<img style="width: 100%; height: 335px; overlow: hideen; object-fit: cover; object-position: center; animation: all 0.5s" class="default-img" src="<?= base_url('gambar/' .$value->gambar) ?>">
@@ -193,7 +201,7 @@
 																<div class="product-content">
 																	<h3><a href="<?= base_url('home/detail_produk/'.$value->id_produk) ?>"style="font-size: 20px; font-weight: 600;"><?= $value->nama_produk ?></a></h3>
 																	<div class="product-price">
-																		<span>Rp. <?= number_format($value->harga,0) ?></span>
+																		<span style="color: red;">Rp. <?= number_format($value->harga,0) ?></span>
 																	</div>
 																</div>
 															</div>

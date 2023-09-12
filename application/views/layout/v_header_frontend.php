@@ -1,5 +1,6 @@
 <body class="js">
-	
+<h1 style="text-align:center; font-size:100px;">MOCHAMAD DANIEL REZA</h1>
+
 	<!-- Preloader -->
 	<div class="preloader">
 		<div class="preloader-inner">
@@ -22,8 +23,8 @@
 						<!-- Top Left -->
 						<div class="top-left">
 							<ul class="list-main">
-								<li><i class="ti-headphone-alt"></i> +060 (800) 801-582</li>
-								<li><i class="ti-email"></i> support@shophub.com</li>
+								<li><i class="ti-headphone-alt"></i> 08764352644</li>
+								<li><i class="ti-email"></i> backry@shophub.com</li>
 							</ul>
 						</div>
 						<!--/ End Top Left -->
@@ -32,7 +33,7 @@
 						<!-- Top Right -->
 						<div class="right-content">
 							<ul class="list-main">
-								<li><i class="ti-location-pin"></i> Store location</li>
+								<li><i class="ti-location-pin"></i> <a href="https://www.google.com/maps/place/Nabilah+bakery/@-8.200408,113.5219355,47m/data=!3m1!1e3!4m6!3m5!1s0x2dd68fa24a33aaff:0x463383329ce4a094!8m2!3d-8.2004353!4d113.5218395!16s%2Fg%2F11syz09ntb!5m1!1e2?entry=ttu">Store location</a> </li>
 								<li><i class="ti-alarm-clock"></i> <a href="#">Daily deal</a></li>
 								<li><i class="ti-user"></i> <a href="#">My account</a></li>
 								<li><i class="ti-power-off"></i><a href="<?php base_url() ?>admin">Login</a></li>
@@ -58,19 +59,42 @@
 					<div class="col-lg-2 col-md-2 col-12">
 						<!-- Logo -->
 						<div class="logo">
-							<a href="index.html"><img src="<?= base_url() ?>assets/home_template/images/logo.png" alt="logo"></a>
+							<a href="<?= base_url() ?>"><img src="<?= base_url() ?>assets/home_template/images/logo.png" alt="logo"></a>
 						</div>
 						<!--/ End Logo -->
+						
 						<!-- Search Form -->
 						<div class="search-top">
-						<?php 
-							$keranjang = $this->cart->contents();
-							$jml_item = 0;
-							foreach ($keranjang as $key => $value) {
-								$jml_item = $jml_item + $value['qty'];
-							} 
-							?>
-						<div class="sinlge-bar shopping">
+							<?php 
+								$keranjang = $this->cart->contents();
+								$jml_item = 0;
+								foreach ($keranjang as $key => $value) {
+									$jml_item = $jml_item + $value['qty'];
+								} 
+								?>
+							
+							<div class="user-dropdown">
+							<?php if ($this->session->userdata('email') == "") { ?>
+									<button class="dropdown-toggle">
+									<i class="fa fa-user-circle-o" aria-hidden="true" style="font-size: 22px;"></i>
+									</button>
+									<div class="dropdown-menu">
+										<a href="<?= base_url ('pelanggan/login') ?>" class="dropdown-item">Login</a>
+										<a href="<?= base_url ('pelanggan/register') ?>" class="dropdown-item">Register</a>
+									</div>
+									<?php } else{ ?>
+										<button class="dropdown-toggle">
+											<i class="fa fa-user-circle-o" aria-hidden="true" style="font-size: 22px;"></i>
+										</button>
+									<div class="dropdown-menu">
+										<a href="#" class="dropdown-item">Profil</a>
+										<a href="#" class="dropdown-item">Pengaturan</a>
+										<a href="#" class="dropdown-item">Keluar</a>
+									</div>
+									<?php } ?>
+								</div>
+								<div class="double-bar shopping">
+							<!-- double bisa di ganti singgle -->
 							
 						<a href="#" class="single-icon"><i class="ti-bag"></i> <span class="total-count"><?= $jml_item ?></span></a>
 								
@@ -114,20 +138,20 @@
 								<!--/ End Shopping Item -->
 							</div>		
 							
-<style>
-  .total-count {
-    position: absolute;
-    top: -10px;
-    right: -10px;
-    background-color: red; /* Warna latar belakang label */
-    color: white; /* Warna teks label */
-    border-radius: 50%; /* Membuat label menjadi lingkaran */
-    padding: 1px 6px; /* Padding untuk label */
-    font-size: 10px; /* Ukuran font label */
-    min-width: 16px; /* Lebar minimum untuk label */
-    text-align: center; /* Pusatkan teks dalam label */
-}
-</style>
+								<style>
+								.total-count {
+									position: absolute;
+									top: -10px;
+									right: -10px;
+									background-color: red; /* Warna latar belakang label */
+									color: white; /* Warna teks label */
+									border-radius: 50%; /* Membuat label menjadi lingkaran */
+									padding: 1px 6px; /* Padding untuk label */
+									font-size: 10px; /* Ukuran font label */
+									min-width: 16px; /* Lebar minimum untuk label */
+									text-align: center; /* Pusatkan teks dalam label */
+								}
+								</style>
 
 							<!-- Search Form -->
 							<div class="search-top">
@@ -271,12 +295,6 @@
 													<li>
 														<a href="contact.html">Contact Us</a>
 													</li>
-													<li><a href="#">Create Akun<i class="ti-angle-down"></i></a>
-														<ul class="dropdown">
-															<li><a href="<?= base_url ('pelanggan/login') ?>">Login</a></li>
-															<li><a href="<?= base_url ('pelanggan/register') ?>">Register</a></li>
-														</ul>
-													</li>
 												</ul>
 										</div>
 									</div>
@@ -291,3 +309,50 @@
 		<!--/ End Header Inner -->
 	</header>
 	<!--/ End Header -->
+
+
+	<!-- css untuk icon user saat responsife -->
+	<style>
+        /* Gaya CSS untuk dropdown */
+        .user-dropdown {
+            position: relative;
+            display: inline-block;
+            text-align: center; /* Membuat dropdown muncul di tengah */
+        }
+
+        .dropdown-toggle {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 50%; /* Mengatur dropdown menu di tengah */
+            transform: translateX(-50%); /* Untuk menggeser menu ke kiri sejauh setengah lebar menu */
+            background-color: #fff;
+            border: 1px solid #ccc;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            min-width: 160px;
+			text-align: center;
+            z-index: 1;
+            display: none;
+        }
+
+        .user-dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        .dropdown-item {
+            padding: 5px;
+            text-decoration: none;
+            color: #333;
+            display: block;
+        }
+
+        .dropdown-item:hover {
+            background-color: #f1f1f1;
+        }
+    </style>

@@ -11,6 +11,17 @@ class M_home extends CI_Model
         return $this->db->get()->result();
     }
 
+    public function get_total_produk_by_kategori($id_kategori)
+    {
+        // Menghitung jumlah produk dalam kategori berdasarkan ID kategori
+        $this->db->select('COUNT(*) as total_produk');
+        $this->db->from('tbl_produk');
+        $this->db->where('id_kategori', $id_kategori);
+        $query = $this->db->get();
+        $result = $query->row();
+        return $result->total_produk;
+    }
+
     public function get_all_data_kategori(){
         $this->db->select('*');
         $this->db->from('tbl_kategori');

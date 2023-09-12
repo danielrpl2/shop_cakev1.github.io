@@ -5,9 +5,10 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Oline Shop | <?= $title ?></title>
+    <title>MOCHAMAD DANIEL REZA</title>
+    <!-- <title>Oline Shop | <?= $title ?></title> -->
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="<?= base_url() ?>assets/admin_template/images/favicon.png">
+    <link rel="icon" type="image/png" href="<?= base_url() ?>assets/admin_template/images/Picsart_23-09-12_10-14-52-974.png">
     <!-- Custom Stylesheet -->
     <link href="<?= base_url() ?>assets/admin_template/plugins/tables/css/datatable/dataTables.bootstrap4.min.css" rel="stylesheet">
     <link href="<?= base_url() ?>assets/admin_template/css/style.css" rel="stylesheet">
