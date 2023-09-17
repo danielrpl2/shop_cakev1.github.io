@@ -186,7 +186,7 @@
 									<a href="<?= base_url ('pelanggan/register') ?>" class="single-icon"><img src="<?= base_url() ?>assets/profileimg/daniel19_1693584575.jpg" alt="" style="width: 40px; height: 43px; border-radius: 40px"></a>
 								
 									<?php } else{ ?>
-										<a href="<?= base_url ('pelanggan/register') ?>" class="single-icon"><img src="<?= base_url('assets/foto/' . $this->session->userdata('foto')) ?>" alt="" style="width: 40px; height: 43px; border-radius: 40px; object-fit: cover;"></a>
+										<a href="<?= base_url ('pelanggan/register') ?>" class="single-icon"><i class="fa fa-user-circle" aria-hidden="true"></i></a>
 										<div class="shopping-item">
 										<div class="bottom">
 											<div class="total">

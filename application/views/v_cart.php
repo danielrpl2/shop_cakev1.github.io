@@ -92,7 +92,7 @@
 									</ul>
 									<hr>
 									<div class="button5">
-                                    <a href="#" class="btn" style="border-radius: 8px;"><i class="fa fa-shopping-cart"></i> Checkout</a>
+                                    <a href="<?= base_url('belanja/cekout') ?>" class="btn" style="border-radius: 8px;"><i class="fa fa-shopping-cart"></i> Checkout</a>
                                     <a href="<?= base_url() ?>" class="btn" style="border-radius: 8px;">Continue shopping <i class="fa fa-arrow-right"></i></a>
 									</div>
 								</div>

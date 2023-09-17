@@ -48,6 +48,23 @@ class Belanja extends CI_Controller {
         redirect('belanja');
     }
 
+    // public function cekout() 
+    // {
+    //     $data = array (
+    //         'title' => 'Cekout Belanja',
+    //         'isi' => 'v_cekout',
+    //     );
+    //     $this->load->view('layout/v_wrapper_frontend', $data, FALSE);  
+    // }
+    public function cekout() 
+    {
+        $data = array (
+            'title' => 'Cekout Belanja',
+            'isi' => 'v_cekout1',
+        );
+        $this->load->view('v_cekout1', $data, FALSE);  
+    }
+
     public function update()
     {
         $i = 1;
@@ -62,5 +79,15 @@ class Belanja extends CI_Controller {
     redirect('belanja');
 
     }
+
+    // public function cekout()
+	// {
+    //     $this->pelanggan_login->proteksi_halaman();
+    //     $data = array (
+    //         'title' => 'Cekout Keranjang',
+    //         'isi' => 'v_cekout',
+    //     );
+    //     $this->load->view('layout/v_wrapper_frontend', $data, FALSE);
+	// }    
 
 }
