@@ -1,39 +1,45 @@
-<!-- Breadcrumbs -->
-<div class="breadcrumbs">
-		<div class="container">
-			<div class="row">
-				<div class="col-12">
-					<div class="bread-inner">
-						<ul class="bread-list">
-							<li><a href="<?= base_url() ?>">Home<i class="ti-arrow-right"></i></a></li>
-							<li class="active"><a href="#">Cart</a></li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- End Breadcrumbs -->
-			
-	<!-- Shopping Cart -->
-	<div class="shopping-cart section">
-		<div class="container">
-			<div class="row">
-				<div class="col-12">
-					<!-- Shopping Summery -->
-                <?php echo form_open('belanja/update'); ?>
-					<table class="table shopping-summery">
-						<thead>
-							<tr class="main-hading">
-								<th>NAME</th>
-								<th class="text-center">Harga</th>
-								<th class="text-center">Berat</th>
-								<th class="text-center" >QTY</th>
-								<th class="text-center"><i class="ti-trash remove-icon"></i></th>
-							</tr>
-						</thead>
-                        <hr>
-                        <?php $i = 1; ?>
+<!-- Page Title -->
+<section class="page-title" style="background-image:url(<?= base_url() ?>assets/home2/images/background/2.jpg);">
+    	<div class="auto-container">
+        	<div class="inner-box">
+                <h1>Keranjang Belanja</h1>
+                <div class="bread-crumb"><a href="<?= base_url('home') ?>">Home &nbsp; /</a> <i class="current">Keranjang Belanja</i></div>
+            </div>
+        </div>
+    </section>
+	<!-- End Page Title -->
+<!--Cart Section-->
+<section class="cart-section">
+        <div class="auto-container">
+
+            <!--Cart Outer-->
+            <div class="cart-outer">
+            <div class="table-outer">
+                <?php 
+                                
+    if ($this->session->flashdata('pesan')) {
+     echo '<div class="alert alert-success alert-dismissible" style="background-color: rgb(63, 255, 0); color: black;">
+     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+     <h5><i class="icon fa fa-check"></i> Succes</h5>';
+     echo $this->session->flashdata('pesan');
+     echo '</div>';
+    }
+                                
+    ?>
+				<?php echo form_open('belanja/update'); ?>
+                    <table class="cart-table">
+                        <thead class="cart-header">
+                            <tr>
+                            	<th>Preview</th>
+                            	<th class="prod-column">Product</th>
+                                <th class="price">Price</th>
+                                <th>Quantity</th>
+                                <th>Total</th>
+                                <th>&nbsp;</th>
+                            </tr>
+                        </thead>
+
+						<?php $i = 1; ?>
                         <?php
 						 $total_berat = 0;
 						foreach ($this->cart->contents() as $items) {
@@ -41,13 +47,15 @@
 						 $berat = $items['qty'] * $produk->berat;
 						 $total_berat =  $total_berat + $berat; 
 						?>
-						<tbody>
-							<tr>
-								<td class="product-des" data-title="Name">
-									<p class="product-name"><p style="font-size: 25px; font-weight: 600; text-align: center;"><?php echo $items['name']; ?></p></p>
-								</td>
-								<td class="price" data-title="Price"><span>Rp. <?php echo number_format($items['price'],0); ?></span></td>
-								<td style="text-align: center;" data-title="Berat"><?= $berat ?> Gram.</td>
+                        <tbody>
+                        	<tr>
+                                <td class="prod-column">
+                                    <div class="column-box">
+                                        <figure class="prod-thumb"><a href="#"><img src="<?php echo base_url('gambar/') . $produk->gambar; ?>" style="border-radius: 10px; width: 100%;"></a></figure>
+                                    </div>
+                                </td>
+                                <td><h4 class="prod-title"><?php echo $items['name']; ?></h4></td>
+                                <td class="sub-total"><?= $berat ?> Gram.</td>
 								<td class="qty" data-title="Qty" >
                                     <?php echo form_input(array('name' => $i.'[qty]',
                                      'value' => $items['qty'],
@@ -59,50 +67,47 @@
 									 'style' => 'width: 100px;'
 									 )); ?>
 								</td>
-								<td class="action" data-title="Remove"><a href="<?= base_url('belanja/delete/' .$items['rowid']) ?>"><i class="ti-trash remove-icon"></i></a></td>
-							</tr>
+								   <td class="price">Rp. <?php echo number_format($items['price'],0); ?></td>
+                                <td><a href="<?= base_url('belanja/delete/' .$items['rowid']) ?>" class="remove-btn"><span class="flaticon-cancel"></span></a></td>
+                            </tr>
 							<?php $i++; ?>
                             <?php } ?>
-							
-						</tbody>
-					</table>
-					<!--/ End Shopping Summery -->
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-12">
-					<!-- Total Amount -->
-					<div class="total-amount">
-						<div class="row">
-						<div class="col-lg-8 col-md-5 col-12">
-							<div class="left">
-								<div class="coupon" style="display: flex; align-items: center;">
-									<button type="submit" class="btn" style="border-radius: 8px;"><i class="fa fa-floppy-o" aria-hidden="true"></i> Update Cart</button>
-									<a href="<?= base_url('belanja/clear') ?>" class="btn" style="border-radius: 8px; color: white; padding: 9px; margin-left: 10px;"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Clear All Cart !</a>
-								</div>
-							</div>
-						</div>
-							<div class="col-lg-4 col-md-7 col-12">
-								<div class="right">
-									<ul>
-										<li>Cart Subtotal<span>Rp. <?php echo $this->cart->format_number($this->cart->total()); ?></span></li>
-										<li>Total Berat<span><?= $total_berat ?> Gram.</span></li>
-										<!-- <li>You Save<span>$20.00</span></li>
-										<li class="last">You Pay<span>$310.00</span></li> -->
-									</ul>
-									<hr>
-									<div class="button5">
-                                    <a href="<?= base_url('belanja/cekout') ?>" class="btn" style="border-radius: 8px;"><i class="fa fa-shopping-cart"></i> Checkout</a>
-                                    <a href="<?= base_url() ?>" class="btn" style="border-radius: 8px;">Continue shopping <i class="fa fa-arrow-right"></i></a>
-									</div>
-								</div>
-							</div>
-						</div>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="cart-options clearfix">
+                    <div class="pull-left">
+                        <div class="apply-coupon clearfix">
+                            <div class="form-group clearfix">
+							<a href="<?= base_url('belanja/clear') ?>" class="btn btn-warning cart-btn btn-style-one" style="border-radius: 50px; color: white; background-color: red;"><span class="txt"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Clear Cart</span></a>
+                            </div>
+                            <div class="form-group clearfix">
+							<button type="submit" class="theme-btn cart-btn btn-style-two" style="background-color: yellow; color: black;"><span class="txt"><i class="fa fa-check" aria-hidden="true"></i> Update Cart</span></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pull-right">
+                        <a href="<?= base_url('home') ?>" class="theme-btn cart-btn btn-style-two" style="text-align: center;"><span class="txt">Continue Shoping <i class="fa fa-arrow-right"></i></span></a>
+                    </div>
+
+                </div>
+			
+                <div class="row clearfix">
+
+                    <div class="column pull-right col-md-5 col-sm-8 col-xs-12">
+                        <!--Totals Table-->
+                        <ul class="totals-table">
+                        	<li><h3>Cart Totals</h3></li>
+                            <li class="clearfix"><span class="col">Sub Total</span><span class="col">Rp. <?php echo $this->cart->format_number($this->cart->total()); ?></span></li>
+                            <li class="clearfix total"><span class="col">Total Berat</span><span class="col price"><?= $total_berat ?> Gram.</span></li>
+                            <li class="text-right"><a href="<?= base_url('belanja/cekout') ?>"  class="theme-btn btn-style-two proceed-btn"><span class="txt"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Checkout</span></a></li>
+                        </ul>
 					</div>
-					<!--/ End Total Amount -->
 				</div>
 			</div>
-            <?php echo form_close(); ?>
-		</div>
-	</div>
-	<!--/ End Shopping Cart -->
+			<?php echo form_close(); ?>
+        </div>
+    </section>
+    <!--End Cart Section-->

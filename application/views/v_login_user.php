@@ -4,19 +4,19 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link rel="apple-touch-icon" sizes="76x76" href="<?php base_url () ?>../assets/login_template/img/apple-icon.png">
-  <link rel="icon" type="image/png" href="<?php base_url () ?>../assets/login_template/img/favicon.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="<?= base_url () ?>/assets/login_template/img/apple-icon.png">
+  <link rel="icon" type="image/png" href="<?= base_url () ?>/assets/login_template/img/favicon2.png">
   <title>Toko Online | <?= $title ?></title>
   <!--     Fonts and icons     -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
   <!-- Nucleo Icons -->
-  <link href="<?php base_url () ?>../assets/login_template/css/nucleo-icons.css" rel="stylesheet" />
-  <link href="<?php base_url () ?>../assets/login_template/css/nucleo-svg.css" rel="stylesheet" />
+  <link href="<?= base_url () ?>/assets/login_template/css/nucleo-icons.css" rel="stylesheet" />
+  <link href="<?= base_url () ?>/assets/login_template/css/nucleo-svg.css" rel="stylesheet" />
   <!-- Font Awesome Icons -->
   <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
-  <link href="<?php base_url () ?>../assets/login_template/css/nucleo-svg.css" rel="stylesheet" />
+  <link href="<?= base_url () ?>/assets/login_template/css/nucleo-svg.css" rel="stylesheet" />
   <!-- CSS Files -->
-  <link id="pagestyle" href="<?php base_url () ?>../assets/login_template/css/argon-dashboard.css?v=2.0.4" rel="stylesheet" />
+  <link id="pagestyle" href="<?= base_url () ?>/assets/login_template/css/argon-dashboard.css?v=2.0.4" rel="stylesheet" />
 </head>
 
 <body class="">
@@ -158,8 +158,11 @@
                 <div class="mb-3">
                   <input type="password" class="form-control" placeholder="Password : admin" name="password" aria-label="Password">
                 </div>
+                <div class="mb-3">
+                 <div class="g-recaptcha" data-sitekey="6LcuRkAoAAAAAEBnTxSv51E7CglSn40vSXMS-dAN"></div>
+                </div>
                 <div class="text-center">
-                  <button type="submit" class="btn bg-gradient-dark w-100 my-4 mb-2">Sign up</button>
+                  <button type="submit" class="btn bg-gradient-dark w-100 my-4 mb-2">Login</button>
                 </div>
                 <?php echo form_close() ?>
             </div>
@@ -220,9 +223,40 @@
         </div>
       </div>
     </div>
+    
+    <style>
+
+    /* Gaya untuk teks "I'm not a robot" di dalam reCAPTCHA */
+    .g-recaptcha label {
+      font-size: 18px; /* Ukuran teks */
+      font-weight: bold; /* Ketebalan teks */
+      color: #333; /* Warna teks */
+    }
+
+    /* Gaya untuk tombol reCAPTCHA */
+    .g-recaptcha .rc-anchor-normal {
+      background-color: #007bff; /* Warna tombol */
+      border: none; /* Tidak ada batas tombol */
+      border-radius: 5px; /* Sudut tombol */
+      cursor: pointer; /* Kursor saat digunakan */
+    }
+
+    /* Gaya untuk teks di tombol reCAPTCHA */
+    .g-recaptcha .rc-anchor-content {
+      color: #fff; /* Warna teks di tombol */
+      font-size: 18px; /* Ukuran teks di tombol */
+    }
+
+    /* Gaya untuk kotak centang */
+    .g-recaptcha .rc-anchor-checkbox {
+      margin-right: 10px; /* Jarak dari teks "I'm not a robot" */
+    }
+  </style>
   </footer>
   <!-- -------- END FOOTER 3 w/ COMPANY DESCRIPTION WITH LINKS & SOCIAL ICONS & COPYRIGHT ------- -->
   <!--   Core JS Files   -->
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
   <script src="<?php base_url () ?>../assets/login_template/js/core/popper.min.js"></script>
   <script src="<?php base_url () ?>../assets/login_template/js/core/bootstrap.min.js"></script>
   <script src="<?php base_url () ?>../assets/login_template/js/plugins/perfect-scrollbar.min.js"></script>

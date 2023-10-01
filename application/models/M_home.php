@@ -61,6 +61,6 @@ class M_home extends CI_Model
         $this->db->where('tbl_produk.id_kategori', $id_kategori);
         return $this->db->get()->result();
     }
-
+    
 
 }

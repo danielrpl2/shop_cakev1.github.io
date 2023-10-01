@@ -8,7 +8,7 @@
     <title>MOCHAMAD DANIEL REZA</title>
     <!-- <title>Oline Shop | <?= $title ?></title> -->
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" href="<?= base_url() ?>assets/admin_template/images/Picsart_23-09-12_10-14-52-974.png">
+    <link rel="icon" type="image/png" href="<?= base_url() ?>assets/admin_template/images/title_icon.png">
     <!-- Custom Stylesheet -->
     <link href="<?= base_url() ?>assets/admin_template/plugins/tables/css/datatable/dataTables.bootstrap4.min.css" rel="stylesheet">
     <link href="<?= base_url() ?>assets/admin_template/css/style.css" rel="stylesheet">

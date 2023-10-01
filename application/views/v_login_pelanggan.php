@@ -106,6 +106,9 @@
                     <div class="mb-3">
                       <input type="password" name="password" value="<?= set_value('password') ?>" class="form-control form-control-lg" placeholder="Your Password.." aria-label="Your Password..">
                     </div>
+                    <div class="mb-3">
+                      <div class="g-recaptcha" data-sitekey="6LcuRkAoAAAAAEBnTxSv51E7CglSn40vSXMS-dAN"></div>
+                    </div>
                     <div class="text-center">
                       <button type="submit" class="btn btn-lg btn-primary btn-lg w-100 mt-4 mb-0">Login</button>
                     </div>
@@ -132,7 +135,44 @@
       </div>
     </section>
   </main>
+  <style>
+    /* Gaya untuk kontainer reCAPTCHA */
+    .g-recaptcha {
+      display: inline-block;
+      background-color: #f8f9fa; /* Warna latar belakang */
+      padding: 10px; /* Ruang di sekitar reCAPTCHA */
+      border-radius: 10px; /* Sudut elemen */
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); /* Efek bayangan */
+    }
+
+    /* Gaya untuk teks "I'm not a robot" di dalam reCAPTCHA */
+    .g-recaptcha label {
+      font-size: 18px; /* Ukuran teks */
+      font-weight: bold; /* Ketebalan teks */
+      color: #333; /* Warna teks */
+    }
+
+    /* Gaya untuk tombol reCAPTCHA */
+    .g-recaptcha .rc-anchor-normal {
+      background-color: #007bff; /* Warna tombol */
+      border: none; /* Tidak ada batas tombol */
+      border-radius: 5px; /* Sudut tombol */
+      cursor: pointer; /* Kursor saat digunakan */
+    }
+
+    /* Gaya untuk teks di tombol reCAPTCHA */
+    .g-recaptcha .rc-anchor-content {
+      color: #fff; /* Warna teks di tombol */
+      font-size: 18px; /* Ukuran teks di tombol */
+    }
+
+    /* Gaya untuk kotak centang */
+    .g-recaptcha .rc-anchor-checkbox {
+      margin-right: 15px; /* Jarak dari teks "I'm not a robot" */
+    }
+  </style>
   <!--   Core JS Files   -->
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
   <script src="<?php base_url () ?>../assets/login_template/js/core/popper.min.js"></script>
   <script src="<?php base_url () ?>../assets/login_template/js/core/bootstrap.min.js"></script>
   <script src="<?php base_url () ?>../assets/login_template/js/plugins/perfect-scrollbar.min.js"></script>

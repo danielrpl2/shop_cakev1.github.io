@@ -1,68 +1,94 @@
-<body class="js">
-	<!-- Preloader -->
-	<div class="preloader">
-		<div class="preloader-inner">
-			<div class="preloader-icon">
-				<span></span>
-				<span></span>
-			</div>
-		</div>
-	</div>
-	<!-- End Preloader -->
-	
-	
-	<!-- Header -->
-	<header class="header shop">
-		<!-- Topbar -->
-		<div class="topbar">
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-4 col-md-12 col-12">
-						<!-- Top Left -->
-						<div class="top-left">
-							<ul class="list-main">
-								<li><i class="ti-headphone-alt"></i> 08764352644</li>
-								<li><i class="ti-email"></i> backry@shophub.com</li>
-							</ul>
-						</div>
-						<!--/ End Top Left -->
-					</div>
-					<div class="col-lg-8 col-md-12 col-12">
-						<!-- Top Right -->
-						<div class="right-content">
-							<ul class="list-main">
-								<li><i class="ti-location-pin"></i> <a href="https://www.google.com/maps/place/Nabilah+bakery/@-8.200408,113.5219355,47m/data=!3m1!1e3!4m6!3m5!1s0x2dd68fa24a33aaff:0x463383329ce4a094!8m2!3d-8.2004353!4d113.5218395!16s%2Fg%2F11syz09ntb!5m1!1e2?entry=ttu">Store location</a> </li>
-								<li><i class="ti-alarm-clock"></i> <a href="#">Daily deal</a></li>
-								<li><i class="ti-user"></i> <a href="#">My account</a></li>
-								<li><i class="ti-power-off"></i><a href="<?php base_url() ?>admin">Login</a></li>
-							</ul>
-						</div>
-						<!-- End Top Right -->
-					</div>
-				</div>
-			</div>
-		</div>
 
-		<style>
-			@media screen and (max-width: 1100px) {
-				.topbar{
-					display: none;
-				}
-			}
-		</style>
-		<!-- End Topbar -->
-		<div class="middle-inner">
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-2 col-md-2 col-12">
-						<!-- Logo -->
-						<div class="logo">
-							<a href="<?= base_url() ?>"><img src="<?= base_url() ?>assets/home_template/images/logo.png" alt="logo"></a>
-						</div>
-						<!--/ End Logo -->
+    <!-- Preloader -->
+    <div class="preloader"></div>
+
+    <!-- Main Header / Header Style Two-->
+    <header class="main-header header-style-two">
+    	
+		<!--Header-Upper-->
+        <div class="header-upper">
+        	<div class="auto-container">
+            	<div class="clearfix">
+                	
+                	<div class="pull-left logo-box">
+                    	<div class="logo"><a href="<?= base_url() ?>"><img src="<?= base_url() ?>assets/home2/images/orabella2.png" alt="" title=""></a></div>
+                    </div>
+                    
+                    <div class="pull-right upper-right">
+                    	<div class="info-outer clearfix">
 						
-						<!-- Search Form -->
-						<div class="search-top">
+							<!--Info Box-->
+							<div class="upper-column info-box">
+								<div class="icon-box"><span class="flaticon-pin"></span></div>
+								<ul>
+									<li>2130 Fulton Street San Canada <br> Gambirono Bangsalsari</li>
+								</ul>
+							</div>
+							
+							<!--Info Box-->
+							<div class="upper-column info-box">
+								<div class="icon-box"><span class="flaticon-phone-call"></span></div>
+								<ul>
+									<li>Orabella Bakery : 08:30 - 18:00 <br> <a href="tel:+62 8698097666">+62 8698097666</a></li>
+								</ul>
+							</div>
+							
+							<!--Info Box-->
+							<div class="upper-column info-box">
+								<a href="#" class="theme-btn btn-style-two"><span class="txt">Contact</span></a>
+							</div>
+							
+                        </div>
+						
+                    </div>
+                    
+                </div>
+				
+            </div>
+        </div>
+        <!--End Header Upper-->
+        
+		<!--Header Lower-->
+		<div class="header-lower">
+			
+			<div class="auto-container clearfix">
+				<div class="nav-outer clearfix">
+					<!--Mobile Navigation Toggler For Mobile--><div class="mobile-nav-toggler"><span class="icon flaticon-menu"></span></div>
+					<!-- Main Menu -->
+					<nav class="main-menu navbar-expand-md">
+						<div class="navbar-header">
+							<!-- Toggle Button -->    	
+							<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+							</button>
+						</div>
+						
+						<div class="navbar-collapse collapse clearfix" id="navbarSupportedContent">
+							<ul class="navigation clearfix">
+								<li class="current"><a href="<?= base_url('home') ?>"><span data-hover="Home">Home</span></a>
+								</li>
+								
+								<li class="dropdown"><a href="#"><span data-hover="Shop">Shop</span></a>
+									<ul>
+										<li><a href="#">Single Produk</a></li>
+										<li><a href="<?= base_url('home/by_kategori') ?>">Kategori Produk</a></li>
+									</ul>
+								</li>
+
+								<li><a href="contact.html"><span data-hover="Contact">Contact</span></a></li>
+							</ul>
+						</div>
+					</nav>
+					
+					<!-- Main Menu End-->
+					<div class="outer-box clearfix">
+					
+						<!--Option Box-->
+						<div class="option-box">
+							
+							<!--Cart Box-->
 							<?php 
 								$keranjang = $this->cart->contents();
 								$jml_item = 0;
@@ -70,285 +96,286 @@
 									$jml_item = $jml_item + $value['qty'];
 								} 
 								?>
-							
-							<div class="user-dropdown">
-							<?php if ($this->session->userdata('email') == "") { ?>
-									<button class="dropdown-toggle">
-									<i class="fa fa-user-circle-o" aria-hidden="true" style="font-size: 22px;"></i>
-									</button>
-									<div class="dropdown-menu">
-										<a href="<?= base_url ('pelanggan/login') ?>" class="dropdown-item">Login</a>
-										<a href="<?= base_url ('pelanggan/register') ?>" class="dropdown-item">Register</a>
-									</div>
-									<?php } else{ ?>
-										<button class="dropdown-toggle">
-											<i class="fa fa-user-circle-o" aria-hidden="true" style="font-size: 22px;"></i>
-										</button>
-									<div class="dropdown-menu">
-										<a href="#" class="dropdown-item">Profil</a>
-										<a href="#" class="dropdown-item">Pengaturan</a>
-										<a href="#" class="dropdown-item">Keluar</a>
-									</div>
-									<?php } ?>
-								</div>
-								<div class="double-bar shopping">
-							<!-- double bisa di ganti singgle -->
-							
-						<a href="#" class="single-icon"><i class="ti-bag"></i> <span class="total-count"><?= $jml_item ?></span></a>
-								
-								<!-- Shopping Item -->
-								
-								<div class="shopping-item">
-									<div class="dropdown-cart-header">
-										<span><?= $jml_item ?> Items</span>
-										<!-- <a href="#">View Cart</a> -->
-									</div>
-									<?php if (empty($keranjang)) { ?>
-									<div class="dropdown-cart-header">
-										<h5 href="#">Keranjang Kosong</h5>
-									</div>
-									<?php } else {
-
-									foreach ($keranjang as $key => $value) { 
-									$produk = $this->m_home->detail_produk($value['id']);	
-									?>
-									<ul class="shopping-list">
-										<li>
-											<a class="cart-img" href="#"><img src="<?= base_url('gambar/' .$produk->gambar) ?>" alt="#" style="object-fit: cover;"></a>
-											<h4><a href="#"><?= $value['name'] ?></a></h4>
-											<p class="quantity"><?= $value['qty'] ?> x<span class="amount"> Rp.<?= number_format($value['price'],0) ?></span></p>
-											<p class="quantity"><i class="fa fa-calculator" aria-hidden="true"></i> Rp.<?= $this->cart->format_number($value['subtotal']); ?></p>
-										</li>
-									</ul>
-									<?php } ?>
-									<div class="bottom">
-										<div class="total">
-										<span>Total</span>
-										<span class="total-amount">Rp.<?= $this->cart->format_number($this->cart->total()); ?></span>
-									</div>
-										<a href="<?= base_url('belanja') ?>" class="btn animate">View Cart</a>
-										<a href="#" class="btn animate">Checkout</a>
-									</div>
-									<?php } ?>
-							
-									
-								</div>
-								<!--/ End Shopping Item -->
-							</div>		
-							
-								<style>
-								.total-count {
-									position: absolute;
-									top: -10px;
-									right: -10px;
-									background-color: red; /* Warna latar belakang label */
-									color: white; /* Warna teks label */
-									border-radius: 50%; /* Membuat label menjadi lingkaran */
-									padding: 1px 6px; /* Padding untuk label */
-									font-size: 10px; /* Ukuran font label */
-									min-width: 16px; /* Lebar minimum untuk label */
-									text-align: center; /* Pusatkan teks dalam label */
-								}
-								</style>
-
-							<!-- Search Form -->
-							<div class="search-top">
-								<form class="search-form">
-									<input type="text" placeholder="Search here..." name="search">
-									<button value="search" type="submit"><i class="ti-search"></i></button>
-								</form>
+							<div class="cart-box">
+								<div class="offset-side-bar cart-box-btn"><span class="flaticon-shopping-cart-of-checkered-design"></span><span class="total-cart"><?= $jml_item ?></span></div>
 							</div>
-							<!--/ End Search Form -->
-						</div>
-						<!--/ End Search Form -->
-						<div class="mobile-nav"></div>
-					</div>
-					<div class="col-lg-8 col-md-7 col-12">
-						<div class="search-bar-top">
-							<div class="search-bar">
-								<select>
-									<option selected="selected">All Category</option>
-									<option>watch</option>
-									<option>mobile</option>
-									<option>kid’s item</option>
-								</select>
-								<form>
-									<input name="search" placeholder="Search Products Here....." type="search">
-									<button class="btnn"><i class="ti-search"></i></button>
-								</form>
+							
+							<!-- Search Btn -->
+							<!-- <div class="search-box-btn"><span class="icon flaticon-search"></span></div> -->
+							
+							<!-- Main Menu End-->
+							<div class="nav-box">
+								<div class="nav-btn navSidebar-button"><span class="icon flaticon-menu-1"></span></div>
 							</div>
+							
 						</div>
 					</div>
-					<div class="col-lg-2 col-md-3 col-12">
-						<div class="right-bar">
-							<div class="sinlge-bar shopping">
-								<?php if ($this->session->userdata('email') == "") { ?>
-									<a href="<?= base_url ('pelanggan/register') ?>" class="single-icon"><img src="<?= base_url() ?>assets/profileimg/daniel19_1693584575.jpg" alt="" style="width: 40px; height: 43px; border-radius: 40px"></a>
-								
-									<?php } else{ ?>
-										<a href="<?= base_url ('pelanggan/register') ?>" class="single-icon"><i class="fa fa-user-circle" aria-hidden="true"></i></a>
-										<div class="shopping-item">
-										<div class="bottom">
-											<div class="total">
-											<a href="#">Nama :  <?= $this->session->userdata('nama_pelanggan')?></a>
-										</div>
-											<a href="<?= base_url ('pelanggan/akun') ?>" class="btn animate"><i class="fa fa-user-circle" aria-hidden="true"></i> Akun Saya</a>
-											<a href="<?= base_url ('pelanggan/logout') ?>" class="btn animate"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Pesanan Saya</a>
-											<a href="<?= base_url ('pelanggan/logout') ?>" class="btn animate"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a>
-										</div>
-									</div>
-								<?php } ?>
-								
-							</div>
-							<div class="sinlge-bar">
-								<a href="<?= base_url() ?>admin" class="single-icon"><i class="fa fa-user-circle-o" aria-hidden="true"></i></a>
-							</div>
+					
+				</div>
+			</div>
+		</div>
+		<!--End Header Lower-->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
-							<?php 
-							$keranjang = $this->cart->contents();
-							$jml_item = 0;
-							foreach ($keranjang as $key => $value) {
-								$jml_item = $jml_item + $value['qty'];
-							} 
+		<!-- sidebar cart item -->
+			<div class="xs-sidebar-group cart-group">
+				<div class="xs-overlay xs-bg-black"></div>
+				<div class="xs-sidebar-widget">
+					<div class="sidebar-widget-container">
+						<div class="widget-heading media">
+							<div class="media-body">
+								<a href="#" class="close-side-widget"><span class="icon flaticon-cancel"></span></a>
+							</div>
+						</div>
+						
+						<div class="xs-empty-content">
+							<?php if (empty($keranjang)) { ?>
+								<h1>KERANJANG KOSONG</h1>
+							<?php } else {
+							
+
+							foreach ($keranjang as $key => $value) { 
+							$produk = $this->m_home->detail_produk($value['id']);	
 							?>
-							<div class="sinlge-bar shopping">
-								<a href="#" class="single-icon"><i class="ti-bag"></i> <span class="total-count"><?= $jml_item ?></span></a>
-								
-								<!-- Shopping Item -->
-								
-								<div class="shopping-item">
-									<div class="dropdown-cart-header">
-										<span><?= $jml_item ?> Items</span>
-										<!-- <a href="#">View Cart</a> -->
-									</div>
-									<?php if (empty($keranjang)) { ?>
-									<div class="dropdown-cart-header">
-										<h5 href="#">Keranjang Kosong</h5>
-									</div>
-									<?php } else {
-
-									foreach ($keranjang as $key => $value) { 
-									$produk = $this->m_home->detail_produk($value['id']);	
-									?>
-									<ul class="shopping-list">
-										<li>
-											<a class="cart-img" href="#"><img src="<?= base_url('gambar/' .$produk->gambar) ?>" alt="#" style="object-fit: cover;"></a>
-											<h4><a href="#"><?= $value['name'] ?></a></h4>
-											<p class="quantity"><?= $value['qty'] ?> x<span class="amount"> Rp.<?= number_format($value['price'],0) ?></span></p>
-											<p class="quantity"><i class="fa fa-calculator" aria-hidden="true"></i> Rp.<?= $this->cart->format_number($value['subtotal']); ?></p>
-										</li>
-									</ul>
-									<?php } ?>
-									<div class="bottom">
-										<div class="total">
-										<span>Total</span>
-										<span class="total-amount">Rp.<?= $this->cart->format_number($this->cart->total()); ?></span>
-									</div>
-										<a href="<?= base_url('belanja') ?>" class="btn animate">View Cart</a>
-										<a href="#" class="btn animate">Checkout</a>
-									</div>
-									<?php } ?>
-							
-									
+							<!-- Cart Product -->
+							<div class="cart-product">
+								<div class="inner">
+									<div class="cross-icon"><span class="icon fa fa-remove"></span></div>
+									<div class="image"><img src="<?= base_url('gambar/' .$produk->gambar) ?>" alt="" /></div>
+									<h3><a href="shop-single.html"><?= $value['name'] ?></a></h3>
+									<div class="quantity-text">Qty : <?= $value['qty'] ?></div>
+									<div class="price">Rp.<?= $this->cart->format_number($value['subtotal']); ?></div>
 								</div>
-								<!--/ End Shopping Item -->
-
 							</div>
+							<?php } ?>
+							<p class="xs-btn-wraper">
+								<a class="btn keranjang btn-style-two" href="<?= base_url('belanja') ?>"><span class="txt">View Keranjang</span></a>
+								<br>
+								<a class="btn keranjang btn-style-two" href="<?= base_url('belanja/cekout') ?>"><span class="txt">Cekout</span></a>
+							</p>
 						</div>
+						<?php } ?>
 					</div>
 				</div>
 			</div>
-		</div>
-		<!-- Header Inner -->
-		<div class="header-inner">
-			<div class="container">
-				<div class="cat-nav-head">
-					<div class="row">
-						<div class="col-lg-3">
-							<div class="all-category">
-								<a href="<?= base_url('') ?>"><h3 class="cat-heading">Enjoy Shopping</h3></a>
-							</div>
-						</div>
-						<div class="col-lg-9 col-12">
-							<div class="menu-area">
-								<!-- Main Menu -->
-								<nav class="navbar navbar-expand-lg">
-									<div class="navbar-collapse">	
-										<div class="nav-inner">	
-											<ul class="nav main-menu menu navbar-nav">
-													<li class="active"><a href="<?= base_url() ?>">Home</a></li>
-													<li><a href="#produk">Product</a></li>
-													<li><a href="<?= base_url('home/by_kategori') ?>">Kategori<i class="ti-angle-down"></i><span class="new">New</span></a>
-														<ul class="dropdown">
-															<li><a href="<?= base_url('home/by_kategori') ?>">Shop By Category</a></li>
-														</ul>
-													</li>									
-													<li><a href="#">Blog<i class="ti-angle-down"></i></a>
-														<ul class="dropdown">
-															<li><a href="blog-single-sidebar.html">Blog Single Sidebar</a></li>
-														</ul>
-													</li>
-													<li>
-														<a href="contact.html">Contact Us</a>
-													</li>
-												</ul>
-										</div>
-									</div>
-								</nav>
-								<!--/ End Main Menu -->	
-							</div>
-						</div>
+			<!-- END sidebar cart item -->
+
+		<!--Sticky Header-->
+        <div class="sticky-header">
+        	<div class="auto-container clearfix">
+            	<!--Logo-->
+            	<div class="logo pull-left">
+                	<a href="<?= base_url() ?>" class="img-responsive"><img src="<?= base_url() ?>assets/home2/images/orabella2.png" alt="" title=""></a>
+                </div>
+                
+				<!--Right Col-->
+                <div class="right-col pull-right">
+					<!-- Main Menu -->
+                    <nav class="main-menu navbar-expand-md">
+                        <div class="navbar-collapse collapse clearfix" id="navbarSupportedContent1">
+                            <ul class="navigation clearfix"><!--Keep This Empty / Menu will come through Javascript--></ul>
+                        </div>
+                    </nav><!-- Main Menu End-->
+                </div>
+                
+            </div>
+        </div>
+        <!--End Sticky Header-->
+		
+    	<!-- Mobile Menu  -->
+        <div class="mobile-menu">
+            <div class="menu-backdrop"></div>
+            <div class="close-btn"><span class="icon far fa-window-close"></span></div>
+            
+            <!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header-->
+            <nav class="menu-box">
+            	<div class="nav-logo"><a href="<?= base_url() ?>"><img src="<?= base_url() ?>assets/home2/images/orabella2.png" alt="" title=""></a></div>
+                
+                <ul class="navigation clearfix"><!--Keep This Empty / Menu will come through Javascript--></ul>
+            </nav>
+        </div><!-- End Mobile Menu -->
+
+    </header>
+    <!-- End Main Header -->
+
+	
+<!-- sidebar cart item -->
+<div class="xs-sidebar-group info-group">
+	<div class="xs-overlay xs-bg-black"></div>
+	<div class="xs-sidebar-widget">
+		<div class="sidebar-widget-container">
+			<div class="widget-heading">
+				<a href="#" class="close-side-widget"><span class="icon flaticon-cancel"></span></a>
+			</div>
+			<div class="sidebar-textwidget">
+				
+				<!-- Sidebar Info Content -->
+		<?php if ($this->session->userdata('email') == "") { ?>
+            <div class="sidebar-info-contents">
+				<div class="content-inner">
+					<div class="logo">
+						<a href="<?= base_url() ?>"><img src="<?= base_url() ?>assets/home2/images/orabella2.png" alt="" /></a>
 					</div>
+					<div class="content-box">
+						<h2>Pelanggan</h2>
+						<p class="text">Silahkan register terlebih dahulu agar bisa login, Jika sudah punya akun maka silahkan login</p>
+						<a href="<?= base_url ('pelanggan/login') ?>" class="theme-btn btn-style-two"><span class="txt">Login</span></a>
+						<a href="<?= base_url ('pelanggan/register') ?>" class="theme-btn btn-style-two"><span class="txt">Register</span></a>
+					</div>
+					<?php } else{ ?>
+						<div class="content-inner">
+					<div class="logo">
+						<a href="<?= base_url() ?>"><img src="<?= base_url() ?>assets/home2/images/orabella2.png" alt="" /></a>
+					</div>
+					<div class="contact-info">
+						<br>
+						<br>
+						<ul class="list-style-two">
+							<li><span class="icon flaticon-map"></span><?= $this->session->userdata('nama_pelanggan')?></li>
+							<li><span class="icon flaticon-telephone"></span>(111) 000-000-0000</li>
+							<li><span class="icon flaticon-message-1"></span><?= $this->session->userdata('email')?></li>
+							<li><span class="icon flaticon-timetable"></span>Week Days: 09.00 to 18.00 Sunday: Closed</li>
+						</ul>
+						<br>
+						<div class="content-box">
+						<a href="<?= base_url ('pesanan_saya') ?>" class="theme-btn btn-style-two"><span class="txt">Pesanan Saya</span></a>
+						<a href="<?= base_url ('pelanggan/logout') ?>" class="theme-btn btn-style-two"><span class="txt">Logout</span></a>
+					</div>
+					</div>
+					<!-- Social Box -->
+					<!-- <ul class="social-box">
+						<li class="facebook"><a href="#" class="fab fa-facebook-f"></a></li>
+						<li class="twitter"><a href="#" class="fab fa-twitter"></a></li>
+						<li class="linkedin"><a href="#" class="fab fa-linkedin-in"></a></li>
+						<li class="instagram"><a href="#" class="fab fa-instagram"></a></li>
+						<li class="youtube"><a href="#" class="fab fa-youtube"></a></li>
+					</ul> -->
 				</div>
 			</div>
+			<?php } ?>
+			</div>
 		</div>
-		<!--/ End Header Inner -->
-	</header>
-	<!--/ End Header -->
+	</div>
+</div>
+<!-- END sidebar widget item -->
 
+</div>
+<script>
+    function addToCart(productName) {
+        // Send an AJAX request to add the product to the cart
+        $.ajax({
+            url: 'belanja/add', // Adjust the URL to your actual endpoint
+            type: 'POST',
+            data: { 'product_name': productName },
+            success: function(response) {
+                // Update the cart item count on success
+                updateCartItemCount(response.item_count);
+            },
+            error: function() {
+                // Handle error, if any
+            }
+        });
+    }
 
-	<!-- css untuk icon user saat responsife -->
-	<style>
-        /* Gaya CSS untuk dropdown */
-        .user-dropdown {
-            position: relative;
-            display: inline-block;
-            text-align: center; /* Membuat dropdown muncul di tengah */
+    function updateCartItemCount(itemCount) {
+        $('.total-count').text(itemCount);
+    }
+</script>
+<!-- CSS untuk tampilan alert -->
+<style>
+    .custom-alert {
+        display: none;
+        position: fixed;
+		width: auto;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 15px;
+        border-radius: 5px;
+        background-color: #4CAF50;
+        color: white;
+        z-index: 1000;
+        animation: slide-in 0.5s, slide-out 0.5s 2s forwards;
+    }
+
+    @keyframes slide-in {
+        0% {
+            transform: translate(-50%, -150%);
         }
-
-        .dropdown-toggle {
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 0;
+        100% {
+            transform: translate(-50%, -50%);
         }
+    }
 
-        .dropdown-menu {
-            position: absolute;
-            top: 100%;
-            left: 50%; /* Mengatur dropdown menu di tengah */
-            transform: translateX(-50%); /* Untuk menggeser menu ke kiri sejauh setengah lebar menu */
-            background-color: #fff;
-            border: 1px solid #ccc;
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-            min-width: 160px;
-			text-align: center;
-            z-index: 1;
-            display: none;
+    @keyframes slide-out {
+        0% {
+            transform: translate(-50%, -50%);
         }
+        100% {
+            transform: translate(-50%, -150%);
+        }
+    }
+</style>
 
-        .user-dropdown:hover .dropdown-menu {
-            display: block;
-        }
+<!-- JavaScript untuk menampilkan alert -->
+<script>
+    // Fungsi untuk menampilkan alert saat tombol "Add To Cart" ditekan
+    function addToCart(productName) {
+        var alertBox = document.createElement('div');
+        alertBox.classList.add('custom-alert');
+        alertBox.textContent = productName + ' sudah ditambahkan ke keranjang.';
+        document.body.appendChild(alertBox);
 
-        .dropdown-item {
-            padding: 5px;
-            text-decoration: none;
-            color: #333;
-            display: block;
-        }
+        setTimeout(function () {
+            alertBox.style.display = 'block';
+        }, 100);
 
-        .dropdown-item:hover {
-            background-color: #f1f1f1;
-        }
-    </style>
+        setTimeout(function () {
+            alertBox.style.display = 'none';
+            document.body.removeChild(alertBox);
+        }, 2500);
+    }
+</script>
+				
+<style>
+
+.xs-btn-wraper{
+	display: flex; /* Membuat elemen child sejajar */
+    justify-content: space-between; /* Menempatkan elemen child sejajar dengan jarak di antara mereka */
+}
+
+.keranjang{
+	text-align: center;
+    padding: 10px 20px; /* Sesuaikan padding sesuai kebutuhan Anda */
+    border-radius: 5px; /* Tambahkan sudut melengkung jika diinginkan */
+}
+
+.theme-btn {
+    text-align: center;
+    padding: 10px 20px; /* Sesuaikan padding sesuai kebutuhan Anda */
+    border-radius: 5px; /* Tambahkan sudut melengkung jika diinginkan */
+}
+
+/* CSS untuk responsif */
+@media (max-width: 768px) {
+    .content-box {
+        flex-direction: column; /* Tumpukan elemen child di bawah satu sama lain pada layar kecil */
+        align-items: center; /* Pusatkan elemen child secara horizontal */
+    }
+
+	.xs-btn-wraper{
+		flex-direction: column; /* Tumpukan elemen child di bawah satu sama lain pada layar kecil */
+        align-items: center; /* Pusatkan elemen child secara horizontal */
+}
+
+.keranjang{
+	margin: 5px 0; /* Berikan sedikit jarak antara tautan pada layar kecil */
+
+}
+
+    .theme-btn {
+        margin: 5px 0; /* Berikan sedikit jarak antara tautan pada layar kecil */
+    }
+}
+
+</style>

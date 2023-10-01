@@ -1,45 +1,31 @@
 <!DOCTYPE html>
-<html lang="zxx">
+<html lang="en">
+
+<!-- dream-property/index-2.html  18 Nov 2019 05:01:32 GMT -->
 <head>
-	<!-- Meta Tag -->
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name='copyright' content=''>
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<!-- Title Tag  -->
-    <!-- <title>Online Shop | <?= $title ?></title> -->
-    <title>MOCHAMAD DANIEL REZA</title>
-	<!-- Favicon -->
-	<link rel="icon" type="image/png" href="images/favicon.png">
-	<!-- Web Font -->
-	<link href="https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap" rel="stylesheet">
-	
-	<!-- StyleSheet -->
-	
-	<!-- Bootstrap -->
-	<link rel="stylesheet" href="<?= base_url() ?>assets/home_template/css/bootstrap.css">
-	<!-- Magnific Popup -->
-    <link rel="stylesheet" href="<?= base_url() ?>assets/home_template/css/magnific-popup.min.css">
-	<!-- Font Awesome -->
-    <link rel="stylesheet" href="<?= base_url() ?>assets/home_template/css/font-awesome.css">
-	<!-- Fancybox -->
-	<link rel="stylesheet" href="<?= base_url() ?>assets/home_template/css/jquery.fancybox.min.css">
-	<!-- Themify Icons -->
-    <link rel="stylesheet" href="<?= base_url() ?>assets/home_template/css/themify-icons.css">
-	<!-- Nice Select CSS -->
-    <link rel="stylesheet" href="<?= base_url() ?>assets/home_template/css/niceselect.css">
-	<!-- Animate CSS -->
-    <link rel="stylesheet" href="<?= base_url() ?>assets/home_template/css/animate.css">
-	<!-- Flex Slider CSS -->
-    <link rel="stylesheet" href="<?= base_url() ?>assets/home_template/css/flex-slider.min.css">
-	<!-- Owl Carousel -->
-    <link rel="stylesheet" href="<?= base_url() ?>assets/home_template/css/owl-carousel.css">
-	<!-- Slicknav -->
-    <link rel="stylesheet" href="<?= base_url() ?>assets/home_template/css/slicknav.min.css">
-	
-	<!-- Eshop StyleSheet -->
-	<link rel="stylesheet" href="<?= base_url() ?>assets/home_template/css/reset.css">
-	<link rel="stylesheet" href="<?= base_url() ?>assets/home_template/style.css">
-    <link rel="stylesheet" href="<?= base_url() ?>assets/home_template/css/responsive.css">
+<meta charset="utf-8">
+<title>Toko Online | <?= $title ?></title>
+<!-- Stylesheets -->
+<link href="<?= base_url() ?>/assets/home2/css/bootstrap.css" rel="stylesheet">
+<link href="<?= base_url() ?>/assets/home2/css/style.css" rel="stylesheet">
+<link href="<?= base_url() ?>/assets/home2/css/responsive.css" rel="stylesheet">
+
+<!--Color Switcher Mockup-->
+<link href="<?= base_url() ?>/assets/home2/css/color-switcher-design.css" rel="stylesheet">
+<!--Color Themes-->
+<link id="theme-color-file" href="<?= base_url() ?>/assets/home2/css/color-themes/default-theme.css" rel="stylesheet">
+
+<link rel="shortcut icon" href="<?= base_url() ?>/assets/home2/images/favicon2.png" type="image/x-icon">
+<link rel="icon" href="<?= base_url() ?>/assets/home2/images/favicon2.png" type="image/x-icon">
+
+<!-- Responsive -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script><![endif]-->
+<!--[if lt IE 9]><script src="js/respond.js"></script><![endif]-->
 </head>
+
+<body>
+
+<div class="page-wrapper">
+

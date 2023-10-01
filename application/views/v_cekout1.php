@@ -19,34 +19,67 @@
   <link rel="stylesheet" href="<?= base_url() ?>assets/user_login_template/plugins/bs-stepper/css/bs-stepper.min.css">
   <link rel="stylesheet" href="<?= base_url() ?>assets/user_login_template/plugins/dropzone/min/dropzone.min.css">
   <link rel="stylesheet" href="<?= base_url() ?>assets/user_login_template/dist/css/adminlte.min.css">
+  <style>
+    /* Warna Latar Belakang Navbar */
+    .navbar {
+      background-color: #f7941d; /* Warna biru */
+    }
+
+    /* Warna Teks Navbar */
+    .navbar-brand, .nav-link {
+      color: #fff; /* Warna putih */
+    }
+
+    /* Warna Teks Title Row */
+    .invoice h4 {
+      color: #333; /* Warna abu-abu tua */
+    }
+
+    /* Warna Teks Strong (Dari/To) */
+    .invoice-info strong {
+      color: #555; /* Warna abu-abu tua */
+    }
+
+    /* Warna Latar Card Header */
+    .card-header {
+      background-color: #f7941d; /* Warna biru */
+    }
+
+    /* Warna Teks Card Title */
+    .card-title {
+      color: #fff; /* Warna putih */
+    }
+
+    /* Warna Tombol Kembali Ke Keranjang */
+    .btn-default {
+      background-color: #f0ad4e; /* Warna kuning */
+      color: #fff; /* Warna putih */
+    }
+  </style>
 </head>
-<body class="hold-transition sidebar-mini">
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container"> <!-- Tambahkan container untuk mengatur lebar konten -->
-      <a class="navbar-brand" href="#">Nama Situs Anda</a>
-      <!-- Tombol burger menu untuk layar kecil -->
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <!-- Daftar navigasi -->
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ml-auto"> <!-- ml-auto untuk menggeser menu ke kanan -->
-          <li class="nav-item">
-            <a class="nav-link" href="#">Beranda</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Produk</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Keranjang</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Kontak</a>
-          </li>
-        </ul>
-      </div>
+<body class="hold-transition sidebar-mini" style="background-color: #fff;">
+<nav class="navbar navbar-expand-lg navbar-light">
+  <div class="container">
+    <a class="navbar-brand" href="<?= base_url('home') ?>" style="color: white; font-size: 24px; font-weight: bold;"><img src="<?= base_url() ?>assets/home_template/images/logo4.png" style="width: 20%;"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="<?= base_url('home') ?>" style="color: white;">Beranda</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="<?= base_url('produk') ?>" style="color: white;">Produk</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="<?= base_url('belanja') ?>" style="color: white;">Keranjang</a>
+        </li>
+      </ul>
     </div>
-  </nav>
+  </div>
+</nav>
+
 <div class="wrapper">
 
 
@@ -57,7 +90,7 @@
       <div class="col-12">
         <h4>
           <i class="fas fa-globe"></i> AdminLTE, Inc.
-          <small class="float-right">Date: 2/10/2014</small>
+          <p class="float-right" id="tanggal"></p>
         </h4>
       </div>
     </div>
@@ -97,65 +130,60 @@
 
   <!-- Container -->
   <div class="container-fluid">
-    <!-- Tabel Produk -->
-    <div class="card card-default">
-      <div class="card-header">
-        <h3 class="card-title">Daftar Produk</h3>
-      </div>
-      <div class="card-body">
-        <!-- Tabel -->
-        <div class="col-12 table-responsive">
-        <table class="table table-striped">
-                    <thead>
-                    <tr>
-                      <th style="text-align: center;">Qty</th>
-                      <th style="text-align: center;">Product</th>
-                      <th style="text-align: center;">Harga</th>
-                      <th style="text-align: center;">Total</th>
-                      <th style="text-align: center;">Berat</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-
-                      <?php $i = 1;           
-                      $total_berat = 0;
-                      foreach ($this->cart->contents() as $items) {
-                      $produk = $this->m_home->detail_produk($items['id']);
-                      $berat = $items['qty'] * $produk->berat;
-                      $total_berat =  $total_berat + $berat; 
-                      ?>
-                    <tr>
-                      <td style="text-align: center;"><?php echo $items['qty'] ?></td>
-                      <td style="text-align: center;"><?php echo $items['name']; ?></td>
-                      <td style="text-align: center;">Rp. <?php echo number_format($items['price'],0); ?></td>
-                      <td style="text-align: center;">Rp. <?php echo number_format($items['subtotal'],0); ?></td>
-                      <td style="text-align: center;"><?= $berat ?> Gram.</td>
-                    </tr>
-                    <?php } ?>
-
-                    </tbody>
-                  </table>
-        </div>
-      </div>
+   <!-- Tabel Produk -->
+   <div class="card card-default">
+  <div class="card-header">
+    <h3 class="card-title">Daftar Produk</h3>
+  </div>
+  <div class="card-body">
+    <!-- Tabel -->
+    <div class="col-12 table-responsive">
+      <table class="table table-striped table-bordered">
+        <thead>
+          <tr>
+            <th style="text-align: center;">Gambar</th>
+            <th style="text-align: center;">Qty</th>
+            <th style="text-align: center;">Product</th>
+            <th style="text-align: center;">Harga</th>
+            <th style="text-align: center;">Total</th>
+            <th style="text-align: center;">Berat</th>
+          </tr>
+        </thead>
+        <tbody>
+          <?php
+          $i = 1;
+          $total_berat = 0;
+          foreach ($this->cart->contents() as $items) {
+            $produk = $this->m_home->detail_produk($items['id']);
+            $berat = $items['qty'] * $produk->berat;
+            $total_berat =  $total_berat + $berat;
+          ?>
+            <tr>
+            <td style="text-align: center;"><img src="<?php echo base_url('gambar/') . $produk->gambar; ?>" alt="Gambar Produk" width="100" style="border-radius: 10px;"></td>              
+            <td style="text-align: center;"><?php echo $items['qty'] ?></td>
+              <td><?php echo $items['name']; ?></td>
+              <td style="text-align: center;">Rp. <?php echo number_format($items['price'], 0); ?></td>
+              <td style="text-align: center;">Rp. <?php echo number_format($items['subtotal'], 0); ?></td>
+              <td style="text-align: center;"><?= $berat ?> Gram.</td>
+            </tr>
+          <?php } ?>
+        </tbody>
+      </table>
     </div>
+  </div>
+</div>
 
-    <!-- Select2 Example -->
-    <div class="card card-default">
+   <!-- Payment Methods and Amount Due -->
+<div class="row">
+  <div class="col-12 col-md-6">
+    <!-- Payment Methods -->
+    <div class="card">
       <div class="card-header">
-        <h3 class="card-title">Select2 (Default Theme)</h3>
-        <div class="card-tools">
-          <button type="button" class="btn btn-tool" data-card-widget="collapse">
-            <i class="fas fa-minus"></i>
-          </button>
-          <button type="button" class="btn btn-tool" data-card-widget="remove">
-            <i class="fas fa-times"></i>
-          </button>
-        </div>
+        <h5 class="card-title">Tujuan :</h5>
       </div>
       <div class="card-body">
-        <!-- Select2 Form -->
         <div class="row">
-          <div class="col-md-6">
+        <div class="col-md-6">
             <div class="form-group">
               <label>Provinsi</label>
               <select class="form-control select2" name="provinsi" style="width: 100%;"></select>
@@ -169,8 +197,8 @@
           </div>
           <div class="col-sm-6">
               <div class="form-group">
-                  <label>Expedisi</label>
-                  <select name="expedisi" class="form-control"></select>
+                  <label>Exspedisi</label>
+                  <select name="exspedisi" class="form-control"></select>
                   <option value=""></option>
               </div>
           </div>
@@ -182,32 +210,7 @@
               </div>
           </div>
         </div>
-        <!-- Additional Select2 Examples -->
-        <!-- ... -->
-      </div>
-      <div class="card-footer">
-        <!-- Card Footer Content -->
-      </div>
-    </div>
-
-   <!-- Payment Methods and Amount Due -->
-<div class="row">
-  <div class="col-12 col-md-6">
-    <!-- Payment Methods -->
-    <div class="card">
-      <div class="card-header">
-        <h5 class="card-title">Payment Methods:</h5>
-      </div>
-      <div class="card-body">
-        <div class="row">
-          <!-- Payment Method Images -->
-          <!-- Place payment method images or content here -->
-        </div>
-        <p class="card-text text-muted">
-          Etsy doostang zoodles disqus groupon greplin oooj voxy zoodles, weebly ning heekya handango imeem
-          plugg
-          dopplr jibjab, movity jajah plickers sifteo edmodo ifttt zimbra.
-        </p>
+   
       </div>
     </div>
   </div>
@@ -215,7 +218,7 @@
     <!-- Amount Due -->
     <div class="card">
       <div class="card-header">
-        <h5 class="card-title">Amount Due 2/22/2014</h5>
+        <h5 class="card-title">Informasi :</h5>
       </div>
       <div class="card-body">
       <div class="table-responsive">
@@ -226,15 +229,15 @@
             </tr>
             <tr>
               <th>Berat :</th>
-              <td><?= $berat ?> Gram.</td>
+              <td><?= $total_berat ?> Gram.</td>
             </tr>
             <tr>
               <th>Ongkir :</th>
-              <td>$5.80</td>
+              <td id="ongkir">Rp. </td>
             </tr>
             <tr>
-              <th>Total:</th>
-              <td>$265.24</td>
+              <th>Total Bayar :</th>
+              <td id="total_bayar"></td>
             </tr>
           </table>
         </div>
@@ -246,9 +249,8 @@
 <!-- Print and Payment Buttons -->
 <div class="row no-print">
   <div class="col-12">
-    <a href="<?= base_url('belanja/') ?>" class="btn btn-default" style="background-color: yellow;"><i class="fa fa-backward"></i> Kembali Ke Keranjang</a>
-    <button type="button" class="btn btn-success float-right"><i class="far fa-credit-card"></i> Submit Payment</button>
-    <button type="button" class="btn btn-primary float-right" style="margin-right: 5px;"><i class="fas fa-download"></i> Generate PDF</button>
+    <a href="<?= base_url('belanja') ?>" class="btn btn-default" style="background-color: red;"><i class="fa fa-backward"></i> Kembali Ke Keranjang</a>
+    <button type="button" class="btn btn-primary float-right"><i class="fas fa-shopping-cart"></i> Checkout</button>
   </div>
 </div>
 
@@ -286,8 +288,65 @@
             }
         });
      });
+
+      //data exspedisi
+      $("select[name=kota]").on("change", function() {
+        $.ajax({
+            type: "POST",
+            url: "<?= base_url('rajaongkir/exspedisi') ?>",
+            success : function(hasil_exspedisi){
+                $("select[name=exspedisi]").html(hasil_exspedisi);
+            }
+        });
+      });
+
+      //data paket
+      $("select[name=exspedisi]").on("change", function() {
+        //mendapatkan exspedisi terpillih
+        var exspedisi_terpilih = $("select[name=exspedisi]").val();
+        //mendapatkan kota tujuan
+        var id_kota_tujuan_terpilih = $("option:selected","select[name=kota]").attr('id_kota');
+        //mengambil data berat
+        var total_berat = <?= $berat ?>;
+        $.ajax({
+            type: "POST",
+            url: "<?= base_url('rajaongkir/paket') ?>",
+            data : 'exspedisi=' + exspedisi_terpilih + '&id_kota=' + id_kota_tujuan_terpilih + '&berat=' + total_berat,
+            success : function(hasil_paket){
+                $("select[name=paket]").html(hasil_paket);
+            }
+        });
+      });
+
+       //data exspedisi
+       $("select[name=paket]").on("change", function() {
+        //menampilkan ongkir
+        var dataongkir = $("option:selected" , this).attr('ongkir');
+        // var dataongkir = "Rp." + $("option:selected" , this).attr('ongkir');
+          $("#ongkir").html(dataongkir)
+          //menghitung total bayar
+          var data_total_bayar = parseInt(dataongkir) + parseInt(<?= $this->cart->total() ?>);
+          $("#total_bayar").html(data_total_bayar);
+
+      });
   });
 </script>
+
+
+<!-- Fungsi untuk mendapatkan tanggal dan waktu saat ini -->
+<script>
+    function displayCurrentDate() {
+      const currentDate = new Date();
+      const options = { year: 'numeric', month: 'long', day: 'numeric' };
+      const formattedDate = currentDate.toLocaleDateString('en-US', options);
+      document.getElementById('tanggal').textContent = formattedDate;
+    }
+
+    // Panggil fungsi saat dokumen selesai dimuat
+    $(document).ready(function() {
+      displayCurrentDate();
+    });
+  </script>
 <!-- jQuery -->
 <!-- Bootstrap 4 -->
 <script src="<?= base_url() ?>assets/user_login_template/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>

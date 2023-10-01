@@ -1,0 +1,4 @@
+0 = order
+1 = dipproses
+2 = dikirim
+3 = selesai

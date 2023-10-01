@@ -6,7 +6,9 @@ class Belanja extends CI_Controller {
     
     public function __construct()
     {
-        parent::__construct();        
+        parent::__construct();       
+        $this->load->model('m_transaksi');
+         
     }
 
 	public function index()
@@ -36,6 +38,22 @@ class Belanja extends CI_Controller {
     
     }
 
+    public function update()
+    {
+        $i = 1;
+        foreach ($this->cart->contents() as $items) {
+            $data = array(
+                'rowid' => $items['rowid'],
+                'qty'   => $this->input->post($i.'[qty]'),
+        );   
+        $this->cart->update($data); 
+        $i++;
+    }
+    $this->session->set_flashdata('pesan', 'Keranjang Berhasil Di Update !');
+    redirect('belanja');
+
+    }
+
     public function delete($rowid)
     {
         $this->cart->remove($rowid);
@@ -48,37 +66,82 @@ class Belanja extends CI_Controller {
         redirect('belanja');
     }
 
+    public function cekout() 
+    {
+        $this->pelanggan_login->proteksi_halaman();
+        $this->form_validation->set_rules('provinsi','Provinsi', 'required', array(
+            'required'=>' %s Harus Diisi !!!'
+        ));
+        $this->form_validation->set_rules('kota','Kota', 'required', array(
+            'required'=>' %s Harus Diisi !!!'
+        ));
+        $this->form_validation->set_rules('exspedisi','Exspedisi', 'required', array(
+            'required'=>' %s Harus Diisi !!!'
+        ));
+        $this->form_validation->set_rules('paket','Paket', 'required', array(
+            'required'=>' %s Harus Diisi !!!'
+        ));
+
+        
+        if ($this->form_validation->run() == FALSE) {
+            $data = array (
+                'title' => 'Cekout Belanja',
+                'isi' => 'v_cekout',
+            );
+            $this->load->view('layout/v_wrapper_frontend', $data, FALSE);  
+        } else {
+            //simpan ke tbl_transaksi
+           $data = array(
+            'id_pelanggan' => $this->session->userdata('id_pelanggan'),
+            'no_order' => $this->input->post('no_order'),
+            'tgl_order' => date('Y-m-d'),
+            'nama_penerima' => $this->input->post('nama_penerima'),
+            'tlp_penerima' => $this->input->post('tlp_penerima'),
+            'provinsi' => $this->input->post('provinsi'),
+            'kota' => $this->input->post('kota'),
+            'alamat' => $this->input->post('alamat'),
+            'kode_pos' => $this->input->post('kode_pos'),
+            'exspedisi' => $this->input->post('exspedisi'),
+            'paket' => $this->input->post('paket'),
+            'estimasi' => $this->input->post('estimasi'),
+            'ongkir' => $this->input->post('ongkir'),
+            'berat' => $this->input->post('berat'),
+            'grand_total' => $this->input->post('grand_total'),
+            'total_bayar' => $this->input->post('total_bayar'),
+            'status_bayar' => '0',
+            'status_order' => '0',
+        );
+        $this->m_transaksi->simpan_transaksi($data);
+        
+        //simpan ke tbl_detail_transaksi
+        $i = 1;
+        foreach ($this->cart->contents() as $item) {
+            $data_detail = array(
+                'no_order' => $this->input->post('no_order'),
+                'id_produk' => $item['id'],
+                'qty' => $this->input->post('qty' . $i++),
+            );
+            $this->m_transaksi->simpan_detail_transaksi($data_detail);
+        }
+        //end tbl_detail_transaksi
+        $this->session->set_flashdata('pesan', 'Pesanan Berhasil Di Proses !');
+        $this->cart->destroy();
+        redirect('pesanan_saya');
+        
+        
+        } 
+       
+    }
     // public function cekout() 
     // {
     //     $data = array (
     //         'title' => 'Cekout Belanja',
-    //         'isi' => 'v_cekout',
+    //         'isi' => 'v_cekout1',
     //     );
-    //     $this->load->view('layout/v_wrapper_frontend', $data, FALSE);  
+    //     $this->load->view('v_cekout1', $data, FALSE);  
     // }
-    public function cekout() 
-    {
-        $data = array (
-            'title' => 'Cekout Belanja',
-            'isi' => 'v_cekout1',
-        );
-        $this->load->view('v_cekout1', $data, FALSE);  
-    }
 
-    public function update()
-    {
-        $i = 1;
-        foreach ($this->cart->contents() as $items) {
-            $data = array(
-                'rowid' => $items['rowid'],
-                'qty'   => $this->input->post($i.'[qty]'),
-        );   
-        $this->cart->update($data); 
-        $i++;
-    }
-    redirect('belanja');
-
-    }
+   
 
     // public function cekout()
 	// {
@@ -88,6 +151,6 @@ class Belanja extends CI_Controller {
     //         'isi' => 'v_cekout',
     //     );
     //     $this->load->view('layout/v_wrapper_frontend', $data, FALSE);
-	// }    
+	// }    
 
 }

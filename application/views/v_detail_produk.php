@@ -1,172 +1,267 @@
-<!-- Breadcrumbs -->
-<div class="breadcrumbs">
-			<div class="container">
-				<div class="row">
-					<div class="col-12">
-						<div class="bread-inner">
-							<ul class="bread-list">
-								<li><a href="<?= base_url() ?>">Home<i class="ti-arrow-right"></i></a></li>
-								<li class="active"><a href="#"><?= $title ?></a></li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- End Breadcrumbs -->
-<div class="modal-body">
-    <div class="row no-gutters">
-        <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
-            <!-- Product Slider -->
-            <div class="product-gallery">
-                <img id="mainImage" style="border-radius: 20px;" src="<?=base_url('gambar/' . $produk->gambar)?>" alt="#">
+<!-- Page Title -->
+<section class="page-title" style="background-image:url(<?= base_url() ?>assets/home2/images/background/2.jpg);">
+    <div class="auto-container">
+        <div class="inner-box">
+            <h1>Detail Produk</h1>
+            <div class="bread-crumb"><a href="<?= base_url('home') ?>">Home &nbsp; /</a> <i class="current">Detail Produk</i>
             </div>
-
-            <!-- Mini Gambar -->
-            <div class="mini-gallery">
-                <img class="mini-image" style="border-radius: 20px;" src="<?=base_url('gambar/' . $produk->gambar)?>" alt="#">
-                <?php foreach ($gambar as $key => $value) {?>
-                    <img style="border-radius: 20px;" class="mini-image" src="<?= base_url('assets/gambarproduk/' . $value->gambar)?>" alt="#">
-               <?php }?>
-            </div>
-        </div>
-            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
-                <div class="quickview-content">
-
-                                    <h1><?=$produk->nama_produk?></h1>
-                                    <hr>
-                                    <h2><a href="<?= base_url('home/by_kategori') ?>" style="font-weight:600;">Kategori</a> : <?=$produk->nama_kategori?></h2>
-                                    <!-- <div class="quickview-ratting-review">
-                                        <div class="quickview-ratting-wrap">
-                                            <div class="quickview-ratting">
-                                                <i class="yellow fa fa-star"></i>
-                                                <i class="yellow fa fa-star"></i>
-                                                <i class="yellow fa fa-star"></i>
-                                                <i class="yellow fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                            </div>
-                                            <a href="#"> (1 customer review)</a>
-                                        </div>
-                                        <div class="quickview-stock">
-                                            <span><i class="fa fa-check-circle-o"></i> in stock</span>
-                                        </div>
-                                    </div> -->
-                                    <h3 style="color: red;">Rp. <?=number_format($produk->harga, 0)?></h3>
-                                    <div class="quickview-peragraph">
-                                        <p><?=$produk->deskripsi?></p>
-                                    </div>
-                                    <hr>
-
-                                    <?php
-                                    echo form_open('belanja/add');
-									echo form_hidden('id', $produk->id_produk);
-									echo form_hidden('price', $produk->harga);
-									echo form_hidden('name', $produk->nama_produk); // Remove extra space after 'name'
-									echo form_hidden('redirect_page', str_replace('index.php/', '', current_url()));
-                                    ?>
-									
-                                    <div class="quantity">
-										<!-- Input Order -->
-										<div class="input-group">
-										
-											<input type="number" name="qty" class="input-number"  data-min="1" data-max="10000000000" value="1">
-											
-										</div>
-										<!--/ End Input Order -->
-									</div>
-                                  
-
-									<div class="add-to-cart">
-                                    <button title="Add to cart" type="submit" class="btn min" style="border: none; padding: 0; background: none; background-color: #FFA733; color: white; width: 100px; font-size: 15px; border-radius: 5px;" onclick="addToCart('<?= $produk->nama_produk ?>')"> Add To <i style="color: black;" class="fa fa-cart-plus" aria-hidden="true"></i> </button>
-										<a href="#" class="btn min"><i class="ti-heart"></i></a>
-									</div>
-                                    <div class="default-social">
-										<h4 class="share-now">Share:</h4>
-                                        <ul>
-                                            <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
-                                            <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
-                                            <li><a class="youtube" href="#"><i class="fa fa-pinterest-p"></i></a></li>
-                                            <li><a class="dribbble" href="#"><i class="fa fa-google-plus"></i></a></li>
-                                        </ul>
-                                    </div>
-                                    <?php echo form_close(); ?>
-                </div>
-             </div>
         </div>
     </div>
- <style>
-.mini-gallery {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 10px;
-     flex-wrap: wrap; 
-    
-}
+</section>
+<!-- End Page Title -->
+<!--Shop Single-->
+<div class="shop-page">
+    <div class="auto-container">
+        <!--Basic Details-->
+        <div class="basic-details">
+            <div class="row clearfix">
 
+                <div class="image-column col-lg-6 col-md-12 col-sm-12">
+                    <div class="carousel-outer">
+                        <ul class="image-carousel owl-carousel owl-theme">
+                            <li>
+                                <a href="<?= base_url('gambar/' . $produk->gambar)?>" class="lightbox-image"
+                                    data-fancybox="main-gallery">
+                                    <img src="<?= base_url('gambar/' . $produk->gambar)?>" alt="">
+                                </a>
+                            </li>
+                        </ul>
+                        <ul class="thumbs-carousel owl-carousel owl-theme">
+                            <?php foreach ($gambar as $key => $value) {?>
+                            <li>
+                                <a href="<?= base_url('assets/gambarproduk/' . $value->gambar)?>" class="lightbox-image"
+                                    data-fancybox="main-gallery">
+                                    <img src="<?= base_url('assets/gambarproduk/' . $value->gambar)?>" alt="">
+                                </a>
+                            </li>
+                            <?php }?>
+                        </ul>
+                    </div>
+                </div>
 
-.mini-gallery img {
-    /* max-width: 120px; */
-    width: 30%;
-    padding: 5px;
-    height: auto;
-    cursor: pointer;
-}
+                <!--Info Column-->
+                <div class="info-column col-lg-6 col-md-12 col-sm-12">
+                    <div class="inner-column">
+                        <div class="details-header">
+                            <h2>
+                                <?= $produk->nama_produk?>
+                            </h2>
+                            <div class="item-price">Rp. <?=number_format($produk->harga, 0)?></div>
+                        </div>
+                        <div class="text">
+                            <p>
+                                <?= $produk->deskripsi ?>
+                            </p>
+                        </div>
+                        <div class="other-options">
+                            <!--Btns Box-->
+                            <?php
+                            echo form_open('belanja/add');
+                            echo form_hidden('id', $produk->id_produk);
+                            echo form_hidden('price', $produk->harga);
+                            echo form_hidden('name', $produk->nama_produk); // Remove extra space after 'name'
+                            echo form_hidden('redirect_page', str_replace('index.php/', '', current_url()));
+                            ?>
+                            <div class="btns-box">
+                                <input type="number" data-max="10000000000" value="1" name="qty" placeholder="1" />
+                                <button type="submit" class="theme-btn btn-style-two"
+                                    onclick="addToCart('<?= $produk->nama_produk ?>')"><span class="txt">Add To
+                                        Cart</span></button>
+                            </div>
+                        </div>
+                        <ul class="tags-box">
+                            <li>Categori : <a href="<?= base_url('home/by_kategori') ?>">
+                                    <?= $produk->nama_kategori?>
+                                </a></li>
+                        </ul>
+                        <?php echo form_close(); ?>
+                    </div>
+                </div>
 
-.mini-gallery img:hover {
-    border: 2px solid #007bff; /* Warna yang Anda inginkan pada hover */
-}
-/* Tampilan responsif untuk perangkat seluler */
-@media (max-width: 768px) {
-    .row.no-gutters {
-        flex-direction: column;
-    }
+            </div>
+        </div>
+        <!--Basic Details-->
 
-    .col-lg-6.col-md-12.col-sm-12.col-xs-12 {
-        width: 100%;
-        margin-bottom: 20px;
-    }
+        <!--Product Info Tabs-->
+        <div class="product-info-tabs">
+            <!--Product Tabs-->
+            <div class="prod-tabs tabs-box">
 
-    .product-gallery {
-        text-align: center;
-    }
+                <!--Tab Btns-->
+                <ul class="tab-btns tab-buttons clearfix">
+                    <li data-tab="#prod-details" class="tab-btn active-btn">Description</li>
+                    <li data-tab="#prod-reviews" class="tab-btn">Additional Info</li>
+                    <li data-tab="#prod-info" class="tab-btn">Reviews (3)</li>
+                </ul>
 
-    .product-gallery img {
-        max-width: 100%;
-        height: auto;
-    }
+                <!--Tabs Container-->
+                <div class="tabs-content">
 
-    .mini-gallery {
-        display: flex;
-        flex-wrap: wrap; /* Ini akan membuat elemen-elemen bergulir ke baris bawah saat tampilan seluler */
-        justify-content: center;
-        margin-top: 10px;
-    }
+                    <!--Tab / Active Tab-->
+                    <div class="tab active-tab" id="prod-details">
+                        <div class="content">
+                            <p>
+                                <?= $produk->deskripsi ?>
+                            </p>
+                        </div>
+                    </div>
 
-    .mini-gallery img {
-        max-width: 30%; /* Ubah sesuai kebutuhan Anda */
-        height: auto;
-        cursor: pointer;
-        margin-right: 10px; /* Jarak antara mini gambar */
-        margin-bottom: 10px; /* Jarak vertikal antara mini gambar */
-    }
-}
-</style>
-<script>
-    // Ambil semua elemen gambar mini
-    const miniImages = document.querySelectorAll('.mini-image');
+                    <!--Tab-->
+                    <div class="tab" id="prod-reviews">
+                        <div class="content">
+                            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
+                                laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi
+                                architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quluptas sit
+                                aspernatur aut odit aut fugit, sed quia consequuntur magni dolores.Lorem ipsum dolor sit
+                                amet, consectetuer adipiscing elit doli. Aenean commodo ligula eget dolor. Aenean massa.
+                                Cumtipsu sociis natoque penatibus et magnis dis parturient montesti, nascetur ridiculus
+                                mus.</p>
+                        </div>
+                    </div>
 
-    // Ambil elemen gambar utama
-    const mainImage = document.getElementById('mainImage');
+                    <!--Tab / Active Tab-->
+                    <div class="tab" id="prod-info">
+                        <div class="content">
 
-    // Loop melalui setiap gambar mini dan tambahkan event listener
-    miniImages.forEach((miniImage) => {
-        miniImage.addEventListener('click', () => {
-            // Ganti gambar utama dengan gambar mini yang diklik
-            mainImage.src = miniImage.src;
-        });
-    });
-</script>
+                            <!--Comment Box-->
+                            <div class="comment-box">
+                                <div class="comment">
+                                    <div class="author-thumb"><img
+                                            src="<?= base_url() ?>assets/home2/images/resource/author-2.jpg" alt="">
+                                    </div>
+                                    <div class="comment-inner">
+                                        <div class="comment-info">Sandra Mavic</div>
+                                        <div class="post-date">March 03, 2019</div>
+                                        <div class="text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit doli.
+                                            Aenean commodo ligula eget dolor. Aenean massa. Cumtipsu sociis natoque
+                                            penatibus et magnis dis parturient montesti, nascetur ridiculus mus. Donec
+                                            qam penatibus et magnis .</div>
+                                        <div class="rating">
+                                            <span class="fa fa-star"></span>
+                                            <span class="fa fa-star"></span>
+                                            <span class="fa fa-star"></span>
+                                            <span class="fa fa-star"></span>
+                                            <span class="fa fa-star light"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
 
+                            <!--Comment Box-->
+                            <div class="comment-box reply-comment">
+                                <div class="comment">
+                                    <div class="author-thumb"><img
+                                            src="<?= base_url() ?>assets/home2/images/resource/author-2.jpg" alt="">
+                                    </div>
+                                    <div class="comment-inner">
+                                        <div class="comment-info">Micheal Waugn</div>
+                                        <div class="post-date">April 04, 2019</div>
+                                        <div class="text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit doli.
+                                            Aenean commodo ligula eget dolor. Aenean massa. Cumtipsu sociis natoque
+                                            penatibus et magnis dis parturient montesti, nascetur ridiculus mus. Donec
+                                            qam penatibus et magnis .</div>
+                                        <div class="rating">
+                                            <span class="fa fa-star"></span>
+                                            <span class="fa fa-star"></span>
+                                            <span class="fa fa-star"></span>
+                                            <span class="fa fa-star"></span>
+                                            <span class="fa fa-star light"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!--Comment Box-->
+                            <div class="comment-box">
+                                <div class="comment">
+                                    <div class="author-thumb"><img
+                                            src="<?= base_url() ?>assets/home2/images/resource/author-2.jpg" alt="">
+                                    </div>
+                                    <div class="comment-inner">
+                                        <div class="comment-info">David Warner</div>
+                                        <div class="post-date">March 10, 2019</div>
+                                        <div class="text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit doli.
+                                            Aenean commodo ligula eget dolor. Aenean massa. Cumtipsu sociis natoque
+                                            penatibus et magnis dis parturient montesti, nascetur ridiculus mus. Donec
+                                            qam penatibus et magnis .</div>
+                                        <div class="rating">
+                                            <span class="fa fa-star"></span>
+                                            <span class="fa fa-star"></span>
+                                            <span class="fa fa-star"></span>
+                                            <span class="fa fa-star"></span>
+                                            <span class="fa fa-star"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Comment Form -->
+                            <div class="shop-comment-form">
+                                <div class="sec-title">
+                                    <h1>Add a Review</h1>
+                                    <div class="separator"></div>
+                                </div>
+                                <div class="rating-box">
+                                    <div class="text"> Your Rating:</div>
+                                    <div class="rating">
+                                        <a href="#"><span class="fa fa-star"></span></a>
+                                    </div>
+                                    <div class="rating">
+                                        <a href="#"><span class="fa fa-star"></span></a>
+                                        <a href="#"><span class="fa fa-star"></span></a>
+                                    </div>
+                                    <div class="rating">
+                                        <a href="#"><span class="fa fa-star"></span></a>
+                                        <a href="#"><span class="fa fa-star"></span></a>
+                                        <a href="#"><span class="fa fa-star"></span></a>
+                                    </div>
+                                    <div class="rating">
+                                        <a href="#"><span class="fa fa-star"></span></a>
+                                        <a href="#"><span class="fa fa-star"></span></a>
+                                        <a href="#"><span class="fa fa-star"></span></a>
+                                        <a href="#"><span class="fa fa-star"></span></a>
+                                    </div>
+                                    <div class="rating">
+                                        <a href="#"><span class="fa fa-star"></span></a>
+                                        <a href="#"><span class="fa fa-star"></span></a>
+                                        <a href="#"><span class="fa fa-star"></span></a>
+                                        <a href="#"><span class="fa fa-star"></span></a>
+                                        <a href="#"><span class="fa fa-star"></span></a>
+                                    </div>
+                                </div>
+                                <form method="post"
+                                    action="http://ary-themes.com/html/noor_tech/dream-property/contact.html">
+                                    <div class="row clearfix">
+                                        <div class="col-md-6 col-sm-6 col-xs-12 form-group">
+                                            <input type="text" name="username" placeholder="Name ..." required>
+                                        </div>
+                                        <div class="col-md-6 col-sm-6 col-xs-12 form-group">
+                                            <input type="email" name="email" placeholder="Email ..." required>
+                                        </div>
+                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-group">
+                                            <textarea name="message" placeholder="Review ..."></textarea>
+                                        </div>
+
+                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-group">
+                                            <button class="theme-btn btn-style-two" type="submit"
+                                                name="submit-form"><span class="txt">Submit Review</span></button>
+                                        </div>
+
+                                    </div>
+                                </form>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!--End Product Info Tabs-->
+
+    </div>
+</div>
 
 <!-- untuk alert add -->
 <script>
@@ -176,11 +271,11 @@
             url: 'belanja/add', // Adjust the URL to your actual endpoint
             type: 'POST',
             data: { 'product_name': productName },
-            success: function(response) {
+            success: function (response) {
                 // Update the cart item count on success
                 updateCartItemCount(response.item_count);
             },
-            error: function() {
+            error: function () {
                 // Handle error, if any
             }
         });
@@ -195,7 +290,7 @@
     .custom-alert {
         display: none;
         position: fixed;
-		width: auto;
+        width: auto;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
@@ -211,6 +306,7 @@
         0% {
             transform: translate(-50%, -150%);
         }
+
         100% {
             transform: translate(-50%, -50%);
         }
@@ -220,6 +316,7 @@
         0% {
             transform: translate(-50%, -50%);
         }
+
         100% {
             transform: translate(-50%, -150%);
         }
@@ -245,140 +342,3 @@
         }, 2500);
     }
 </script>
-
-
-<!-- Deskripsi dan Komentar -->
-<div class="product-description">
-    <!-- Deskripsi Produk -->
-    <div class="description">
-        <h3>Deskripsi Produk</h3>
-        <p><?=$produk->deskripsi?></p>
-    </div>
-
-    <!-- Komentar Produk -->
-    <div class="comments">
-        <!-- Informasi Detail Produk -->
-        <div class="product-details">
-            <h4>Informasi Detail Produk</h4>
-            <br>
-            <ul>
-                <li><strong>Nama Produk :</strong> <?=$produk->nama_produk?></li>
-                <li><strong>Kategori :</strong> <?=$produk->nama_kategori?></li>
-                <li><strong>Harga :</strong> Rp. <?=number_format($produk->harga, 0)?></li>
-            </ul>
-        </div>
-
-        <!-- Form Komentar -->
-        <!-- <div class="comment-form">
-            <h4>Tinggalkan Komentar</h4>
-            <form action="#" method="post">
-                <div class="form-group">
-                    <label for="comment-name">Nama:</label>
-                    <input type="text" id="comment-name" name="comment-name" required>
-                </div>
-                <div class="form-group">
-                    <label for="comment-message">Komentar:</label>
-                    <textarea id="comment-message" name="comment-message" required></textarea>
-                </div>
-                <button type="submit">Kirim Komentar</button>
-            </form>
-        </div> -->
-    </div>
-</div>
-
-<style>
-    .product-description {
-    margin-top: 20px;
-    padding: 20px;
-    margin: 75px;
-    background-color: #f7f7f7;
-    border-radius: 10px;
-}
-
-.description h3,
-.comments h3,
-.comment-form h4 {
-    font-size: 24px;
-    margin-bottom: 15px;
-}
-
-.description p {
-    font-size: 16px;
-    line-height: 1.6;
-    margin-bottom: 20px;
-}
-
-.comments .comment {
-    margin-bottom: 20px;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-}
-
-.comment-author {
-    display: flex;
-    align-items: center;
-}
-
-.comment-author img {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    margin-right: 10px;
-}
-
-.comment-author span {
-    font-weight: bold;
-}
-
-.comment p {
-    font-size: 16px;
-    line-height: 1.6;
-}
-
-.comment-form {
-    margin-top: 20px;
-}
-
-.comment-form form {
-    width: 100%;
-}
-
-.comment-form .form-group {
-    margin-bottom: 15px;
-}
-
-.comment-form label {
-    font-weight: bold;
-}
-
-.comment-form input[type="text"],
-.comment-form textarea {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    font-size: 16px;
-}
-
-.comment-form button {
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-}
-
-.comment-form button:hover {
-    background-color: #0056b3;
-}
-
-@media (max-width: 800px) {
-    .product-description {
-      
-      margin: 20px;
-    }
-}
-</style>
