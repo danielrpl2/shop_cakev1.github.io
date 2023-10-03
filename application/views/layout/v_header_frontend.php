@@ -21,7 +21,7 @@
 							<div class="upper-column info-box">
 								<div class="icon-box"><span class="flaticon-pin"></span></div>
 								<ul>
-									<li>2130 Fulton Street San Canada <br> Gambirono Bangsalsari</li>
+									<li>2130 Jember Jawa Timur <br> Gambirono Bangsalsari</li>
 								</ul>
 							</div>
 							
@@ -67,17 +67,15 @@
 						
 						<div class="navbar-collapse collapse clearfix" id="navbarSupportedContent">
 							<ul class="navigation clearfix">
-								<li class="current"><a href="<?= base_url('home') ?>"><span data-hover="Home">Home</span></a>
+								<li class="current">
+									<a href="<?= base_url('home') ?>"><span data-hover="Home">Home</span></a>
 								</li>
 								
-								<li class="dropdown"><a href="#"><span data-hover="Shop">Shop</span></a>
-									<ul>
-										<li><a href="#">Single Produk</a></li>
-										<li><a href="<?= base_url('home/by_kategori') ?>">Kategori Produk</a></li>
-									</ul>
+								<li>
+									<a href="<?= base_url('home/by_kategori') ?>"><span data-hover="Shop">Shop</span></a>
 								</li>
 
-								<li><a href="contact.html"><span data-hover="Contact">Contact</span></a></li>
+								<li><a href="#"><span data-hover="Contact">Contact</span></a></li>
 							</ul>
 						</div>
 					</nav>

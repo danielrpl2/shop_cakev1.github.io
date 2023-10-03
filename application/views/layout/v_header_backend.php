@@ -257,32 +257,6 @@
                     </a>
                     <ul aria-expanded="false">
                         <li><a href="<?= base_url('admin/setting') ?>"><i class="fa fa-map"></i> Lokasi</a></li>
-                        <li><a href="./ui-alert.html">Alert</a></li>
-                        <li><a href="./ui-badge.html">Badge</a></li>
-                        <li><a href="./ui-button.html">Button</a></li>
-                        <li><a href="./ui-button-group.html">Button Group</a></li>
-                        <li><a href="./ui-cards.html">Cards</a></li>
-                        <li><a href="./ui-carousel.html">Carousel</a></li>
-                        <li><a href="./ui-dropdown.html">Dropdown</a></li>
-                        <li><a href="./ui-list-group.html">List Group</a></li>
-                        <li><a href="./ui-media-object.html">Media Object</a></li>
-                        <li><a href="./ui-modal.html">Modal</a></li>
-                        <li><a href="./ui-pagination.html">Pagination</a></li>
-                        <li><a href="./ui-popover.html">Popover</a></li>
-                        <li><a href="./ui-progressbar.html">Progressbar</a></li>
-                        <li><a href="./ui-tab.html">Tab</a></li>
-                        <li><a href="./ui-typography.html">Typography</a></li>
-                        <!-- </ul>
-                    </li>
-                    <li>
-                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
-                            <i class="icon-layers menu-icon" style="font-size:18px;"></i><span class="nav-text">Components</span>
-                        </a>
-                        <ul aria-expanded="false"> -->
-                        <li><a href="./uc-nestedable.html">Nestedable</a></li>
-                        <li><a href="./uc-noui-slider.html">Noui Slider</a></li>
-                        <li><a href="./uc-sweetalert.html">Sweet Alert</a></li>
-                        <li><a href="./uc-toastr.html">Toastr</a></li>
                     </ul>
 
                 <li>

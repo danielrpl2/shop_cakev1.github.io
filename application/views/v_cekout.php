@@ -20,7 +20,7 @@
                     <div class="form-group col-lg-12 col-md-12 col-xs-12">
                         <div class="sec-title">
                             <h1>Data Pesanan</h1>
-                            <div class="separator"></div>
+                            
                         </div>
 
                         <div class="responsive-table">
@@ -77,7 +77,7 @@
                                          echo validation_errors('<div class="alert alert-danger alert-dismissible">
                                          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> ' ,'</div>');
                                         ?>
-                            <div class="separator"></div>
+                            
                         </div>
                         <div class="billing-inner">
 
@@ -146,7 +146,7 @@
                     <div class="col-lg-5 col-md-12 col-sm-12">
                         <div class="sec-title">
                             <h1>Your Order.</h1>
-                            <div class="separator"></div>
+                            
                         </div>
 
                         <div class="shop-order-box">

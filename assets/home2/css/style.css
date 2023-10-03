@@ -716,12 +716,12 @@ ul,li{
 	background-size:100px;
 	background-image:url(../images/favicon2.png);
 }
-
+*/
 img{
 	display:inline-block;
-	max-width:100%;
+	max-width: 100%;
 	height:auto;	
-} */
+} 
 
 .dropdown-toggle::after{
 	display: none;

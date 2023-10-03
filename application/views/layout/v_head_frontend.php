@@ -6,17 +6,17 @@
 <meta charset="utf-8">
 <title>Toko Online | <?= $title ?></title>
 <!-- Stylesheets -->
-<link href="<?= base_url() ?>/assets/home2/css/bootstrap.css" rel="stylesheet">
-<link href="<?= base_url() ?>/assets/home2/css/style.css" rel="stylesheet">
-<link href="<?= base_url() ?>/assets/home2/css/responsive.css" rel="stylesheet">
+<link href="<?= base_url() ?>assets/home2/css/bootstrap.css" rel="stylesheet">
+<link href="<?= base_url() ?>assets/home2/css/style.css" rel="stylesheet">
+<link href="<?= base_url() ?>assets/home2/css/responsive.css" rel="stylesheet">
 
 <!--Color Switcher Mockup-->
-<link href="<?= base_url() ?>/assets/home2/css/color-switcher-design.css" rel="stylesheet">
+<link href="<?= base_url() ?>assets/home2/css/color-switcher-design.css" rel="stylesheet">
 <!--Color Themes-->
-<link id="theme-color-file" href="<?= base_url() ?>/assets/home2/css/color-themes/default-theme.css" rel="stylesheet">
+<link id="theme-color-file" href="<?= base_url() ?>assets/home2/css/color-themes/default-theme.css" rel="stylesheet">
 
-<link rel="shortcut icon" href="<?= base_url() ?>/assets/home2/images/favicon2.png" type="image/x-icon">
-<link rel="icon" href="<?= base_url() ?>/assets/home2/images/favicon2.png" type="image/x-icon">
+<link rel="shortcut icon" href="<?= base_url() ?>assets/home2/images/favicon2.png" type="image/x-icon">
+<link rel="icon" href="<?= base_url() ?>assets/home2/images/favicon2.png" type="image/x-icon">
 
 <!-- Responsive -->
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
