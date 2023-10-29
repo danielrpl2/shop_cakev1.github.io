@@ -15,7 +15,9 @@
                                 
                                 ?>
                                 <h3 class="card-title" style="text-align: center;">Table <?= $title ?></h3>
+                                <?php if ($this->session->userdata('level_user') == '1'): ?>
                                 <a href="<?= base_url('produk/add') ?>" type="button" class="btn btn-sm" style="font-size: 15px; color: white; background-color:#279EFF; text-decoration:none;"> Add <?= $title ?> <i class="fa fa-birthday-cake" style="color: white;"></i></a>
+                                <?php endif; ?>
                                 <div class="table-responsive">
                                     <table class="table table-striped table-bordered zero-configuration" id="example1">
                                         <thead>
@@ -43,7 +45,9 @@
                                                 </td>
                                                 <td>
                                                     <a href="<?= base_url('produk/edit/' . $value->id_produk) ?>" class="btn btn-warning btn-sm" style="color: black; background-color: yellow; border: none;"><i class="fa fa-edit"></i></a>
+                                                    <?php if ($this->session->userdata('level_user') == '1'): ?>
                                                     <button class="btn btn-danger btn-sm" style="color: white; border: none;" data-toggle="modal" data-target="#delete<?= $value->id_produk?>"><i class="fa fa-trash"></i></button>
+                                                    <?php endif; ?>
                                                 </td>
                                              </tr> 
                                             <?php } ?>

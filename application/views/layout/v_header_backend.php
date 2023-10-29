@@ -24,11 +24,11 @@
     <div class="nav-header">
         <div class="brand-logo">
             <a href="<?php base_url('admin') ?>">
-                <b class="logo-abbr"><img src="<?= base_url() ?>assets/admin_template/images/logo.png" alt=""></b>
+                <b class="logo-abbr"><img src="<?= base_url() ?>assets/admin_template/images/20231025_140012.png" alt=""></b>
                 <span class="logo-compact">
-                    <img src="<?= base_url() ?>assets/admin_template/images/logo-compact.png" alt=""></span>
+                    <img src="<?= base_url() ?>assets/admin_template/images/20231025_140541.png" alt=""></span>
                 <span class="brand-title">
-                    <img src="<?= base_url() ?>assets/admin_template/images/logo-text.png" alt="">
+                    <img src="<?= base_url() ?>assets/admin_template/images/20231025_141424.png" alt="">
                 </span>
             </a>
         </div>
@@ -51,11 +51,9 @@
             <div class="header-left">
                 <div class="input-group icons">
                     <div class="input-group-prepend">
-                        <span class="input-group-text bg-transparent border-0 pr-2 pr-sm-3" id="basic-addon1"><i
-                                class="mdi mdi-magnify" style="font-size:18px;"></i></span>
+                      
                     </div>
-                    <input type="search" class="form-control" placeholder="Search Dashboard"
-                        aria-label="Search Dashboard">
+                   
                     <div class="drop-down animated flipInX d-md-none">
                         <form action="#">
                             <input type="text" class="form-control" placeholder="Search">
@@ -133,39 +131,38 @@
                                </div> -->
                     </div>
                     </li>
+                   
+                        
                     <li class="icons dropdown">
-                        <div class="user-img c-pointer position-relative" data-toggle="dropdown">
-                            <span class="activity active"></span>
-                            <img src="<?php echo base_url('assets/profileimg/' . $this->session->userdata('profile_image')); ?>"
-                                height="40" width="40" alt="Foto Profil">
-                        </div>
-                        <div class="drop-down dropdown-profile animated fadeIn dropdown-menu">
-                            <div class="dropdown-content-body">
-                                <ul>
-                                    <li>
-                                        <a href="app-profile.html"><i class="icon-user" style="font-size:18px;"></i>
-                                            <span>
-                                                <?= $this->session->userdata('nama_user') ?>
-                                            </span></a>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:void()">
-                                            <i class="icon-envelope-open" style="font-size:18px;"></i> <span>Kotak
-                                                Masuk</span>
-                                            <div class="badge gradient-3 badge-pill gradient-1">3</div>
-                                        </a>
-                                    </li>
-                                    <hr class="my-2">
-                                    <li>
-                                        <a href="page-lock.html"><i class="icon-lock" style="font-size:18px;"></i>
-                                            <span>Kunci Layar</span></a>
-                                    </li>
-                                    <li><a href="<?= base_url('auth/logout_user') ?>"><i class="icon-key"
-                                                style="font-size:18px;"></i> <span>Logout</span></a></li>
-                                </ul>
+                        <a href="javascript:void(0)" data-toggle="dropdown">
+                                <i class="mdi mdi-email-outline"></i>
+                                <span class="badge badge-pill gradient-1">3</span>
+                            </a>
+                            <div class="drop-down animated fadeIn dropdown-menu">
+                                <div class="dropdown-content-heading d-flex justify-content-between">
+                                    <span class="">3 New Messages</span>  
+                                    <a href="javascript:void()" class="d-inline-block">
+                                        <span class="badge badge-pill gradient-1">3</span>
+                                    </a>
+                                </div>
+                                <div class="dropdown-content-body">
+                                    <ul>
+                                        <li class="notification-unread">
+                                            <a href="javascript:void()">
+                                                <img class="float-left mr-3 avatar-img" src="<?= base_url() ?>assets/admin_template/images/avatar/1.jpg" alt="">
+                                                <div class="notification-content">
+                                                    <div class="notification-heading">Saiful Islam</div>
+                                                    <div class="notification-timestamp">08 Hours ago</div>
+                                                    <div class="notification-text">Hi Teddy, Just wanted to let you ...</div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    
+                                </div>
                             </div>
-                        </div>
-                    </li>
+                        </li>
+                   
                 </ul>
             </div>
         </div>
@@ -188,10 +185,27 @@
                     </a>
                 </li>
                 <li>
-                    <a href="<?= base_url('user') ?>" <?php if($this->uri->segment(1)=='user'){echo "active";} ?>>
-                        <i class="fa fa-user menu-icon" style="font-size: 22px;"></i><span class="nav-text">User</span>
+                    <a href="<?= base_url('kasir') ?>" aria-expanded="false">
+                        <i class="fa fa-tachometer menu-icon" style="font-size:18px;" style="font-size:18px;"></i><span
+                            class="nav-text">Kasir</span>
                     </a>
                 </li>
+                <?php if ($this->session->userdata('level_user') == '1'): ?>
+                <li>
+                    <a href="<?= base_url('user') ?>" <?php if($this->uri->segment(1)=='user'){echo "active";} ?>>
+                        <i class="fa fa-user menu-icon" style="font-size: 22px;"></i><span class="nav-text">User/Admin</span>
+                    </a>
+                </li>
+                <?php endif; ?>
+
+                <?php if ($this->session->userdata('level_user') == '1'): ?>
+                <li>
+                    <a href="<?= base_url('pelanggan') ?>" <?php if($this->uri->segment(1)=='pelanggan'){echo "active";} ?>>
+                        <i class="fa fa-users menu-icon" style="font-size: 20px;"></i><span class="nav-text">Pelanggan</span>
+                    </a>
+                </li>
+                <?php endif; ?>
+
                 <li class="nav-label">Menu</li>
                 <li>
                     <a href="<?= base_url('produk') ?>" <?php if($this->uri->segment(1)=='produk'){echo "active";} ?>>
@@ -202,7 +216,7 @@
                 <li>
                     <a href="<?= base_url('kategori') ?>" <?php if($this->uri->segment(1)=='kategori'){echo "active";}
                         ?>>
-                        <i class="fa fa-th-list menu-icon" style="font-size:18px;" style="font-size:18px;"></i><span
+                        <i class="fa fa-cubes menu-icon" style="font-size:18px;" style="font-size:18px;"></i><span
                             class="nav-text">Kategori</span>
                     </a>
                 </li>
@@ -214,30 +228,33 @@
                     </a>
                 </li>
                 <li>
+                    <a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                         <i class="fa fa-cog menu-icon" style="font-size: 22px;"></i></i><span class="nav-text">Stok</span>
+                    </a>
+                        <ul aria-expanded="false">
+                            <li><a href="<?= base_url('stok') ?>"><i class="fa fa-map"></i> Stok In</a></li>
+                            <li><a href="<?= base_url('blog') ?>"><i class="fa fa-book"></i> Stok Out</a></li>
+                        </ul>
+                    </li>
+                <?php if ($this->session->userdata('level_user') == '1'): ?>
+                <li>
                     <a href="<?= base_url('admin/pesanan_masuk') ?>" <?php if($this->uri->segment(1)=='admin/pesanan_masuk'){echo
                         "active";} ?>>
                         <i class="fa fa-shopping-bag menu-icon" style="font-size:18px;" style="font-size:18px;"></i><span
-                            class="nav-text">Pesanan Masuk</span>
+                            class="nav-text">Pesanan</span>
                     </a>
                 </li>
-                <!-- <li>
-                    <a class="has-arrow" href="javascript:void()" aria-expanded="false">
-                        <i class="fa fa-shopping-cart menu-icon" style="font-size:18px;"></i> <span
-                            class="nav-text">Transaksi</span>
-                    </a>
-                    <ul aria-expanded="false">
-                        <li><a href="./email-inbox.html">Inbox</a></li>
-                        <li><a href="./email-read.html">Read</a></li>
-                        <li><a href="./email-compose.html">Compose</a></li>
-                    </ul>
-                </li> -->
+                <?php endif; ?>
+                <?php if ($this->session->userdata('level_user') == '1'): ?>
                 <li>
                     <a href="<?= base_url('laporan') ?>" <?php if($this->uri->segment(1)=='laporan'){echo
                         "active";} ?>>
-                        <i class="fa fa-bar-chart menu-icon" style="font-size:18px;" style="font-size:18px;"></i><span
+                        <i class="fa fa-bar-chart menu-icon" style="font-size:18px; font-weight: 1000;"></i><span
                             class="nav-text">Laporan</span>
                     </a>
                 </li>
+                <?php endif; ?>
+
                 <!-- <li>
                     <a class="has-arrow" href="javascript:void()" aria-expanded="false">
                         <i class="fa fa-bar-chart menu-icon" style="font-size:18px;"></i><span
@@ -249,22 +266,19 @@
                         <li><a href="#"><i class="fa fa-calendar-check-o"></i> Laporan Tahunan</a></li>
                     </ul>
                 </li> -->
+                <?php if ($this->session->userdata('level_user') == '1'): ?>
                 <li class="nav-label">Settings</li>
-                <li>
-                    <a class="has-arrow" href="javascript:void()" aria-expanded="false">
-                        <i class="fa fa-cog menu-icon" style="font-size: 22px;"></i><span
-                            class="nav-text">Settings</span>
-                    </a>
-                    <ul aria-expanded="false">
-                        <li><a href="<?= base_url('admin/setting') ?>"><i class="fa fa-map"></i> Lokasi</a></li>
-                    </ul>
 
                 <li>
-                    <a href="<?= base_url('auth/login_user') ?>" aria-expanded="false">
-                        <i class="fa fa-sign-in menu-icon" style="font-size: 22px;"></i><span
-                            class="nav-text">Login</span>
-                    </a>
-                </li>
+                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                            <i class="fa fa-cog menu-icon" style="font-size: 22px;"></i></i><span class="nav-text">Setting</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li><a href="<?= base_url('admin/setting') ?>"><i class="fa fa-map"></i> Lokasi Toko</a></li>
+                            <li><a href="<?= base_url('blog') ?>"><i class="fa fa-book"></i> Blog</a></li>
+                        </ul>
+                    </li>
+                <?php endif; ?>
                 <li>
                     <a href="<?= base_url('auth/logout_user') ?>" aria-expanded="false">
                         <i class="fa fa-sign-out menu-icon" style="font-size: 22px;"></i><span

@@ -22,6 +22,19 @@ class M_produk extends CI_Model
     //menambah data
     public function add($data)
     {
+         // Mengambil ID terakhir
+         $last_id = $this->db->select('id_produk')->order_by('id_produk', 'desc')->limit(1)->get('tbl_produk')->row();
+
+        // Menghasilkan ID baru
+        if ($last_id) {
+            $last_id = $last_id->id_produk;
+            $id_number = (int) substr($last_id, 3) + 1; // Mengambil angka dari karakter ketiga dan seterusnya
+            $new_id = 'PRD' . str_pad($id_number, 2, '0', STR_PAD_LEFT); // Menggunakan panjang 2 untuk angka
+        } else {
+            $new_id = 'PRD01'; // ID awal jika ini adalah entri pertama
+        }
+ 
+        $data['id_produk'] = $new_id;
         $this->db->insert('tbl_produk', $data);
     }
 
@@ -37,6 +50,14 @@ class M_produk extends CI_Model
     {
         $this->db->where('id_produk', $data['id_produk']);
         $this->db->delete('tbl_produk', $data);
+    }
+
+    public function update_stok_in($data) {
+        $qty = $data['qty'];
+        $id = $data['id_produk'];
+        $sql = "UPDATE tbl_produk SET stok = stok + '$qty' WHERE id_produk = '$id'";
+
+        $this->db->query($sql);
     }
 
 }    

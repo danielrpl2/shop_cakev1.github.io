@@ -18,7 +18,9 @@
                                 
                                 ?>
                                 <h3 class="card-title" style="text-align: center;">Table <?= $title ?></h3>
-                                <button data-toggle="modal" data-target="#add" type="button" class="btn btn-primary btn-sm" style="font-size: 15px; color: white;"> Add  <?= $title ?> <i class="fa fa-th-list" aria-hidden="true"></i></button>
+                                <?php if ($this->session->userdata('level_user') == '1'): ?>
+                                <button data-toggle="modal" data-target="#add" type="button" class="btn btn-primary btn-sm" style="font-size: 15px; color: white;"> Add  <?= $title ?> <i class="fa fa-cubes" aria-hidden="true"></i></button>
+                                <?php endif; ?>
                                 <div class="table-responsive">
                                     <table class="table table-striped table-bordered zero-configuration">
                                         <thead>
@@ -36,7 +38,9 @@
                                                 <td><?= $value->nama_kategori ?></td>
                                               <td>
                                                     <button class="btn btn-warning btn-sm" style="color: black; background-color: yellow; border: none;" data-toggle="modal" data-target="#edit<?= $value->id_kategori?>"><i class="fa fa-edit"></i></button>
+                                                    <?php if ($this->session->userdata('level_user') == '1'): ?>
                                                     <button class="btn btn-danger btn-sm" style="color: white; border: none;" data-toggle="modal" data-target="#delete<?= $value->id_kategori?>"><i class="fa fa-trash"></i></button>
+                                                    <?php endif; ?>
                                                 </td>
                                              </tr> 
                                             <?php } ?>

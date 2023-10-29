@@ -13,15 +13,24 @@ class Admin extends CI_Controller {
     }
     
 	public function index()
-	{
+    {
         $data = array (
             'title' => 'Dashboard',
+            // 'total_pesanan' => $this->m_admin->total_pesanan(),
+            'belum_bayar' => $this->m_admin->total_pesanan_belum_bayar(),
+            'sudah_bayar' => $this->m_admin->total_pesanan_sudah_bayar(),
+            'dikirim' => $this->m_admin->total_pesanan_dikirim(),
+            'selesai' => $this->m_admin->total_pesanan_selesai(),
+            'total_pendapatan' => $this->m_admin->total_pendapatan(),
             'total_produk' => $this->m_admin->total_produk(),
             'total_kategori' => $this->m_admin->total_kategori(),
+            'total_pelanggan' => $this->m_admin->total_pelanggan(),
             'isi' => 'v_admin',
         );
         $this->load->view('layout/v_wrapper_backend', $data, FALSE);
-	}
+    }
+
+
 
 	public function setting()
 	{
@@ -100,6 +109,10 @@ class Admin extends CI_Controller {
     $this->session->set_flashdata('pesan', 'Pesanan Berhasil Di Kirim!!');
     redirect('admin/pesanan_masuk');
     
+    }
+
+    public function FunctionName() : Returntype {
+        
     }
      
 }

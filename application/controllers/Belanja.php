@@ -8,6 +8,7 @@ class Belanja extends CI_Controller {
     {
         parent::__construct();       
         $this->load->model('m_transaksi');
+        $this->load->model('m_home');
          
     }
 
@@ -18,6 +19,7 @@ class Belanja extends CI_Controller {
         }
         $data = array (
             'title' => 'Keranjang Belanja',
+            'blog' => $this->m_home->get_all_data_blog(),
             'isi' => 'v_cart',
         );
         $this->load->view('layout/v_wrapper_frontend', $data, FALSE);
@@ -37,6 +39,27 @@ class Belanja extends CI_Controller {
     redirect($redirect_page, 'refresh');
     
     }
+
+    // public function update_ajax()
+    // {
+    //     $rowid = $this->input->post('rowid');
+    //     $newQty = $this->input->post('qty');
+    
+    //     $data = array(
+    //         'rowid' => $rowid,
+    //         'qty' => $newQty
+    //     );
+    
+    //     $this->cart->update($data);
+    
+    //     // Hitung subtotal dan total
+    //     $subtotal = $this->cart->format_number($this->cart->get_item($rowid)['subtotal']);
+    //     $total = $this->cart->format_number($this->cart->total());
+    
+    //     // Kembalikan respons dalam format JSON
+    //     echo json_encode(array('subtotal' => $subtotal, 'total' => $total));
+    // }
+    
 
     public function update()
     {
@@ -86,6 +109,7 @@ class Belanja extends CI_Controller {
         if ($this->form_validation->run() == FALSE) {
             $data = array (
                 'title' => 'Cekout Belanja',
+                'blog' => $this->m_home->get_all_data_blog(),
                 'isi' => 'v_cekout',
             );
             $this->load->view('layout/v_wrapper_frontend', $data, FALSE);  

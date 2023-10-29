@@ -63,7 +63,9 @@
                                             <img src="<?= base_url('assets/gambarproduk/' . $value->gambar) ?>" id="gambar_load" style="width: 100%; border-radius:10px; padding: 10px;" height="auto">
                                         </div>
                                         <p for="">Ket : <?= $value->ket ?></p>
+                                        <?php if ($this->session->userdata('level_user') == '1'): ?>
                                         <button data-toggle="modal" data-target="#delete<?= $value->id_gambar?>" class="btn btn-danger btn-block"><i class="fa fa-trash" aria-hidden="true"></i> Hapus</button>
+                                        <?php endif; ?>
                                     </div>
                                 <?php } ?>
 

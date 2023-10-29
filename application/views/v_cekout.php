@@ -1,12 +1,19 @@
 <!-- Page Title -->
-<section class="page-title" style="background-image:url(<?= base_url() ?>assets/home2/images/background/2.jpg);">
-    <div class="auto-container">
-        <div class="inner-box">
-            <h1>Cekout</h1>
-            <div class="bread-crumb"><a href="<?= base_url('home') ?>">Home &nbsp; /</a> <i class="current">Cekout</i>
-            </div>
-        </div>
-    </div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<section style="text-align: center;" >
+	<div class="auto-container">
+		<div class="inner-box">
+			<strong><h1 style="font-weight: 1000;">Halaman Cekout</h1></strong>
+			<div class="bread-crumb"><a href="<?= base_url('home') ?>">Home &nbsp; /</a> <i class="current">Halaman Cekout</i></div>
+		</div>
+	</div>
 </section>
 <!-- End Page Title -->
 <!--Checkout Page-->
@@ -96,7 +103,7 @@
 
                                 <!--Form Group-->
                                 <div class="form-group col-md-6 col-sm-6 col-xs-12">
-                                    <div class="field-label">Provinsi <sup>*</sup> </div>
+                                    <div class="field-label">Kota <sup>*</sup> </div>
                                     <select name="kota"></select>
                                 </div>
 
@@ -145,7 +152,7 @@
 
                     <div class="col-lg-5 col-md-12 col-sm-12">
                         <div class="sec-title">
-                            <h1>Your Order.</h1>
+                            <h1>Data Pembayaran</h1>
                             
                         </div>
 

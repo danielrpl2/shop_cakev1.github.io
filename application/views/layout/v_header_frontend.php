@@ -1,169 +1,138 @@
-
+<div class="page-wrapper">
     <!-- Preloader -->
     <div class="preloader"></div>
 
-    <!-- Main Header / Header Style Two-->
-    <header class="main-header header-style-two">
-    	
-		<!--Header-Upper-->
-        <div class="header-upper">
-        	<div class="auto-container">
-            	<div class="clearfix">
-                	
-                	<div class="pull-left logo-box">
-                    	<div class="logo"><a href="<?= base_url() ?>"><img src="<?= base_url() ?>assets/home2/images/orabella2.png" alt="" title=""></a></div>
-                    </div>
-                    
-                    <div class="pull-right upper-right">
-                    	<div class="info-outer clearfix">
-						
-							<!--Info Box-->
-							<div class="upper-column info-box">
-								<div class="icon-box"><span class="flaticon-pin"></span></div>
-								<ul>
-									<li>2130 Jember Jawa Timur <br> Gambirono Bangsalsari</li>
-								</ul>
-							</div>
-							
-							<!--Info Box-->
-							<div class="upper-column info-box">
-								<div class="icon-box"><span class="flaticon-phone-call"></span></div>
-								<ul>
-									<li>Orabella Bakery : 08:30 - 18:00 <br> <a href="tel:+62 8698097666">+62 8698097666</a></li>
-								</ul>
-							</div>
-							
-							<!--Info Box-->
-							<div class="upper-column info-box">
-								<a href="#" class="theme-btn btn-style-two"><span class="txt">Contact</span></a>
-							</div>
-							
-                        </div>
-						
-                    </div>
-                    
-                </div>
-				
-            </div>
-        </div>
-        <!--End Header Upper-->
+    <header class="main-header header-style-three">
         
-		<!--Header Lower-->
-		<div class="header-lower">
-			
-			<div class="auto-container clearfix">
+		<!-- Header Upper -->
+        <div class="header-upper" style="background-color: black;">
+            <div class="inner-container clearfix">
+                
+				<!--Info-->
+				<div class="logo-outer">
+					<div class="logo"><a href="#"><img src="<?= base_url() ?>assets/home2/images/nav-orb.png" alt="" title=""></a></div>
+				</div>
+
+				<!--Nav Box-->
 				<div class="nav-outer clearfix">
 					<!--Mobile Navigation Toggler For Mobile--><div class="mobile-nav-toggler"><span class="icon flaticon-menu"></span></div>
-					<!-- Main Menu -->
-					<nav class="main-menu navbar-expand-md">
+					<nav class="main-menu navbar-expand-md navbar-light">
 						<div class="navbar-header">
-							<!-- Toggle Button -->    	
+							<!-- Togg le Button -->      
 							<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-								<span class="icon-bar"></span>
-								<span class="icon-bar"></span>
-								<span class="icon-bar"></span>
+								<span class="icon flaticon-menu"></span>
 							</button>
 						</div>
 						
-						<div class="navbar-collapse collapse clearfix" id="navbarSupportedContent">
+						<div class="collapse navbar-collapse clearfix" id="navbarSupportedContent">
 							<ul class="navigation clearfix">
-								<li class="current">
-									<a href="<?= base_url('home') ?>"><span data-hover="Home">Home</span></a>
-								</li>
-								
-								<li>
-									<a href="<?= base_url('home/by_kategori') ?>"><span data-hover="Shop">Shop</span></a>
-								</li>
-
-								<li><a href="#"><span data-hover="Contact">Contact</span></a></li>
+                                <li><a href="<?= base_url('home') ?>"><span data-hover="Home">Home</span></a></li>
+								<li><a href="<?= base_url('home/by_kategori') ?>"><span data-hover="Product">Product</span></a></li>
+								<li><a href="<?= base_url ('home/blog') ?>"><span data-hover="Blog">Blog</span></a></li>
+								<li><a href="<?= base_url ('home/about') ?>"><span data-hover="About">About</span></a></li>
 							</ul>
 						</div>
 					</nav>
-					
 					<!-- Main Menu End-->
-					<div class="outer-box clearfix">
-					
-						<!--Option Box-->
-						<div class="option-box">
-							
-							<!--Cart Box-->
-							<?php 
+
+						
+					<!-- Main Menu End-->
+					<?php if ($this->session->userdata('email') == "") { ?>
+						<div class="outer-box clearfix">
+
+                        <?php 
 								$keranjang = $this->cart->contents();
 								$jml_item = 0;
 								foreach ($keranjang as $key => $value) {
 									$jml_item = $jml_item + $value['qty'];
 								} 
 								?>
-							<div class="cart-box">
-								<div class="offset-side-bar cart-box-btn"><span class="flaticon-shopping-cart-of-checkered-design"></span><span class="total-cart"><?= $jml_item ?></span></div>
-							</div>
-							
-							<!-- Search Btn -->
-							<!-- <div class="search-box-btn"><span class="icon flaticon-search"></span></div> -->
-							
-							<!-- Main Menu End-->
-							<div class="nav-box">
-								<div class="nav-btn navSidebar-button"><span class="icon flaticon-menu-1"></span></div>
-							</div>
-							
+
+                <div class="search-box-btn">
+                    <span class="icon flaticon-shopping-cart"></span>
+                </div>
+                         <!-- User -->
+                         <div class="search-button">
+                         <a href="<?= base_url ('pelanggan/login') ?>">
+                            <span class="icon flaticon-user"></span>
+                         </a>
+                        </div>
+				
+                         <!-- Tombol Pencarian -->
+                         <div id="search-button" class="search-button">
+                            <span class="icon flaticon-search"></span>
+                        </div>
+
+                        <!-- Pop-up Pencarian -->
+                        <div id="search-popup1" class="search-popup1">
+                            <div class="search-content">
+                                <span class="close-button" id="close-button">&times;</span>
+
+                                <?php echo form_open('home/search') ?>                                
+                                <div id="search-form">
+                                    <input type="text" name="keyword" placeholder="Cari produk...">
+                                    <button type="submit">Cari</button>
+                                </div>
+                                <?php echo form_close(); ?>
+                            </div>
+                        </div>
+						<div class="nav-box">
+							<div class="nav-btn nav-toggler navSidebar-button"><span class="icon flaticon-menu-1"></span></div>
 						</div>
 					</div>
-					
-				</div>
-			</div>
-		</div>
-		<!--End Header Lower-->
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+                        <?php } else{ ?>
 
-		<!-- sidebar cart item -->
-			<div class="xs-sidebar-group cart-group">
-				<div class="xs-overlay xs-bg-black"></div>
-				<div class="xs-sidebar-widget">
-					<div class="sidebar-widget-container">
-						<div class="widget-heading media">
-							<div class="media-body">
-								<a href="#" class="close-side-widget"><span class="icon flaticon-cancel"></span></a>
-							</div>
-						</div>
-						
-						<div class="xs-empty-content">
-							<?php if (empty($keranjang)) { ?>
-								<h1>KERANJANG KOSONG</h1>
-							<?php } else {
-							
+					<div class="outer-box clearfix">
+					    <?php 
+								$keranjang = $this->cart->contents();
+								$jml_item = 0;
+								foreach ($keranjang as $key => $value) {
+									$jml_item = $jml_item + $value['qty'];
+								} 
+								?>
+						<!-- Search Btn -->
+						<div class="search-box-btn"><span class="icon flaticon-shopping-cart"></span></div>
+                                                
+                        <!-- Tombol Pencarian -->
+                        <div id="search-button" class="search-button">
+                            <span class="icon flaticon-search"></span>
+                        </div>
 
-							foreach ($keranjang as $key => $value) { 
-							$produk = $this->m_home->detail_produk($value['id']);	
-							?>
-							<!-- Cart Product -->
-							<div class="cart-product">
-								<div class="inner">
-									<div class="cross-icon"><span class="icon fa fa-remove"></span></div>
-									<div class="image"><img src="<?= base_url('gambar/' .$produk->gambar) ?>" alt="" /></div>
-									<h3><a href="shop-single.html"><?= $value['name'] ?></a></h3>
-									<div class="quantity-text">Qty : <?= $value['qty'] ?></div>
-									<div class="price">Rp.<?= $this->cart->format_number($value['subtotal']); ?></div>
-								</div>
-							</div>
-							<?php } ?>
-							<p class="xs-btn-wraper">
-								<a class="btn keranjang btn-style-two" href="<?= base_url('belanja') ?>"><span class="txt">View Keranjang</span></a>
-								<br>
-								<a class="btn keranjang btn-style-two" href="<?= base_url('belanja/cekout') ?>"><span class="txt">Cekout</span></a>
-							</p>
+                        <!-- Pop-up Pencarian -->
+                        <div id="search-popup1" class="search-popup1">
+                            <div class="search-content">
+                                <span class="close-button" id="close-button">&times;</span>
+
+                                <?php echo form_open('home/search') ?>                                
+                                <div id="search-form">
+                                    <input type="text" name="keyword" placeholder="Cari produk...">
+                                    <button type="submit">Cari</button>
+                                </div>
+                                <?php echo form_close(); ?>
+                            </div>
+                        </div>
+                       
+						<!-- Main Menu End-->
+						<div class="nav-box">
+							<div class="nav-btn nav-toggler navSidebar-button"><span class="icon flaticon-menu-1"></span></div>
 						</div>
-						<?php } ?>
+						<div class="number-badge"><?= $jml_item ?></div> <!-- Ubah angka 5 sesuai dengan angka yang Anda inginkan -->
 					</div>
+					<?php } ?>
 				</div>
-			</div>
-			<!-- END sidebar cart item -->
+                
+            </div>
+        </div>
+        <!--End Header Upper-->
+
+
 
 		<!--Sticky Header-->
         <div class="sticky-header">
         	<div class="auto-container clearfix">
             	<!--Logo-->
             	<div class="logo pull-left">
-                	<a href="<?= base_url() ?>" class="img-responsive"><img src="<?= base_url() ?>assets/home2/images/orabella2.png" alt="" title=""></a>
+                	<a href="#" class="img-responsive"><img src="<?= base_url() ?>assets/home2/images/nav-orb.png" alt="" title=""></a>
                 </div>
                 
 				<!--Right Col-->
@@ -187,7 +156,7 @@
             
             <!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header-->
             <nav class="menu-box">
-            	<div class="nav-logo"><a href="<?= base_url() ?>"><img src="<?= base_url() ?>assets/home2/images/orabella2.png" alt="" title=""></a></div>
+            	<div class="nav-logo"><a href="#"><img src="<?= base_url() ?>assets/home2/images/nav-orb.png" alt="" title=""></a></div>
                 
                 <ul class="navigation clearfix"><!--Keep This Empty / Menu will come through Javascript--></ul>
             </nav>
@@ -195,7 +164,6 @@
 
     </header>
     <!-- End Main Header -->
-
 	
 <!-- sidebar cart item -->
 <div class="xs-sidebar-group info-group">
@@ -212,7 +180,7 @@
             <div class="sidebar-info-contents">
 				<div class="content-inner">
 					<div class="logo">
-						<a href="<?= base_url() ?>"><img src="<?= base_url() ?>assets/home2/images/orabella2.png" alt="" /></a>
+						<a href="<?= base_url() ?>"><img src="<?= base_url() ?>assets/home2/images/orabella3.png" alt="" /></a>
 					</div>
 					<div class="content-box">
 						<h2>Pelanggan</h2>
@@ -222,24 +190,29 @@
 					</div>
 					<?php } else{ ?>
 						<div class="content-inner">
-					<div class="logo">
-						<a href="<?= base_url() ?>"><img src="<?= base_url() ?>assets/home2/images/orabella2.png" alt="" /></a>
-					</div>
-					<div class="contact-info">
-						<br>
-						<br>
-						<ul class="list-style-two">
-							<li><span class="icon flaticon-map"></span><?= $this->session->userdata('nama_pelanggan')?></li>
-							<li><span class="icon flaticon-telephone"></span>(111) 000-000-0000</li>
-							<li><span class="icon flaticon-message-1"></span><?= $this->session->userdata('email')?></li>
-							<li><span class="icon flaticon-timetable"></span>Week Days: 09.00 to 18.00 Sunday: Closed</li>
-						</ul>
-						<br>
-						<div class="content-box">
-						<a href="<?= base_url ('pesanan_saya') ?>" class="theme-btn btn-style-two"><span class="txt">Pesanan Saya</span></a>
-						<a href="<?= base_url ('pelanggan/logout') ?>" class="theme-btn btn-style-two"><span class="txt">Logout</span></a>
-					</div>
-					</div>
+							<div class="logo">
+								<a href="<?= base_url() ?>"><img src="<?= base_url() ?>assets/home2/images/orabella3.png" alt="" /></a>
+							</div>
+							<div class="contact-info">
+								<div class="profile-info">
+									<div class="profile-image">
+										<img src="<?= base_url() ?>assets/home2/images/resource/author-2.jpg" alt="Profile Image" />
+									</div>
+								</div>
+								<br>
+								<br>
+								<ul class="list-style-two">
+									<li><span class="icon flaticon-user-1"></span><?= $this->session->userdata('nama_pelanggan') ?></li>
+									<li><span class="icon flaticon-message-1"></span><?= $this->session->userdata('email') ?></li>
+								</ul>
+								<br>
+								<br>
+								<div class="content-box">
+									<a href="<?= base_url('pesanan_saya') ?>" class="theme-btn btn-style-two"><span class="txt">Pesanan</span></a>
+									<a href="<?= base_url('pelanggan/logout') ?>" class="theme-btn btn-style-two"><span class="txt">Logout</span></a>
+								</div>
+							</div>
+						</div>
 					<!-- Social Box -->
 					<!-- <ul class="social-box">
 						<li class="facebook"><a href="#" class="fab fa-facebook-f"></a></li>
@@ -281,6 +254,55 @@
 </script>
 <!-- CSS untuk tampilan alert -->
 <style>
+.content-box {
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.theme-btn {
+    flex: 1;
+    overflow: hidden; /* Menyembunyikan teks yang melebihi lebar tombol */
+    white-space: nowrap; /* Mencegah teks pindah ke baris baru */
+}
+
+@media screen and (max-width: 767px) {
+	.content-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 10px; /* Padding untuk memberi jarak antara kotak dengan elemen di dalamnya */
+}
+
+.theme-btn {
+	width: 100%;
+
+    flex: 1;
+    overflow: hidden; /* Menyembunyikan teks yang melebihi lebar tombol */
+    white-space: nowrap; /* Mencegah teks pindah ke baris baru */
+}
+}
+
+
+.profile-info {
+    display: flex;
+    align-items: center;
+}
+
+.profile-image {
+    width: 90px; /* Ukuran gambar profil */
+    height: 90px; /* Ukuran gambar profil */
+    border-radius: 50%; /* Membuat gambar menjadi bulat */
+    overflow: hidden; /* Mengatasi masalah gambar yang melebihi lingkaran */
+}
+
+.profile-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Menyesuaikan gambar dengan lingkaran */
+}
+
     .custom-alert {
         display: none;
         position: fixed;
@@ -313,6 +335,17 @@
             transform: translate(-50%, -150%);
         }
     }
+	.number-badge {
+    background-color: #0077B6;
+    color: #FFFFFF;
+    border-radius: 50%;
+    width: 15px;
+    height: 20px;
+    text-align: center;
+    line-height: 20px;
+    position: absolute;
+  
+}
 </style>
 
 <!-- JavaScript untuk menampilkan alert -->
@@ -377,3 +410,94 @@
 }
 
 </style>
+<style>
+    /* Gaya tombol pencarian */
+.search-button {
+    position:relative;
+	float:left;
+	cursor:pointer;
+	margin:8px 0px;
+}
+
+.search-button span{
+    position:relative;
+	font-size:20px;
+	color:#25a9e0;
+    position:relative;
+	margin:0px;
+	padding:10px 10px;
+	background-color:#ffffff;
+    border-radius:50%;
+
+}
+
+/* Gaya pop-up pencarian */
+.search-popup1 {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 999;
+}
+
+.search-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.close-button {
+    position: absolute;
+    bottom: 35vh; /* Menggeser ke atas */
+    right: 20vh; /* Menggeser ke kanan */
+    font-size: 45px;
+    color: #ffffff;
+    cursor: pointer;
+    z-index: 5;
+}
+
+/* Gaya form pencarian dalam pop-up */
+#search-form {
+    display: flex;
+}
+
+#search-form input[type="text"] {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#search-form button {
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+#search-form button:hover {
+    background-color: #0056b3;
+}
+
+</style>
+<script>
+    // Fungsi untuk menampilkan pop-up pencarian
+document.getElementById("search-button").addEventListener("click", function () {
+    document.getElementById("search-popup1").style.display = "block";
+});
+
+// Fungsi untuk menutup pop-up pencarian
+document.getElementById("close-button").addEventListener("click", function () {
+    document.getElementById("search-popup1").style.display = "none";
+});
+
+</script>

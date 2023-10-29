@@ -12,6 +12,19 @@ class M_kategori extends CI_Model
     //menambah data
     public function add($data)
     {
+        // Mengambil ID terakhir
+        $last_id = $this->db->select('id_kategori')->order_by('id_kategori', 'desc')->limit(1)->get('tbl_kategori')->row();
+
+        // Menghasilkan ID baru
+        if ($last_id) {
+            $last_id = $last_id->id_kategori;
+            $id_number = (int) substr($last_id, 3) + 1; // Mengambil angka dari karakter ketiga dan seterusnya
+            $new_id = 'KTG' . str_pad($id_number, 2, '0', STR_PAD_LEFT); // Menggunakan panjang 2 untuk angka
+        } else {
+            $new_id = 'KTG01'; // ID awal jika ini adalah entri pertama
+        }
+
+        $data['id_kategori'] = $new_id;
         $this->db->insert('tbl_kategori', $data);
     }
 

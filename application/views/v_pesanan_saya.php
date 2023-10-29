@@ -1,12 +1,19 @@
 <!-- Page Title -->
-<section class="page-title" style="background-image:url(<?= base_url()?>assets/home2/images/background/2.jpg);">
-    <div class="auto-container">
-        <div class="inner-box">
-            <h1>Pesanan Saya</h1>
-            <div class="bread-crumb"><a href="<?= base_url('home')?>">Home &nbsp; /</a> <i class="current">Pesanan
-                    Saya</i></div>
-        </div>
-    </div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<section style="text-align: center;" >
+	<div class="auto-container">
+		<div class="inner-box">
+			<strong><h1 style="font-weight: 1000;">Pesanan Saya</h1></strong>
+			<div class="bread-crumb"><a href="<?= base_url('home') ?>">Home &nbsp; /</a> <i class="current">Pesanan Saya</i></div>
+		</div>
+	</div>
 </section>
 <!-- End Page Title -->
 <br>
@@ -26,8 +33,6 @@ if ($this->session->flashdata('pesan')) {
 
 ?>
         <div class="sec-title" style="text-align: center;">
-            <h1>Pesanan Saya</h1>
-            <div class="separator"></div>
         </div>
         <div class="card card-primary card-outline card-outline-tabs">
             <div class="card-header p-0 border-bottom-0">
@@ -92,6 +97,9 @@ if ($this->session->flashdata('pesan')) {
                                             <td style="color: black; font-weight: 1000;">
                                             <?php if ($value->status_bayar==0) { ?>
                                                 <a href="<?= base_url('pesanan_saya/bayar/' . $value->id_transaksi) ?>" class="btn btn-sm btn-flat btn-primary"><i class="fas fa-money-bill"></i> Bayar</a>
+                                                <button class="btn btn-sm btn-flat btn-danger" data-toggle="modal" data-target="#deleteConfirmation<?= $value->id_transaksi ?>">
+                                                    <i class="fas fa-trash"></i> Cancel
+                                                </button>
                                             <?php } ?>
                                             </td>
                                         </tr>
@@ -241,3 +249,26 @@ if ($this->session->flashdata('pesan')) {
         </div>
     </div>
  <?php } ?>
+
+ <!-- Modal Konfirmasi Hapus Pesanan -->
+ <?php foreach ($belum_bayar as $key => $value) { ?>
+    <div class="modal fade" id="deleteConfirmation<?= $value->id_transaksi ?>" tabindex="-1" role="dialog" aria-labelledby="deleteConfirmationLabel<?= $value->id_transaksi ?>" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="deleteConfirmationLabel<?= $value->id_transaksi ?>">Konfirmasi Hapus Pesanan</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Apakah Anda yakin ingin menghapus pesanan ini?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                <a href="<?= base_url('pesanan_saya/cancel/' . $value->id_transaksi) ?>" class="btn btn-danger">Hapus</a>
+            </div>
+        </div>
+    </div>
+</div>
+<?php } ?>

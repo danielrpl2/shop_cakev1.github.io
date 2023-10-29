@@ -9,6 +9,7 @@ class Pesanan_saya extends CI_Controller {
         parent::__construct();
         $this->load->model('m_transaksi');
         $this->load->model('m_pesanan_masuk');
+        $this->load->model('m_home');
         
     }
     
@@ -16,6 +17,7 @@ class Pesanan_saya extends CI_Controller {
     {
         $data = array (
             'title' => 'Pesanan Saya',
+            'blog' => $this->m_home->get_all_data_blog(),
             'belum_bayar' => $this->m_transaksi->belum_bayar(),
             'diproses' => $this->m_transaksi->diproses(),
             'dikirim' => $this->m_transaksi->dikirim(),
@@ -43,6 +45,7 @@ class Pesanan_saya extends CI_Controller {
                     'title' => 'Pembayaran',
                     'pesanan' => $this->m_transaksi->detail_pesanan($id_transaksi),
                     'rekening' => $this->m_transaksi->rekening(),
+                    'blog' => $this->m_home->get_all_data_blog(),
                     'error_upload' => $this->upload->display_errors(),
                     'isi' => 'v_bayar',
                 );
@@ -71,6 +74,7 @@ class Pesanan_saya extends CI_Controller {
             'title' => 'Pembayaran',
             'pesanan' => $this->m_transaksi->detail_pesanan($id_transaksi),
             'rekening' => $this->m_transaksi->rekening(),
+            'blog' => $this->m_home->get_all_data_blog(),
             'isi' => 'v_bayar',
         );
         $this->load->view('layout/v_wrapper_frontend', $data, FALSE);
@@ -87,4 +91,25 @@ class Pesanan_saya extends CI_Controller {
     redirect('pesanan_saya');
     
     }
+
+    //cancel pesanan 
+    public function cancel($id_transaksi)
+    {
+        $pesanan = $this->m_transaksi->detail_pesanan($id_transaksi);
+
+        // Pastikan pesanan belum dibayar (status order = 0) atau belum dikirim (status order = 2)
+        if ($pesanan->status_order == 0 || $pesanan->status_order == 2) {
+            // Hapus pesanan dari tbl_detail_transaksi
+            
+            // Hapus pesanan dari tbl_transaksi
+            $this->m_transaksi->hapus_transaksi($id_transaksi);
+            
+            $this->session->set_flashdata('pesan', 'Pesanan berhasil dihapus.');
+        } else {
+            $this->session->set_flashdata('pesan', 'Pesanan tidak dapat dihapus karena sudah dibayar atau dikirim.');
+        }
+        
+        redirect('pesanan_saya');
+    }
+
 }

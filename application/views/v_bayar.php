@@ -1,13 +1,21 @@
 <!-- Page Title -->
-<section class="page-title" style="background-image:url(<?= base_url()?>assets/home2/images/background/2.jpg);">
-    <div class="auto-container">
-        <div class="inner-box">
-            <h1>Pembayaran</h1>
-            <div class="bread-crumb"><a href="<?= base_url('home')?>">Home &nbsp; /</a> <i class="current">Pembayaran
-                   </i></div>
-        </div>
-    </div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<section style="text-align: center;" >
+	<div class="auto-container">
+		<div class="inner-box">
+			<strong><h1 style="font-weight: 1000;">Halaman Pembayran</h1></strong>
+			<div class="bread-crumb"><a href="<?= base_url('home') ?>">Home &nbsp; /</a> <i class="current">Halaman Pembayran</i></div>
+		</div>
+	</div>
 </section>
+<!-- End Page Title -->
 <!--Checkout Page-->
 <div class="checkout-page">
         <div class="auto-container">
@@ -19,7 +27,7 @@
                             <div class="col-lg-7 col-md-12 col-sm-12">
                 				<div class="sec-title">
 									<h1>Upload Bukti Pembayaran</h1>
-									<div class="separator"></div>
+									
 								</div>
                         		<div class="billing-inner">
                                         <?php 
@@ -63,7 +71,7 @@
 
                                         <div class="button-container col-lg-5 col-md-12 col-sm-12">
                                             <a href="<?= base_url('pesanan_saya') ?>" class="theme-btn btn-style-two order-btn"><span class="txt">Back</span></a>
-                                            <button type="submit" class="theme-btn btn-style-two order-btn">Transfer</button>
+                                            <button type="submit" class="theme-btn btn-style-two order-btn">Bayar</button>
                                         </div>
 									</div>
                                         <?php 
@@ -78,7 +86,7 @@
                             <br>
                                 <div class="sec-title">
 									<h1>No Rekening Toko</h1>
-									<div class="separator"></div>
+									
 								</div>
                                 <div class="shop-order-box">
                                 	<ul class="order-list">

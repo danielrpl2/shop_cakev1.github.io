@@ -11,6 +11,15 @@ class Pelanggan extends CI_Controller {
         $this->load->model('m_auth');
     }
 
+    public function index()
+    {
+        $data = array (
+            'title' => 'Pelanggan',
+            'pelanggan' => $this->m_pelanggan->get_all_data(),
+            'isi' => 'v_pelanggan',
+        );
+        $this->load->view('layout/v_wrapper_backend', $data, FALSE);
+    }
    
     public function register()
     {
@@ -99,4 +108,12 @@ class Pelanggan extends CI_Controller {
         );
         $this->load->view('v_akun_saya', $data, FALSE);     
     }
+
+    public function delete($id_pelanggan = NULL)
+	{
+		$data = array('id_pelanggan' => $id_pelanggan);
+		$this->m_pelanggan->delete($data);
+		$this->session->set_flashdata('pesan', 'Data Berhasil Dihapus !!!');
+		redirect('pelanggan');
+	}
 }   

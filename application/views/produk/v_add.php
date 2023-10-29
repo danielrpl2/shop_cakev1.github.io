@@ -63,7 +63,7 @@
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group">
-                                <img src="<?= base_url('assets/gambar_tambahan/noimage.jpg') ?>" id="gambar_load" style="width: 60%; border-radius:10px;">
+                                <img src="<?= base_url('assets/gambar_tambahan/kosong.jpg') ?>" id="gambar_load" style="width: 60%; border-radius:10px;">
                             </div>
                         </div>
 

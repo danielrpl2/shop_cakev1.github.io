@@ -30,6 +30,19 @@ class M_gambarproduk extends CI_Model
 
     public function add($data)
     {
+         // Mengambil ID terakhir
+         $last_id = $this->db->select('id_gambar')->order_by('id_gambar', 'desc')->limit(1)->get('tbl_gambar')->row();
+
+         // Menghasilkan ID baru
+         if ($last_id) {
+             $last_id = $last_id->id_gambar;
+             $id_number = (int) substr($last_id, 3) + 1; // Mengambil angka dari karakter ketiga dan seterusnya
+             $new_id = 'GMR' . str_pad($id_number, 2, '0', STR_PAD_LEFT); // Menggunakan panjang 2 untuk angka
+         } else {
+             $new_id = 'GMR01'; // ID awal jika ini adalah entri pertama
+         }
+ 
+         $data['id_gambar'] = $new_id;
         $this->db->insert('tbl_gambar', $data);
     }
 
