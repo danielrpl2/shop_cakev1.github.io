@@ -14,8 +14,8 @@
 <section class="video-banner-section">
     	<!--Video-->
         <video class="bg-video" preload="auto" autoplay="" loop="" muted="" style="filter: invert(0);">
-            <source src="<?= base_url()?>assets/home2/videos/video.mp4" type="video/mp4">
-            <source src="<?= base_url()?>assets/home2/videos/video.mp4" type="video/mp4">
+            <source src="<?= base_url()?>assets/home2/videos/header.mp4" type="video/mp4">
+            <source src="<?= base_url()?>assets/home2/videos/header.mp4" type="video/mp4">
             <h3>This browser does not happen to support video</h3>
 		</video>
     	<div class="auto-container">
