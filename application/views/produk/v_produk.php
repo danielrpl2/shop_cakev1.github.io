@@ -41,7 +41,7 @@
                                                 <td>Rp. <?= number_format($value->harga,0) ?></td>
                                                 <td><?= $value->berat ?> Gr.</td>
                                                 <td>
-                                                    <img src="<?= base_url('gambar/' .$value->gambar) ?>" width="150px" style="border-radius: 10px;"alt="">
+                                                     <img src="<?= base_url('gambar/' . $value->gambar1) ?>" width="100px" style="border-radius: 10px; height: 10vh; object-fit: cover;" alt="">
                                                 </td>
                                                 <td>
                                                     <a href="<?= base_url('produk/edit/' . $value->id_produk) ?>" class="btn btn-warning btn-sm" style="color: black; background-color: yellow; border: none;"><i class="fa fa-edit"></i></a>

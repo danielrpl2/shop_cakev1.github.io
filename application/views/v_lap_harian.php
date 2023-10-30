@@ -12,7 +12,11 @@
                         <h4><?= $title ?></h4>
                     </div>
                     <!-- Tanggal di atas tabel -->
-                    <p class="text-center" id="printDate">Tanggal: <?= $tanggal ?>/<?= $bulan ?>/<?= $tahun ?></p>
+                    <p class="text-center" id="printDate">
+                    Data Laporan Pendapatan Penjualan Toko Online Orabella Bakery <br>
+                    <img src="<?= base_url() ?>favicon2.png" alt="Logo" width="20%"><br>
+                        Tanggal: <?= $tanggal ?>/<?= $bulan ?>/<?= $tahun ?>
+                    </p>
                     <div class="table-responsive">
                         <table class="table table-striped" id="printTable">
                             <thead>

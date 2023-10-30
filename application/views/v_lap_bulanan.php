@@ -30,6 +30,10 @@
             color: #fff;
         }
 
+        #printDate img {
+            display: block !important;
+        }
+
         /* Tambahkan gaya untuk tanggal di atas tabel */
         #printDate {
             text-align: center;
@@ -54,7 +58,11 @@
                         <h4><?= $title ?></h4>
                     </div>
                     <!-- Tanggal di atas tabel -->
-                    <p class="text-center" id="printDate">Bulan: <?= $bulan ?> Tahun: <?= $tahun ?></p>
+                    <p class="text-center" id="printDate">
+                        Data Laporan Pendapatan Penjualan Toko Online Orabella Bakery <br>
+                    <img src="<?= base_url() ?>favicon2.png" alt="Logo" width="20%"><br>
+                        Bulan: <?= $bulan ?> Tahun: <?= $tahun ?>
+                    </p>
                     <div class="table-responsive">
                         <table class="table table-striped" id="printTable">
                             <thead>

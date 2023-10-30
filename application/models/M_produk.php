@@ -52,10 +52,20 @@ class M_produk extends CI_Model
         $this->db->delete('tbl_produk', $data);
     }
 
+    //relasi dengan tabel stok / tambah stok
     public function update_stok_in($data) {
         $qty = $data['qty'];
         $id = $data['id_produk'];
         $sql = "UPDATE tbl_produk SET stok = stok + '$qty' WHERE id_produk = '$id'";
+
+        $this->db->query($sql);
+    }
+
+    //relasi dengan tabel stok / kurangi stok
+    public function update_stok_out($data) {
+        $qty = $data['qty'];
+        $id = $data['id_produk'];
+        $sql = "UPDATE tbl_produk SET stok = stok - '$qty' WHERE id_produk = '$id'";
 
         $this->db->query($sql);
     }

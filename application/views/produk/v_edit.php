@@ -57,13 +57,70 @@
 
                         <div class="col-sm-6">
                             <div class="form-group">
-                                <label style="color: black; font-weight: 1000;">Foto Produk</label>
-                                <input type="file" name="gambar" class="form-control" id="preview_gambar">
+                                <label style="color: black; font-weight: 1000;">Gambar 1</label>
+                                <input type="file" name="gambar1" class="form-control" id="preview_gambar1">
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label style="color: black; font-weight: 1000;">Gambar 2</label>
+                                <input type="file" name="gambar2" class="form-control" id="preview_gambar2">
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group">
-                                <img src="<?= base_url('gambar/'. $produk->gambar) ?>" id="gambar_load" style="width: 60%; border-radius:10px;">
+                                <label style="color: black; font-weight: 1000;">Gambar 3</label>
+                                <input type="file" name="gambar3" class="form-control" id="preview_gambar3">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label style="color: black; font-weight: 1000;">Gambar 4</label>
+                                <input type="file" name="gambar4" class="form-control" id="preview_gambar4">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label style="color: black; font-weight: 1000;">Gambar 5</label>
+                                <input type="file" name="gambar5" class="form-control" id="preview_gambar5">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label style="color: black; font-weight: 1000;">Gambar 6</label>
+                                <input type="file" name="gambar6" class="form-control" id="preview_gambar6">
+                            </div>
+                        </div>
+
+                        <div class="col-sm-2">
+                            <div class="form-group">
+                                <img src="<?= base_url('gambar/'. $produk->gambar1) ?>" id="gambar_load1" style="height: 30vh; object-fit: cover; border-radius:10px;">
+                            </div>
+                        </div>
+                        <div class="col-sm-2">
+                            <div class="form-group">
+                                <img src="<?= base_url('gambar/'. $produk->gambar2) ?>" id="gambar_load2" style="height: 30vh; object-fit: cover; border-radius:10px;">
+                            </div>
+                        </div>
+                        <div class="col-sm-2">
+                            <div class="form-group">
+                                <img src="<?= base_url('gambar/'. $produk->gambar3) ?>" id="gambar_load3" style="height: 30vh; object-fit: cover; border-radius:10px;">
+                            </div>
+                        </div>
+                        <div class="col-sm-2">
+                            <div class="form-group">
+                                <img src="<?= base_url('gambar/'. $produk->gambar4) ?>" id="gambar_load4" style="height: 30vh; object-fit: cover; border-radius:10px;">
+                            </div>
+                        </div>
+                        <div class="col-sm-2">
+                            <div class="form-group">
+                                <img src="<?= base_url('gambar/'. $produk->gambar5) ?>" id="gambar_load5" style="height: 30vh; object-fit: cover; border-radius:10px;">
+                            </div>
+                        </div>
+                        <div class="col-sm-2">
+                            <div class="form-group">
+                                <img src="<?= base_url('gambar/'. $produk->gambar6) ?>" id="gambar_load6" style="height: 30vh; object-fit: cover; border-radius:10px;">
                             </div>
                         </div>
 
@@ -84,19 +141,23 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 <script>
-    function bacaGambar(input) {
+    function bacaGambar(input, previewID) {
         if (input.files && input.files[0]) {
             var reader = new FileReader();
             reader.onload = function (e) {
-                $('#gambar_load').attr('src', e.target.result);
+                $(previewID).attr('src', e.target.result);
             }
             reader.readAsDataURL(input.files[0]);
         }
     }
 
     $(document).ready(function () {
-        $("#preview_gambar").change(function () {
-            bacaGambar(this);
-        });
+        for (var i = 1; i <= 6; i++) {
+            (function (i) {
+                $("#preview_gambar" + i).change(function () {
+                    bacaGambar(this, "#gambar_load" + i);
+                });
+            })(i);
+        }
     });
 </script>
