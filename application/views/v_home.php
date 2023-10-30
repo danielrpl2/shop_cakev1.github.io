@@ -65,7 +65,7 @@
 							</div>
 						</div>
 						<div class="image">
-							<a href="<?= base_url('home/detail_produk/'.$value->id_produk) ?>"><img src="<?= base_url('gambar/' .$value->gambar) ?>" alt="" style="filter: invert(0); width: 0 700px; height: 40vh; object-fit: cover;"></a>
+							<a href="<?= base_url('home/detail_produk/'.$value->id_produk) ?>"><img src="<?= base_url('gambar/' .$value->gambar1) ?>" alt="" style="filter: invert(0); width: 0 700px; height: 40vh; object-fit: cover;"></a>
 							<div class="overlay-box">
 								<li>For Sale</li>
 								<li class="sold"><?= $value->nama_kategori ?></li>
@@ -82,7 +82,7 @@
 							</div>
 						</div>
 						<div class="image">
-							<a href="<?= base_url('home/detail_produk/'.$value->id_produk) ?>"><img src="<?= base_url('gambar/' .$value->gambar) ?>" alt="" style="filter: invert(0); width: 0 700px; height: 43vh; object-fit: cover;"></a>
+							<a href="<?= base_url('home/detail_produk/'.$value->id_produk) ?>"><img src="<?= base_url('gambar/' .$value->gambar1) ?>" alt="" style="filter: invert(0); width: 0 700px; height: 43vh; object-fit: cover;"></a>
 							<div class="overlay-box">
 								<li>For Sale</li>
 								<li class="sold"><?= $value->nama_kategori ?></li>
@@ -125,19 +125,21 @@
             <!-- Project item -->
 			<div class="gallery-item">
 				<div class="image-box">
-					<figure class="image"><img src="<?= base_url('gambar/' .$value->gambar) ?>" style="width: 0 700px; height: 30vh; object-fit: cover;" alt=""></figure>
+					<figure class="image">
+						<img src="<?= base_url('gambar/' .$value->gambar1) ?>" style="width: 0 700px; height: 30vh; object-fit: cover;" alt="">
+					</figure>
 					<div class="overlay-box">
 						<div class="icon-box">
 							<a href="<?= base_url('home/detail_produk/'.$value->id_produk) ?>" class="link"><span class="icon fa flaticon-unlink"></span></a>
-							<a href="<?= base_url('gambar/' .$value->gambar) ?>" class="link" data-fancybox="gallery-two" data-caption=""><span class="icon fa fa-expand-arrows-alt"></span></a>
+							<a href="<?= base_url('gambar/' .$value->gambar1) ?>" class="link" data-fancybox="gallery-two" data-caption=""><span class="icon fa fa-expand-arrows-alt"></span></a>
 							<h3><a href="<?= base_url('home/detail_produk/'.$value->id_produk) ?>"><?= $value->nama_produk ?></a></h3>
 						</div>
 					</div>
 				</div>
 			</div>
-            
             <?php } ?>
          </div>
+		 
 </section>
 <!-- End Gallery Section -->
 

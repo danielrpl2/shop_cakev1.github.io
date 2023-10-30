@@ -95,34 +95,70 @@
 
                         <div class="col-sm-2">
                             <div class="form-group">
-                                <img src="<?= base_url('gambar/'. $produk->gambar1) ?>" id="gambar_load1" style="height: 30vh; object-fit: cover; border-radius:10px;">
+                            <label style="color: black; font-weight: 1000;">Prev 1</label>
+                                <?php if (!empty($produk->gambar1)) : ?>
+                                    <img src="<?= base_url('gambar/' . $produk->gambar1) ?>" id="gambar_load1" class="form-control" style="border-radius: 10px; height: 25vh; object-fit: cover;">
+                                <?php else : ?>
+                                    <img src="<?= base_url('assets/gambar_tambahan/kosong.jpg') ?>" class="form-control img-responsive" id="gambar_load1" style="border-radius: 10px; height: 20vh;">
+                                <?php endif; ?>
                             </div>
                         </div>
+
                         <div class="col-sm-2">
                             <div class="form-group">
-                                <img src="<?= base_url('gambar/'. $produk->gambar2) ?>" id="gambar_load2" style="height: 30vh; object-fit: cover; border-radius:10px;">
+                            <label style="color: black; font-weight: 1000;">Prev 2</label>
+                                <?php if (!empty($produk->gambar2)) : ?>
+                                    <img src="<?= base_url('gambar/' . $produk->gambar2) ?>" id="gambar_load2" class="form-control" style="border-radius: 10px; height: 25vh; object-fit: cover;">
+                                <?php else : ?>
+                                    <img src="<?= base_url('assets/gambar_tambahan/kosong.jpg') ?>" class="form-control img-responsive" id="gambar_load2" style="border-radius: 10px; height: 20vh;">
+                                <?php endif; ?>
                             </div>
                         </div>
+
                         <div class="col-sm-2">
                             <div class="form-group">
-                                <img src="<?= base_url('gambar/'. $produk->gambar3) ?>" id="gambar_load3" style="height: 30vh; object-fit: cover; border-radius:10px;">
+                            <label style="color: black; font-weight: 1000;">Prev 3</label>
+                                <?php if (!empty($produk->gambar3)) : ?>
+                                    <img src="<?= base_url('gambar/' . $produk->gambar3) ?>" id="gambar_load3" class="form-control" style="border-radius: 10px; height: 25vh; object-fit: cover;">
+                                <?php else : ?>
+                                    <img src="<?= base_url('assets/gambar_tambahan/kosong.jpg') ?>" class="form-control img-responsive" id="gambar_load3" style="border-radius: 10px; height: 20vh;">
+                                <?php endif; ?>
                             </div>
                         </div>
+
                         <div class="col-sm-2">
                             <div class="form-group">
-                                <img src="<?= base_url('gambar/'. $produk->gambar4) ?>" id="gambar_load4" style="height: 30vh; object-fit: cover; border-radius:10px;">
+                            <label style="color: black; font-weight: 1000;">Prev 4</label>
+                                <?php if (!empty($produk->gambar4)) : ?>
+                                    <img src="<?= base_url('gambar/' . $produk->gambar4) ?>" id="gambar_load4" class="form-control" style="border-radius: 10px; height: 25vh; object-fit: cover;">
+                                <?php else : ?>
+                                    <img src="<?= base_url('assets/gambar_tambahan/kosong.jpg') ?>" class="form-control img-responsive" id="gambar_load4" style="border-radius: 10px; height: 20vh;">
+                                <?php endif; ?>
                             </div>
                         </div>
+
                         <div class="col-sm-2">
                             <div class="form-group">
-                                <img src="<?= base_url('gambar/'. $produk->gambar5) ?>" id="gambar_load5" style="height: 30vh; object-fit: cover; border-radius:10px;">
+                            <label style="color: black; font-weight: 1000;">Prev 5</label>
+                                <?php if (!empty($produk->gambar5)) : ?>
+                                    <img src="<?= base_url('gambar/' . $produk->gambar5) ?>" id="gambar_load5" class="form-control" style="border-radius: 10px; height: 25vh; object-fit: cover;">
+                                <?php else : ?>
+                                    <img src="<?= base_url('assets/gambar_tambahan/kosong.jpg') ?>" class="form-control img-responsive" id="gambar_load5" style="border-radius: 10px; height: 20vh;">
+                                <?php endif; ?>
                             </div>
                         </div>
+
                         <div class="col-sm-2">
                             <div class="form-group">
-                                <img src="<?= base_url('gambar/'. $produk->gambar6) ?>" id="gambar_load6" style="height: 30vh; object-fit: cover; border-radius:10px;">
+                            <label style="color: black; font-weight: 1000;">Prev 6</label>
+                                <?php if (!empty($produk->gambar6)) : ?>
+                                    <img src="<?= base_url('gambar/' . $produk->gambar6) ?>" id="gambar_load6" class="form-control" style="border-radius: 10px; height: 25vh; object-fit: cover;">
+                                <?php else : ?>
+                                    <img src="<?= base_url('assets/gambar_tambahan/kosong.jpg') ?>" class="form-control img-responsive" id="gambar_load6" style="border-radius: 10px; height: 20vh;">
+                                <?php endif; ?>
                             </div>
                         </div>
+
 
                         <div class="form-group">
                             <a href="<?= base_url('produk') ?>" class="btn btn-danger"><i class="fa fa-times" aria-hidden="true"></i> Kembali</a>

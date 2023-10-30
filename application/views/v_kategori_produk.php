@@ -58,7 +58,7 @@
 										<?= $value->nama_kategori ?>
 									</span>
 									<a href="<?= base_url('home/detail_produk/'.$value->id_produk) ?>"><img
-											src="<?= base_url('gambar/' .$value->gambar) ?>"
+											src="<?= base_url('gambar/' .$value->gambar1) ?>"
 											style="width: 0 700px; height: 43vh; object-fit: cover;" alt="" /></a>
 									<div class="overlay-box">
 										<li>
@@ -91,7 +91,7 @@
 									<?= $value->nama_kategori ?>
 								</span>
 								<a href="<?= base_url('home/detail_produk/'.$value->id_produk) ?>"><img
-										src="<?= base_url('gambar/' .$value->gambar) ?>"
+										src="<?= base_url('gambar/' .$value->gambar1) ?>"
 										style="width: 0 700px; height: 40vh; object-fit: cover;" alt="" /></a>
 								<div class="overlay-box">
 									<li>

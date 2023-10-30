@@ -100,42 +100,42 @@
                         <div class="col-sm-2">
                             <div class="form-group">
                             <label style="color: black; font-weight: 1000;">Prev 1</label>
-                                <img src="<?= base_url('assets/gambar_tambahan/kosong.jpg') ?>" class="form-control" id="gambar_load1" style="border-radius: 10px; height: 20vh; object-fit: cover;">
+                                <img src="<?= base_url('assets/gambar_tambahan/kosong.jpg') ?>" class="form-control" id="gambar_load1" style="border-radius: 10px; height: 25vh; object-fit: cover;">
                             </div>
                         </div>
 
                         <div class="col-sm-2">
                             <div class="form-group">
                             <label style="color: black; font-weight: 1000;">Prev 2</label>
-                                <img src="<?= base_url('assets/gambar_tambahan/kosong.jpg') ?>" class="form-control" id="gambar_load2" style="border-radius: 10px; height: 20vh; object-fit: cover;">
+                                <img src="<?= base_url('assets/gambar_tambahan/kosong.jpg') ?>" class="form-control" id="gambar_load2" style="border-radius: 10px; height: 25vh; object-fit: cover;">
                             </div>
                         </div>
 
                         <div class="col-sm-2">
                             <div class="form-group">
                             <label style="color: black; font-weight: 1000;">Prev 3</label>
-                                <img src="<?= base_url('assets/gambar_tambahan/kosong.jpg') ?>" class="form-control" id="gambar_load3" style="border-radius: 10px; height: 20vh; object-fit: cover;">
+                                <img src="<?= base_url('assets/gambar_tambahan/kosong.jpg') ?>" class="form-control" id="gambar_load3" style="border-radius: 10px; height: 25vh; object-fit: cover;">
                             </div>
                         </div>
 
                         <div class="col-sm-2">
                             <div class="form-group">
                             <label style="color: black; font-weight: 1000;">Prev 4</label>
-                                <img src="<?= base_url('assets/gambar_tambahan/kosong.jpg') ?>" class="form-control" id="gambar_load4" style="border-radius: 10px; height: 20vh; object-fit: cover;">
+                                <img src="<?= base_url('assets/gambar_tambahan/kosong.jpg') ?>" class="form-control" id="gambar_load4" style="border-radius: 10px; height: 25vh; object-fit: cover;">
                             </div>
                         </div>
 
                         <div class="col-sm-2">
                             <div class="form-group">
                             <label style="color: black; font-weight: 1000;">Prev 5</label>
-                                <img src="<?= base_url('assets/gambar_tambahan/kosong.jpg') ?>" class="form-control" id="gambar_load5" style="border-radius: 10px; height: 20vh; object-fit: cover;">
+                                <img src="<?= base_url('assets/gambar_tambahan/kosong.jpg') ?>" class="form-control" id="gambar_load5" style="border-radius: 10px; height: 25vh; object-fit: cover;">
                             </div>
                         </div>
 
                         <div class="col-sm-2">
                             <div class="form-group">
                             <label style="color: black; font-weight: 1000;">Prev 6</label>
-                                <img src="<?= base_url('assets/gambar_tambahan/kosong.jpg') ?>" class="form-control" id="gambar_load6" style="border-radius: 10px; height: 20vh; object-fit: cover;">
+                                <img src="<?= base_url('assets/gambar_tambahan/kosong.jpg') ?>" class="form-control" id="gambar_load6" style="border-radius: 10px; height: 25vh; object-fit: cover;">
                             </div>
                         </div>
 

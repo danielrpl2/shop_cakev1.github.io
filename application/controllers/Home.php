@@ -17,8 +17,7 @@ class Home extends CI_Controller {
         $data = array (
             'title' => 'Home',
             'produk' => $this->m_home->get_all_data(),
-            'galery' => $this->m_home->galery(),
-            'gambar_produk' => $this->m_home->get_all_data_gambar_produk(),
+            'galery' => $this->m_home->gallery(),
             'blog' => $this->m_home->get_all_data_blog(),
             'isi' => 'v_home',
         );
@@ -31,6 +30,7 @@ class Home extends CI_Controller {
             'title' => 'Kategori',
             'blog' => $this->m_home->get_all_data_blog(),
             'produk' => $this->m_home->get_all_data(),
+            'galery' => $this->m_home->gallery(),
             'isi' => 'v_kategori_produk',
         );
         $this->load->view('layout/v_wrapper_frontend', $data, FALSE);
@@ -74,6 +74,7 @@ class Home extends CI_Controller {
             'title' => 'Detail Produk',
             'gambar' => $this->m_home->gambar_produk($id_produk),
             'produk' => $this->m_home->detail_produk($id_produk),
+            'galery' => $this->m_home->gallery(),
             'blog' => $this->m_home->get_all_data_blog(),
             'rekomendasi_produk' => $this->m_home->get_recommended_products($id_produk), // Produk rekomendasi
             'isi' => 'v_detail_produk',
@@ -102,7 +103,7 @@ class Home extends CI_Controller {
                     'title' => 'Home',
                     'produk' => $this->m_home->get_all_data(),
                     'blog' => $this->m_home->get_all_data_blog(),
-                    'galery' => $this->m_home->galery(),
+                    'galery' => $this->m_home->gallery(),
                     'produk' => $products,
                     'isi' => 'v_home',
                 );
@@ -114,7 +115,7 @@ class Home extends CI_Controller {
                     'message' => 'Produk tidak ditemukan.',
                     'produk' => $this->m_home->get_all_data(),
                     'blog' => $this->m_home->get_all_data_blog(),
-                    'galery' => $this->m_home->galery(),
+                    'galery' => $this->m_home->gallery(),
                     'isi' => 'v_home',
                 );
                 $this->load->view('layout/v_wrapper_frontend', $data, FALSE);

@@ -66,14 +66,6 @@ class M_home extends CI_Model
         return $this->db->get()->row();
     }
 
-    public function gambar_produk($id_produk) 
-    {
-        $this->db->select('*');
-        $this->db->from('tbl_gambar');
-        $this->db->where('id_produk', $id_produk);
-        return $this->db->get()->result();    
-    }
-
     public function kategori($id_kategori)
     {
         $this->db->select('*');
@@ -107,12 +99,17 @@ class M_home extends CI_Model
         return $this->db->get()->result();
     }
 
-    public function galery(){
+    public function gallery(){
+        return $this->db->get('tbl_produk')->result();
+    }
+
+    public function gambar_produk($id_produk) 
+    {
         $this->db->select('*');
         $this->db->from('tbl_produk');
-        return $this->db->get()->result();
+        $this->db->where('id_produk', $id_produk);
+        return $this->db->get()->result();    
     }
-    
 
 
 }

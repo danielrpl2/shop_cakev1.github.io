@@ -28,22 +28,57 @@
                     <div class="carousel-outer">
                         <ul class="image-carousel owl-carousel owl-theme">
                             <li>
-                                <a href="<?= base_url('gambar/' . $produk->gambar) ?>" class="lightbox-image"
+                                <a href="<?= base_url('gambar/' . $produk->gambar1) ?>" class="lightbox-image"
                                     data-fancybox="main-gallery" style="filter: invert(0); width: 0 700px; height: 30vh; object-fit: cover;">
-                                    <img src="<?= base_url('gambar/' . $produk->gambar) ?>" alt="Product Image">
+                                    <img src="<?= base_url('gambar/' . $produk->gambar1) ?>" alt="Product Image">
                                 </a>
                             </li>
                         </ul>
-                        <ul class="thumbs-carousel owl-carousel owl-theme">
-                            <?php foreach ($gambar as $key => $value) { ?>
-                                <li>
-                                    <a href="<?= base_url('assets/gambarproduk/' . $value->gambar) ?>"
-                                        class="lightbox-image" data-fancybox="main-gallery">
-                                        <img src="<?= base_url('assets/gambarproduk/' . $value->gambar) ?>" alt="Product Image">
-                                    </a>
-                                </li>
-                            <?php } ?>
-                        </ul>
+                        <div class="thumbs-carousel owl-carousel owl-theme" style="height: 30px; object-fit: cover;">
+                        <?php if (!empty($gambar[0]->gambar1)) { ?>
+                            <li class="item">
+                                <a href="<?= base_url('gambar/' . $gambar[0]->gambar1) ?>" class="lightbox-image" data-fancybox="main-gallery">
+                                    <img src="<?= base_url('gambar/' . $gambar[0]->gambar1) ?>" alt="Product Image">
+                                </a>
+                            </li>
+                        <?php } ?>
+                        <?php if (!empty($gambar[0]->gambar2)) { ?>
+                            <li class="item">
+                                <a href="<?= base_url('gambar/' . $gambar[0]->gambar2) ?>" class="lightbox-image" data-fancybox="main-gallery">
+                                    <img src="<?= base_url('gambar/' . $gambar[0]->gambar2) ?>" alt="Product Image">
+                                </a>
+                            </li>
+                        <?php } ?>
+                        <?php if (!empty($gambar[0]->gambar3)) { ?>
+                            <li class="item">
+                                <a href="<?= base_url('gambar/' . $gambar[0]->gambar3) ?>" class="lightbox-image" data-fancybox="main-gallery">
+                                    <img src="<?= base_url('gambar/' . $gambar[0]->gambar3) ?>" alt="Product Image">
+                                </a>
+                            </li>
+                        <?php } ?>
+                        <?php if (!empty($gambar[0]->gambar4)) { ?>
+                            <li class="item">
+                                <a href="<?= base_url('gambar/' . $gambar[0]->gambar4) ?>" class="lightbox-image" data-fancybox="main-gallery">
+                                    <img src="<?= base_url('gambar/' . $gambar[0]->gambar4) ?>" alt="Product Image">
+                                </a>
+                            </li>
+                        <?php } ?>
+                        <?php if (!empty($gambar[0]->gambar5)) { ?>
+                            <li class="item">
+                                <a href="<?= base_url('gambar/' . $gambar[0]->gambar5) ?>" class="lightbox-image" data-fancybox="main-gallery">
+                                    <img src="<?= base_url('gambar/' . $gambar[0]->gambar5) ?>" alt="Product Image">
+                                </a>
+                            </li>
+                        <?php } ?>
+                        <?php if (!empty($gambar[0]->gambar6)) { ?>
+                            <li class="item">
+                                <a href="<?= base_url('gambar/' . $gambar[0]->gambar6) ?>" class="lightbox-image" data-fancybox="main-gallery">
+                                    <img src="<?= base_url('gambar/' . $gambar[0]->gambar6) ?>" alt="Product Image">
+                                </a>
+                            </li>
+                        <?php } ?>
+                    </div>
+
                     </div>
                 </div>
 
@@ -194,7 +229,7 @@
                             <div class="image">
                                 <span class="featured"><?= $status ?></span>
                                 <a href="<?= base_url('home/detail_produk/' . $rekomendasi->id_produk) ?>">
-                                    <img src="<?= base_url('gambar/' . $rekomendasi->gambar) ?>" alt="<?= $rekomendasi->nama_produk ?>" style="filter: invert(0); width: 0 700px; height: 40vh; object-fit: cover;" />
+                                    <img src="<?= base_url('gambar/' . $rekomendasi->gambar1) ?>" alt="<?= $rekomendasi->nama_produk ?>" style="filter: invert(0); width: 0 700px; height: 40vh; object-fit: cover;" />
                                 </a>
                                 <div class="overlay-box">
                                     <li><?= $rekomendasi->nama_produk ?></li>

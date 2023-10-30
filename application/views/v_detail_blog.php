@@ -156,7 +156,7 @@
 									<article class="post">
 										<div class="post-thumb">
 											<a href="<?= base_url('home/detail_produk/'.$value->id_produk) ?>">
-												<img src="<?= base_url('gambar/' .$value->gambar) ?>" style="width: 100%; height: 10vh; object-fit: cover;" alt="">
+												<img src="<?= base_url('gambar/' .$value->gambar1) ?>" style="width: 100%; height: 10vh; object-fit: cover;" alt="">
 												<span class="status">Sale</span>
 											</a>
 										</div>
