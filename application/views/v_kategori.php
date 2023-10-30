@@ -19,7 +19,7 @@
                                 ?>
                                 <h3 class="card-title" style="text-align: center;">Table <?= $title ?></h3>
                                 <?php if ($this->session->userdata('level_user') == '1'): ?>
-                                <button data-toggle="modal" data-target="#add" type="button" class="btn btn-primary btn-sm" style="font-size: 15px; color: white;"> Add  <?= $title ?> <i class="fa fa-cubes" aria-hidden="true"></i></button>
+                                <button data-toggle="modal" data-target="#add" type="button" class="btn btn-primary btn-sm" style="font-size: 15px; color: white;"> Add  <?= $title ?> <i class="fa fa-list" aria-hidden="true"></i></button>
                                 <?php endif; ?>
                                 <div class="table-responsive">
                                     <table class="table table-striped table-bordered zero-configuration">
@@ -145,7 +145,7 @@
 <?php foreach ($kategori as $key => $value) { ?>
     <div class="modal fade" id="delete<?= $value->id_kategori ?>">
         <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
+            <div class="modal-content" style="border-radius: 10px;">
                 <div class="modal-header">
                     <h4 class="modal-title">Hapus Data : <?= $value->nama_kategori ?> ??</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -159,7 +159,7 @@
                 </div>
                 <div class="modal-footer justify-content-between">
                 <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times" aria-hidden="true"></i> Close</button>
-                <a href="<?= base_url('kategori/delete/' . $value->id_kategori) ?>" class="btn btn-success"><i class="fa fa-trash" aria-hidden="true"></i> Ya Hapus</a>
+                <a href="<?= base_url('kategori/delete/' . $value->id_kategori) ?>" class="btn btn-primary"><i class="fa fa-trash" aria-hidden="true"></i> Ya Hapus</a>
             </div>
             </div>
         </div>

@@ -64,7 +64,7 @@
                         	<tr>
                                 <td class="prod-column">
                                     <div class="column-box">
-                                        <figure class="prod-thumb"><a href="#"><img src="<?php echo base_url('gambar/') . $produk->gambar; ?>" style="border-radius: 10px; width: 100%;"></a></figure>
+                                        <figure class="prod-thumb"><a href="<?= base_url('home/detail_produk/'.$produk->id_produk) ?>"><img src="<?php echo base_url('gambar/') . $produk->gambar1; ?>" style="border-radius: 10px; width: 100%;"></a></figure>
                                     </div>
                                 </td>
                                 <td><h4 class="prod-title"><?php echo $items['name']; ?></h4></td>
@@ -105,7 +105,7 @@
                     </div>
 
                     <div class="pull-right">
-                        <a href="<?= base_url('home') ?>" class="theme-btn cart-btn btn-style-two" style="text-align: center;"><span class="txt">Continue Shoping <i class="fa fa-arrow-right"></i></span></a>
+                        <a href="<?= base_url('home') ?>" class="theme-btn cart-btn btn-style-two" style="text-align: center;"><span class="txt">Lanjutkan Belanja <i class="fa fa-arrow-right"></i></span></a>
                     </div>
 
                 </div>

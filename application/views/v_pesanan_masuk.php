@@ -250,7 +250,7 @@
 <?php foreach ($pesanan_diproses as $key => $value) { ?>
 <div class="modal fade" id="kirim<?= $value->id_transaksi ?>">
     <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
+        <div class="modal-content" style="border-radius: 10px;">
             <div class="modal-header">
                 <h5 class="modal-title">No Order :
                     <?= $value->no_order ?>
@@ -307,7 +307,7 @@
 <?php foreach ($pesanan as $key => $value) { ?>
 <div class="modal fade" id="proses<?= $value->id_transaksi ?>" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-lg">
-        <div class="modal-content">
+        <div class="modal-content" style="border-radius: 10px;">
             <div class="modal-header">
                 <h5 class="modal-title">Yakin Akan Memproses Pesanan Ini ? : (
                     <?= $value->no_order ?> )
@@ -356,7 +356,7 @@
 <!-- modal untuk cek bukti bayar -->
 <?php foreach ($pesanan as $key => $value) { ?>
 <div class="modal fade" id="cek<?= $value->id_transaksi ?>" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
+    <div class="modal-dialog ">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title">No Order :

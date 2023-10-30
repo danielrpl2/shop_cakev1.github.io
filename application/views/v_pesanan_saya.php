@@ -232,7 +232,7 @@ if ($this->session->flashdata('pesan')) {
 <?php foreach ($dikirim as $key => $value) { ?>
   <div class="modal fade" id="diterima<?= $value->id_transaksi ?>">
         <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
+            <div class="modal-content" style="border-radius: 10px;">
                 <div class="modal-header">
                     <h5 class="modal-title">Pesanan Diterima</h5>
                     <button type="button" class="close" data-dismiss="modal"><span>&times;</span>
@@ -254,7 +254,7 @@ if ($this->session->flashdata('pesan')) {
  <?php foreach ($belum_bayar as $key => $value) { ?>
     <div class="modal fade" id="deleteConfirmation<?= $value->id_transaksi ?>" tabindex="-1" role="dialog" aria-labelledby="deleteConfirmationLabel<?= $value->id_transaksi ?>" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
+        <div class="modal-content" style="border-radius: 10px;">
             <div class="modal-header">
                 <h5 class="modal-title" id="deleteConfirmationLabel<?= $value->id_transaksi ?>">Konfirmasi Hapus Pesanan</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">

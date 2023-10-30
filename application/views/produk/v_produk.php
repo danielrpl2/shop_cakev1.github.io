@@ -89,17 +89,17 @@
      <?php foreach ($produk as $key => $value) { ?>
     <div class="modal fade" id="delete<?= $value->id_produk ?>">
         <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
+            <div class="modal-content" style="border-radius: 10px;">
                 <div class="modal-header">
-                    <h4 class="modal-title">Hapus Data Produk : <?= $value->nama_produk ?> ??</h4>
+                    <h4 class="modal-title">Apakah Anda Yakin Akan Menghapus Data <?= $value->nama_produk ?>...??</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
 
-                <img src="<?= base_url('gambar/' .$value->gambar) ?>" width="150px" style="border-radius: 50px;"alt="">
-                    <h3>Apakah Anda Yakin Akan Menghapus Data Ini...??</h3>
+                <img src="<?= base_url('gambar/' .$value->gambar1) ?>" width="150px" style="border-radius: 10px; height: 25vh; object-fit: cover;"alt="">
+                    <!-- <h3>Apakah Anda Yakin Akan Menghapus Data Ini...??</h3> -->
                    
                 </div>
                 <div class="modal-footer justify-content-between">

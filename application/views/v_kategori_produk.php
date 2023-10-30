@@ -106,7 +106,15 @@
 								<div class="text">
 									<button class="add-to-cart-button"
 										onclick="addToCart('<?= $value->nama_produk ?>')">
-										<i class="fas fa-shopping-cart"></i> Add +
+										<i class="fas fa-shopping-cart"></i> Masukan Keranjang +
+									</button>
+									
+								</div>
+								<div class="text">
+									<button class="add-to-cart-button"
+										onclick="addToCart('<?= $value->nama_produk ?>')">
+										<!-- <i class="fas fa-shopping-cart"></i> Cekout -->
+										Cekout
 									</button>
 									<hr>
 								</div>

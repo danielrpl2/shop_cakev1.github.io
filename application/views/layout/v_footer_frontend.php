@@ -157,7 +157,7 @@
                 ?>
                 <div class="property-item">
                     <div class="property-image">
-                        <img src="<?= base_url('gambar/' . $produk->gambar) ?>" alt="Product Image">
+                        <img src="<?= base_url('gambar/' . $produk->gambar1) ?>" alt="Product Image">
                     </div>
                     <div class="property-details">
                         <h4><?= $value['name'] ?></h4>

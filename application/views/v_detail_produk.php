@@ -29,51 +29,51 @@
                         <ul class="image-carousel owl-carousel owl-theme">
                             <li>
                                 <a href="<?= base_url('gambar/' . $produk->gambar1) ?>" class="lightbox-image"
-                                    data-fancybox="main-gallery" style="filter: invert(0); width: 0 700px; height: 30vh; object-fit: cover;">
-                                    <img src="<?= base_url('gambar/' . $produk->gambar1) ?>" alt="Product Image">
+                                    data-fancybox="main-gallery" style="filter: invert(0); height: 30vh; object-fit: cover;">
+                                    <img src="<?= base_url('gambar/' . $produk->gambar1) ?>" alt="Product Image" style="filter: invert(0); height: 60vh; object-fit: cover;">
                                 </a>
                             </li>
                         </ul>
                         <div class="thumbs-carousel owl-carousel owl-theme" style="height: 30px; object-fit: cover;">
                         <?php if (!empty($gambar[0]->gambar1)) { ?>
                             <li class="item">
-                                <a href="<?= base_url('gambar/' . $gambar[0]->gambar1) ?>" class="lightbox-image" data-fancybox="main-gallery">
-                                    <img src="<?= base_url('gambar/' . $gambar[0]->gambar1) ?>" alt="Product Image">
+                                <a href="<?= base_url('gambar/' . $gambar[0]->gambar1) ?>" class="lightbox-image" data-fancybox="main-gallery" >
+                                    <img src="<?= base_url('gambar/' . $gambar[0]->gambar1) ?>" alt="Product Image" style="height: 20vh; object-fit: cover;">
                                 </a>
                             </li>
                         <?php } ?>
                         <?php if (!empty($gambar[0]->gambar2)) { ?>
                             <li class="item">
                                 <a href="<?= base_url('gambar/' . $gambar[0]->gambar2) ?>" class="lightbox-image" data-fancybox="main-gallery">
-                                    <img src="<?= base_url('gambar/' . $gambar[0]->gambar2) ?>" alt="Product Image">
+                                    <img src="<?= base_url('gambar/' . $gambar[0]->gambar2) ?>" alt="Product Image" style="height: 20vh; object-fit: cover;">
                                 </a>
                             </li>
                         <?php } ?>
                         <?php if (!empty($gambar[0]->gambar3)) { ?>
                             <li class="item">
                                 <a href="<?= base_url('gambar/' . $gambar[0]->gambar3) ?>" class="lightbox-image" data-fancybox="main-gallery">
-                                    <img src="<?= base_url('gambar/' . $gambar[0]->gambar3) ?>" alt="Product Image">
+                                    <img src="<?= base_url('gambar/' . $gambar[0]->gambar3) ?>" alt="Product Image" style="height: 20vh; object-fit: cover;">
                                 </a>
                             </li>
                         <?php } ?>
                         <?php if (!empty($gambar[0]->gambar4)) { ?>
                             <li class="item">
                                 <a href="<?= base_url('gambar/' . $gambar[0]->gambar4) ?>" class="lightbox-image" data-fancybox="main-gallery">
-                                    <img src="<?= base_url('gambar/' . $gambar[0]->gambar4) ?>" alt="Product Image">
+                                    <img src="<?= base_url('gambar/' . $gambar[0]->gambar4) ?>" alt="Product Image" style="height: 20vh; object-fit: cover;">
                                 </a>
                             </li>
                         <?php } ?>
                         <?php if (!empty($gambar[0]->gambar5)) { ?>
                             <li class="item">
                                 <a href="<?= base_url('gambar/' . $gambar[0]->gambar5) ?>" class="lightbox-image" data-fancybox="main-gallery">
-                                    <img src="<?= base_url('gambar/' . $gambar[0]->gambar5) ?>" alt="Product Image">
+                                    <img src="<?= base_url('gambar/' . $gambar[0]->gambar5) ?>" alt="Product Image" style="height: 20vh; object-fit: cover;">
                                 </a>
                             </li>
                         <?php } ?>
                         <?php if (!empty($gambar[0]->gambar6)) { ?>
                             <li class="item">
                                 <a href="<?= base_url('gambar/' . $gambar[0]->gambar6) ?>" class="lightbox-image" data-fancybox="main-gallery">
-                                    <img src="<?= base_url('gambar/' . $gambar[0]->gambar6) ?>" alt="Product Image">
+                                    <img src="<?= base_url('gambar/' . $gambar[0]->gambar6) ?>" alt="Product Image" style="height: 20vh; object-fit: cover;">
                                 </a>
                             </li>
                         <?php } ?>
@@ -84,6 +84,12 @@
 
                 <!-- Info Column -->
                 <div class="info-column col-lg-6 col-md-12 col-sm-12">
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
                     <div class="inner-column">
                         <div class="details-header">
                             <h2><?= $produk->nama_produk ?></h2>
@@ -102,13 +108,27 @@
                             echo form_hidden('redirect_page', str_replace('index.php/', '', current_url()));
                             ?>
                             <div class="btns-box">
-                                <input type="number" data-max="10000000000" value="1" name="qty" placeholder="1" />
+                                <strong>Qty</strong> : <input type="number" data-max="10000000000" style="border: 1px solid black; height: 5vh; text-align: center;" value="1" name="qty" placeholder="1" />
+                                <hr>
                                 <?php if ($this->session->userdata('email') == "") { ?>
                                     <!-- Tambahkan logika jika user tidak masuk -->
                                 <?php } else { ?>
-                                    <button type="submit" class="theme-btn btn-style-two"
-                                        onclick="addToCart('<?= $produk->nama_produk ?>')"><span class="txt">Add To
-                                            Cart</span></button>
+                                    
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-md-6" style="padding: 10px;">
+                                                <button type="submit" class="btn btn-primary btn-block" style="height: 6vh;" onclick="addToCart('<?= $produk->nama_produk ?>')">
+                                                <i class="fas fa-shopping-cart"></i> Masukan Keranjang +
+                                                </button>
+                                            </div>
+                                            <div class="col-md-6" style="padding: 10px;">
+                                                <button type="submit" class="btn btn-primary btn-block" style="height: 6vh;" onclick="addToCart('<?= $produk->nama_produk ?>')" disabble>
+                                                    Cekout
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+
                                 <?php } ?>
                             </div>
                             <?php echo form_close(); ?>
@@ -125,10 +145,11 @@
         <!-- Product Info Tabs -->
         <div class="product-info-tabs">
     <!-- Product Tabs -->
+    <br>
     <div class="prod-tabs tabs-box">
         <!-- Tab Btns -->
         <ul class="tab-btns tab-buttons clearfix">
-            <li data-tab="#prod-details" class="tab-btn active-btn">Description</li>
+            <li data-tab="#prod-details" class="tab-btn active-btn">Deskripsi</li>
             <!-- <li data-tab="#prod-specs" class="tab-btn">Specifications</li>
             <li data-tab="#prod-reviews" class="tab-btn">Reviews</li> -->
         </ul>
