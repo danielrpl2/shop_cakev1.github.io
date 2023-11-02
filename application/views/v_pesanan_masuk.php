@@ -357,7 +357,7 @@
 <?php foreach ($pesanan as $key => $value) { ?>
 <div class="modal fade" id="cek<?= $value->id_transaksi ?>" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog ">
-        <div class="modal-content">
+        <div class="modal-content" style="border-radius: 10px;">
             <div class="modal-header">
                 <h5 class="modal-title">No Order :
                     <?= $value->no_order ?>

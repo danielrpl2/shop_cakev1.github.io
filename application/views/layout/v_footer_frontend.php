@@ -132,8 +132,38 @@
 <!--End pagewrapper-->
 
 <!--Scroll to top-->
-<div class="scroll-to-top scroll-to-target" data-target="html"><span class="fa fa-angle-up"></span></div>
+<div class="scroll-to-top scroll-to-target" data-target="html" style="border-radius: 50px;"><span class="fa fa-angle-up"></span></div>
 
+<div class="whatsapp-float">
+        <a href="https://wa.me/6285604664184?text=Weh"> <!-- Ganti URL dengan nomor WhatsApp Anda -->
+            <i class="fab fa-whatsapp" style="color: black;"></i> <!-- Menggunakan ikon WhatsApp dari Font Awesome -->
+        </a>
+    </div>
+    <style>
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            right: 90px;
+            z-index: 100;
+            width: 60px;
+            height: 60px;
+            text-align: center;
+        }
+
+        .whatsapp-float a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #25d366; /* Warna latar belakang bulatan */
+            color: #fff; /* Warna ikon */
+            border-radius: 50%;
+            width: 100%;
+            height: 100%;
+            font-size: 24px;
+            box-shadow: 2px 2px 3px #999;
+            text-decoration: none;
+        }
+    </style>
 <!--Search Popup-->
 <div id="search-popup" class="search-popup">
     <div class="close-search theme-btn"><span class="fas fa-window-close"></span></div>

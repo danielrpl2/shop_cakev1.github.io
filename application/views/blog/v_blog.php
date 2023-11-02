@@ -42,7 +42,7 @@
                                                 </td>                                                
                                               <td>
                                                 <a href="<?= base_url('blog/edit/' . $value->id_blog) ?>" class="btn btn-warning btn-sm" style="color: black; background-color: yellow; border: none;"><i class="fa fa-edit"></i></a>
-                                                    <button class="btn btn-danger btn-sm" style="color: white; border: none;" data-toggle="modal" data-target="#delete<?= $value->id_blog?>"><i class="fa fa-trash"></i></button>
+                                                    <button class="btn btn-danger btn-sm" style="color: white; border: none;" data-toggle="modal" data-target="#delete<?= $value->id_blog ?>"><i class="fa fa-trash"></i></button>
                                                 </td>
                                              </tr> 
                                             <?php } ?>
@@ -65,7 +65,7 @@
 <?php foreach ($blog as $key => $value) { ?>
     <div class="modal fade" id="delete<?= $value->id_blog ?>">
         <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
+            <div class="modal-content" style="border-radius: 10px;">
                 <div class="modal-header">
                     <h4 class="modal-title">Hapus Data : <?= $value->judul ?> ??</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -80,7 +80,7 @@
                 </div>
                 <div class="modal-footer justify-content-between">
                 <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times" aria-hidden="true"></i> Close</button>
-                <a href="<?= base_url('blog/delete/' . $value->id_blog) ?>" class="btn btn-success"><i class="fa fa-trash" aria-hidden="true"></i> Ya Hapus</a>
+                <a href="<?= base_url('blog/delete/' . $value->id_blog) ?>" class="btn btn-primary"><i class="fa fa-trash" aria-hidden="true"></i> Ya Hapus</a>
             </div>
             </div>
         </div>

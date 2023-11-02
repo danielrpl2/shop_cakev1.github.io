@@ -82,11 +82,11 @@ class M_home extends CI_Model
         return $this->db->get()->result();
     }
     
-    public function get_all_data_gambar_produk(){
-        $this->db->select('*');
-        $this->db->from('tbl_gambar');
-        return $this->db->get()->result();
-    }
+    // public function get_all_data_gambar_produk(){
+    //     $this->db->select('*');
+    //     $this->db->from('tbl_gambar');
+    //     return $this->db->get()->result();
+    // }
 
     public function get_keyword($keyword){
         $this->db->select('*');
@@ -95,7 +95,7 @@ class M_home extends CI_Model
         $this->db->join('tbl_kategori', 'tbl_kategori.id_kategori = tbl_produk.id_kategori', 'left', $keyword); 
         $this->db->or_like('harga',$keyword);
         $this->db->or_like('deskripsi',$keyword);
-        $this->db->or_like('gambar',$keyword);
+        $this->db->or_like('gambar1',$keyword);
         return $this->db->get()->result();
     }
 

@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js">
 <!-- Page Title -->
 <br>
 <br>
@@ -64,7 +65,7 @@
                         	<tr>
                                 <td class="prod-column">
                                     <div class="column-box">
-                                        <figure class="prod-thumb"><a href="<?= base_url('home/detail_produk/'.$produk->id_produk) ?>"><img src="<?php echo base_url('gambar/') . $produk->gambar1; ?>" style="border-radius: 10px; width: 100%;"></a></figure>
+                                        <figure class="prod-thumb"><a href="#"><img src="<?php echo base_url('gambar/') . $produk->gambar1; ?>" style="border-radius: 10px; width: 100%;"></a></figure>
                                     </div>
                                 </td>
                                 <td><h4 class="prod-title"><?php echo $items['name']; ?></h4></td>
@@ -72,17 +73,9 @@
                                 <td><h4 class="prod-title">Rp. <?= number_format($produk->harga,0); ?></h4></td>
                                     <!-- end -->
                                 <td class="sub-total"><?= $berat ?> Gram.</td>
-								<td class="qty" data-rowid="<?= $items['rowid'] ?>" data-title="Qty" >
-                                    <?php echo form_input(array('name' => $i.'[qty]',
-                                     'value' => $items['qty'],
-                                     'maxlength' => '3', 
-									 'min' => '0',
-                                     'size' => '5',
-                                     'type' => 'number',
-                                     'class' => 'form-control',
-									 'style' => 'width: 100px;'
-									 )); ?>
-								</td>
+                                <td class="qty" >
+                                    <input type="number" class="form-control qty-input" data-rowid="<?= $items['rowid'] ?>" data-price="<?= $items['price'] ?>" data-berat="<?= $berat ?>" value="<?= $items['qty'] ?>" min="1">
+                                </td>
 								   <td class="price">Rp. <?php echo number_format($sub_total,0); ?></td>
                                 <td><a href="<?= base_url('belanja/delete/' .$items['rowid']) ?>" class="remove-btn"><span class="flaticon-cancel"></span></a></td>
                             </tr>
@@ -105,7 +98,7 @@
                     </div>
 
                     <div class="pull-right">
-                        <a href="<?= base_url('home') ?>" class="theme-btn cart-btn btn-style-two" style="text-align: center;"><span class="txt">Lanjutkan Belanja <i class="fa fa-arrow-right"></i></span></a>
+                        <a href="<?= base_url('home') ?>" class="theme-btn cart-btn btn-style-two" style="text-align: center;"><span class="txt">Continue Shoping <i class="fa fa-arrow-right"></i></span></a>
                     </div>
 
                 </div>
@@ -127,4 +120,54 @@
         </div>
     </section>
     <!--End Cart Section-->
-    <script src="<?= base_url('assets/update_cart.js') ?>"></script>
+<!-- Include jQuery -->
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-refreferrer"></script>
+<script>
+$(document).ready(function() {
+    // Memantau perubahan pada elemen input qty
+    $('.qty-input').on('input', function() {
+        updateQty($(this));
+        updateCartNotification(); // Panggil fungsi untuk memperbarui notifikasi keranjang
+    });
+
+    function updateQty(inputElement) {
+        var rowid = inputElement.data('rowid');
+        var qty = inputElement.val();   
+
+        $.ajax({
+            url: '<?= base_url('belanja/update_qty') ?>',
+            type: 'post',
+            data: {
+                rowid: rowid,
+                qty: qty
+            },
+            success: function(data) {
+                // Tampilkan notifikasi atau perbarui keranjang lainnya jika diperlukan
+                console.log('Qty berhasil diperbarui');
+            },
+            error: function(xhr, status, error) {
+                console.error(error);
+            }
+        });
+    }
+
+    // Function to update cart notification
+    function updateCartNotification() {
+        var totalQty = 0;
+
+        // Calculate the total quantity of items in the cart
+        $('.qty-input').each(function() {
+            var qty = parseFloat($(this).val());
+            totalQty += qty;
+        });
+
+        // Update the cart notification
+        $('.number-badge').text(totalQty);
+    }
+});
+</script>
+
+

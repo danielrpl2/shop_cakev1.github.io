@@ -107,30 +107,33 @@
                             echo form_hidden('name', $produk->nama_produk);
                             echo form_hidden('redirect_page', str_replace('index.php/', '', current_url()));
                             ?>
-                            <div class="btns-box">
-                                <strong>Qty</strong> : <input type="number" data-max="10000000000" style="border: 1px solid black; height: 5vh; text-align: center;" value="1" name="qty" placeholder="1" />
+
+                           <div class="btns-box">
+                                <div class="text-center">
+                                    <strong>Qty</strong>:
+                                    <input type="number" data-max="10000000000" style="border: 1px solid black; height: 5vh; text-align: center;" value="1" name="qty" placeholder="1" />
+                                </div>
                                 <hr>
                                 <?php if ($this->session->userdata('email') == "") { ?>
                                     <!-- Tambahkan logika jika user tidak masuk -->
                                 <?php } else { ?>
-                                    
                                     <div class="container">
                                         <div class="row">
-                                            <div class="col-md-6" style="padding: 10px;">
+                                            <div class="col-md-6 col-sm-12 text-center" style="padding: 10px;">
                                                 <button type="submit" class="btn btn-primary btn-block" style="height: 6vh;" onclick="addToCart('<?= $produk->nama_produk ?>')">
-                                                <i class="fas fa-shopping-cart"></i> Masukan Keranjang +
+                                                    <i class="fas fa-shopping-cart"></i> Masukan Keranjang +
                                                 </button>
                                             </div>
-                                            <div class="col-md-6" style="padding: 10px;">
-                                                <button type="submit" class="btn btn-primary btn-block" style="height: 6vh;" onclick="addToCart('<?= $produk->nama_produk ?>')" disabble>
+                                            <div class="col-md-6 col-sm-12 text-center" style="padding: 10px;">
+                                                <button type="submit" class="btn btn-primary btn-block" style="height: 6vh;" onclick="addToCart('<?= $produk->nama_produk ?>')" disabled>
                                                     Cekout
                                                 </button>
                                             </div>
                                         </div>
                                     </div>
-
                                 <?php } ?>
                             </div>
+
                             <?php echo form_close(); ?>
                         </div>
                         <ul class="tags-box">
@@ -278,28 +281,47 @@
 </div>
 
 
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <!-- untuk alert add -->
 <script>
+    // Function to show a notification when adding a product to the cart
     function addToCart(productName) {
+        // Create a promise for the SweetAlert2 notification
+		Swal.fire({
+            icon: 'success',
+            title: productName + 'berhasil di tambahkan ke keranjang!',
+            showConfirmButton: false, // Menghilangkan tombol OK
+        }).then(function() {
+            // Setelah pesan alert ditutup, segarkan halaman
+            location.reload();
+        });
+
         // Send an AJAX request to add the product to the cart
         $.ajax({
-            url: 'belanja/add', // Adjust the URL to your actual endpoint
+            url: 'belanja/add', // Sesuaikan URL dengan endpoint sebenarnya
             type: 'POST',
             data: { 'product_name': productName },
-            success: function (response) {
-                // Update the cart item count on success
-                updateCartItemCount(response.item_count);
-            },
-            error: function () {
-                // Handle error, if any
-            }
+        }).then(function(response) {
+            // Update the cart item count on success
+            updateCartItemCount(response.item_count);
+        }).catch(function(error) {
+            // Handle error, if any
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'An error occurred while adding the product to your cart',
+            });
         });
     }
 
+    // Function to update the cart item count
     function updateCartItemCount(itemCount) {
         $('.total-count').text(itemCount);
     }
 </script>
+
+
+
 <!-- CSS untuk tampilan alert -->
 <style>
     .product-description {
@@ -348,20 +370,6 @@
     margin-top: 20px;
 }
 
-    .custom-alert {
-        display: none;
-        position: fixed;
-        width: auto;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        padding: 15px;
-        border-radius: 5px;
-        background-color: #4CAF50;
-        color: white;
-        z-index: 1000;
-        animation: slide-in 0.5s, slide-out 0.5s 2s forwards;
-    }
 
     @keyframes slide-in {
         0% {
@@ -385,21 +393,3 @@
 </style>
 
 <!-- JavaScript untuk menampilkan alert -->
-<script>
-    // Fungsi untuk menampilkan alert saat tombol "Add To Cart" ditekan
-    function addToCart(productName) {
-        var alertBox = document.createElement('div');
-        alertBox.classList.add('custom-alert');
-        alertBox.textContent = productName + ' sudah ditambahkan ke keranjang.';
-        document.body.appendChild(alertBox);
-
-        setTimeout(function () {
-            alertBox.style.display = 'block';
-        }, 100);
-
-        setTimeout(function () {
-            alertBox.style.display = 'none';
-            document.body.removeChild(alertBox);
-        }, 2500);
-    }
-</script>

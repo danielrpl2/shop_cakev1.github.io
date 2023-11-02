@@ -78,7 +78,7 @@
        <!-- model add -->
 <div class="modal fade" id="add">
     <div class="modal-dialog modal-lg">
-        <div class="modal-content">
+        <div class="modal-content" style="border-radius: 10px;">
             <div class="modal-header">
                 <h4 class="modal-title">Add <?= $title ?></h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -130,7 +130,7 @@
             </div>
 
             <div class="modal-footer justify-content-between">
-                <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times" aria-hidden="true"></i> Close</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times" aria-hidden="true"></i> Batal</button>
                 <button type="submit" class="btn btn-primary"><i class="fa fa-floppy-o" aria-hidden="true"></i> Save</button>
             </div>
             <?php 
@@ -151,7 +151,7 @@
 <?php foreach ($user as $key => $value) { ?>
     <div class="modal fade" id="edit<?= $value->id_user ?>">
         <div class="modal-dialog modal-lg">
-            <div class="modal-content">
+            <div class="modal-content" style="border-radius: 10px;">
                 <div class="modal-body">
 
                     <?php 
@@ -199,7 +199,7 @@
                     </div>
                 </div>
                 <div class="modal-footer justify-content-between">
-                <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times" aria-hidden="true"></i> Close</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times" aria-hidden="true"></i> Batal</button>
                 <button type="submit" class="btn btn-primary"><i class="fa fa-floppy-o" aria-hidden="true"></i> Save</button>
             </div>
                 <?php 
@@ -222,7 +222,7 @@
 <?php foreach ($user as $key => $value) { ?>
     <div class="modal fade" id="delete<?= $value->id_user ?>">
         <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
+            <div class="modal-content" style="border-radius: 10px;">
                 <div class="modal-header">
                     <h4 class="modal-title">Hapus Data : <?= $value->nama_user ?> | <?= $value->username ?>??</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -242,8 +242,8 @@
 
                 </div>
                 <div class="modal-footer justify-content-between">
-                    <button type="button" class="btn btn-success" data-dismiss="modal"><i class="fa fa-times" aria-hidden="true"></i> Batalkan</button>
-                    <a href="<?= base_url('user/delete/' . $value->id_user) ?>" class="btn btn-danger">Ya Hapus <i class="fa fa-user-times" aria-hidden="true"></i></a>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times" aria-hidden="true"></i> Batal</button>
+                    <a href="<?= base_url('user/delete/' . $value->id_user) ?>" class="btn btn-primary">Ya Hapus <i class="fa fa-user-times" aria-hidden="true"></i></a>
                 </div>
             </div>
         </div>

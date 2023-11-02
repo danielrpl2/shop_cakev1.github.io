@@ -90,17 +90,13 @@
 						</div>
 						<div class="lower-content">
 							<h3 style="font-size: 25px; font-weight: 1000;"><a href="<?= base_url('home/detail_produk/'.$value->id_produk) ?>"><?= $value->nama_produk ?></a></h3>
+							<br>
                             <div class="text">
                                 <button class="add-to-cart-button" onclick="addToCart('<?= $value->nama_produk ?>')">
                                     <i class="fas fa-shopping-cart"></i> Masukan Keranjang +
                                 </button>
                             </div>					
-                            <div class="text">
-                                <button class="add-to-cart-button" onclick="addToCart('<?= $value->nama_produk ?>')">
-                                    <!-- <i class="fas fa-shopping-cart"></i> Masukan Keranjang + -->
-									Cekout
-                                </button>
-                            </div>					
+                           				
 						</div>
                         <?php } ?>
 					</div>
@@ -210,28 +206,58 @@
 </section>
 	<!-- End Appointment Section -->
 	
+
+
+<!-- untuk alert add -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <!-- untuk alert add -->
 <script>
-function addToCart(productName) {
-// Send an AJAX request to add the product to the cart
-$.ajax({
-    url: 'belanja/add', // Adjust the URL to your actual endpoint
-    type: 'POST',
-    data: { 'product_name': productName },
-    success: function(response) {
-        // Update the cart item count on success
-        updateCartItemCount(response.item_count);
-    },
-    error: function() {
-        // Handle error, if any
-    }
-});
-}
+    // Function to show a notification when adding a product to the cart
+    function addToCart(productName) {
+        // Create a promise for the SweetAlert2 notification
+        const successNotification = Swal.fire({
+            icon: 'success',
+            title: productName + ' has been added to your cart',
+            showConfirmButton: true,
+			timer: 5000 // Tampilkan tombol OK
+        }).then(function(result) {
+            if (result.isConfirmed) {
+                // Setelah pengguna mengklik OK, segarkan halaman
+                location.reload();
+            }
+        });
 
-function updateCartItemCount(itemCount) {
-$('.total-count').text(itemCount);
-}
+        // Send an AJAX request to add the product to the cart
+        $.ajax({
+            url: 'belanja/add', // Sesuaikan URL dengan endpoint sebenarnya
+            type: 'POST',
+            data: { 'product_name': productName },
+        }).then(function(response) {
+            // Update the cart item count on success
+            updateCartItemCount(response.item_count);
+            // Resolve the promise to show the notification
+            successNotification.then(() => successNotification.close());
+        }).catch(function(error) {
+            // Handle error, if any
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'An error occurred while adding the product to your cart',
+            });
+        });
+    }
+
+    // Function to update the cart item count
+    function updateCartItemCount(itemCount) {
+        $('.total-count').text(itemCount);
+    }
 </script>
+
+
+
+
+
+
 <!-- CSS untuk tampilan alert -->
 <style>
 .custom-alert {
@@ -284,21 +310,4 @@ $('.total-count').text(itemCount);
 </style>
 
 <!-- JavaScript untuk menampilkan alert -->
-<script>
-// Fungsi untuk menampilkan alert saat tombol "Add To Cart" ditekan
-function addToCart(productName) {
-var alertBox = document.createElement('div');
-alertBox.classList.add('custom-alert');
-alertBox.textContent = productName + ' sudah ditambahkan ke keranjang.';
-document.body.appendChild(alertBox);
-
-setTimeout(function () {
-    alertBox.style.display = 'block';
-}, 100);
-
-setTimeout(function () {
-    alertBox.style.display = 'none';
-    document.body.removeChild(alertBox);
-}, 2500);
-}
-</script>
+<!-- Add this to the head section of your HTML file -->

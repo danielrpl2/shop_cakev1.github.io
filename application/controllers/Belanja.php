@@ -40,43 +40,32 @@ class Belanja extends CI_Controller {
     
     }
 
-    // public function update_ajax()
-    // {
-    //     $rowid = $this->input->post('rowid');
-    //     $newQty = $this->input->post('qty');
-    
-    //     $data = array(
-    //         'rowid' => $rowid,
-    //         'qty' => $newQty
-    //     );
-    
-    //     $this->cart->update($data);
-    
-    //     // Hitung subtotal dan total
-    //     $subtotal = $this->cart->format_number($this->cart->get_item($rowid)['subtotal']);
-    //     $total = $this->cart->format_number($this->cart->total());
-    
-    //     // Kembalikan respons dalam format JSON
-    //     echo json_encode(array('subtotal' => $subtotal, 'total' => $total));
-    // }
-    
 
-    public function update()
-    {
-        $i = 1;
-        foreach ($this->cart->contents() as $items) {
-            $data = array(
-                'rowid' => $items['rowid'],
-                'qty'   => $this->input->post($i.'[qty]'),
-        );   
-        $this->cart->update($data); 
-        $i++;
-    }
-    $this->session->set_flashdata('pesan', 'Keranjang Berhasil Di Update !');
-    redirect('belanja');
+   public function update_qty()
+{
+    $rowid = $this->input->post('rowid');
+    $qty = $this->input->post('qty');
 
-    }
+    // Perbarui session keranjang dengan data qty yang diterima
+    $data = array(
+        'rowid' => $rowid,
+        'qty' => $qty
+    );
 
+    $this->cart->update($data);
+    
+    // Anda juga dapat mengembalikan data terbaru jika diperlukan
+    $response = array(
+        'message' => 'Qty berhasil diperbarui',
+        'new_subtotal' => $this->cart->total(),
+        'new_total_berat' => $this->hitungTotalBeratKeranjang()
+        // Tambahkan data lain yang diperlukan
+    );
+    
+    echo json_encode($response);
+}
+
+    
     public function delete($rowid)
     {
         $this->cart->remove($rowid);

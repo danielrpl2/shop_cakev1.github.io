@@ -110,20 +110,12 @@
 									</button>
 									
 								</div>
-								<div class="text">
-									<button class="add-to-cart-button"
-										onclick="addToCart('<?= $value->nama_produk ?>')">
-										<!-- <i class="fas fa-shopping-cart"></i> Cekout -->
-										Cekout
-									</button>
-									<hr>
-								</div>
 							</div>
 						</div>
 						<?php } ?>
 					</div>
 					<?php  echo form_close(); ?>
-					<?php } ?>
+				<?php } ?>
 
 				</div>
 
@@ -217,45 +209,48 @@
 </div>
 </div>
 
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <!-- untuk alert add -->
 <script>
-	function addToCart(productName) {
-		// Send an AJAX request to add the product to the cart
-		$.ajax({
-			url: 'belanja/add', // Adjust the URL to your actual endpoint
-			type: 'POST',
-			data: { 'product_name': productName },
-			success: function (response) {
-				// Update the cart item count on success
-				updateCartItemCount(response.item_count);
-			},
-			error: function () {
-				// Handle error, if any
-			}
-		});
-	}
+    // Function to show a notification when adding a product to the cart
+    function addToCart(productName) {
+        // Create a promise for the SweetAlert2 notification
+		Swal.fire({
+            icon: 'success',
+            title: productName + 'berhasil di tambahkan ke keranjang!',
+            showConfirmButton: false, // Menghilangkan tombol OK
+        }).then(function() {
+            // Setelah pesan alert ditutup, segarkan halaman
+            location.reload();
+        });
 
-	function updateCartItemCount(itemCount) {
-		$('.total-count').text(itemCount);
-	}
+        // Send an AJAX request to add the product to the cart
+        $.ajax({
+            url: 'belanja/add', // Sesuaikan URL dengan endpoint sebenarnya
+            type: 'POST',
+            data: { 'product_name': productName },
+        }).then(function(response) {
+            // Update the cart item count on success
+            updateCartItemCount(response.item_count);
+        }).catch(function(error) {
+            // Handle error, if any
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'An error occurred while adding the product to your cart',
+            });
+        });
+    }
+
+    // Function to update the cart item count
+    function updateCartItemCount(itemCount) {
+        $('.total-count').text(itemCount);
+    }
 </script>
+
 <!-- CSS untuk tampilan alert -->
 <style>
-	.custom-alert {
-		display: none;
-		position: fixed;
-		width: auto;
-		top: 50%;
-		left: 50%;
-		transform: translate(-50%, -50%);
-		padding: 15px;
-		border-radius: 5px;
-		background-color: #4CAF50;
-		color: white;
-		z-index: 1000;
-		animation: slide-in 0.5s, slide-out 0.5s 2s forwards;
-	}
-
 	.add-to-cart-button {
 		background-color: #007bff;
 		/* Warna latar belakang tombol */
@@ -294,23 +289,3 @@
 		}
 	}
 </style>
-
-<!-- JavaScript untuk menampilkan alert -->
-<script>
-	// Fungsi untuk menampilkan alert saat tombol "Add To Cart" ditekan
-	function addToCart(productName) {
-		var alertBox = document.createElement('div');
-		alertBox.classList.add('custom-alert');
-		alertBox.textContent = productName + ' sudah ditambahkan ke keranjang.';
-		document.body.appendChild(alertBox);
-
-		setTimeout(function () {
-			alertBox.style.display = 'block';
-		}, 100);
-
-		setTimeout(function () {
-			alertBox.style.display = 'none';
-			document.body.removeChild(alertBox);
-		}, 2500);
-	}
-</script>
