@@ -59,14 +59,14 @@
                                     <table width="100%">
                                         <tr>
                                             <td style="vertical-align: top; width: 30%;">
-                                                <label for="barcode">Barcode</label>
+                                                <label for="id_produk">Id Produk</label>
                                             </td>
                                             <td>
                                                 <div class="form-group input-group">
                                                     <input type="hidden" id="item_id">
                                                     <input type="hidden" id="price">
                                                     <input type="hidden" id="stock">
-                                                    <input type="text" id="barcode" class="form-control" autofocus>
+                                                    <input type="text" id="id_produk" class="form-control" autofocus>
                                                     <span class="input-group-btn">
                                                         <div class="mt-1 ml-1">
                                                         <button type="button" class="btn btn-info" data-toggle="modal" data-target="#modal-item">
@@ -122,8 +122,8 @@
                                          <thead>
                                             <tr>
                                                 <th>#</th>
-                                                <th>Barcode</th>
-                                                <th>Produk Item</th>
+                                                <th>Id Produk</th>
+                                                <th>Nama Produk</th>
                                                 <th>Price</th>
                                                 <th>Qty</th>
                                                 <th width="10%">Discon Item</th>

@@ -32,7 +32,7 @@
                             <label style="color: black; font-weight: 1000;" for="produk">Produk</label>
                             <div class="form-group input-group">
                                 <input type="hidden" name="id_produk" id="id_produk">
-                                <input type="text" name="id_produk" id="id_produk_ha" class="form-control" required autofocus>
+                                <input type="text" name="id_produk" id="id_produk_ha" class="form-control" required autofocus readonly>
                                 <span class="input-group-btn">
                                     <button type="button" class="btn btn-info btn-flat" data-toggle="modal" data-target="#modal-item">
                                         <i class="fa fa-search"></i>
@@ -70,16 +70,17 @@
                         </div>
 
                         <div class="col-sm-4">
-                            <div class="form-group">
-                                <label style="color: black; font-weight: 1000;">Supplier</label>
-                                <select name="id_supplier" id="supplier" class="form-control">
-                                    <option value="">--Pilih Supplier--</option>
-                                    <?php foreach ($supplier as $key => $value) { ?>
-                                        <option value="<?= $value->id_supplier ?>"><?= $value->nama_supplier ?></option>
-                                    <?php } ?>
-                                </select>
-                            </div>
-                        </div>
+    <div class="form-group">
+        <label style="color: black; font-weight: 1000;">Supplier</label>
+        <select name="id_supplier" id="supplier" class="form-control">
+            <option value="">--Pilih Supplier--</option>
+            <?php foreach ($supplier as $key => $value) { ?>
+                <option value="<?= $value->id_supplier ?>"><?= $value->nama_supplier ?></option>
+            <?php } ?>
+        </select>
+    </div>
+</div>
+
 
                         <div class="col-sm-4">
                             <div class="form-group">
@@ -154,7 +155,7 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary">Save changes</button>
+                                <button type="submit" class="btn btn-primary">Save changes</button>
                             </div>
                         </div>
                     </div>

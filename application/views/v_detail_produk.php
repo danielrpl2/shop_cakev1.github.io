@@ -109,10 +109,52 @@
                             ?>
 
                            <div class="btns-box">
-                                <div class="text-center">
-                                    <strong>Qty</strong>:
-                                    <input type="number" data-max="10000000000" style="border: 1px solid black; height: 5vh; text-align: center;" value="1" name="qty" placeholder="1" />
-                                </div>
+                           <div class="text-center-qty">
+    <label for="quantity"><strong>Qty</strong>:</label>
+    <div class="quantity-input-qty">
+        <input type="number" id="quantity" data-max="10000000000" style="border: 1px solid black; height: 40px; width: 60px; text-align: center;" value="1" name="qty" placeholder="1" />
+    </div>
+</div>
+
+<style>
+   .text-center-qty {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.text-center-qty label {
+    color: #333;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.quantity-input-qty {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    max-width: 120px;
+    margin: 0 auto;
+}
+
+.quantity-input-qty input {
+    border: 1px solid black;
+    height: 40px;
+    width: 60px;
+    text-align: center;
+    border-radius: 5px;
+    font-size: 16px;
+    outline: none;
+}
+
+.quantity-input-qty input:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+
+</style>
+
                                 <hr>
                                 <?php if ($this->session->userdata('email') == "") { ?>
                                     <!-- Tambahkan logika jika user tidak masuk -->
@@ -280,6 +322,16 @@
     </div>
 </div>
 
+<section style="position: relative; background-image: url('<?= base_url() ?>assets/home2/images/background/walpaper.jpg'); background-size: cover; background-position: center; text-align: center; height: 70vh; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+        <div class="dark-overlay"></div> <!-- Lapisan gelap -->
+        <div class="auto-container" style="z-index: 2; color: #fff;">
+            <div class="sec-title light centered">
+                <h1>Custome Cake</h1>
+            </div>
+            <div class="text" style="color: #fff;">Jika Anda Ingin Memesan Custom Cake Bisa Lewat Whatsap Dengan Klik Logo <br> DI Bawah</div><br>
+            <div class="btn-box"><a href="#" style="border-radius: 50px; padding: 10px;" class="theme-btn btn-style-three"><span class="txt" ><i class="fab fa-whatsapp" style="color: black; font-size: 40px;"></i></span></a></div>
+        </div>
+    </section>
 
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <!-- untuk alert add -->
@@ -331,6 +383,17 @@
     border-radius: 5px;
     margin-top: 20px;
 }
+
+.dark-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Ubah nilai alpha sesuai kebutuhan gelapnya */
+    z-index: 1; /* Pastikan z-index lebih tinggi dari konten lainnya */
+}
+
 
 .product-description h2 {
     font-size: 24px;

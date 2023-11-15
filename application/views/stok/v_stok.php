@@ -57,9 +57,14 @@
                                         <button class="btn btn-danger btn-sm" style="color: white; border: none;"
                                             data-toggle="modal" data-target="#delete<?= $value->id_stok?>"><i
                                                 class="fa fa-trash"></i></button>
-                                        <button class="btn btn-primary btn-sm" style="color: white; border: none;"
-                                            data-toggle="modal" data-target="#delete<?= $value->id_produk?>"><i
-                                                class="fa fa-eye"></i></button>
+
+                                        <button id="set-detail" class="btn btn-primary btn-sm" style="color: white; border: none;"
+                                            data-toggle="modal" data-target="#modal-detail"
+                                            data-idproduk="<?= $value->id_produk ?>" data-namaproduk="<?= $value->nama_produk ?>" data-detail="<?= $value->detail ?>"
+                                            data-supplier="<?= $value->nama_supplier ?>" data-qty="<?= $value->qty ?>"
+                                            data-date="<?= date('d-m-Y', strtotime($value->date)) ?>">
+                                            <i class="fa fa-eye"></i></button>
+
                                     </td>
                                 </tr>
                                 <?php } ?>
@@ -75,7 +80,7 @@
 </div>
 <!--**********************************
             Content body end
-        ***********************************-->
+***********************************-->
 
 
 <!-- model delete -->
@@ -104,8 +109,8 @@
             <div class="modal-footer justify-content-between">
                 <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times"
                         aria-hidden="true"></i> Close</button>
-                <a href="<?= base_url('stok/delete_stok/'.$value->id_stok.'/'.$value->id_produk) ?>" class="btn btn-primary"><i
-                        class="fa fa-trash" aria-hidden="true"></i> Ya Hapus</a>
+                <a href="<?= base_url('stok/delete_stok/'.$value->id_stok.'/'.$value->id_produk) ?>"
+                    class="btn btn-primary"><i class="fa fa-trash" aria-hidden="true"></i> Ya Hapus</a>
             </div>
         </div>
     </div>
@@ -113,3 +118,75 @@
 </div>
 <!-- /.modal-dialog -->
 <?php } ?>
+
+
+<!-- Modal Detail -->
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-hidden="true" id="modal-detail">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Detail Stok In</h5>
+                <button type="button" class="close" data-dismiss="modal"><span>&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered no-margin">
+                        <tbody>
+                            <tr>
+                                <th>ID PRODUK</th>
+                                <td><span id="id_produk"></span></td>
+                            </tr>
+                            <tr>
+                                <th>NAMA PRODUK</th>
+                                <td><span id="nama_produk"></span></td>
+                            </tr>
+                            <tr>
+                                <th>DETAIL</th>
+                                <td><span id="detail"></span></td>
+                            </tr>
+                            <tr>
+                                <th>SUPPLIER</th>
+                                <td><span id="nama_supplier"></span></td>
+                            </tr>
+                            <tr>
+                                <th>QTY</th>
+                                <td><span id="qty"></span></td>
+                            </tr>
+                            <tr>
+                                <th>DATE</th>
+                                <td><span id="date"></span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script>
+    $(document).ready(function(){
+        $(document).on('click', '#set-detail', function(){
+            var idproduk = $(this).data('idproduk');
+            var namaproduk = $(this).data('namaproduk');
+            var detail = $(this).data('detail');
+            var supplier = $(this).data('supplier');
+            var qty = $(this).data('qty');
+            var date = $(this).data('date');
+            
+            $('#id_produk').text(idproduk);
+            $('#nama_produk').text(namaproduk);
+            $('#detail').text(detail);
+            $('#nama_supplier').text(supplier);
+            $('#qty').text(qty);
+            $('#date').text(date);
+            
+        })
+    })
+</script>

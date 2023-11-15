@@ -50,17 +50,39 @@ class Stok extends CI_Controller {
     
 
     public function proses() {
-        if (isset($_POST['tambah_stok'])) {
-            $post = $this->input->post(null, TRUE);
-            // $post['id_user'] = $this->session->userdata('id_user');
-            $this->m_stok->tambah_stok($post);
-            $this->m_produk->update_stok_in($post);
+        $data = array(
+            'date' => $this->input->post('date'),
+            'id_produk' => $this->input->post('id_produk'),
+            'id_supplier' => $this->input->post('id_supplier'),
+            'detail' => $this->input->post('detail'),
+            'qty' => $this->input->post('qty'),
+            'created' => date('Y-m-d H:i:s'), // Isi dengan nilai waktu saat ini
+        );
+        
+        $this->db->insert('tbl_stok', $data);
+        redirect('stok');
+        
+
+        // if (isset($_POST['tambah_stok'])) {
+        //     $this->form_validation->set_rules('date', 'Tanggal', 'required');
+        //     $this->form_validation->set_rules('id_supplier', 'Supplier', 'required');
+        //     $this->form_validation->set_rules('qty', 'Qty', 'required|numeric');
     
-            if ($this->db->affected_rows() > 0) {
-                $this->session->set_flashdata('success', 'Data Stok Berhasil Ditambahkan');
-            }
-            redirect('stok');
-        }
+        //     if ($this->form_validation->run() == FALSE) {
+        //         // Validasi gagal, tampilkan pesan kesalahan
+        //         $this->load->view('stok/v_stok_add');
+        //     } else {
+        //         // Validasi berhasil, lanjutkan dengan proses
+        //         $post = $this->input->post(null, TRUE);
+        //         $this->m_stok->tambah_stok($post);
+        //         $this->m_produk->update_stok_in($post);
+    
+        //         if ($this->db->affected_rows() > 0) {
+        //             $this->session->set_flashdata('success', 'Data Stok Berhasil Ditambahkan');
+        //         }
+                
+        //     }
+        // }
     }
     
 }
