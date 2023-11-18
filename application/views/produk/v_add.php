@@ -39,7 +39,7 @@
                         <div class="col-sm-4">
                             <div class="form-group">
                                 <label style="color: black; font-weight: 1000;">Harga Produk</label>
-                                <input name="harga" class="form-control" placeholder="Harga Produk" value="<?= set_value('harga') ?>">
+                                <input type="number" name="harga" class="form-control" placeholder="Harga Produk" value="<?= set_value('harga') ?>">
                             </div>
                         </div>
                         <div class="col-sm-4">

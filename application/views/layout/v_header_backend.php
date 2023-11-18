@@ -184,12 +184,12 @@
                             class="nav-text">Dashboard</span>
                     </a>
                 </li>
-                <li>
+                <!-- <li>
                     <a href="<?= base_url('kasir') ?>" aria-expanded="false">
                         <i class="fa fa-shopping-cart menu-icon" style="font-size:18px;" style="font-size:18px;"></i><span
                             class="nav-text">Kasir</span>
                     </a>
-                </li>
+                </li> -->
                 <?php if ($this->session->userdata('level_user') == '1'): ?>
                 <li>
                     <a class="has-arrow" href="javascript:void()" aria-expanded="false">
@@ -202,23 +202,15 @@
                 </li>
                 <?php endif; ?>
 
-                <li class="nav-label">Menu</li>
+                <!-- <li class="nav-label">Menu</li> -->
                 <li>
                     <a class="has-arrow" href="javascript:void()" aria-expanded="false">
-                         <i class="fa fa-birthday-cake menu-icon" style="font-size: 20px;"></i></i><span class="nav-text">Produk</span>
+                         <i class="fa fa-bars menu-icon" style="font-size: 20px;"></i></i><span class="nav-text">Menu</span>
                     </a>
                     <ul aria-expanded="false">
                         <li><a href="<?= base_url('produk') ?>"><i class="fa fa-birthday-cake"></i> Produk</a></li>
                         <li><a href="<?= base_url('kategori') ?>"><i class="fa fa-list"></i> Kategori</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a class="has-arrow" href="javascript:void()" aria-expanded="false">
-                         <i class="fa fa-cubes menu-icon" style="font-size: 20px;"></i></i><span class="nav-text">Stok</span>
-                    </a>
-                    <ul aria-expanded="false">
-                        <li><a href="<?= base_url('stok') ?>"><i class="fa fa-arrow-circle-right"></i> Stok In</a></li>
-                        <!-- <li><a href="<?= base_url('blog') ?>"><i class="fa fa-book"></i> Stok Out</a></li> -->
+                        <!-- <li><a href="<?= base_url('stok') ?>"><i class="fa fa-cubes"></i> Stok</a></li> -->
                     </ul>
                 </li>
                 <?php if ($this->session->userdata('level_user') == '1'): ?>
@@ -229,17 +221,12 @@
                             class="nav-text">Pesanan</span>
                     </a>
                 </li>
-                <?php endif; ?>
-
-                <?php if ($this->session->userdata('level_user') == '1'): ?>
                 <li>
-                    <a class="has-arrow" href="javascript:void()" aria-expanded="false">
-                         <i class="fa fa-bar-chart menu-icon" style="font-size: 20px;"></i></i><span class="nav-text">Laporan</span>
+                    <a href="<?= base_url('laporan') ?>" <?php if($this->uri->segment(1)=='laporan'){echo
+                        "active";} ?>>
+                        <i class="fa fa-bar-chart menu-icon" style="font-size:18px;" style="font-size:18px;"></i><span
+                            class="nav-text">Laporan</span>
                     </a>
-                    <ul aria-expanded="false">
-                        <li><a href="<?= base_url('laporan') ?>"><i class="fa fa-money"></i> Laporan Pendapatan</a></li>
-                        <li><a href="<?= base_url('#') ?>"><i class="fa fa-line-chart"></i> Laporan Penjualan</a></li>
-                    </ul>
                 </li>
                 <?php endif; ?>
 

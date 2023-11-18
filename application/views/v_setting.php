@@ -15,14 +15,14 @@
                         echo '</div>';
                     }
                     
-                    echo form_open_multipart('admin/setting'); ?>
+                    echo form_open('admin/setting'); ?>
 
                     <div class="row">
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <label style="color: black; font-weight: 1000;">Provinsi</label>
                                 <select name="provinsi" class="form-control"></select>
-                                <option value=""></option>
+                                
                             </div>
                         </div>
                         <div class="col-sm-6">

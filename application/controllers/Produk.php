@@ -135,6 +135,9 @@ class Produk extends CI_Controller {
                     }
                 }
             }
+
+            $data = array();
+
     
             // Update data yang tidak berhubungan dengan gambar
             $data += array(

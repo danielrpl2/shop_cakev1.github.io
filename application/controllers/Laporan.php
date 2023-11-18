@@ -10,10 +10,12 @@ class Laporan extends CI_Controller {
         $this->load->model('m_laporan');
     }
     
+
+    //laporan pendapatan
     public function index()
 	{
         $data = array (
-            'title' => 'Laporan Harian',
+            'title' => 'Laporan Pendapatan',
             'isi' => 'v_laporan',
         );
         $this->load->view('layout/v_wrapper_backend', $data, FALSE);
@@ -64,5 +66,6 @@ class Laporan extends CI_Controller {
         );
         $this->load->view('layout/v_wrapper_backend', $data, FALSE);
     }
+
 
 }

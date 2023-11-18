@@ -27,6 +27,7 @@
                                                 <th>Kategori</th>
                                                 <th>Harga</th>
                                                 <th>Berat</th>
+                                                <th>Stok</th>
                                                 <th>Gambar</th>
                                                 <th>Action</th>
                                             </tr>
@@ -40,6 +41,7 @@
                                                 <td><?= $value->nama_kategori ?></td>
                                                 <td>Rp. <?= number_format($value->harga,0) ?></td>
                                                 <td><?= $value->berat ?> Gr.</td>
+                                                <td><?= $value->stok ?></td>
                                                 <td>
                                                      <img src="<?= base_url('gambar/' . $value->gambar1) ?>" width="100px" style="border-radius: 10px; height: 10vh; object-fit: cover;" alt="">
                                                 </td>

@@ -217,8 +217,8 @@
         // Create a promise for the SweetAlert2 notification
         const successNotification = Swal.fire({
             icon: 'success',
-            title: productName + ' has been added to your cart',
-            showConfirmButton: true,
+            title: productName + ' berhasil ditambahkan!!',
+            showConfirmButton: false,
 			timer: 5000 // Tampilkan tombol OK
         }).then(function(result) {
             if (result.isConfirmed) {

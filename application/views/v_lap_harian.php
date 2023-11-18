@@ -18,38 +18,67 @@
                         Tanggal: <?= $tanggal ?>/<?= $bulan ?>/<?= $tahun ?>
                     </p>
                     <div class="table-responsive">
-                        <table class="table table-striped" id="printTable">
-                            <thead>
-                                <tr>
-                                    <th>#</th>
-                                    <th>No Order</th>
-                                    <th>Tanggal</th>
-                                    <th>Provinsi</th>
-                                    <th>Kota</th>
-                                    <th>Total Harga</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php 
-                                    $no = 1; 
-                                    $grand_total = 0;
-                                    foreach ($laporan as $value) { 
-                                        $total_harga = $value->total_bayar;
-                                        $grand_total = $grand_total + $total_harga; 
-                                ?>
-                                <tr>
-                                    <th><?= $no++ ?></th>
-                                    <td><?= $value->no_order ?></td>
-                                    <td><?= $value->tgl_order ?></td>
-                                    <td><?= $value->provinsi ?></td>
-                                    <td><?= $value->kota ?></td>
-                                    <td>Rp. <?= number_format($total_harga, 0) ?></td>
-                                </tr>
-                                <?php } ?>
-                            </tbody>
-                        </table>
-                        <h2>Grand Total : Rp.<?= number_format($grand_total,0) ?></h2>
-                    </div>
+    <table class="table table-striped" id="printTable">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>No Order</th>
+                <th>Nama Produk</th>
+                <th>Qty</th>
+                <th>Harga</th>
+                <th>Ongkir</th>
+                <th>Total Harga</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php
+            $no = 1;
+            $grand_total = 0;
+
+            // Inisialisasi array untuk menyimpan data produk berdasarkan nomor order
+            $order_products = array();
+
+            foreach ($laporan as $value) {
+                // Inisialisasi data produk untuk nomor order tertentu
+                if (!isset($order_products[$value->no_order])) {
+                    $order_products[$value->no_order] = array(
+                        'nama_produk' => array(),
+                        'harga' => array(),
+                        'qty' => array(),
+                        'ongkir' => $value->ongkir,
+                        'total_harga' => $value->total_bayar // Total harga diinisialisasi dengan total_bayar
+                    );
+                }
+
+                // Menambahkan nama produk, qty, dan harga ke dalam array data produk
+                $order_products[$value->no_order]['nama_produk'][] = $value->nama_produk;
+                $order_products[$value->no_order]['harga'][] = $value->harga;
+                $order_products[$value->no_order]['qty'][] = $value->qty;
+            }
+
+            // Menampilkan data produk dalam tabel
+            foreach ($order_products as $order => $product_data) {
+            ?>
+                <tr>
+                    <th><?= $no++ ?></th>
+                    <td><?= $order ?></td>
+                    <td><?= implode("<br/>", $product_data['nama_produk']) ?></td>
+                    <td><?= implode("<br/>", $product_data['qty']) ?></td>
+                    <td><?= implode("<br/>", array_map(function($harga) { return "Rp." . number_format($harga, 0); }, $product_data['harga'])) ?></td>
+                    <td>Rp.<?= number_format($product_data['ongkir'], 0) ?></td>
+                    <td>Rp. <?= number_format($product_data['total_harga'], 0) ?></td>
+                </tr>
+                <?php
+                // Menghitung grand total dari total bayar
+                $grand_total += $product_data['total_harga'];
+            }
+            ?>
+        </tbody>
+    </table>
+    <h2>Grand Total : Rp.<?= number_format($grand_total, 0) ?></h2>
+</div>
+
+
                     <!-- Tombol cetak tabel -->
                     <div class="d-flex justify-content-between align-items-center no-print">
                         <button class="btn btn-primary"><i class="fa fa-arrow-left"></i> <a href="<?= base_url('laporan') ?>" style="color: white;">Kembali</a></button>

@@ -187,7 +187,7 @@
                 ?>
                 <div class="property-item">
                     <div class="property-image">
-                        <img src="<?= base_url('gambar/' . $produk->gambar1) ?>" alt="Product Image">
+                        <img src="<?= base_url('gambar/' . $produk->gambar1) ?>" alt="Product Image" style="border-radius: 10px; width: 100%; height: 100px; object-fit: cover;">
                     </div>
                     <div class="property-details">
                         <h4><?= $value['name'] ?></h4>
@@ -390,7 +390,3 @@
 }
 
 </style>
-</body>
-
-<!-- dream-property/index-2.html  18 Nov 2019 05:06:35 GMT -->
-</html>

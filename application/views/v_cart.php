@@ -65,7 +65,7 @@
                         	<tr>
                                 <td class="prod-column">
                                     <div class="column-box">
-                                        <figure class="prod-thumb"><a href="#"><img src="<?php echo base_url('gambar/') . $produk->gambar1; ?>" style="border-radius: 10px; width: 100%;"></a></figure>
+                                        <figure class="prod-thumb"><a href="#"><img src="<?php echo base_url('gambar/') . $produk->gambar1; ?>" style="border-radius: 10px; width: 100%; height: 100px; object-fit: cover;"></a></figure>
                                     </div>
                                 </td>
                                 <td><h4 class="prod-title"><?php echo $items['name']; ?></h4></td>
@@ -92,7 +92,6 @@
 							<a href="<?= base_url('belanja/clear') ?>" class="btn btn-warning cart-btn btn-style-one" style="border-radius: 50px; color: white; background-color: red;"><span class="txt"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Clear Cart</span></a>
                             </div>
                             <div class="form-group clearfix">
-							<button type="submit" class="theme-btn cart-btn btn-style-two" style="background-color: yellow; border-radius: 50px; color: black;"><span class="txt"><i class="fa fa-check" aria-hidden="true"></i> Update Cart</span></button>
                             </div>
                         </div>
                     </div>

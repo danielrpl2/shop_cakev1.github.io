@@ -341,7 +341,7 @@
         // Create a promise for the SweetAlert2 notification
 		Swal.fire({
             icon: 'success',
-            title: productName + 'berhasil di tambahkan ke keranjang!',
+            title: productName + ' berhasil di tambahkan!!',
             showConfirmButton: false, // Menghilangkan tombol OK
         }).then(function() {
             // Setelah pesan alert ditutup, segarkan halaman

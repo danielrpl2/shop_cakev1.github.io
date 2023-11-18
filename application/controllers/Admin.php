@@ -68,7 +68,7 @@ class Admin extends CI_Controller {
             );
     
             $this->m_admin->edit($data);
-            $this->session->set_flashdata('pesan', 'Setingan Berhasil Diganti !');
+            $this->session->set_flashdata('pesan', 'Lokasi Berhasil Diganti !!!');
             redirect('admin/setting'); 
         }
 	}
