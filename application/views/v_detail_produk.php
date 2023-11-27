@@ -112,7 +112,7 @@
                            <div class="text-center-qty">
     <label for="quantity"><strong>Qty</strong>:</label>
     <div class="quantity-input-qty">
-        <input type="number" id="quantity" data-max="10000000000" style="border: 1px solid black; height: 40px; width: 60px; text-align: center;" value="1" name="qty" placeholder="1" />
+        <input type="number" id="quantity" data-max="500" style="border: 1px solid black; height: 40px; width: 60px; text-align: center;" value="1" name="qty" placeholder="1" />
     </div>
 </div>
 
@@ -329,7 +329,7 @@
                 <h1>Custome Cake</h1>
             </div>
             <div class="text" style="color: #fff;">Jika Anda Ingin Memesan Custom Cake Bisa Lewat Whatsap Dengan Klik Logo <br> DI Bawah</div><br>
-            <div class="btn-box"><a href="#" style="border-radius: 50px; padding: 10px;" class="theme-btn btn-style-three"><span class="txt" ><i class="fab fa-whatsapp" style="color: black; font-size: 40px;"></i></span></a></div>
+            <div class="btn-box"><a href="https://wa.me/6285604664184?text=Weh" style="border-radius: 50px; padding: 10px;" class="theme-btn btn-style-three"><span class="txt" ><i class="fab fa-whatsapp" style="color: black; font-size: 40px;"></i></span></a></div>
         </div>
     </section>
 

@@ -48,4 +48,5 @@ class M_pesanan_masuk extends CI_Model
         $this->db->where('id_transaksi', $data['id_transaksi']);
         $this->db->update('tbl_transaksi', $data);    
     }
+    
 }

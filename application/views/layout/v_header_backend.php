@@ -21,14 +21,14 @@
     <!--**********************************
             Nav header start
         ***********************************-->
-    <div class="nav-header">
+    <div class="nav-header" style="background-color: blue;">
         <div class="brand-logo">
             <a href="<?php base_url('admin') ?>">
                 <b class="logo-abbr"><img src="<?= base_url() ?>assets/admin_template/images/20231025_140012.png" alt=""></b>
                 <span class="logo-compact">
                     <img src="<?= base_url() ?>assets/admin_template/images/20231025_140541.png" alt=""></span>
                 <span class="brand-title">
-                    <img src="<?= base_url() ?>assets/admin_template/images/20231025_141424.png" alt="">
+                    <img src="<?= base_url() ?>assets/home2/images/nav-orb.png" style="width: 80%; margin-top: -20px;" alt="">
                 </span>
             </a>
         </div>
@@ -134,35 +134,41 @@
                    
                         
                     <li class="icons dropdown">
-                        <a href="javascript:void(0)" data-toggle="dropdown">
-                                <i class="mdi mdi-email-outline"></i>
-                                <span class="badge badge-pill gradient-1">3</span>
-                            </a>
-                            <div class="drop-down animated fadeIn dropdown-menu">
-                                <div class="dropdown-content-heading d-flex justify-content-between">
-                                    <span class="">3 New Messages</span>  
-                                    <a href="javascript:void()" class="d-inline-block">
-                                        <span class="badge badge-pill gradient-1">3</span>
-                                    </a>
-                                </div>
-                                <div class="dropdown-content-body">
-                                    <ul>
-                                        <li class="notification-unread">
-                                            <a href="javascript:void()">
-                                                <img class="float-left mr-3 avatar-img" src="<?= base_url() ?>assets/admin_template/images/avatar/1.jpg" alt="">
-                                                <div class="notification-content">
-                                                    <div class="notification-heading">Saiful Islam</div>
-                                                    <div class="notification-timestamp">08 Hours ago</div>
-                                                    <div class="notification-text">Hi Teddy, Just wanted to let you ...</div>
-                                                </div>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                    
-                                </div>
+    <a href="javascript:void(0)" data-toggle="dropdown">
+        <i class="fa fa-user"></i>
+    </a>
+    <div class="drop-down animated fadeIn dropdown-menu">
+        <div class="dropdown-content-heading d-flex justify-content-between">
+            <a href="javascript:void()" class="d-inline-block">
+            </a>
+        </div>
+        <div class="dropdown-content-body">
+            <ul>
+                <li class="notification-unread">
+                    <a href="javascript:void()">
+                        <!-- Tampilkan gambar profil di sini -->
+                        <div class="notification-content">
+                            <div class="notification-heading"><?= $this->session->userdata('nama_user'); ?></div>
+                            <div class="notification-timestamp">
+                                <?php 
+                                    $level_user = 1;
+                                    if ($level_user == 1) {
+                                        echo "Admin";
+                                    } else if ($level_user == 2) {
+                                        echo "Karyawan";
+                                    } else {
+                                        echo "Level user tidak valid";
+                                    }
+                                ?>    
                             </div>
-                        </li>
-                   
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</li>
+
                 </ul>
             </div>
         </div>
@@ -177,19 +183,20 @@
     <div class="nk-sidebar">
         <div class="nk-nav-scroll">
             <ul class="metismenu" id="menu">
-                <li class="nav-label">Dashboard</li>
+                <br>
+                <!-- <li class="nav-label">Dashboard</li> -->
                 <li>
                     <a href="<?= base_url('admin') ?>" aria-expanded="false">
                         <i class="fa fa-tachometer menu-icon" style="font-size:18px;" style="font-size:18px;"></i><span
                             class="nav-text">Dashboard</span>
                     </a>
                 </li>
-                <!-- <li>
-                    <a href="<?= base_url('kasir') ?>" aria-expanded="false">
+                <li>
+                    <a href="<?= base_url('penjualan') ?>" aria-expanded="false">
                         <i class="fa fa-shopping-cart menu-icon" style="font-size:18px;" style="font-size:18px;"></i><span
                             class="nav-text">Kasir</span>
                     </a>
-                </li> -->
+                </li>
                 <?php if ($this->session->userdata('level_user') == '1'): ?>
                 <li>
                     <a class="has-arrow" href="javascript:void()" aria-expanded="false">
@@ -210,7 +217,7 @@
                     <ul aria-expanded="false">
                         <li><a href="<?= base_url('produk') ?>"><i class="fa fa-birthday-cake"></i> Produk</a></li>
                         <li><a href="<?= base_url('kategori') ?>"><i class="fa fa-list"></i> Kategori</a></li>
-                        <!-- <li><a href="<?= base_url('stok') ?>"><i class="fa fa-cubes"></i> Stok</a></li> -->
+                        <li><a href="<?= base_url('stok') ?>"><i class="fa fa-cubes"></i> Stok</a></li>
                     </ul>
                 </li>
                 <?php if ($this->session->userdata('level_user') == '1'): ?>
@@ -231,14 +238,14 @@
                 <?php endif; ?>
 
                 <?php if ($this->session->userdata('level_user') == '1'): ?>
-                <li class="nav-label">Settings</li>
+                <!-- <li class="nav-label">Settings</li> -->
 
                 <li>
                         <a class="has-arrow" href="javascript:void()" aria-expanded="false">
                             <i class="fa fa-cog menu-icon" style="font-size: 22px;"></i></i><span class="nav-text">Setting</span>
                         </a>
                         <ul aria-expanded="false">
-                            <li><a href="<?= base_url('admin/setting') ?>"><i class="fa fa-map"></i> Lokasi Toko</a></li>
+                            <li><a href="<?= base_url('setting') ?>"><i class="fa fa-map"></i> Lokasi Toko</a></li>
                             <li><a href="<?= base_url('blog') ?>"><i class="fa fa-book"></i> Blog</a></li>
                         </ul>
                     </li>

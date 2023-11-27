@@ -70,4 +70,17 @@ class M_produk extends CI_Model
         $this->db->query($sql);
     }
 
+    public function get_product_details($id_produk)
+    {
+        // Replace 'your_products_table' with the actual table name where your products are stored
+        $this->db->where('id_produk', $id_produk);
+        $query = $this->db->get('tbl_produk');
+
+        if ($query->num_rows() > 0) {
+            return $query->row();
+        } else {
+            return null; // No product found with the given id_produk
+        }
+    }
+
 }    

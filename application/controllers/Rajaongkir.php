@@ -10,6 +10,7 @@ class Rajaongkir extends CI_Controller
     {
         parent::__construct();
         $this->load->model('m_admin');
+        $this->load->model('m_setting');
         
     }
     
@@ -43,7 +44,7 @@ class Rajaongkir extends CI_Controller
             $data_provinsi = $array_response['rajaongkir']['results'];
             echo "<option value=''>--Pilih Provinsi--</option>";
             foreach ($data_provinsi as $key => $value) {
-                echo "<option value='" . $value['province'] . "' id_provinsi='" . $value['province_id'] . "'>" . $value['province'] . "</option>"; 
+                echo "<option value='" . $value['province_id'] . "' id_provinsi='" . $value['province_id'] . "'>" . $value['province'] . "</option>"; 
             }
         }
     }
@@ -81,7 +82,7 @@ class Rajaongkir extends CI_Controller
             $data_kota = $array_response['rajaongkir']['results'];
             echo "<option value=''>--Pilih Kota--</option>";
             foreach ($data_kota as $key => $value) {
-                echo "<option value='" . $value['city_name'] . "' id_kota='" . $value['city_id'] . "'>" . $value['city_name'] . "</option>"; // Tambahkan tanda '=' pada value
+                echo "<option value='" . $value['city_id'] . "' id_kota='" . $value['city_id'] . "'>" . $value['city_name'] . "</option>"; // Tambahkan tanda '=' pada value
             }
         }
     }
@@ -96,7 +97,7 @@ class Rajaongkir extends CI_Controller
 
     public function paket()
     {
-        $id_kota_asal = $this->m_admin->data_setting()->lokasi;
+        $id_kota_asal = $this->m_setting->data_setting()->lokasi;
         $exspedisi = $this->input->post('exspedisi');
         $id_kota = $this->input->post('id_kota');
         $berat = $this->input->post('berat');

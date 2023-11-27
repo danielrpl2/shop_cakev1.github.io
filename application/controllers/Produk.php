@@ -93,78 +93,85 @@ class Produk extends CI_Controller {
 
 
     public function edit($id_produk = NULL)
-    {
-        $this->form_validation->set_rules('nama_produk', 'Nama Produk', 'required', array(
-            'required' => '%s Harus Diisi !!!'
-        ));
-        $this->form_validation->set_rules('id_kategori', 'Kategori', 'required', array(
-            'required' => '%s Harus Diisi !!!'
-        ));
-        $this->form_validation->set_rules('harga', 'Harga', 'required', array(
-            'required' => '%s Harus Diisi !!!'
-        ));
-        $this->form_validation->set_rules('berat', 'Berat', 'required', array(
-            'required' => '%s Harus Diisi !!!'
-        ));
-        $this->form_validation->set_rules('deskripsi', 'Deskripsi', 'required', array(
-            'required' => '%s Harus Diisi !!!'
-        ));
-    
-        if ($this->form_validation->run() == TRUE) {
-            $config['upload_path'] = './gambar/';
-            $config['allowed_types'] = 'gif|jpg|png|jpeg|ico|jfif';
-            $config['max_size'] = '2000';
-            $this->upload->initialize($config);
-    
-            $produk = $this->m_produk->get_data($id_produk);
-    
-            // Loop untuk menghandle gambar1 hingga gambar6
-            for ($i = 1; $i <= 6; $i++) {
-                $field_name = "gambar" . $i;
-    
-                // Check apakah file diupload
-                if (!empty($_FILES[$field_name]['name'])) {
-                    if ($this->upload->do_upload($field_name)) {
-                        // Gambar baru diunggah, hapus gambar lama jika tidak kosong
-                        if (!empty($produk->{'gambar' . $i})) {
-                            unlink('./gambar/' . $produk->{'gambar' . $i});
-                        }
-    
-                        $upload_data = array('uploads' => $this->upload->data());
-                        $data['gambar' . $i] = $upload_data['uploads']['file_name'];
+{
+    $this->form_validation->set_rules('nama_produk', 'Nama Produk', 'required', array(
+        'required' => '%s Harus Diisi !!!'
+    ));
+    $this->form_validation->set_rules('id_kategori', 'Kategori', 'required', array(
+        'required' => '%s Harus Diisi !!!'
+    ));
+    $this->form_validation->set_rules('harga', 'Harga', 'required', array(
+        'required' => '%s Harus Diisi !!!'
+    ));
+    $this->form_validation->set_rules('berat', 'Berat', 'required', array(
+        'required' => '%s Harus Diisi !!!'
+    ));
+    $this->form_validation->set_rules('deskripsi', 'Deskripsi', 'required', array(
+        'required' => '%s Harus Diisi !!!'
+    ));
+
+    if ($this->form_validation->run() == TRUE) {
+        // Configuration for image upload
+        $config['upload_path'] = './gambar/';
+        $config['allowed_types'] = 'gif|jpg|png|jpeg|ico|jfif';
+        $config['max_size'] = '2000';
+        $this->upload->initialize($config);
+
+        // Get existing product data
+        $produk = $this->m_produk->get_data($id_produk);
+
+        // Loop to handle gambar1 to gambar6
+        for ($i = 1; $i <= 6; $i++) {
+            $field_name = "gambar" . $i;
+
+            // Check if a new file is uploaded
+            if (!empty($_FILES[$field_name]['name'])) {
+                // Upload the new file
+                if ($this->upload->do_upload($field_name)) {
+                    // Delete the old image if it exists
+                    if (!empty($produk->{'gambar' . $i})) {
+                        unlink('./gambar/' . $produk->{'gambar' . $i});
                     }
+
+                    // Store the new file name in the data array
+                    $upload_data = $this->upload->data();
+                    $data['gambar' . $i] = $upload_data['file_name'];
                 }
+            } else {
+                // If no new file is uploaded, keep the existing image
+                $data['gambar' . $i] = $produk->{'gambar' . $i};
             }
-
-            $data = array();
-
-    
-            // Update data yang tidak berhubungan dengan gambar
-            $data += array(
-                'id_produk'   => $id_produk,
-                'nama_produk' => $this->input->post('nama_produk'),
-                'id_kategori' => $this->input->post('id_kategori'),
-                'harga'       => $this->input->post('harga'),
-                'berat'       => $this->input->post('berat'),
-                'deskripsi'   => $this->input->post('deskripsi'),
-            );
-    
-            $this->m_produk->edit($data);
-    
-            $this->session->set_flashdata('pesan', 'Data Berhasil Diedit !!!');
-            redirect('produk');
         }
-    
-        $data = array(
-            'title' => 'Edit Produk',
-            'header' => 'Produk',
-            'kategori' => $this->m_kategori->get_all_data(),
-            'produk' => $this->m_produk->get_data($id_produk),
-            'isi' => 'produk/v_edit',
+
+        // Update data that is not related to images
+        $data += array(
+            'id_produk'   => $id_produk,
+            'nama_produk' => $this->input->post('nama_produk'),
+            'id_kategori' => $this->input->post('id_kategori'),
+            'harga'       => $this->input->post('harga'),
+            'berat'       => $this->input->post('berat'),
+            'deskripsi'   => $this->input->post('deskripsi'),
         );
-    
-        $this->load->view('layout/v_wrapper_backend', $data, FALSE);
+
+        // Call the model function to update the product
+        $this->m_produk->edit($data);
+
+        $this->session->set_flashdata('pesan', 'Data Berhasil Diedit !!!');
+        redirect('produk');
     }
+
+    // Load data for the view if validation fails
+    $data = array(
+        'title'    => 'Edit Produk',
+        'header'   => 'Produk',
+        'kategori' => $this->m_kategori->get_all_data(),
+        'produk'   => $this->m_produk->get_data($id_produk),
+        'isi'      => 'produk/v_edit',
+    );
+
+    $this->load->view('layout/v_wrapper_backend', $data, FALSE);
+}
+
     
 
 

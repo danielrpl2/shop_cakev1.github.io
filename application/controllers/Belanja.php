@@ -41,29 +41,43 @@ class Belanja extends CI_Controller {
     }
 
 
-   public function update_qty()
-{
-    $rowid = $this->input->post('rowid');
-    $qty = $this->input->post('qty');
-
-    // Perbarui session keranjang dengan data qty yang diterima
-    $data = array(
-        'rowid' => $rowid,
-        'qty' => $qty
-    );
-
-    $this->cart->update($data);
+    public function update_qty()
+    {
+        $rowid = $this->input->post('rowid');
+        $qty = $this->input->post('qty');
+        $berat = $this->input->post('berat');
+        $price = $this->input->post('price');
     
-    // Anda juga dapat mengembalikan data terbaru jika diperlukan
-    $response = array(
-        'message' => 'Qty berhasil diperbarui',
-        'new_subtotal' => $this->cart->total(),
-        'new_total_berat' => $this->hitungTotalBeratKeranjang()
-        // Tambahkan data lain yang diperlukan
-    );
+        // Update the cart session with the received qty data
+        $data = array(
+            'rowid' => $rowid,
+            'qty' => $qty
+        );
     
-    echo json_encode($response);
-}
+        $this->cart->update($data);
+    
+        // Recalculate the total weight of cart items
+        $total_berat = 0;
+        foreach ($this->cart->contents() as $items) {
+            $total_berat += $items['qty'] * $items['berat'];
+        }
+    
+        // Recalculate the subtotal of cart items
+        $sub_total = 0;
+        foreach ($this->cart->contents() as $items) {
+            $sub_total += $items['qty'] * $items['price'];
+        }
+    
+        // Prepare the response data
+        $response = array(
+            'message' => 'Quantity updated successfully',
+            'new_subtotal' => $this->cart->total(),
+            'new_total_berat' => $total_berat,
+            'new_sub_total' => $sub_total
+        );
+    
+        echo json_encode($response);
+    }
 
     
     public function delete($rowid)

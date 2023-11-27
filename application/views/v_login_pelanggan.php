@@ -40,7 +40,7 @@
                    echo form_open('pelanggan/login'); ?>
       <div class="inputBox">
         <input type="email" name="email" value="<?= set_value('email') ?>" required>
-        <i class="fa-regular fa-user"></i>
+        <i class="fa-regular fa-envelope"></i>
         <span>email</span>
       </div>
       <div class="inputBox">

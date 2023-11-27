@@ -50,7 +50,7 @@
                                                 
                                                 <td>
                                                     <?php if ($value->profile_image) { ?>
-                                                        <img src="<?= base_url('assets/profileimg/' . $value->profile_image) ?>" alt="Profile Image" width="50" style="border-radius: 50px;">
+                                                        <img src="<?= base_url('assets/profileimg/' . $value->profile_image) ?>" alt="Profile Image" style="border-radius: 10px; height: 10vh; width: 50%; object-fit: cover;">
                                                     <?php } else { ?>
                                                         No Image
                                                     <?php } ?>

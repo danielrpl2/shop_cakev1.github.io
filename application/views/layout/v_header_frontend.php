@@ -194,11 +194,11 @@
 								<a href="<?= base_url() ?>"><img src="<?= base_url() ?>assets/home2/images/orabella3.png" alt="" /></a>
 							</div>
 							<div class="contact-info">
-								<div class="profile-info">
+								<!-- <div class="profile-info">
 									<div class="profile-image">
 										<img src="<?= base_url() ?>assets/home2/images/resource/author-2.jpg" alt="Profile Image" />
 									</div>
-								</div>
+								</div> -->
 								<br>
 								<br>
 								<ul class="list-style-two">

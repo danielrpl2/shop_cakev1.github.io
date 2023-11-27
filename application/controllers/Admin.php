@@ -9,6 +9,7 @@ class Admin extends CI_Controller {
         parent::__construct();
         $this->load->model('m_admin');
         $this->load->model('m_pesanan_masuk');
+        $this->load->model('m_transaksi');
         
     }
     
@@ -20,6 +21,7 @@ class Admin extends CI_Controller {
             'belum_bayar' => $this->m_admin->total_pesanan_belum_bayar(),
             'sudah_bayar' => $this->m_admin->total_pesanan_sudah_bayar(),
             'dikirim' => $this->m_admin->total_pesanan_dikirim(),
+          
             'selesai' => $this->m_admin->total_pesanan_selesai(),
             'total_pendapatan' => $this->m_admin->total_pendapatan(),
             'total_produk' => $this->m_admin->total_produk(),
@@ -32,46 +34,46 @@ class Admin extends CI_Controller {
 
 
 
-	public function setting()
-	{
-        $this->form_validation->set_rules('nama_toko','Nama Toko', 'required', array(
-            'required'=>'%s Harus Diisi !!!'
-        ));
-        $this->form_validation->set_rules('kota','Kota', 'required', array(
-            'required'=>'%s Harus Diisi !!!'
-        ));
-        $this->form_validation->set_rules('alamat_toko','Alamat Toko', 'required', array(
-            'required'=>'%s Harus Diisi !!!'
-        ));
-        $this->form_validation->set_rules('no_telepon','No Telepon', 'required', array(
-            'required'=>'%s Harus Diisi !!!'
-        ));
+	// public function setting()
+	// {
+    //     $this->form_validation->set_rules('nama_toko','Nama Toko', 'required', array(
+    //         'required'=>'%s Harus Diisi !!!'
+    //     ));
+    //     $this->form_validation->set_rules('kota','Kota', 'required', array(
+    //         'required'=>'%s Harus Diisi !!!'
+    //     ));
+    //     $this->form_validation->set_rules('alamat_toko','Alamat Toko', 'required', array(
+    //         'required'=>'%s Harus Diisi !!!'
+    //     ));
+    //     $this->form_validation->set_rules('no_telepon','No Telepon', 'required', array(
+    //         'required'=>'%s Harus Diisi !!!'
+    //     ));
         
         
-        if ($this->form_validation->run() == FALSE) {
-            $data = array (
-                'title' => 'Setting Lokasi',
-                'setting' => $this->m_admin->data_setting(),
-                'header' => 'Lokasi',
-                'isi' => 'v_setting',
-            );
-            $this->load->view('layout/v_wrapper_backend', $data, FALSE);
+    //     if ($this->form_validation->run() == FALSE) {
+    //         $data = array (
+    //             'title' => 'Setting Lokasi',
+    //             'setting' => $this->m_admin->data_setting(),
+    //             'header' => 'Lokasi',
+    //             'isi' => 'v_setting',
+    //         );
+    //         $this->load->view('layout/v_wrapper_backend', $data, FALSE);
             
-        }else{
+    //     }else{
             
-            $data = array(
-                'id' => 1,
-                'lokasi' => $this->input->post('kota'),
-                'nama_toko' => $this->input->post('nama_toko'),
-                'alamat_toko' => $this->input->post('alamat_toko'),
-                'no_telepon' => $this->input->post('no_telepon'),
-            );
+    //         $data = array(
+    //             'id' => 1,
+    //             'lokasi' => $this->input->post('kota'),
+    //             'nama_toko' => $this->input->post('nama_toko'),
+    //             'alamat_toko' => $this->input->post('alamat_toko'),
+    //             'no_telepon' => $this->input->post('no_telepon'),
+    //         );
     
-            $this->m_admin->edit($data);
-            $this->session->set_flashdata('pesan', 'Lokasi Berhasil Diganti !!!');
-            redirect('admin/setting'); 
-        }
-	}
+    //         $this->m_admin->edit($data);
+    //         $this->session->set_flashdata('pesan', 'Lokasi Berhasil Diganti !!!');
+    //         redirect('admin/setting'); 
+    //     }
+	// }
 
     public function pesanan_masuk()
     {
@@ -79,6 +81,7 @@ class Admin extends CI_Controller {
             'title' => 'Pesanan Masuk',
             'pesanan' => $this->m_pesanan_masuk->pesanan(),
             'pesanan_diproses' => $this->m_pesanan_masuk->pesanan_diproses(),
+            'paksa_selesai' => $this->m_transaksi->dikirim(),
             'pesanan_dikirim' => $this->m_pesanan_masuk->pesanan_dikirim(),
             'pesanan_selesai' => $this->m_pesanan_masuk->pesanan_selesai(),
             'isi' => 'v_pesanan_masuk',
@@ -113,6 +116,18 @@ class Admin extends CI_Controller {
 
     public function FunctionName() : Returntype {
         
+    }
+
+    public function diterima($id_transaksi)
+    {
+        $data = array(
+            'id_transaksi' => $id_transaksi,
+            'status_order' => '3',
+     );
+    $this->m_pesanan_masuk->update_order($data);
+    $this->session->set_flashdata('pesan', 'Pesanan Diterima !!');
+    redirect('admin/pesanan_masuk');
+    
     }
      
 }

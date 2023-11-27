@@ -187,7 +187,7 @@
                 ?>
                 <div class="property-item">
                     <div class="property-image">
-                        <img src="<?= base_url('gambar/' . $produk->gambar1) ?>" alt="Product Image" style="border-radius: 10px; width: 100%; height: 100px; object-fit: cover;">
+                        <img src="<?= base_url('gambar/' . $produk->gambar1) ?>" alt="Product Image" style="border-radius: 10px; width: 70%; height: 15vh; object-fit: cover;">
                     </div>
                     <div class="property-details">
                         <h4><?= $value['name'] ?></h4>

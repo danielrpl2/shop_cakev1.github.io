@@ -60,6 +60,7 @@
 
                          $sub_total = $items['qty'] * $items['price'];
                          $sub_total + $items['price'];
+                        
 						?>
                         <tbody>
                         	<tr>
@@ -72,11 +73,11 @@
                                     <!-- tambahan -->
                                 <td><h4 class="prod-title">Rp. <?= number_format($produk->harga,0); ?></h4></td>
                                     <!-- end -->
-                                <td class="sub-total"><?= $berat ?> Gram.</td>
+                                    <td class="sub-total" id="gram_<?= $items['rowid'] ?>"><?= $berat ?> Gram.</td>
                                 <td class="qty" >
                                     <input type="number" class="form-control qty-input" data-rowid="<?= $items['rowid'] ?>" data-price="<?= $items['price'] ?>" data-berat="<?= $berat ?>" value="<?= $items['qty'] ?>" min="1">
                                 </td>
-								   <td class="price">Rp. <?php echo number_format($sub_total,0); ?></td>
+                                <td class="price" id="grand_total_<?= $items['rowid'] ?>">Rp. <?php echo number_format($sub_total, 0); ?></td>
                                 <td><a href="<?= base_url('belanja/delete/' .$items['rowid']) ?>" class="remove-btn"><span class="flaticon-cancel"></span></a></td>
                             </tr>
 							<?php $i++; ?>
@@ -123,18 +124,20 @@
 
 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-refreferrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
 <script>
 $(document).ready(function() {
     // Memantau perubahan pada elemen input qty
     $('.qty-input').on('input', function() {
         updateQty($(this));
-        updateCartNotification(); // Panggil fungsi untuk memperbarui notifikasi keranjang
+        updateCartTotals();
+        updateNotification();
     });
 
     function updateQty(inputElement) {
         var rowid = inputElement.data('rowid');
-        var qty = inputElement.val();   
+        var qty = inputElement.val();
 
         $.ajax({
             url: '<?= base_url('belanja/update_qty') ?>',
@@ -153,20 +156,66 @@ $(document).ready(function() {
         });
     }
 
-    // Function to update cart notification
-    function updateCartNotification() {
-        var totalQty = 0;
+    function updateCartTotals() {
+        // Menghitung total berat dan subtotal
+        var total_berat = 0;
+        var sub_total = 0;
 
-        // Calculate the total quantity of items in the cart
         $('.qty-input').each(function() {
             var qty = parseFloat($(this).val());
-            totalQty += qty;
+            var berat = parseFloat($(this).data('berat'));
+            var price = parseFloat($(this).data('price'));
+
+            total_berat += qty * berat;
+            sub_total += qty * price;
         });
 
-        // Update the cart notification
-        $('.number-badge').text(totalQty);
+        // Memperbarui tampilan total berat dan subtotal
+        $('.total-berat').text(total_berat);
+        $('.price').text(sub_total);
+    }
+
+    function updateNotification() {
+        // Menghitung jumlah item di keranjang
+        var total_qty = 0;
+        $('.qty-input').each(function() {
+            var qty = parseFloat($(this).val());
+            total_qty += qty;
+        });
+
+        // Menghitung total berat item di keranjang
+        var total_berat = 0;
+        $('.qty-input').each(function() {
+            var qty = parseFloat($(this).val());
+            var berat = parseFloat($(this).data('berat'));
+            total_berat += qty * berat;
+        });
+
+        // Menghitung total subtotal item di keranjang
+        var total_subtotal = 0;
+        $('.qty-input').each(function() {
+            var qty = parseFloat($(this).val());
+            var price = parseFloat($(this).data('price'));
+            total_subtotal += qty * price;
+        });
+
+        // Mengatur notifikasi
+        if (total_qty > 0) {
+            $('.number-badge').text(total_qty);
+            $('.total-berat').text(total_berat);
+            $('.price').text(total_subtotal);
+        } else {
+            $('.number-badge').text('');
+            $('.total-berat').text('');
+            $('.price').text('');
+        }
     }
 });
+
 </script>
+
+
+
+
 
 

@@ -50,12 +50,14 @@ class Stok extends CI_Controller {
     
 
     public function proses() {
+        $id_user = $this->session->userdata('id_user');
         $data = array(
             'date' => $this->input->post('date'),
             'id_produk' => $this->input->post('id_produk'),
             'id_supplier' => $this->input->post('id_supplier'),
             'detail' => $this->input->post('detail'),
             'qty' => $this->input->post('qty'),
+            'id_user' => $id_user,
             'created' => date('Y-m-d H:i:s'), // Isi dengan nilai waktu saat ini
         );
         

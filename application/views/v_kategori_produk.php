@@ -185,7 +185,7 @@
 								?>
 
 					<!-- Social Widget -->
-					<div class="sidebar-widget sidebar-social-widget">
+					<!-- <div class="sidebar-widget sidebar-social-widget">
 						<div class="sidebar-title">
 							<h4>Follow Us</h4>
 						</div>
@@ -199,7 +199,7 @@
 							<li class="instagram"><a href="#"><span class="fab fa-instagram"></span></a></li>
 							<li class="vimeo"><a href="#"><span class="fab fa-vimeo"></span></a></li>
 						</ul>
-					</div>
+					</div> -->
 					<!-- End Social Widget -->
 				</div>
 			</aside>

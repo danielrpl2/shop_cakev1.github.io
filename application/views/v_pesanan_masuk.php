@@ -177,6 +177,7 @@
                                                     <th style="color: black; font-weight: 1000;">Exspedisi</th>
                                                     <th style="color: black; font-weight: 1000;">Total Bayar</th>
                                                     <th style="color: black; font-weight: 1000;">No Resi</th>
+                                                    <th style="color: black; font-weight: 1000;">Action</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -194,6 +195,9 @@
                                                 <small class="badge badge-success"><i class="fa fa-truck"></i> Dikirim</small>
                                             </td>
                                             <td style="color: black; font-weight: 600;"><?= $value->no_resi ?></td>
+                                            <td style="color: black; font-weight: 600;">
+                                            <button type="button"  data-toggle="modal" data-target="#diterima<?= $value->id_transaksi ?>" class="btn btn-primary btn-sm"><i class="fa fa-check-circle"></i> Paksa Terima</button>
+                                            </td>
                                                 </tr>
                                             <?php } ?>
                                             </tbody>
@@ -302,6 +306,27 @@
 </div>
 <?php } ?>
 
+  <!-- Modal Untuk Pesanan Diterima-->
+  <?php foreach ($paksa_selesai as $key => $value) { ?>
+  <div class="modal fade" id="diterima<?= $value->id_transaksi ?>">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content" style="border-radius: 10px;">
+                <div class="modal-header">
+                    <h5 class="modal-title">Pesanan Diterima</h5>
+                    <button type="button" class="close" data-dismiss="modal"><span>&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Apakah Anda Yakin Akan <strong>PAKSA TERIMA PESANAN INI</strong>..??</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Tidak</button>
+                    <a href="<?= base_url('admin/diterima/' . $value->id_transaksi) ?>" class="btn btn-primary">Paksa Terima</a>
+                </div>
+            </div>
+        </div>
+    </div>
+ <?php } ?>
 
 <!-- modal untuk proses -->
 <?php foreach ($pesanan as $key => $value) { ?>

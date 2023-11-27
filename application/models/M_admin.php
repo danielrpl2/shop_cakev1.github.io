@@ -110,10 +110,10 @@ class M_admin extends CI_Model
           
     }
 
-    public function edit($data)
-    {
-        $this->db->where('id', $data['id']);
-        $this->db->update('tbl_set_lokasi', $data);    
-    }
+    // public function edit($data)
+    // {
+    //     $this->db->where('id', $data['id']);
+    //     $this->db->update('tbl_set_lokasi', $data);    
+    // }
     
 }

@@ -53,7 +53,7 @@
                                         ?>
                                     <tr>
                                         <td data-label="Preview"><img class="previewimg text-center"
-                                                src="<?php echo base_url('gambar/') . $produk->gambar1; ?>" alt=""></td>
+                                                src="<?php echo base_url('gambar/') . $produk->gambar1; ?>" alt="" style="border-radius: 10px; width: 50%; height: 15vh; object-fit: cover;"></td>
                                         <td data-label="Product">
                                             <?php echo $items['name']; ?>
                                         </td>

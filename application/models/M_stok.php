@@ -11,7 +11,6 @@ class M_stok extends CI_Model
         $this->db->from('tbl_stok');
         $this->db->join('tbl_produk','tbl_stok.id_produk = tbl_produk.id_produk');
         $this->db->join('tbl_supplier','tbl_stok.id_supplier = tbl_supplier.id_supplier', 'left');
-        $this->db->where('type', 'in');
         $this->db->order_by('id_stok', 'desc');
         $query = $this->db->get();
         return $query;
@@ -26,6 +25,18 @@ class M_stok extends CI_Model
         return $query;
     }
 
+    // In M_transaksi.php model
+public function insert_pesanan($data)
+{
+    $this->db->insert('tbl_jual', $data);
+}
+
+
+    //tambah penjualan / kueangi stok
+    public function tambah_penjualan($data)
+    {
+        $this->db->insert('tbl_jual', $data);
+    }
 
     public function delete($id) 
     {
@@ -34,19 +45,24 @@ class M_stok extends CI_Model
         
     }
 
+    
+
     public function tambah_stok($post) {
+        // Dapatkan id_user dari sesi
+        $id_user = $this->session->userdata('id_user');
+    
         $params = [
             'id_produk' => $post['id_produk'],
-            'type' => 'in',
             'detail' => $post['detail'],
             'id_supplier' => $post['supplier'] == '' ? null : $post['supplier'],
             'qty' => $post['qty'],
             'date' => $post['date'],
-            // 'id_user' => $post['id_user'], // Menggunakan ID pengguna dari sesi
+            'id_user' => $id_user, // Menggunakan ID pengguna dari sesi
             'created' => date('Y-m-d H:i:s'),  // Menggunakan waktu saat ini sebagai nilai 'created'.
         ];
         $this->db->insert('tbl_stok', $params);
     }
+    
     
     
     
