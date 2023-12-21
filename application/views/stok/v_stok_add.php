@@ -6,25 +6,12 @@
                 <div class="card-body">
                     <h3 class="card-title" style="text-align: center;">Tambah Stok</h3>
                    
-                        <?php
-                       if ($this->session->flashdata('success')) {
-                        echo '<div class="alert alert-success alert-dismissible">
-                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                            <h5><i class="icon fa fa-info"></i>' . $this->session->flashdata('success') . '</h5>
-                        </div>';
-                    }
-                    
-                    // Menampilkan pesan notifikasi form kosong (validation_errors)
-                    echo validation_errors('<div class="alert alert-danger alert-dismissible">
-                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                        <h5><i class="icon fa fa-info"></i>', '</h5>
-                    </div>');
-                        echo form_open('stok/proses') ?>
+                        <?php echo form_open('stok/proses') ?>
                     <div class="row">
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <label style="color: black; font-weight: 1000;">Tanggal</label>
-                                <input name="date" type="date" value="<?= date('Y-m-d') ?>" class="form-control" placeholder="Tanggal">
+                                <input name="date" type="date" value="<?= date('Y-m-d') ?>" class="form-control" placeholder="Tanggal" readonly>
                             </div>
                         </div>
 
@@ -108,7 +95,7 @@
                 <!-- Modal -->
                 <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-hidden="true" id="modal-item">
                     <div class="modal-dialog modal-lg">
-                        <div class="modal-content">
+                        <div class="modal-content" style="border-radius: 10px;">
                             <div class="modal-header">
                                 <h5 class="modal-title">Data Produk</h5>
                                 <button type="button" class="close" data-dismiss="modal"><span>&times;</span>
@@ -155,7 +142,6 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <button type="submit" class="btn btn-primary">Save changes</button>
                             </div>
                         </div>
                     </div>

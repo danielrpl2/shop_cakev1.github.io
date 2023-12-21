@@ -1,39 +1,42 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class Stok extends CI_Controller {
-	
-    
+class Stok extends CI_Controller
+{
+
     public function __construct()
     {
         parent::__construct();
-        $this->load->model('m_produk');        
-        $this->load->model('m_stok');        
-        $this->load->model('m_supplier');        
+        $this->load->model('m_produk');
+        $this->load->model('m_stok');
+        $this->load->model('m_supplier');
     }
 
-    public function index() {
-        $data = array (
+    public function index()
+    {
+        $data = array(
             'title' => 'Stok',
             'produk' => $this->m_produk->get_all_data(),
             'supplier' => $this->m_supplier->get_all_data_supplier(),
             'stok' => $this->m_stok->get_stok_in()->result(), // Menggunakan result() untuk mendapatkan data dalam bentuk array
-            'isi' => 'stok/v_stok',
+            'isi' => 'stok/v_stok_masuk',
         );
-        $this->load->view('layout/v_wrapper_backend', $data, FALSE);
+        $this->load->view('layout/v_wrapper_backend', $data, false);
     }
-    
-    public function tambah_stok() {
-        $data = array (
+
+    public function tambah_stok()
+    {
+        $data = array(
             'title' => 'Tambah Stok',
             'produk' => $this->m_produk->get_all_data(),
             'supplier' => $this->m_supplier->get_all_data_supplier(),
             'isi' => 'stok/v_stok_add',
         );
-        $this->load->view('layout/v_wrapper_backend', $data, FALSE);
+        $this->load->view('layout/v_wrapper_backend', $data, false);
     }
 
-    public function delete_stok($id_stok) {
+    public function delete_stok($id_stok)
+    {
         $data = $this->m_stok->get($id_stok)->row();
         if ($data) {
             $id_produk = $data->id_produk;
@@ -42,14 +45,19 @@ class Stok extends CI_Controller {
             $this->m_produk->update_stok_out($data_to_update);
             $this->m_stok->delete($id_stok);
             if ($this->db->affected_rows() > 0) {
-                $this->session->set_flashdata('success', 'Data Stok Berhasil Dihapus');
+                $this->session->set_flashdata('swal', 'success');
+                $this->session->set_flashdata('pesan', 'Data Stok Berhasil Dihapus');
             }
+        } else {
+            $this->session->set_flashdata('swal', 'error');
+            $this->session->set_flashdata('pesan', 'Gagal menghapus data stok. Silakan coba lagi.');
         }
+
         redirect('stok');
     }
-    
 
-    public function proses() {
+    public function proses()
+    {
         $id_user = $this->session->userdata('id_user');
         $data = array(
             'date' => $this->input->post('date'),
@@ -60,31 +68,32 @@ class Stok extends CI_Controller {
             'id_user' => $id_user,
             'created' => date('Y-m-d H:i:s'), // Isi dengan nilai waktu saat ini
         );
-        
-        $this->db->insert('tbl_stok', $data);
-        redirect('stok');
-        
 
-        // if (isset($_POST['tambah_stok'])) {
-        //     $this->form_validation->set_rules('date', 'Tanggal', 'required');
-        //     $this->form_validation->set_rules('id_supplier', 'Supplier', 'required');
-        //     $this->form_validation->set_rules('qty', 'Qty', 'required|numeric');
-    
-        //     if ($this->form_validation->run() == FALSE) {
-        //         // Validasi gagal, tampilkan pesan kesalahan
-        //         $this->load->view('stok/v_stok_add');
-        //     } else {
-        //         // Validasi berhasil, lanjutkan dengan proses
-        //         $post = $this->input->post(null, TRUE);
-        //         $this->m_stok->tambah_stok($post);
-        //         $this->m_produk->update_stok_in($post);
-    
-        //         if ($this->db->affected_rows() > 0) {
-        //             $this->session->set_flashdata('success', 'Data Stok Berhasil Ditambahkan');
-        //         }
-                
-        //     }
-        // }
+        $this->db->insert('tbl_stok', $data);
+
+        // Check if the stock addition was successful
+        if ($this->db->affected_rows() > 0) {
+            $this->session->set_flashdata('swal', 'success');
+            $this->session->set_flashdata('pesan', 'Data Stok Berhasil Ditambahkan');
+        } else {
+            $this->session->set_flashdata('swal', 'error');
+            $this->session->set_flashdata('pesan', 'Gagal menambahkan data stok. Silakan coba lagi.');
+        }
+
+        redirect('stok');
     }
-    
+
+    public function stok_keluar()
+{
+    $data = array(
+        'title' => 'Stok Keluar',
+        'stok_keluar' => $this->m_stok->get_stok_out()->result(),
+        'isi' => 'stok/v_stok_keluar',
+    );
+    $this->load->view('layout/v_wrapper_backend', $data, false);
+}
+
+
+
+
 }

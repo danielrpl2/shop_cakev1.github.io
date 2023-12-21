@@ -107,77 +107,68 @@ class Belanja extends CI_Controller {
         $this->form_validation->set_rules('paket','Paket', 'required', array(
             'required'=>' %s Harus Diisi !!!'
         ));
-
-        
+    
         if ($this->form_validation->run() == FALSE) {
             $data = array (
                 'title' => 'Cekout Belanja',
                 'blog' => $this->m_home->get_all_data_blog(),
                 'isi' => 'v_cekout',
             );
+    
             $this->load->view('layout/v_wrapper_frontend', $data, FALSE);  
         } else {
-            //simpan ke tbl_transaksi
-           $data = array(
-            'id_pelanggan' => $this->session->userdata('id_pelanggan'),
-            'no_order' => $this->input->post('no_order'),
-            'tgl_order' => date('Y-m-d'),
-            'nama_penerima' => $this->input->post('nama_penerima'),
-            'tlp_penerima' => $this->input->post('tlp_penerima'),
-            'provinsi' => $this->input->post('provinsi'),
-            'kota' => $this->input->post('kota'),
-            'alamat' => $this->input->post('alamat'),
-            'kode_pos' => $this->input->post('kode_pos'),
-            'exspedisi' => $this->input->post('exspedisi'),
-            'paket' => $this->input->post('paket'),
-            'estimasi' => $this->input->post('estimasi'),
-            'ongkir' => $this->input->post('ongkir'),
-            'berat' => $this->input->post('berat'),
-            'grand_total' => $this->input->post('grand_total'),
-            'total_bayar' => $this->input->post('total_bayar'),
-            'status_bayar' => '0',
-            'status_order' => '0',
-        );
-        $this->m_transaksi->simpan_transaksi($data);
-        
-        //simpan ke tbl_detail_transaksi
-        $i = 1;
-        foreach ($this->cart->contents() as $item) {
-            $data_detail = array(
+            // simpan ke tbl_transaksi
+            $data = array(
+                'id_pelanggan' => $this->session->userdata('id_pelanggan'),
                 'no_order' => $this->input->post('no_order'),
-                'id_produk' => $item['id'],
-                'qty' => $this->input->post('qty' . $i++),
+                'tgl_order' => date('Y-m-d'),
+                'nama_penerima' => $this->input->post('nama_penerima'),
+                'tlp_penerima' => $this->input->post('tlp_penerima'),
+                'provinsi' => $this->input->post('provinsi'),
+                'kota' => $this->input->post('kota'),
+                'alamat' => $this->input->post('alamat'),
+                'kode_pos' => $this->input->post('kode_pos'),
+                'exspedisi' => $this->input->post('exspedisi'),
+                'paket' => $this->input->post('paket'),
+                'estimasi' => $this->input->post('estimasi'),
+                'ongkir' => $this->input->post('ongkir'),
+                'berat' => $this->input->post('berat'),
+                'grand_total' => $this->input->post('grand_total'),
+                'total_bayar' => $this->input->post('total_bayar'),
+                'status_bayar' => '0',
+                'status_order' => '0',
             );
-            $this->m_transaksi->simpan_detail_transaksi($data_detail);
+    
+            $this->m_transaksi->simpan_transaksi($data);
+    
+            // Check if the transaction was successful
+            if ($this->db->affected_rows() > 0) {
+                // simpan ke tbl_detail_transaksi
+                $i = 1;
+                foreach ($this->cart->contents() as $item) {
+                    $data_detail = array(
+                        'no_order' => $this->input->post('no_order'),
+                        'id_produk' => $item['id'],
+                        'qty' => $this->input->post('qty' . $i++),
+                    );
+                    $this->m_transaksi->simpan_detail_transaksi($data_detail);
+                }
+                // end tbl_detail_transaksi
+    
+                // SweetAlert for success
+                $this->session->set_flashdata('swal', 'success');
+                $this->session->set_flashdata('pesan', 'Pesanan Berhasil Di Proses !');
+    
+                $this->cart->destroy();
+                redirect('pesanan_saya');
+            } else {
+                // SweetAlert for failure
+                $this->session->set_flashdata('swal', 'error');
+                $this->session->set_flashdata('pesan', 'Gagal memproses pesanan. Silakan coba lagi.');
+    
+                redirect('cekout');
+            }
         }
-        //end tbl_detail_transaksi
-        $this->session->set_flashdata('pesan', 'Pesanan Berhasil Di Proses !');
-        $this->cart->destroy();
-        redirect('pesanan_saya');
-        
-        
-        } 
-       
     }
-    // public function cekout() 
-    // {
-    //     $data = array (
-    //         'title' => 'Cekout Belanja',
-    //         'isi' => 'v_cekout1',
-    //     );
-    //     $this->load->view('v_cekout1', $data, FALSE);  
-    // }
-
-   
-
-    // public function cekout()
-	// {
-    //     $this->pelanggan_login->proteksi_halaman();
-    //     $data = array (
-    //         'title' => 'Cekout Keranjang',
-    //         'isi' => 'v_cekout',
-    //     );
-    //     $this->load->view('layout/v_wrapper_frontend', $data, FALSE);
-	// }    
-
+    
 }

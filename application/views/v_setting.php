@@ -6,16 +6,7 @@
                 <div class="card-body">
                     <h3 class="card-title" style="text-align: center;">Setting <?= $header ?></h3>
 
-                    <?php 
-                     if ($this->session->flashdata('pesan')) {
-                        echo '<div class="alert alert-success alert-dismissible" style="background-color: rgb(63, 255, 0); color: black;">
-                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                        <h5><i class="icon fa fa-check"></i> Succes</h5>';
-                        echo $this->session->flashdata('pesan');
-                        echo '</div>';
-                    }
-                    
-                    echo form_open('setting'); ?>
+                    <?php echo form_open('setting'); ?>
 
                     <div class="row">
                         <div class="col-sm-6">
@@ -94,3 +85,23 @@
             });
         });
     </script>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+<script>
+// Cuntuk sweet alert
+<?php if ($this->session->flashdata('swal') === 'success'): ?>
+    Swal.fire({
+        title: 'Success',
+        text: '<?= $this->session->flashdata("pesan") ?>',
+        icon: 'success',
+        confirmButtonText: 'OK'
+    });
+<?php elseif ($this->session->flashdata('swal') === 'error'): ?>
+    Swal.fire({
+        title: 'Error',
+        text: '<?= $this->session->flashdata("pesan") ?>',
+        icon: 'error',
+        confirmButtonText: 'OK'
+    });
+<?php endif; ?>
+</script>

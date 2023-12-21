@@ -3,17 +3,6 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-body">
-                                <?php 
-                                
-                                if ($this->session->flashdata('pesan')) {
-                                    echo '<div class="alert alert-success alert-dismissible" style="background-color: rgb(63, 255, 0); color: black;">
-                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                                    <h5><i class="icon fa fa-check"></i> Succes</h5>';
-                                    echo $this->session->flashdata('pesan');
-                                    echo '</div>';
-                                }
-                                
-                                ?>
                                 <h3 class="card-title" style="text-align: center;">Table <?= $title ?></h3>
                                 <?php if ($this->session->userdata('level_user') == '1'): ?>
                                 <a href="<?= base_url('produk/add') ?>" type="button" class="btn btn-sm" style="font-size: 15px; color: white; background-color:#279EFF; text-decoration:none;"> Add <?= $title ?> <i class="fa fa-birthday-cake" style="color: white;"></i></a>
@@ -60,31 +49,25 @@
                 </div>
             </div>
 
-
-            
-            <!-- #/ container -->
-        <!--**********************************
-            Content body end
-        ***********************************-->
-        <!-- <script>
-  $(function () {
-    $("#example1").DataTable({
-      "responsive": true, "lengthChange": false, "autoWidth": false,
-      "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
-    }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
-    $('#example2').DataTable({
-      "paging": true,
-      "lengthChange": false,
-      "searching": false,
-      "ordering": true,
-      "info": true,
-      "autoWidth": false,
-      "responsive": true,
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+<script>
+// Cuntuk sweet alert
+<?php if ($this->session->flashdata('swal') === 'success'): ?>
+    Swal.fire({
+        title: 'Success',
+        text: '<?= $this->session->flashdata("pesan") ?>',
+        icon: 'success',
+        confirmButtonText: 'OK'
     });
-  });
-</script> -->
-
-
+<?php elseif ($this->session->flashdata('swal') === 'error'): ?>
+    Swal.fire({
+        title: 'Error',
+        text: '<?= $this->session->flashdata("pesan") ?>',
+        icon: 'error',
+        confirmButtonText: 'OK'
+    });
+<?php endif; ?>
+</script>
      <!-- model delete -->
      <?php foreach ($produk as $key => $value) { ?>
     <div class="modal fade" id="delete<?= $value->id_produk ?>">
@@ -98,7 +81,7 @@
                 </div>
                 <div class="modal-body">
 
-                <img src="<?= base_url('gambar/' .$value->gambar1) ?>" width="150px" style="border-radius: 10px; height: 25vh; object-fit: cover;"alt="">
+                <img src="<?= base_url('gambar/' .$value->gambar1) ?>" width="100%" style="border-radius: 10px; height: 50vh; object-fit: cover;"alt="">
                     <!-- <h3>Apakah Anda Yakin Akan Menghapus Data Ini...??</h3> -->
                    
                 </div>

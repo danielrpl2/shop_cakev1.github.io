@@ -7,9 +7,13 @@ class Pelanggan extends CI_Controller {
     public function __construct()
     {
         parent::__construct();
+        $this->ci = &get_instance();
         $this->load->model('m_pelanggan');
         $this->load->model('m_auth');
+        $this->ci->load->library('session');
+
     }
+  
 
     public function index()
     {
@@ -94,11 +98,20 @@ class Pelanggan extends CI_Controller {
         $this->load->view('v_login_pelanggan', $data, FALSE);
     }
 
-    public function logout()
-    {
-        $this->pelanggan_login->logout();
+    public function logout() {
+        // Mengosongkan keranjang (cart)
+        $this->cart->destroy();
+    
+        // Menghapus data sesi pelanggan
+        $this->ci->session->unset_userdata('id_pelanggan');
+        $this->ci->session->unset_userdata('nama_pelanggan');
+        $this->ci->session->unset_userdata('email');
+        $this->ci->session->unset_userdata('foto');
+        $this->ci->session->set_flashdata('pesan', 'Anda Berhasil Logout !!!');
+    
+        redirect('pelanggan/login');
     }
-
+    
     public function akun()
     {
         $this->pelanggan_login->proteksi_halaman();
@@ -113,7 +126,8 @@ class Pelanggan extends CI_Controller {
 	{
 		$data = array('id_pelanggan' => $id_pelanggan);
 		$this->m_pelanggan->delete($data);
-		$this->session->set_flashdata('pesan', 'Data Berhasil Dihapus !!!');
+        $this->session->set_flashdata('swal', 'success');
+        $this->session->set_flashdata('pesan', 'Data Berhasil Dihapus !!');
 		redirect('pelanggan');
 	}
 }   

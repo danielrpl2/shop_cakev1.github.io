@@ -42,7 +42,7 @@ class Pelanggan_login {
         $this->ci->session->unset_userdata('nama_pelanggan');
         $this->ci->session->unset_userdata('email');
         $this->ci->session->unset_userdata('foto');
-        $this->ci->session->set_flashdata('pesan', 'Anda Berhasil LOgout !!!');
+        $this->ci->session->set_flashdata('pesan', 'Anda Berhasil Logout !!!');
         redirect('pelanggan/login');
     }
 }

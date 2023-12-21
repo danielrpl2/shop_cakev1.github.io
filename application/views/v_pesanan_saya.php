@@ -21,17 +21,6 @@
 <br>
 <div class="row" style="margin:20px;">
     <div class="col-12 col-md-12 col-sm-12">
-    <?php
-
-if ($this->session->flashdata('pesan')) {
-    echo '<div class="alert alert-success alert-dismissible" style="background-color: rgb(63, 255, 0); color: black;">
-     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-     <h5><i class="icon fa fa-check"></i> Succes</h5>';
-    echo $this->session->flashdata('pesan');
-    echo '</div>';
-}
-
-?>
         <div class="sec-title" style="text-align: center;">
         </div>
         <div class="card card-primary card-outline card-outline-tabs">
@@ -221,6 +210,9 @@ if ($this->session->flashdata('pesan')) {
             </div>
             <!-- /.card -->
         </div>
+        <br>
+        <h5 class="text-center">Note !!</h5>
+        <p class="text-center">Jika pesanan di tab PESANAN tidak ada maka berada di tab DIPROSES <br> dan seterusnya sampai selesai dan JANGAN LUPA untuk selesai untuk menekan tombol SELESAI</p>
     </div>
 </div>
 <br>
@@ -272,3 +264,23 @@ if ($this->session->flashdata('pesan')) {
     </div>
 </div>
 <?php } ?>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+<script>
+// Cuntuk sweet alert
+<?php if ($this->session->flashdata('swal') === 'success'): ?>
+    Swal.fire({
+        title: 'Success',
+        text: '<?= $this->session->flashdata("pesan") ?>',
+        icon: 'success',
+        confirmButtonText: 'OK'
+    });
+<?php elseif ($this->session->flashdata('swal') === 'error'): ?>
+    Swal.fire({
+        title: 'Error',
+        text: '<?= $this->session->flashdata("pesan") ?>',
+        icon: 'error',
+        confirmButtonText: 'OK'
+    });
+<?php endif; ?>
+</script>

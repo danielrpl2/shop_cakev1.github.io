@@ -21,14 +21,16 @@
     <!--**********************************
             Nav header start
         ***********************************-->
-    <div class="nav-header" style="background-color: blue;">
+    <div class="nav-header" style="background-color: #000080;">
         <div class="brand-logo">
             <a href="<?php base_url('admin') ?>">
-                <b class="logo-abbr"><img src="<?= base_url() ?>assets/admin_template/images/20231025_140012.png" alt=""></b>
+                <b class="logo-abbr"><img src="<?= base_url() ?>assets/admin_template/images/20231025_140012.png"
+                        alt=""></b>
                 <span class="logo-compact">
                     <img src="<?= base_url() ?>assets/admin_template/images/20231025_140541.png" alt=""></span>
                 <span class="brand-title">
-                    <img src="<?= base_url() ?>assets/home2/images/nav-orb.png" style="width: 80%; margin-top: -20px;" alt="">
+                    <img src="<?= base_url() ?>assets/home2/images/nav-orb.png" style="width: 70%; margin-top: -20px;"
+                        alt="">
                 </span>
             </a>
         </div>
@@ -51,9 +53,9 @@
             <div class="header-left">
                 <div class="input-group icons">
                     <div class="input-group-prepend">
-                      
+
                     </div>
-                   
+
                     <div class="drop-down animated flipInX d-md-none">
                         <form action="#">
                             <input type="text" class="form-control" placeholder="Search">
@@ -63,111 +65,32 @@
             </div>
             <div class="header-right">
                 <ul class="clearfix">
-                    <!-- <li class="icons dropdown"><a href="javascript:void(0)" data-toggle="dropdown">
-                               <i class="mdi mdi-email-outline" style="font-size:18px;"></i>
-                               <span class="badge badge-pill gradient-1">3</span>
-                           </a> -->
-                    <div class="drop-down animated fadeIn dropdown-menu">
-                        <!-- <div class="dropdown-content-heading d-flex justify-content-between">
-                                   <span class="">3 New Messages</span>
-                                   <a href="javascript:void()" class="d-inline-block">
-                                       <span class="badge badge-pill gradient-1">3</span>
-                                   </a>
-                               </div> -->
-                        <!-- <div class="dropdown-content-body">
-                                   <ul>
-                                       <li class="notification-unread">
-                                           <a href="javascript:void()">
-                                               <img class="float-left mr-3 avatar-img"
-                                                   src="<?php base_url() ?>assets/admin_template/images/avatar/1.jpg"
-                                                   alt="">
-                                               <div class="notification-content">
-                                                   <div class="notification-heading">Saiful Islam</div>
-                                                   <div class="notification-timestamp">08 Hours ago</div>
-                                                   <div class="notification-text">Hi Teddy, Just wanted to let you ...
-                                                   </div>
-                                               </div>
-                                           </a>
-                                       </li>
-                                       <li class="notification-unread">
-                                           <a href="javascript:void()">
-                                               <img class="float-left mr-3 avatar-img"
-                                                   src="<?php base_url() ?>assets/admin_template/images/avatar/2.jpg"
-                                                   alt="">
-                                               <div class="notification-content">
-                                                   <div class="notification-heading">Adam Smith</div>
-                                                   <div class="notification-timestamp">08 Hours ago</div>
-                                                   <div class="notification-text">Can you do me a favour?</div>
-                                               </div>
-                                           </a>
-                                       </li>
-                                       <li>
-                                           <a href="javascript:void()">
-                                               <img class="float-left mr-3 avatar-img"
-                                                   src="<?php base_url() ?>assets/admin_template/images/avatar/3.jpg"
-                                                   alt="">
-                                               <div class="notification-content">
-                                                   <div class="notification-heading">Barak Obama</div>
-                                                   <div class="notification-timestamp">08 Hours ago</div>
-                                                   <div class="notification-text">Hi Teddy, Just wanted to let you ...
-                                                   </div>
-                                               </div>
-                                           </a>
-                                       </li>
-                                       <li>
-                                           <a href="javascript:void()">
-                                               <img class="float-left mr-3 avatar-img"
-                                                   src="<?php base_url() ?>assets/admin_template/images/avatar/4.jpg"
-                                                   alt="">
-                                               <div class="notification-content">
-                                                   <div class="notification-heading">Hilari Clinton</div>
-                                                   <div class="notification-timestamp">08 Hours ago</div>
-                                                   <div class="notification-text">Hello</div>
-                                               </div>
-                                           </a>
-                                       </li>
-                                   </ul>
-
-                               </div> -->
-                    </div>
+                    <div class="drop-down animated fadeIn dropdown-menu"></div>
                     </li>
-                   
-                        
+                    
                     <li class="icons dropdown">
-    <a href="javascript:void(0)" data-toggle="dropdown">
-        <i class="fa fa-user"></i>
-    </a>
-    <div class="drop-down animated fadeIn dropdown-menu">
-        <div class="dropdown-content-heading d-flex justify-content-between">
-            <a href="javascript:void()" class="d-inline-block">
-            </a>
-        </div>
-        <div class="dropdown-content-body">
-            <ul>
-                <li class="notification-unread">
-                    <a href="javascript:void()">
-                        <!-- Tampilkan gambar profil di sini -->
-                        <div class="notification-content">
-                            <div class="notification-heading"><?= $this->session->userdata('nama_user'); ?></div>
-                            <div class="notification-timestamp">
-                                <?php 
-                                    $level_user = 1;
-                                    if ($level_user == 1) {
-                                        echo "Admin";
-                                    } else if ($level_user == 2) {
-                                        echo "Karyawan";
-                                    } else {
-                                        echo "Level user tidak valid";
-                                    }
-                                ?>    
+                        <div class="user-img c-pointer position-relative" data-toggle="dropdown">
+                            <span class="activity active"></span>
+                            <?php if ($this->session->userdata('profile_image')) : ?>
+                            <img src="<?= base_url('assets/profileimg/' . $this->session->userdata('profile_image')) ?>"
+                                height="40" width="40" style="object-fit: cover;" alt="">
+                            <?php endif;?>
+                        </div>
+                        <div class="drop-down dropdown-profile   dropdown-menu">
+                            <div class="dropdown-content-body">
+                                <ul>
+                                    <li>
+                                        <a href="<?= base_url('profile') ?>"><i class="icon-user"></i>
+                                            <span>Profile</span></a>
+                                    </li>
+                                    <li>
+                                        <a href="<?= base_url('auth/logout_user') ?>"><i class="icon-key"></i>
+                                            <span>Logout</span></a>
+                                    </li>
+                                </ul>
                             </div>
                         </div>
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </div>
-</li>
+                    </li>
 
                 </ul>
             </div>
@@ -191,16 +114,19 @@
                             class="nav-text">Dashboard</span>
                     </a>
                 </li>
+
                 <li>
                     <a href="<?= base_url('penjualan') ?>" aria-expanded="false">
                         <i class="fa fa-shopping-cart menu-icon" style="font-size:18px;" style="font-size:18px;"></i><span
-                            class="nav-text">Kasir</span>
+                            class="nav-text">Transaksi Kasir</span>
                     </a>
                 </li>
+
                 <?php if ($this->session->userdata('level_user') == '1'): ?>
                 <li>
                     <a class="has-arrow" href="javascript:void()" aria-expanded="false">
-                         <i class="fa fa-user menu-icon" style="font-size: 20px;"></i></i><span class="nav-text">Akun</span>
+                        <i class="fa fa-user menu-icon" style="font-size: 20px;"></i></i><span
+                            class="nav-text">Akun</span>
                     </a>
                     <ul aria-expanded="false">
                         <li><a href="<?= base_url('user') ?>"><i class="fa fa-user-secret"></i> Admin/Karyawan</a></li>
@@ -212,28 +138,49 @@
                 <!-- <li class="nav-label">Menu</li> -->
                 <li>
                     <a class="has-arrow" href="javascript:void()" aria-expanded="false">
-                         <i class="fa fa-bars menu-icon" style="font-size: 20px;"></i></i><span class="nav-text">Menu</span>
+                        <i class="fa fa-indent menu-icon" style="font-size: 19px;"></i></i><span
+                            class="nav-text">Menu</span>
                     </a>
                     <ul aria-expanded="false">
                         <li><a href="<?= base_url('produk') ?>"><i class="fa fa-birthday-cake"></i> Produk</a></li>
                         <li><a href="<?= base_url('kategori') ?>"><i class="fa fa-list"></i> Kategori</a></li>
-                        <li><a href="<?= base_url('stok') ?>"><i class="fa fa-cubes"></i> Stok</a></li>
+                          <li>
+                             <a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                               <i class="fa fa-cubes menu-icon" style="font-size: 19px;"></i></i><span class="nav-text">Stok</span>
+                             </a>
+                             <ul aria-expanded="false">
+                                 <li><a href="<?= base_url('stok') ?>"><i class="fa fa-chevron-circle-right"></i> Stok Masuk</a></li>
+
+                                 <?php if ($this->session->userdata('level_user') == '1'): ?>
+                                 <li><a href="<?= base_url('stok/stok_keluar') ?>"><i class="fa fa-chevron-circle-left"></i> Stok Keluar</a></li>
+                                 <?php endif; ?>
+                                 
+                                 <li><a href="<?= base_url('stok/tambah_stok') ?>"><i class="fa fa-plus-circle"></i> Tambah Stok</a></li>
+                             </ul>
+                        </li>
                     </ul>
                 </li>
+                
                 <?php if ($this->session->userdata('level_user') == '1'): ?>
                 <li>
-                    <a href="<?= base_url('admin/pesanan_masuk') ?>" <?php if($this->uri->segment(1)=='admin/pesanan_masuk'){echo
+                    <a href="<?= base_url('admin/pesanan_masuk') ?>" <?php
+                        if($this->uri->segment(1)=='admin/pesanan_masuk'){echo
                         "active";} ?>>
-                        <i class="fa fa-shopping-bag menu-icon" style="font-size:18px;" style="font-size:18px;"></i><span
-                            class="nav-text">Pesanan</span>
+                        <i class="fa fa-shopping-bag menu-icon" style="font-size:18px;"
+                            style="font-size:18px;"></i><span class="nav-text">Pesanan</span>
                     </a>
                 </li>
+
                 <li>
-                    <a href="<?= base_url('laporan') ?>" <?php if($this->uri->segment(1)=='laporan'){echo
-                        "active";} ?>>
-                        <i class="fa fa-bar-chart menu-icon" style="font-size:18px;" style="font-size:18px;"></i><span
+                    <a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                        <i class="fa fa-bar-chart menu-icon" style="font-size: 22px;"></i></i><span
                             class="nav-text">Laporan</span>
                     </a>
+                    <ul aria-expanded="false">
+                        <li><a href="<?= base_url('laporan/laporan_stok') ?>"><i class="fa fa-cubes"></i>Laporan Stok</a></li>
+                        <li><a href="<?= base_url('laporan') ?>"><i class="fa fa-shopping-cart"></i>Penjualan Online</a></li>
+                        <li><a href="<?= base_url('penjualan/riwayat_penjualan') ?>"><i class="fa fa-history"></i> Riwayat Penjualan Kasir</a></li>
+                    </ul>
                 </li>
                 <?php endif; ?>
 
@@ -241,14 +188,16 @@
                 <!-- <li class="nav-label">Settings</li> -->
 
                 <li>
-                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
-                            <i class="fa fa-cog menu-icon" style="font-size: 22px;"></i></i><span class="nav-text">Setting</span>
-                        </a>
-                        <ul aria-expanded="false">
-                            <li><a href="<?= base_url('setting') ?>"><i class="fa fa-map"></i> Lokasi Toko</a></li>
-                            <li><a href="<?= base_url('blog') ?>"><i class="fa fa-book"></i> Blog</a></li>
-                        </ul>
-                    </li>
+                    <a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                        <i class="fa fa-cog menu-icon" style="font-size: 22px;"></i></i><span
+                            class="nav-text">Setting</span>
+                    </a>
+                    <ul aria-expanded="false">
+                        <li><a href="<?= base_url('admin/rekening') ?>"><i class="fa fa-university"></i> Rekening</a></li>
+                        <li><a href="<?= base_url('setting') ?>"><i class="fa fa-map-marker"></i> Lokasi Toko</a></li>
+                        <li><a href="<?= base_url('blog') ?>"><i class="fa fa-book"></i> Blog</a></li>
+                    </ul>
+                </li>
                 <?php endif; ?>
                 <li>
                     <a href="<?= base_url('auth/logout_user') ?>" aria-expanded="false">

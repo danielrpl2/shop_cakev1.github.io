@@ -7,16 +7,8 @@
                     <h3 class="card-title" style="text-align: center;">Edit Data <?= $header ?></h3>
                    
                         <?php
-                        //nontifikasi form kosong
-                        echo validation_errors('<div class="alert alert-danger alert-dismissible">
-                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                        <h5> <i class="icon fa fa-info"></i>' ,'</h5> </div>');
-                        //nontifikasi gagal upload gambar
-                        if (isset($error_upload)) {
-                            echo '<div class="alert alert-danger alert-dismissible">
-                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                            <h5> <i class="icon fa fa-info"></i>' .$error_upload. '</h5> </div>';
-                        }
+                      
+                    
                         echo form_open_multipart('blog/edit/' . $blog->id_blog) ?>
                     <div class="row">
                         <div class="col-sm-12">
@@ -34,7 +26,7 @@
                         <div class="col-sm-4">
                             <div class="form-group">
                                 <label style="color: black; font-weight: 1000;">Deskripsi</label>
-                                <input name="tanggal" class="form-control" placeholder="Deskripsi" type="date" value="<?= $blog->tanggal ?>">
+                                <input name="text" class="form-control" placeholder="Deskripsi" value="<?= $blog->deskripsi ?>">
                             </div>
                         </div>
                         <div class="col-sm-12">

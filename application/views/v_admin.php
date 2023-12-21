@@ -67,7 +67,8 @@
                 </div>
             </div>
         </div> -->
-        <div class="col-lg-3 col-sm-6">
+        <?php if ($this->session->userdata('level_user') == '2'): ?>
+        <div class="col-lg-6 col-sm-6">
             <div class="card gradient-3">
                 <div class="card-body">
                     <h3 class="card-title text-white">Produk</h3>
@@ -93,7 +94,34 @@
                 </div>
             </div>
         </div>
+        <?php endif; ?>
         <?php if ($this->session->userdata('level_user') == '1'): ?>
+            <div class="col-lg-3 col-sm-6">
+            <div class="card gradient-3">
+                <div class="card-body">
+                    <h3 class="card-title text-white">Produk</h3>
+                    <div class="d-inline-block">
+                        <h2 class="text-white"><?= $total_produk ?></h2>
+                        <p class="text-white mb-0"><?php echo date("d - F Y"); ?></p>
+                        <a href="<?= base_url('produk') ?>" class="text-white mb-0">More Info <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+                    </div>
+                    <span class="float-right display-5 opacity-5"><i class="fa fa-birthday-cake"></i></span>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-sm-6">
+            <div class="card gradient-2">
+                <div class="card-body">
+                    <h3 class="card-title text-white">Kategori Produk</h3>
+                    <div class="d-inline-block">
+                        <h2 class="text-white"><?= $total_kategori ?></h2>
+                        <p class="text-white mb-0"><?php echo date("d - F Y"); ?></p>
+                        <a href="<?= base_url('kategori') ?>" class="text-white mb-0">More Info <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+                    </div>
+                    <span class="float-right display-5 opacity-5"><i class="fa fa-cubes"></i></span>
+                </div>
+            </div>
+        </div>
         <div class="col-lg-6 col-sm-6">
             <div class="card gradient-4">
                 <div class="card-body">
@@ -110,9 +138,13 @@
         <div class="col-lg-6 col-sm-6">
             <div class="card gradient-7">
                 <div class="card-body">
-                    <h3 class="card-title text-white">Total Pendapatan</h3>
+                    <h3 class="card-title text-white">Seluruh Pendapatan</h3>
                     <div class="d-inline-block">
+                    <?php if (isset($total_pendapatan) && $total_pendapatan > 0): ?>
                         <h2 class="text-white" style="font-size: 48px;">Rp. <?= number_format($total_pendapatan, 0) ?></h2>
+                        <?php else: ?>
+                            <h2 class="text-white" style="font-size: 48px;">Rp. 0</h2>
+                        <?php endif; ?>
                         <p class="text-white mb-0"><?php echo date("d - F Y"); ?></p>
                     </div>
                     <span class="float-right display-5 opacity-5"><i class="fa fa-money"></i></span>
@@ -120,6 +152,26 @@
             </div>
         </div>
         <?php endif; ?>
+
+        <?php if ($this->session->userdata('level_user') == '2'): ?>
+        <div class="col-lg-12 col-sm-6">
+            <div class="card gradient-7">
+                <div class="card-body">
+                    <h3 class="card-title text-white">Total Pendapatan</h3>
+                    <div class="d-inline-block">
+                    <?php if (isset($total_revenue) && $total_revenue > 0): ?>
+                        <h2 class="text-white" style="font-size: 48px;">Rp. <?= number_format($total_revenue, 0) ?></h2>
+                        <?php else: ?>
+                            <h2 class="text-white" style="font-size: 48px;">Rp. 0</h2>
+                        <?php endif; ?>
+                        <p class="text-white mb-0"><?php echo date("d - F Y"); ?></p>
+                    </div>
+                    <span class="float-right display-5 opacity-5"><i class="fa fa-money"></i></span>
+                </div>
+            </div>
+        </div>
+        <?php endif; ?>
+
     </div>
 
     <!-- <div class="row">

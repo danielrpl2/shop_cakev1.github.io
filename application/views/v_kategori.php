@@ -1,22 +1,19 @@
 
  <!-- row -->
+<!-- SweetAlert2 CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@10">
+
+<!-- Your existing scripts and styles -->
+
+<!-- SweetAlert2 JS -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-12">
                         <div class="card">
                             <div class="card-body">
-                                <?php 
-                                
-                                if ($this->session->flashdata('pesan')) {
-                                    echo '<div class="alert alert-success alert-dismissible" style="background-color: rgb(63, 255, 0); color: black;">
-                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                                    <h5><i class="icon fa fa-check"></i> Succes</h5>';
-                                    echo $this->session->flashdata('pesan');
-                                    echo '</div>';
-                                }
-                                
-                                ?>
+                                <?php   ?>
                                 <h3 class="card-title" style="text-align: center;">Table <?= $title ?></h3>
                                 <?php if ($this->session->userdata('level_user') == '1'): ?>
                                 <button data-toggle="modal" data-target="#add" type="button" class="btn btn-primary btn-sm" style="font-size: 15px; color: white;"> Add  <?= $title ?> <i class="fa fa-list" aria-hidden="true"></i></button>
@@ -60,7 +57,7 @@
         
      <!-- model add -->
 <div class="modal fade" id="add">
-    <div class="modal-dialog modal-lg">
+    <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h4 class="modal-title">Add <?= $title ?></h4>
@@ -101,7 +98,7 @@
 <!-- Model edit -->
 <?php foreach ($kategori as $key => $value) { ?>
     <div class="modal fade" id="edit<?= $value->id_kategori ?>">
-        <div class="modal-dialog modal-lg">
+        <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
             <div class="modal-header">
                 <h4 class="modal-title">Edit <?= $title ?></h4>
@@ -137,6 +134,26 @@
     </div>
     <!-- /.modal -->
 <?php } ?>
+
+
+<script>
+// Cuntuk sweet alert
+<?php if ($this->session->flashdata('swal') === 'success'): ?>
+    Swal.fire({
+        title: 'Success',
+        text: '<?= $this->session->flashdata("pesan") ?>',
+        icon: 'success',
+        confirmButtonText: 'OK'
+    });
+<?php elseif ($this->session->flashdata('swal') === 'error'): ?>
+    Swal.fire({
+        title: 'Error',
+        text: '<?= $this->session->flashdata("pesan") ?>',
+        icon: 'error',
+        confirmButtonText: 'OK'
+    });
+<?php endif; ?>
+</script>
 
 
 

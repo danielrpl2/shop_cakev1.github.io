@@ -6,17 +6,6 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-body">
-                            <?php 
-                                
-                                if ($this->session->flashdata('pesan')) {
-                                    echo '<div class="alert alert-success alert-dismissible" style="background-color: rgb(63, 255, 0); color: black;">
-                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                                    <h5><i class="icon fa fa-check"></i> Succes</h5>';
-                                    echo $this->session->flashdata('pesan');
-                                    echo '</div>';
-                                }
-                                
-                                ?>
                                 <h3 class="card-title" style="text-align: center;">Table <?= $title ?></h3>
                                 <a href="<?= base_url('blog/add') ?>" type="button" class="btn btn-sm" style="font-size: 15px; color: white; background-color:#279EFF; text-decoration:none;"> Add <?= $title ?> <i class="fa fa-book" style="color: white;"></i></a>
                                 <div class="table-responsive">
@@ -60,6 +49,25 @@
             Content body end
         ***********************************-->
 
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+<script>
+// Cuntuk sweet alert
+<?php if ($this->session->flashdata('swal') === 'success'): ?>
+    Swal.fire({
+        title: 'Success',
+        text: '<?= $this->session->flashdata("pesan") ?>',
+        icon: 'success',
+        confirmButtonText: 'OK'
+    });
+<?php elseif ($this->session->flashdata('swal') === 'error'): ?>
+    Swal.fire({
+        title: 'Error',
+        text: '<?= $this->session->flashdata("pesan") ?>',
+        icon: 'error',
+        confirmButtonText: 'OK'
+    });
+<?php endif; ?>
+</script>
 
      <!-- model delete -->
 <?php foreach ($blog as $key => $value) { ?>
@@ -74,7 +82,6 @@
                 </div>
                 <div class="modal-body">
 
-                    <h3>Judul : <?= $value->judul ?></h3>
                     <img src="<?= base_url('assets/blog/' .$value->gambar) ?>" width="100%" style="border-radius: 10px;"alt="">
                    
                 </div>

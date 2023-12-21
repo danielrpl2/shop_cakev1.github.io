@@ -8,16 +8,6 @@
                             <h4 class="card-title text-center">
                                 <?= $title ?>
                             </h4>
-                            <?php
-                    if ($this->session->flashdata('pesan')) {
-                        echo '<div class="alert alert-success alert-dismissible" style="background-color: rgb(63, 255, 0); color: black;">
-                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                        <h5><i class="icon fa fa-check"></i> Succes</h5>';
-                        echo $this->session->flashdata('pesan');
-                        echo '</div>';
-                    }
-
-                    ?>
                             <ul class="nav nav-tabs" id="custom-tabs-three-tab" role="tablist">
                                 <li class="nav-item">
                                     <a class="nav-link active" id="custom-tabs-three-pesanan-tab" data-toggle="pill"
@@ -50,9 +40,11 @@
                                     <table class="table table-striped table-bordered zero-configuration">
                                         <thead>
                                             <tr>
+                                                <th style="color: black; font-weight: 1000;">No</th>
                                                 <th style="color: black; font-weight: 1000;">No Order</th>
                                                 <th style="color: black; font-weight: 1000;">Tanggal Order</th>
                                                 <th style="color: black; font-weight: 1000;">Exspedisi</th>
+                                                <th style="color: black; font-weight: 1000;">Alamat</th>
                                                 <th style="color: black; font-weight: 1000;">Total Bayar</th>
                                                 <th style="color: black; font-weight: 1000;">Action</th>
                                             </tr>
@@ -61,6 +53,7 @@
                                             <?php
                                                $pesanan = array_reverse($pesanan);
                                                $isNewest = true;
+                                               $no = 1;
 
                                                 foreach ($pesanan as $key => $value) {
                                                     $tgl_order = strtotime($value->tgl_order);
@@ -69,6 +62,9 @@
                                             
                                                 ?>
                                             <tr>
+                                                <td style="color: black; font-weight: 600;">
+                                                    <?= $no++ ?>
+                                                </td>
                                                 <td style="color: black; font-weight: 600;">
                                                     <?= $value->no_order ?>
                                                 </td>
@@ -94,6 +90,9 @@
                                                     <?= $value->paket ?> <br>
                                                     Ongkir : Rp.
                                                     <?= number_format($value->ongkir, 0) ?>
+                                                </td>
+                                                <td style="color: black; font-weight: 600;">
+                                                    <?= $value->alamat ?>
                                                 </td>
                                                 <td style="color: black; font-weight: 600;">
                                                     Rp.
@@ -133,16 +132,19 @@
                                         <table class="table table-striped table-bordered zero-configuration">
                                             <thead>
                                                 <tr>
+                                                    <th style="color: black; font-weight: 1000;">No</th>
                                                     <th style="color: black; font-weight: 1000;">No Order</th>
                                                     <th style="color: black; font-weight: 1000;">Tanggal Order</th>
                                                     <th style="color: black; font-weight: 1000;">Exspedisi</th>
+                                                    <th style="color: black; font-weight: 1000;">Alamat</th>
                                                     <th style="color: black; font-weight: 1000;">Total Bayar</th>
                                                     <th style="color: black; font-weight: 1000;">Action</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                            <?php foreach ($pesanan_diproses as $key => $value) { ?>
+                                            <?php $no = 1; foreach ($pesanan_diproses as $key => $value) { ?>
                                                 <tr>
+                                                <td style="color: black; font-weight: 600;"><?= $no++ ?></td>
                                                 <td style="color: black; font-weight: 600;"><?= $value->no_order ?></td>
                                             <td style="color: black; font-weight: 600;"><?= $value->tgl_order ?></td>
                                             <td style="color: black; font-weight: 600;">
@@ -150,6 +152,9 @@
                                                 Paket : <?= $value->paket ?> <br>
                                                 Ongkir : Rp. <?= number_format($value->ongkir, 0) ?>
                                             </td>
+                                            <td style="color: black; font-weight: 600;">
+                                                    <?= $value->alamat ?>
+                                                </td>
                                             <td style="color: black; font-weight: 600;">
                                                 Rp. <?= number_format($value->total_bayar, 0) ?> <br>
                                                 <small class="badge badge-success"><i class="fa fa-hourglass-half"></i> Diproses</small>
@@ -172,17 +177,20 @@
                                         <table class="table table-striped table-bordered zero-configuration">
                                             <thead>
                                                 <tr>
+                                                    <th style="color: black; font-weight: 1000;">No</th>
                                                     <th style="color: black; font-weight: 1000;">No Order</th>
                                                     <th style="color: black; font-weight: 1000;">Tanggal Order</th>
                                                     <th style="color: black; font-weight: 1000;">Exspedisi</th>
+                                                    <th style="color: black; font-weight: 1000;">Alamat</th>
                                                     <th style="color: black; font-weight: 1000;">Total Bayar</th>
                                                     <th style="color: black; font-weight: 1000;">No Resi</th>
                                                     <th style="color: black; font-weight: 1000;">Action</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                            <?php foreach ($pesanan_dikirim as $key => $value) { ?>
+                                            <?php $no = 1; foreach ($pesanan_dikirim as $key => $value) { ?>
                                                 <tr>
+                                                <td style="color: black; font-weight: 600;"><?= $no++ ?></td>
                                                 <td style="color: black; font-weight: 600;"><?= $value->no_order ?></td>
                                             <td style="color: black; font-weight: 600;"><?= $value->tgl_order ?></td>
                                             <td style="color: black; font-weight: 600;">
@@ -190,6 +198,9 @@
                                                 Paket : <?= $value->paket ?> <br>
                                                 Ongkir : Rp. <?= number_format($value->ongkir, 0) ?>
                                             </td>
+                                            <td style="color: black; font-weight: 600;">
+                                                    <?= $value->alamat ?>
+                                                </td>
                                             <td style="color: black; font-weight: 600;">
                                                 Rp. <?= number_format($value->total_bayar, 0) ?> <br>
                                                 <small class="badge badge-success"><i class="fa fa-truck"></i> Dikirim</small>
@@ -211,16 +222,19 @@
                                         <table class="table table-striped table-bordered zero-configuration">
                                             <thead>
                                                 <tr>
+                                                    <th style="color: black; font-weight: 1000;">No</th>
                                                     <th style="color: black; font-weight: 1000;">No Order</th>
                                                     <th style="color: black; font-weight: 1000;">Tanggal Order</th>
                                                     <th style="color: black; font-weight: 1000;">Exspedisi</th>
+                                                    <th style="color: black; font-weight: 1000;">Alamat</th>
                                                     <th style="color: black; font-weight: 1000;">Total Bayar</th>
                                                     <th style="color: black; font-weight: 1000;">No Resi</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                            <?php foreach ($pesanan_selesai as $key => $value) { ?>
+                                            <?php $no = 1; foreach ($pesanan_selesai as $key => $value) { ?>
                                                 <tr>
+                                                <td style="color: black; font-weight: 600;"><?= $no++ ?></td>
                                                 <td style="color: black; font-weight: 600;"><?= $value->no_order ?></td>
                                             <td style="color: black; font-weight: 600;"><?= $value->tgl_order ?></td>
                                             <td style="color: black; font-weight: 600;">
@@ -228,6 +242,9 @@
                                                 Paket : <?= $value->paket ?> <br>
                                                 Ongkir : Rp. <?= number_format($value->ongkir, 0) ?>
                                             </td>
+                                            <td style="color: black; font-weight: 600;">
+                                                    <?= $value->alamat ?>
+                                                </td>
                                             <td style="color: black; font-weight: 600;">
                                                 Rp. <?= number_format($value->total_bayar, 0) ?> <br>
                                                 <small class="badge badge-success"><i class="fa fa-check"></i> Diterima</small>
@@ -249,6 +266,27 @@
     </div>
     <!-- #/ container -->
 </div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+<script>
+// Cuntuk sweet alert
+<?php if ($this->session->flashdata('swal') === 'success'): ?>
+    Swal.fire({
+        title: 'Success',
+        text: '<?= $this->session->flashdata("pesan") ?>',
+        icon: 'success',
+        confirmButtonText: 'OK'
+    });
+<?php elseif ($this->session->flashdata('swal') === 'error'): ?>
+    Swal.fire({
+        title: 'Error',
+        text: '<?= $this->session->flashdata("pesan") ?>',
+        icon: 'error',
+        confirmButtonText: 'OK'
+    });
+<?php endif; ?>
+</script>
 
 <!-- Modal Untuk Kirim -->
 <?php foreach ($pesanan_diproses as $key => $value) { ?>
