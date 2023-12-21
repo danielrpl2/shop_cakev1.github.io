@@ -48,9 +48,9 @@
         <i class="fa-solid fa-lock"></i>
         <span>password</span>
       </div>
-      <div class="mb-3">
+      <!-- <div class="mb-3">
         <div class="g-recaptcha" data-sitekey="6LcuRkAoAAAAAEBnTxSv51E7CglSn40vSXMS-dAN"></div>
-      </div>
+      </div> -->
       <div class="inputBox">
         <input type="submit" value="Login">
       </div>

@@ -46,9 +46,9 @@
                     <label>Password</label>
                     <i class="bx bxs-lock-alt"></i>
                 </div>
-                <div class="mb-3">
+                <!-- <div class="mb-3">
                  <div class="g-recaptcha" data-sitekey="6LcuRkAoAAAAAEBnTxSv51E7CglSn40vSXMS-dAN"></div>
-                </div>
+                </div> -->
                 <button type="submit" class="btn">Login</button>
                 <?php echo form_close() ?>
                     <div class="logreg-link">
@@ -62,7 +62,7 @@
     </div>
 
 
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <!-- <script src="https://www.google.com/recaptcha/api.js" async defer></script> -->
     <script>
       // Hapus notifikasi otomatis setelah 3 detik
       setTimeout(function() {

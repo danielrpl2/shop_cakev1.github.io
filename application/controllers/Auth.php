@@ -6,7 +6,7 @@ class Auth extends CI_Controller {
     public function login_user()
     {
         // Your reCAPTCHA secret key
-        $recaptchaSecretKey = '6LcuRkAoAAAAADofuOUJmBCTLAOWS_NmYGiI_Wii';
+        // $recaptchaSecretKey = '6LcuRkAoAAAAADofuOUJmBCTLAOWS_NmYGiI_Wii';
     
         $this->load->library('form_validation');
         $this->form_validation->set_rules('username', 'Username', 'required', array(
@@ -17,21 +17,21 @@ class Auth extends CI_Controller {
         ));
     
         if ($this->form_validation->run() == TRUE) {
-            $recaptchaResponse = $this->input->post('g-recaptcha-response');
+            // $recaptchaResponse = $this->input->post('g-recaptcha-response');
     
-            // Verify reCAPTCHA response
-            $recaptchaVerify = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret={$recaptchaSecretKey}&response={$recaptchaResponse}");
-            $recaptchaData = json_decode($recaptchaVerify);
+            // // Verify reCAPTCHA response
+            // $recaptchaVerify = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret={$recaptchaSecretKey}&response={$recaptchaResponse}");
+            // $recaptchaData = json_decode($recaptchaVerify);
     
-            if (!$recaptchaData->success) {
-                // reCAPTCHA verification failed
-                $this->session->set_flashdata('error', 'RECAPTCHA verification failed. Please try again !');
-            } else {
+            // if (!$recaptchaData->success) {
+            //     // reCAPTCHA verification failed
+            //     $this->session->set_flashdata('error', 'RECAPTCHA verification failed. Please try again !');
+            // } else {
                 // reCAPTCHA verification succeeded
                 $username = $this->input->post('username');
                 $password = $this->input->post('password');
                 $this->user_login->login($username, $password);
-            }
+            // }
         }
     
         $data = array(
